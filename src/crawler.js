@@ -14,7 +14,12 @@ export async function crawlPage(url, options = {}) {
   });
   const page = await context.newPage();
 
-  await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
+  try {
+    await page.goto(url, { waitUntil: 'networkidle', timeout: 15000 });
+  } catch {
+    // Sites with websockets/long-polling never reach networkidle — fall back to load
+    await page.goto(url, { waitUntil: 'load', timeout: 30000 });
+  }
   if (wait > 0) await page.waitForTimeout(wait);
   await page.evaluate(() => document.fonts.ready);
 
