@@ -1,6 +1,6 @@
 <p align="center">
   <h1 align="center">designlang</h1>
-  <p align="center">Extract the complete design language from any website in seconds.</p>
+  <p align="center">Reverse-engineer any website's complete design system in one command.</p>
 </p>
 
 <p align="center">
@@ -11,11 +11,9 @@
 
 ---
 
-**designlang** crawls any website with a headless browser, extracts every computed style from the live DOM, and generates **8 output files** — including an AI-optimized markdown file, visual HTML preview, Tailwind config, Figma variables, React theme, shadcn/ui theme, W3C design tokens, and CSS custom properties.
+**designlang** crawls any website with a headless browser, extracts every computed style from the live DOM, and generates **8 output files** — including an AI-optimized markdown file, visual HTML preview, Tailwind config, React theme, shadcn/ui theme, Figma variables, W3C design tokens, and CSS custom properties.
 
-It also does **WCAG accessibility scoring**, **component screenshot capture**, **multi-page crawling**, **design comparison** between two sites, and **historical tracking** of how a site's design evolves over time.
-
-**No other tool does all of this from a single command.**
+But unlike every other tool out there, it also extracts **layout patterns** (grids, flexbox, containers), captures **responsive behavior** across 4 breakpoints, records **interaction states** (hover, focus, active), scores **WCAG accessibility**, and lets you **compare multiple brands** or **sync live sites to local tokens**.
 
 ## Quick Start
 
@@ -23,18 +21,26 @@ It also does **WCAG accessibility scoring**, **component screenshot capture**, *
 npx designlang https://stripe.com
 ```
 
+Get everything at once:
+
+```bash
+npx designlang https://stripe.com --full
+```
+
 ## What You Get (8 Files)
 
 | File | What it is |
 |------|------------|
-| `*-design-language.md` | AI-optimized markdown — the full design system described for LLMs |
-| `*-preview.html` | Visual HTML report with swatches, type scale, shadows, a11y score |
-| `*-design-tokens.json` | [W3C Design Tokens](https://design-tokens.github.io/community-group/format/) for tooling |
-| `*-tailwind.config.js` | Drop-in Tailwind CSS theme extension |
-| `*-variables.css` | CSS custom properties ready to import |
+| `*-design-language.md` | AI-optimized markdown — feed it to any LLM to recreate the design |
+| `*-preview.html` | Visual report with swatches, type scale, shadows, a11y score |
+| `*-design-tokens.json` | [W3C Design Tokens](https://design-tokens.github.io/community-group/format/) format |
+| `*-tailwind.config.js` | Drop-in Tailwind CSS theme |
+| `*-variables.css` | CSS custom properties |
 | `*-figma-variables.json` | Figma Variables import (with dark mode support) |
-| `*-theme.js` | React/CSS-in-JS theme object (Chakra, Stitches, Vanilla Extract) |
-| `*-shadcn-theme.css` | shadcn/ui globals.css theme variables |
+| `*-theme.js` | React/CSS-in-JS theme (Chakra, Stitches, Vanilla Extract) |
+| `*-shadcn-theme.css` | shadcn/ui globals.css variables |
+
+The markdown output has **14 sections**: Color Palette, Typography, Spacing, Border Radii, Box Shadows, CSS Custom Properties, Breakpoints, Transitions & Animations, Component Patterns, Layout System, Responsive Design, Interaction States, Accessibility (WCAG 2.1), and Quick Start.
 
 ## Install
 
@@ -44,94 +50,96 @@ npx designlang https://example.com
 
 # Or install globally
 npm install -g designlang
+
+# As an agent skill (Claude Code, Cursor, Codex, 40+ agents)
+npx skills add Manavarya09/design-extract
 ```
 
-## Features
+## What Makes This Different
 
-### Multi-Page Crawling
+Most design extraction tools give you colors and fonts. That's it. designlang fills 5 market gaps that no other tool addresses:
 
-Crawl multiple pages for a site-wide design system:
+### 1. Layout System Extraction
+
+Extracts the structural skeleton — grid column patterns, flex direction usage, container widths, gap values, and justify/align patterns.
+
+```
+Layout: 55 grids, 492 flex containers
+```
+
+Every other tool gives you the paint. designlang gives you the architecture.
+
+### 2. Responsive Multi-Breakpoint Capture
+
+Crawls the site at 4 viewports (mobile, tablet, desktop, wide) and maps exactly what changes:
 
 ```bash
-designlang https://stripe.com --depth 5
+designlang https://vercel.com --responsive
 ```
 
-### WCAG Accessibility Scoring
-
-Every extraction includes a WCAG 2.1 contrast analysis:
-
 ```
-A11y: 94% WCAG score (7 failing pairs)
+Responsive: 4 viewports, 3 breakpoint changes
+  375px → 768px: Nav visibility hidden → visible, Hamburger shown → hidden
+  768px → 1280px: Max grid columns 1 → 3, H1 size 32px → 48px
 ```
 
-Failing color pairs are highlighted in both the markdown and HTML preview with exact contrast ratios.
+No other tool captures how the design *adapts*, just how it looks at one size.
 
-### Component Screenshots
+### 3. Interaction State Capture
 
-Capture PNG screenshots of detected UI components:
+Programmatically hovers and focuses interactive elements, capturing the actual style transitions:
 
 ```bash
-designlang https://vercel.com --screenshots
+designlang https://stripe.com --interactions
 ```
 
-Saves screenshots of buttons, cards, inputs, navigation, hero sections, and a full-page capture.
+```css
+/* Button Hover */
+background-color: rgb(83, 58, 253) → rgb(67, 47, 202);
+box-shadow: none → 0 4px 12px rgba(83, 58, 253, 0.4);
 
-### Visual HTML Preview
+/* Input Focus */
+border-color: rgb(200, 200, 200) → rgb(83, 58, 253);
+outline: none → 2px solid rgb(83, 58, 253);
+```
 
-Every run generates a `*-preview.html` file — a gorgeous dark-themed report you can open in your browser with:
-- Color swatches for the full palette
-- Live type scale rendering
-- Spacing scale visualization
-- Shadow cards with actual CSS shadows
-- Accessibility score and failing pair analysis
-- Component screenshots (when `--screenshots` is used)
+### 4. Live Site Sync
 
-### Design Comparison
-
-Compare two sites side-by-side:
+Treat the deployed site as your source of truth, not Figma:
 
 ```bash
-designlang diff https://vercel.com https://stripe.com
+designlang sync https://stripe.com --out ./src/tokens
 ```
 
-Generates `diff.md` and `diff.html` showing color, typography, spacing, and accessibility differences.
+Detects design changes and auto-updates your local `design-tokens.json`, `tailwind.config.js`, and `variables.css`.
 
-### Historical Tracking
+### 5. Multi-Brand Comparison
 
-Track how a site's design evolves over time:
+Compare N brands side-by-side:
 
 ```bash
-# Each extraction auto-saves a snapshot
-designlang https://stripe.com
-
-# View history
-designlang history https://stripe.com
+designlang brands stripe.com vercel.com github.com linear.app
 ```
 
-Shows color changes, font swaps, accessibility score trends, and CSS variable count over time.
+Generates a matrix with color overlap analysis, typography comparison, spacing systems, and accessibility scores. Outputs both `brands.md` and `brands.html`.
 
-### Framework Themes
+## All Features
 
-Generates ready-to-use theme files for:
-
-- **React/CSS-in-JS** — theme object compatible with Chakra UI, Stitches, Vanilla Extract
-- **shadcn/ui** — CSS variables in the exact format shadcn expects (paste into globals.css)
-- **Tailwind** — full theme extension with colors, fonts, spacing, radii, shadows, screens
-
-## What It Extracts
-
-| Category | Details |
-|----------|---------|
-| **Colors** | Full palette with primary/secondary/accent/neutral classification, gradients |
-| **Typography** | Font families, type scale, heading/body styles, weight distribution |
-| **Spacing** | All unique values with automatic base-unit detection (4px/8px grid) |
-| **Border Radii** | Unique values labeled xs through full |
-| **Box Shadows** | Parsed and classified by visual weight |
-| **CSS Variables** | All `:root` custom properties, categorized |
-| **Breakpoints** | Media query breakpoints with standard labels |
-| **Animations** | Transitions, easing functions, durations, `@keyframes` |
-| **Components** | Buttons, cards, inputs, links — with base styles |
-| **Accessibility** | WCAG 2.1 contrast ratios for all fg/bg color pairs |
+| Feature | Flag / Command | Description |
+|---------|---------------|-------------|
+| Base extraction | `designlang <url>` | Colors, typography, spacing, shadows, radii, CSS vars, breakpoints, animations, components |
+| Layout system | automatic | Grid patterns, flex usage, container widths, gap values |
+| Accessibility | automatic | WCAG 2.1 contrast ratios for all fg/bg pairs |
+| Dark mode | `--dark` | Extracts dark color scheme |
+| Multi-page | `--depth <n>` | Crawl N internal pages for site-wide tokens |
+| Screenshots | `--screenshots` | Capture buttons, cards, inputs, nav, hero, full page |
+| Responsive | `--responsive` | Crawl at 4 viewports, map breakpoint changes |
+| Interactions | `--interactions` | Capture hover/focus/active state transitions |
+| Everything | `--full` | Enable screenshots + responsive + interactions |
+| Diff | `designlang diff <A> <B>` | Compare two sites (MD + HTML) |
+| Multi-brand | `designlang brands <urls...>` | N-site comparison matrix |
+| Sync | `designlang sync <url>` | Update local tokens from live site |
+| History | `designlang history <url>` | Track design changes over time |
 
 ## Full CLI Reference
 
@@ -145,29 +153,78 @@ Options:
   --height <px>           Viewport height (default: 800)
   --wait <ms>             Wait after page load for SPAs (default: 0)
   --dark                  Also extract dark mode styles
-  --depth <n>             Pages to crawl (default: 0, just the URL)
+  --depth <n>             Internal pages to crawl (default: 0)
   --screenshots           Capture component screenshots
+  --responsive            Capture at multiple breakpoints
+  --interactions          Capture hover/focus/active states
+  --full                  Enable all captures
   --framework <type>      Only generate specific theme (react, shadcn)
   --no-history            Skip saving to history
   --verbose               Detailed progress output
 
 Commands:
   diff <urlA> <urlB>      Compare two sites' design languages
-  history <url>           View design history for a site
+  brands <urls...>        Multi-brand comparison matrix
+  sync <url>              Sync local tokens with live site
+  history <url>           View design change history
+```
+
+## Example Output
+
+Running `designlang https://vercel.com --full`:
+
+```
+  designlang
+  https://vercel.com
+
+  Output files:
+  ✓ vercel-com-design-language.md (32.6KB)
+  ✓ vercel-com-design-tokens.json (5.6KB)
+  ✓ vercel-com-tailwind.config.js (3.4KB)
+  ✓ vercel-com-variables.css (18.6KB)
+  ✓ vercel-com-preview.html (31.8KB)
+  ✓ vercel-com-figma-variables.json (12.4KB)
+  ✓ vercel-com-theme.js (1.4KB)
+  ✓ vercel-com-shadcn-theme.css (477B)
+  ✓ screenshots/button.png
+  ✓ screenshots/card.png
+  ✓ screenshots/nav.png
+  ✓ screenshots/hero.png
+  ✓ screenshots/full-page.png
+
+  Summary:
+  Colors: 27 unique colors
+  Fonts: Geist, Geist Mono
+  Spacing: 18 values (base: 2px)
+  Shadows: 11 unique shadows
+  Radii: 10 unique values
+  Breakpoints: 45 breakpoints
+  Components: 4 patterns detected
+  CSS Vars: 407 custom properties
+  Layout: 55 grids, 492 flex containers
+  Responsive: 4 viewports, 3 breakpoint changes
+  Interactions: 8 state changes captured
+  A11y: 94% WCAG score (7 failing pairs)
 ```
 
 ## How It Works
 
-1. **Crawl** — Launches headless Chromium via Playwright
-2. **Extract** — `page.evaluate()` walks up to 5,000 DOM elements collecting computed styles
-3. **Process** — 10 extractor modules parse, deduplicate, cluster, and classify the raw data
-4. **Format** — 8 formatter modules generate the output files
-5. **Score** — Accessibility extractor calculates WCAG contrast ratios
-6. **Capture** — Optional Playwright screenshots of detected components
+1. **Crawl** — Launches headless Chromium via Playwright, waits for network idle and fonts
+2. **Extract** — Single `page.evaluate()` walks up to 5,000 DOM elements collecting 25+ computed style properties including layout (grid, flex, container) data
+3. **Process** — 12 extractor modules parse, deduplicate, cluster, and classify the raw data
+4. **Format** — 8 formatter modules generate output files
+5. **Score** — Accessibility extractor calculates WCAG contrast ratios for all color pairs
+6. **Capture** — Optional: screenshots, responsive viewport crawling, interaction state recording
 
-## Claude Code Plugin
+## Agent Skill
 
-**designlang** also works as a [Claude Code](https://claude.ai/claude-code) plugin. Use `/extract-design <url>` in your coding session.
+Works with **Claude Code, Cursor, Codex, and 40+ AI coding agents** via the skills ecosystem:
+
+```bash
+npx skills add Manavarya09/design-extract
+```
+
+In Claude Code, use `/extract-design <url>`.
 
 ## Contributing
 
