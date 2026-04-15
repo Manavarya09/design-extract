@@ -1,0 +1,28 @@
+{
+  "name": "design-extract",
+  "owner": {
+    "name": "Manavarya Singh",
+    "url": "https://github.com/Manavarya09"
+  },
+  "plugins": [
+    {
+      "name": "design-extract",
+      "source": "./",
+      "description": "Extract the complete design language from any website — colors, typography, spacing, shadows, components, and more. Outputs AI-optimized markdown, W3C design tokens, Tailwind config, and CSS variables.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Manavarya Singh"
+      },
+      "category": "design",
+      "tags": [
+        "design-system",
+        "design-tokens",
+        "css",
+        "tailwind",
+        "typography",
+        "colors",
+        "web-scraping"
+      ]
+    }
+  ]
+}

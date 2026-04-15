@@ -1,0 +1,24 @@
+{
+  "name": "design-extract",
+  "description": "Extract the complete design language from any website. Produces W3C design tokens, AI-optimized markdown, Tailwind config, and CSS custom properties.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Manavarya Singh",
+    "url": "https://github.com/Manavarya09"
+  },
+  "homepage": "https://github.com/Manavarya09/design-extract",
+  "repository": "https://github.com/Manavarya09/design-extract",
+  "license": "MIT",
+  "keywords": [
+    "design-system",
+    "design-tokens",
+    "design-language",
+    "css",
+    "tailwind",
+    "playwright",
+    "extraction",
+    "colors",
+    "typography"
+  ],
+  "skills": "./skills/"
+}

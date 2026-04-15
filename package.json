@@ -1,0 +1,39 @@
+{
+  "name": "@masyv/design-extract",
+  "version": "1.0.0",
+  "description": "Extract the complete design language from any website — colors, typography, spacing, shadows, and more. Outputs AI-optimized markdown, W3C design tokens, Tailwind config, and CSS variables.",
+  "type": "module",
+  "bin": {
+    "design-extract": "./bin/design-extract.js"
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "postinstall": "npx playwright install chromium --with-deps 2>/dev/null || npx playwright install chromium",
+    "start": "node bin/design-extract.js",
+    "test": "node --test tests/"
+  },
+  "dependencies": {
+    "playwright": "^1.42.0",
+    "commander": "^12.0.0",
+    "chalk": "^5.3.0",
+    "ora": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "design-system",
+    "design-tokens",
+    "design-language",
+    "css",
+    "tailwind",
+    "playwright",
+    "extraction",
+    "colors",
+    "typography",
+    "claude-code",
+    "plugin"
+  ],
+  "author": "masyv",
+  "license": "MIT"
+}

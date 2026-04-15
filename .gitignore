@@ -1,0 +1,5 @@
+node_modules/
+design-extract-output/
+test-output/
+*.log
+.DS_Store
