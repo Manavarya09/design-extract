@@ -1,10 +1,10 @@
 {
-  "name": "@manavarya0909/design-ex",
+  "name": "designlang",
   "version": "1.0.0",
   "description": "Extract the complete design language from any website — colors, typography, spacing, shadows, and more. Outputs AI-optimized markdown, W3C design tokens, Tailwind config, and CSS variables.",
   "type": "module",
   "bin": {
-    "design-ex": "./bin/design-extract.js"
+    "designlang": "./bin/design-extract.js"
   },
   "main": "src/index.js",
   "scripts": {

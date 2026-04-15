@@ -15,7 +15,7 @@ import { nameFromUrl } from '../src/utils.js';
 const program = new Command();
 
 program
-  .name('design-ex')
+  .name('designlang')
   .description('Extract the complete design language from any website')
   .version('1.0.0')
   .argument('<url>', 'URL to extract design language from')
