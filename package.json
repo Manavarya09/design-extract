@@ -1,6 +1,6 @@
 {
   "name": "designlang",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Extract the complete design language from any website — colors, typography, spacing, shadows, and more. Outputs AI-optimized markdown, W3C design tokens, Tailwind config, and CSS variables.",
   "type": "module",
   "bin": {

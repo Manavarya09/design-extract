@@ -10,6 +10,7 @@ import { extractAnimations } from './extractors/animations.js';
 import { extractComponents } from './extractors/components.js';
 import { extractAccessibility } from './extractors/accessibility.js';
 import { extractLayout } from './extractors/layout.js';
+import { scoreDesignSystem } from './extractors/scoring.js';
 
 export async function extractDesignLanguage(url, options = {}) {
   const rawData = await crawlPage(url, options);
@@ -35,6 +36,7 @@ export async function extractDesignLanguage(url, options = {}) {
     accessibility: extractAccessibility(styles),
     layout: extractLayout(styles),
     componentScreenshots: rawData.componentScreenshots || {},
+    score: null, // populated below
   };
 
   if (rawData.dark) {
@@ -43,6 +45,8 @@ export async function extractDesignLanguage(url, options = {}) {
       variables: extractVariables(rawData.dark.cssVariables),
     };
   }
+
+  design.score = scoreDesignSystem(design);
 
   return design;
 }
@@ -61,3 +65,6 @@ export { captureResponsive } from './extractors/responsive.js';
 export { captureInteractions } from './extractors/interactions.js';
 export { syncDesign } from './sync.js';
 export { compareBrands, formatBrandMatrix, formatBrandMatrixHtml } from './multibrand.js';
+export { generateClone } from './clone.js';
+export { scoreDesignSystem } from './extractors/scoring.js';
+export { watchSite } from './watch.js';

@@ -19,6 +19,8 @@ import { captureResponsive } from '../src/extractors/responsive.js';
 import { captureInteractions } from '../src/extractors/interactions.js';
 import { syncDesign } from '../src/sync.js';
 import { compareBrands, formatBrandMatrix, formatBrandMatrixHtml } from '../src/multibrand.js';
+import { generateClone } from '../src/clone.js';
+import { watchSite } from '../src/watch.js';
 import { nameFromUrl } from '../src/utils.js';
 
 const program = new Command();
@@ -26,7 +28,7 @@ const program = new Command();
 program
   .name('designlang')
   .description('Extract the complete design language from any website')
-  .version('3.0.0');
+  .version('4.0.0');
 
 // ── Main command: extract ──────────────────────────────────────
 program
@@ -154,6 +156,11 @@ program
         const ic = design.interactions;
         const total = ic.buttons.length + ic.links.length + ic.inputs.length;
         console.log(`  ${chalk.gray('Interactions:')} ${total} state changes captured`);
+      }
+      if (design.score) {
+        const s = design.score;
+        const gradeColor = s.grade === 'A' ? chalk.green : s.grade === 'B' ? chalk.cyan : s.grade === 'C' ? chalk.yellow : chalk.red;
+        console.log(`  ${chalk.gray('Design Score:')} ${gradeColor(`${s.overall}/100 (${s.grade})`)}${s.issues.length > 0 ? ` — ${s.issues.length} issues` : ''}`);
       }
 
       // Accessibility summary
@@ -333,6 +340,147 @@ program
 
     } catch (err) {
       spinner.fail('Sync failed');
+      console.error(chalk.red(`\n  ${err.message}\n`));
+      process.exit(1);
+    }
+  });
+
+// ── Clone command ───────────────────────────────────────────
+program
+  .command('clone <url>')
+  .description('Generate a working Next.js starter from a site\'s design')
+  .option('-o, --out <dir>', 'output directory', './cloned-design')
+  .action(async (url, opts) => {
+    if (!url.startsWith('http')) url = `https://${url}`;
+
+    console.log('');
+    console.log(chalk.bold('  designlang clone'));
+    console.log(chalk.gray(`  ${url}`));
+    console.log('');
+
+    const spinner = ora('Extracting design...').start();
+
+    try {
+      const design = await extractDesignLanguage(url);
+      spinner.text = 'Generating Next.js project...';
+
+      const result = generateClone(design, resolve(opts.out));
+
+      spinner.succeed('Clone generated!');
+      console.log('');
+      for (const f of result.files) {
+        console.log(`  ${chalk.green('✓')} ${chalk.cyan(f)}`);
+      }
+      console.log('');
+      console.log(chalk.bold('  To run:'));
+      console.log(chalk.gray(`  cd ${opts.out} && npm install && npm run dev`));
+      console.log('');
+
+    } catch (err) {
+      spinner.fail('Clone failed');
+      console.error(chalk.red(`\n  ${err.message}\n`));
+      process.exit(1);
+    }
+  });
+
+// ── Watch command ───────────────────────────────────────────
+program
+  .command('watch <url>')
+  .description('Monitor a site for design changes')
+  .option('--interval <minutes>', 'check interval in minutes', parseInt, 60)
+  .action(async (url, opts) => {
+    if (!url.startsWith('http')) url = `https://${url}`;
+    const intervalMs = (opts.interval || 60) * 60 * 1000;
+
+    console.log('');
+    console.log(chalk.bold('  designlang watch'));
+    console.log(chalk.gray(`  ${url} (every ${opts.interval || 60}min)`));
+    console.log('');
+
+    const check = async () => {
+      const spinner = ora('Checking for design changes...').start();
+      try {
+        const result = await watchSite(url);
+
+        if (result.isFirstRun) {
+          spinner.succeed('Baseline captured. Watching for changes...');
+        } else if (result.changes.length === 0) {
+          spinner.succeed(`No changes — ${new Date().toLocaleTimeString()}`);
+        } else {
+          spinner.warn(`${result.changes.length} changes detected!`);
+          for (const c of result.changes) {
+            console.log(`  ${chalk.yellow('≠')} ${c.what}: ${c.from} → ${c.to}`);
+          }
+        }
+      } catch (err) {
+        spinner.fail(`Check failed: ${err.message}`);
+      }
+    };
+
+    await check();
+    console.log(chalk.gray(`\n  Next check in ${opts.interval || 60} minutes. Press Ctrl+C to stop.\n`));
+    setInterval(check, intervalMs);
+  });
+
+// ── Score command ───────────────────────────────────────────
+program
+  .command('score <url>')
+  .description('Score a website\'s design system quality')
+  .action(async (url) => {
+    if (!url.startsWith('http')) url = `https://${url}`;
+
+    const spinner = ora('Analyzing design...').start();
+
+    try {
+      const design = await extractDesignLanguage(url);
+      const s = design.score;
+
+      spinner.stop();
+      console.log('');
+      console.log(chalk.bold('  Design System Score'));
+      console.log(chalk.gray(`  ${url}`));
+      console.log('');
+
+      const gradeColor = s.grade === 'A' ? chalk.green : s.grade === 'B' ? chalk.cyan : s.grade === 'C' ? chalk.yellow : chalk.red;
+      console.log(`  ${gradeColor.bold(`  ${s.overall}/100  Grade: ${s.grade}`)}`);
+      console.log('');
+
+      // Category breakdown
+      const cats = [
+        ['Color Discipline', s.scores.colorDiscipline],
+        ['Typography', s.scores.typographyConsistency],
+        ['Spacing System', s.scores.spacingSystem],
+        ['Shadows', s.scores.shadowConsistency],
+        ['Border Radii', s.scores.radiusConsistency],
+        ['Accessibility', s.scores.accessibility],
+        ['Tokenization', s.scores.tokenization],
+      ];
+
+      for (const [name, score] of cats) {
+        const bar = '█'.repeat(Math.round(score / 5)) + '░'.repeat(20 - Math.round(score / 5));
+        const color = score >= 80 ? chalk.green : score >= 60 ? chalk.yellow : chalk.red;
+        console.log(`  ${chalk.gray(name.padEnd(20))} ${color(bar)} ${score}`);
+      }
+
+      if (s.strengths.length > 0) {
+        console.log('');
+        console.log(chalk.bold('  Strengths:'));
+        for (const str of s.strengths) {
+          console.log(`  ${chalk.green('✓')} ${str}`);
+        }
+      }
+
+      if (s.issues.length > 0) {
+        console.log('');
+        console.log(chalk.bold('  Issues:'));
+        for (const issue of s.issues) {
+          console.log(`  ${chalk.yellow('!')} ${issue}`);
+        }
+      }
+      console.log('');
+
+    } catch (err) {
+      spinner.fail('Scoring failed');
       console.error(chalk.red(`\n  ${err.message}\n`));
       process.exit(1);
     }

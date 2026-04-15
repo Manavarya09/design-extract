@@ -469,6 +469,37 @@ export function formatMarkdown(design) {
     }
   }
 
+  // ── Design Score ──
+  if (design.score) {
+    const s = design.score;
+    lines.push('## Design System Score');
+    lines.push('');
+    lines.push(`**Overall: ${s.overall}/100 (Grade: ${s.grade})**`);
+    lines.push('');
+    lines.push('| Category | Score |');
+    lines.push('|----------|-------|');
+    if (s.scores.colorDiscipline !== undefined) lines.push(`| Color Discipline | ${s.scores.colorDiscipline}/100 |`);
+    if (s.scores.typographyConsistency !== undefined) lines.push(`| Typography Consistency | ${s.scores.typographyConsistency}/100 |`);
+    if (s.scores.spacingSystem !== undefined) lines.push(`| Spacing System | ${s.scores.spacingSystem}/100 |`);
+    if (s.scores.shadowConsistency !== undefined) lines.push(`| Shadow Consistency | ${s.scores.shadowConsistency}/100 |`);
+    if (s.scores.radiusConsistency !== undefined) lines.push(`| Border Radius Consistency | ${s.scores.radiusConsistency}/100 |`);
+    if (s.scores.accessibility !== undefined) lines.push(`| Accessibility | ${s.scores.accessibility}/100 |`);
+    if (s.scores.tokenization !== undefined) lines.push(`| CSS Tokenization | ${s.scores.tokenization}/100 |`);
+    lines.push('');
+
+    if (s.strengths.length > 0) {
+      lines.push('**Strengths:** ' + s.strengths.join(', '));
+      lines.push('');
+    }
+    if (s.issues.length > 0) {
+      lines.push('**Issues:**');
+      for (const issue of s.issues) {
+        lines.push(`- ${issue}`);
+      }
+      lines.push('');
+    }
+  }
+
   // ── Quick Start ──
   lines.push('## Quick Start');
   lines.push('');
