@@ -7,7 +7,7 @@ export function formatMarkdown(design) {
   lines.push(`# Design Language: ${meta.title || 'Unknown Site'}`);
   lines.push('');
   lines.push(`> Extracted from \`${meta.url}\` on ${new Date(meta.timestamp).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}`);
-  lines.push(`> ${meta.elementCount} elements analyzed`);
+  lines.push(`> ${meta.elementCount} elements analyzed${meta.pagesAnalyzed > 1 ? ` across ${meta.pagesAnalyzed} pages` : ''}`);
   lines.push('');
   lines.push('This document describes the complete design language of the website. It is structured for AI/LLM consumption — use it to faithfully recreate the visual design in any framework.');
   lines.push('');
@@ -256,6 +256,41 @@ export function formatMarkdown(design) {
       lines.push('}');
       lines.push('```');
       lines.push('');
+    }
+  }
+
+  // ── Accessibility ──
+  if (design.accessibility) {
+    const a = design.accessibility;
+    lines.push('## Accessibility (WCAG 2.1)');
+    lines.push('');
+    lines.push(`**Overall Score: ${a.score}%** — ${a.passCount} passing, ${a.failCount} failing color pairs`);
+    lines.push('');
+
+    if (a.pairs.length > 0) {
+      const failures = a.pairs.filter(p => p.level === 'FAIL');
+      if (failures.length > 0) {
+        lines.push('### Failing Color Pairs');
+        lines.push('');
+        lines.push('| Foreground | Background | Ratio | Level | Used On |');
+        lines.push('|------------|------------|-------|-------|---------|');
+        for (const p of failures.slice(0, 15)) {
+          lines.push(`| \`${p.foreground}\` | \`${p.background}\` | ${p.ratio}:1 | ${p.level} | ${p.elements.join(', ')} (${p.count}x) |`);
+        }
+        lines.push('');
+      }
+
+      const passes = a.pairs.filter(p => p.level !== 'FAIL');
+      if (passes.length > 0) {
+        lines.push('### Passing Color Pairs');
+        lines.push('');
+        lines.push('| Foreground | Background | Ratio | Level |');
+        lines.push('|------------|------------|-------|-------|');
+        for (const p of passes.slice(0, 10)) {
+          lines.push(`| \`${p.foreground}\` | \`${p.background}\` | ${p.ratio}:1 | ${p.level} |`);
+        }
+        lines.push('');
+      }
     }
   }
 
