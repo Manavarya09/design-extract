@@ -187,8 +187,10 @@ function InstallTracks() {
 {`1  $ npx designlang <url>
 2  $ npx designlang <url> --platforms all
 3  $ npx designlang <url> --emit-agent-rules
-4  $ npx designlang <url> --tokens-legacy
-5  $ npx designlang <url> --dark`}
+4  $ npx designlang <url> --cookie-file ./cookies.txt
+5  $ npx designlang <url> --insecure
+6  $ npx designlang <url> --user-agent "custom-ua"
+7  $ npx designlang <url> --tokens-legacy`}
           </pre>
         </div>
 
@@ -246,26 +248,71 @@ function InstallTracks() {
             <li>agents.md</li>
           </ul>
         </div>
+
+        {/* Chrome extension */}
+        <div className="install-col">
+          <div style={colHead}>track 04 · new in v7.1</div>
+          <h3 className="display" style={colTitle}>Chrome extension</h3>
+          <p style={{ fontSize: 14, color: 'var(--ink-2)', marginBottom: 'var(--r3)', maxWidth: '34ch' }}>
+            One click from any tab. Opens this page with the URL prefilled.
+          </p>
+          <ol
+            className="mono"
+            style={{
+              padding: 0,
+              margin: 0,
+              listStylePosition: 'inside',
+              fontSize: 12,
+              lineHeight: 1.9,
+              color: 'var(--ink-2)',
+            }}
+          >
+            <li>clone the repo</li>
+            <li>open <code style={{ color: 'var(--ink)' }}>chrome://extensions</code></li>
+            <li>toggle developer mode</li>
+            <li>load unpacked → <code style={{ color: 'var(--ink)' }}>chrome-extension/</code></li>
+          </ol>
+          <p style={{ fontSize: 13, color: 'var(--ink-2)', marginTop: 'var(--r4)', fontStyle: 'italic', fontFamily: 'var(--font-display)' }}>
+            Manifest v3. Only permission: <code className="mono" style={{ fontStyle: 'normal' }}>activeTab</code>.
+          </p>
+          <a
+            href="https://github.com/Manavarya09/design-extract/tree/main/chrome-extension"
+            target="_blank"
+            rel="noopener"
+            className="mono"
+            style={{ display: 'inline-block', marginTop: 'var(--r3)', fontSize: 12, letterSpacing: '0.06em', textTransform: 'uppercase' }}
+          >
+            source →
+          </a>
+        </div>
       </div>
 
       <style>{`
         .install-grid {
           display: grid;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
+          grid-template-columns: repeat(4, minmax(0, 1fr));
           gap: 0;
         }
         .install-col {
-          padding: 0 var(--r5);
+          padding: 0 var(--r4);
         }
         .install-col:first-child { padding-left: 0; }
         .install-col:last-child { padding-right: 0; }
         .install-col + .install-col {
           border-left: 1px solid var(--ink);
         }
-        @media (max-width: 860px) {
-          .install-grid { grid-template-columns: 1fr; gap: var(--r6); }
-          .install-col { padding: 0; }
-          .install-col + .install-col { border-left: 0; border-top: 1px solid var(--ink); padding-top: var(--r5); }
+        @media (max-width: 1100px) {
+          .install-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; }
+          .install-col { padding: var(--r4) var(--r4); }
+          .install-col:nth-child(2n+1) { padding-left: 0; }
+          .install-col:nth-child(2n) { padding-right: 0; }
+          .install-col:nth-child(n+3) { border-top: 1px solid var(--ink); }
+          .install-col:nth-child(2n+1) { border-left: 0; }
+        }
+        @media (max-width: 640px) {
+          .install-grid { grid-template-columns: 1fr; gap: 0; }
+          .install-col { padding: var(--r5) 0; border-left: 0 !important; }
+          .install-col + .install-col { border-top: 1px solid var(--ink); }
         }
       `}</style>
     </div>

@@ -311,6 +311,26 @@ A dedicated audit pass surfaced on `design.cssHealth`:
 
 Also contributes a `cssHealth` dimension to the overall design score.
 
+### 22. Chrome Extension (NEW in v7.1)
+
+A Manifest-v3 popup lives in [`chrome-extension/`](chrome-extension/). One click on any tab opens `designlang.manavaryasingh.com` with the URL prefilled — no copy-paste, no context switch. There is also a **Copy CLI** button that puts `npx designlang <url>` in your clipboard.
+
+- **Permissions:** `activeTab` only, plus host access to the hosted extractor.
+- **Install:** toggle developer mode at `chrome://extensions`, click *Load unpacked*, pick the `chrome-extension/` folder.
+- **Firefox + Edge** work with the same MV3 manifest.
+
+### 23. Better Auth + Network Control (NEW in v7.1)
+
+Extracting from authenticated, self-signed, or non-default environments now takes one flag:
+
+- **`--cookie-file <path>`** — loads cookies from JSON array, Playwright `storageState.json`, or Netscape `cookies.txt` (browser extensions, curl exports). Merges cleanly with the existing `--cookie name=value` flag.
+- **`--insecure`** — ignore HTTPS/SSL certificate errors for self-signed dev servers, corporate staging, or MITM tools.
+- **`--user-agent <ua>`** — override the browser User-Agent string.
+
+```bash
+designlang https://staging.internal --cookie-file ./session.json --insecure
+```
+
 ## All Features
 
 | Feature | Flag / Command | Description |
@@ -325,7 +345,10 @@ Also contributes a `cssHealth` dimension to the overall design score.
 | Font files | automatic | Source detection (Google/self-hosted/CDN/system), @font-face CSS |
 | Image styles | automatic | Aspect ratios, shapes, filters, pattern classification |
 | Dark mode | `--dark` | Extracts dark color scheme + light/dark diff |
-| Auth pages | `--cookie`, `--header` | Extract from authenticated/protected pages |
+| Auth pages | `--cookie`, `--cookie-file`, `--header` | Extract from authenticated/protected pages; cookie files in JSON / Playwright storageState / Netscape formats |
+| Self-signed / dev TLS | `--insecure` | Ignore HTTPS/SSL certificate errors |
+| User-Agent override | `--user-agent <ua>` | Set a custom User-Agent string |
+| Chrome extension | `chrome-extension/` | One-click handoff from any tab, MV3, `activeTab` only |
 | Multi-page | `--depth <n>` | Crawl N internal pages for site-wide tokens |
 | Screenshots | `--screenshots` | Capture buttons, cards, inputs, nav, hero, full page |
 | Responsive | `--responsive` | Crawl at 4 viewports, map breakpoint changes |
