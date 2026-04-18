@@ -13,10 +13,11 @@
     "test": "node --test tests/*.test.js"
   },
   "dependencies": {
-    "playwright": "^1.42.0",
-    "commander": "^12.0.0",
+    "@modelcontextprotocol/sdk": "^1.29.0",
     "chalk": "^5.3.0",
-    "ora": "^8.0.0"
+    "commander": "^12.0.0",
+    "ora": "^8.0.0",
+    "playwright": "^1.42.0"
   },
   "engines": {
     "node": ">=20"
