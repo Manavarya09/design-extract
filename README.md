@@ -47,6 +47,8 @@ npx designlang https://stripe.com --full
 
 The markdown output has **19 sections**: Color Palette, Typography, Spacing, Border Radii, Box Shadows, CSS Custom Properties, Breakpoints, Transitions & Animations, Component Patterns (with full CSS snippets), Layout System, Responsive Design, Interaction States, Accessibility (WCAG 2.1), Gradients, Z-Index Map, SVG Icons, Font Files, Image Style Patterns, and Quick Start.
 
+In v7 a companion `*-mcp.json` file is also written alongside the 8 outputs so that `designlang mcp` can serve regions, components, and health data from disk on later invocations. Opting into `--platforms <csv>` additively emits `ios/`, `android/`, `flutter/`, and/or `wordpress-theme/` directories in the output folder, and `--emit-agent-rules` adds a `.cursor/`, `.claude/`, `CLAUDE.md.fragment`, and `agents.md` set.
+
 ## Install
 
 ```bash
@@ -215,6 +217,101 @@ Compare light and dark mode side-by-side — see exactly which colors change and
 designlang https://vercel.com --dark
 ```
 
+### 17. MCP Server (NEW in v7)
+
+One-command integration with any MCP-aware AI agent (Cursor, Claude Code, Windsurf, and more):
+
+```bash
+designlang mcp --output-dir ./design-extract-output
+```
+
+Launches a stdio JSON-RPC server that exposes the extracted design as MCP resources and tools.
+
+**Resources:**
+
+- `designlang://tokens/primitive` — primitive token layer
+- `designlang://tokens/semantic` — semantic token layer (with DTCG alias references)
+- `designlang://regions` — classified page regions (nav, hero, pricing, etc.)
+- `designlang://components` — reusable component clusters with variants
+- `designlang://health` — CSS health audit
+
+**Tools:**
+
+- `search_tokens` — query tokens by name, value, or type
+- `find_nearest_color` — snap any color to the nearest palette token
+- `get_region` — fetch a classified region by name
+- `get_component` — fetch a component cluster by id
+- `list_failing_contrast_pairs` — list every WCAG-failing fg/bg pair with remediation suggestions
+
+### 18. Multi-Platform Output (NEW in v7)
+
+Emit iOS SwiftUI, Android Compose, Flutter, and WordPress block-theme files in a single run, in addition to the default web output:
+
+```bash
+designlang https://stripe.com --platforms all
+```
+
+Resulting tree:
+
+```
+design-extract-output/
+├── stripe-com-*.{md,json,css,js,html}    (default web output)
+├── ios/
+│   └── DesignTokens.swift
+├── android/
+│   ├── Theme.kt
+│   ├── colors.xml
+│   └── dimens.xml
+├── flutter/
+│   └── design_tokens.dart               (+ buildDesignlangTheme())
+└── wordpress-theme/
+    ├── theme.json
+    ├── style.css
+    ├── functions.php
+    ├── index.php
+    └── templates/index.html
+```
+
+Values for `--platforms` are any comma-separated subset of `web,ios,android,flutter,wordpress,all`. The flag is additive — the default web output is always emitted.
+
+### 19. Agent Rules Emitter (NEW in v7)
+
+Write agent-facing rule files generated from the resolved semantic tokens:
+
+```bash
+designlang https://stripe.com --emit-agent-rules
+```
+
+Writes:
+
+- `.cursor/rules/designlang.mdc` — Cursor rule
+- `.claude/skills/designlang/SKILL.md` — Claude Code skill
+- `CLAUDE.md.fragment` — snippet you can paste into your project's CLAUDE.md
+- `agents.md` — generic, vendor-neutral agent guidance
+
+Each file is templated from the semantic layer of the extracted token set, so the agent sees real token names and values — not placeholders.
+
+### 20. Stack + Tailwind Fingerprint (NEW in v7)
+
+Automatic framework, utility-class, and analytics detection surfaced on `design.stack`:
+
+- **Framework**: Next.js, Nuxt, Gatsby, Remix, Astro, Shopify, WordPress, Framer, Webflow, and more.
+- **Tailwind**: when Tailwind is in use, records utility-class frequency so you see which utilities drive the design.
+- **Analytics**: inventory of analytics scripts — GA4, Plausible, PostHog, Segment, Mixpanel, Amplitude, and friends.
+
+### 21. CSS Health Audit (NEW in v7)
+
+A dedicated audit pass surfaced on `design.cssHealth`:
+
+- Specificity graph (distribution, hotspots)
+- `!important` count
+- Duplicate declarations
+- Unused CSS via the Playwright Coverage API
+- `@keyframes` catalog
+- Vendor-prefix audit
+
+Also contributes a `cssHealth` dimension to the overall design score.
+
 ## All Features
 
 | Feature | Flag / Command | Description |
@@ -243,6 +340,15 @@ designlang https://vercel.com --dark
 | Multi-brand | `designlang brands <urls...>` | N-site comparison matrix |
 | Sync | `designlang sync <url>` | Update local tokens from live site |
 | History | `designlang history <url>` | Track design changes over time |
+| MCP server | `designlang mcp` | Expose extraction as MCP resources + tools |
+| Multi-platform | `--platforms <csv>` | Emit iOS / Android / Flutter / WordPress outputs |
+| Agent rules | `--emit-agent-rules` | Cursor, Claude Code, generic agent rule files |
+| Stack fingerprint | automatic | Framework + Tailwind + analytics detection |
+| CSS health | automatic | Specificity, !important, unused CSS, keyframes |
+| A11y remediation | automatic | Nearest palette color passing AA / AAA for every failing pair |
+| Semantic regions | automatic | nav / hero / pricing / testimonials / cta / footer classification |
+| Reusable components | automatic | DOM subtree + style-vector clustering with variants |
+| DTCG tokens | default | W3C Design Tokens v1 with semantic + composite layers (`--tokens-legacy` for pre-v7) |
 
 ## Full CLI Reference
 
@@ -264,6 +370,9 @@ Options:
   --cookie <cookies...>   Cookies for authenticated pages (name=value)
   --header <headers...>   Custom headers (name:value)
   --framework <type>      Only generate specific theme (react, shadcn)
+  --platforms <csv>       Additional platforms: web,ios,android,flutter,wordpress,all (additive)
+  --emit-agent-rules      Emit Cursor / Claude Code / CLAUDE.md / agents.md rule files
+  --tokens-legacy         Emit pre-v7 flat design-tokens.json shape (backward compat)
   --no-history            Skip saving to history
   --verbose               Detailed progress output
 
@@ -276,6 +385,7 @@ Commands:
   brands <urls...>        Multi-brand comparison matrix
   sync <url>              Sync local tokens with live site
   history <url>           View design change history
+  mcp                     Launch stdio MCP server (--output-dir <dir>)
 ```
 
 ## Example Output
