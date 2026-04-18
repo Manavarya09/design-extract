@@ -348,6 +348,24 @@ async function extractPageData(page, ignoreSelectors) {
       }
     } catch { /* no access */ }
 
+    // Semantic regions (v7): landmark + heading + bounds data for classifier.
+    results.sections = Array.from(document.querySelectorAll(
+      'header, nav, main, section, footer, aside, [role="banner"], [role="contentinfo"], [role="complementary"], [role="navigation"]'
+    )).slice(0, 100).map(el => {
+      const r = el.getBoundingClientRect();
+      return {
+        tag: el.tagName.toLowerCase(),
+        role: el.getAttribute('role') || '',
+        className: typeof el.className === 'string' ? el.className : '',
+        id: el.id || '',
+        text: (el.innerText || '').slice(0, 2000),
+        headings: Array.from(el.querySelectorAll('h1,h2,h3')).slice(0, 5).map(h => h.innerText || ''),
+        buttonCount: el.querySelectorAll('button, a[role="button"], .btn, [class*="button"]').length,
+        cardCount: el.querySelectorAll('article, li, [class*="card"], [class*="item"]').length,
+        bounds: { x: r.x, y: r.y, w: r.width, h: r.height },
+      };
+    });
+
     // Stack fingerprint signals (v7)
     results.stack = {
       scripts: Array.from(document.scripts).map(s => s.src).filter(Boolean).slice(0, 50),

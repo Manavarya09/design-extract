@@ -19,6 +19,7 @@ import { extractImageStyles } from './extractors/images.js';
 import { extractStackFingerprint } from './extractors/stack-fingerprint.js';
 import { extractCssHealth } from './extractors/css-health.js';
 import { remediateFailingPairs } from './extractors/a11y-remediation.js';
+import { extractSemanticRegions } from './extractors/semantic-regions.js';
 
 function safeExtract(fn, ...args) {
   try { return fn(...args); } catch { return null; }
@@ -59,6 +60,7 @@ export async function extractDesignLanguage(url, options = {}) {
     componentScreenshots: rawData.componentScreenshots || {},
     stack: safeExtract(extractStackFingerprint, rawData.light.stack) || { framework: 'unknown', css: { layer: 'unknown', tailwind: null }, analytics: [], detectedFrom: { globalCount: 0, scriptCount: 0, classSampleSize: 0 } },
     cssHealth: safeExtract(extractCssHealth, rawData.light.cssCoverage) || null,
+    regions: safeExtract(extractSemanticRegions, rawData.light.sections) || [],
     score: null,
   };
 
