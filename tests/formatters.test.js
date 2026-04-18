@@ -7,6 +7,7 @@ import { formatCssVars } from '../src/formatters/css-vars.js';
 import { formatPreview } from '../src/formatters/preview.js';
 import { formatFigma } from '../src/formatters/figma.js';
 import { formatReactTheme, formatShadcnTheme } from '../src/formatters/theme.js';
+import { formatDtcgTokens } from '../src/formatters/dtcg-tokens.js';
 
 // ── Shared mock design object ───────────────────────────────────
 
@@ -223,6 +224,44 @@ describe('formatTokens', () => {
   it('contains breakpoint tokens', () => {
     const parsed = JSON.parse(formatTokens(mockDesign));
     assert.ok(parsed.breakpoint);
+  });
+});
+
+// ── formatDtcgTokens ────────────────────────────────────────────
+
+describe('formatDtcgTokens', () => {
+  const minimalDesign = {
+    colors: { primary: '#3b82f6', secondary: '#10b981', neutrals: ['#111','#888','#eee'], backgrounds: ['#fff'], text: ['#111'], all: [] },
+    typography: { families: ['Inter'], scale: [{ size:'16px', weight:'400', lineHeight:'1.5' }] },
+    spacing: { scale: ['4px','8px','16px'], base: '4px' },
+    shadows: { values: ['0 1px 2px rgba(0,0,0,0.1)'] },
+    borders: { radii: ['4px','8px'] },
+    variables: {},
+  };
+
+  it('emits $value/$type for every leaf', () => {
+    const out = formatDtcgTokens(minimalDesign);
+    assert.equal(out.primitive.color.brand.primary.$value, '#3b82f6');
+    assert.equal(out.primitive.color.brand.primary.$type, 'color');
+  });
+
+  it('emits semantic aliases referencing primitives', () => {
+    const out = formatDtcgTokens(minimalDesign);
+    assert.match(out.semantic.color.action.primary.$value, /^\{primitive\.color\.brand\.primary\}$/);
+    assert.equal(out.semantic.color.action.primary.$type, 'color');
+  });
+
+  it('emits composite typography tokens', () => {
+    const out = formatDtcgTokens(minimalDesign);
+    const body = out.semantic.typography.body;
+    assert.equal(body.$type, 'typography');
+    assert.equal(body.$value.fontFamily, 'Inter');
+    assert.equal(body.$value.fontSize, '16px');
+  });
+
+  it('round-trips through JSON unchanged', () => {
+    const out = formatDtcgTokens(minimalDesign);
+    assert.deepEqual(JSON.parse(JSON.stringify(out)), out);
   });
 });
 
