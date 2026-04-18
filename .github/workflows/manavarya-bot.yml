@@ -1,0 +1,17 @@
+# Managed by bot-manavarya/reviewer — edits will be overwritten.
+name: manavarya-bot review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+jobs:
+  review:
+    if: ${{ github.event.pull_request.draft == false }}
+    uses: bot-manavarya/reviewer/.github/workflows/review.yml@main
+    with:
+      provider: 'gemini'
+      model: 'gemini-2.5-flash'
+    secrets:
+      bot-token: ${{ secrets.MANAVARYA_BOT_TOKEN }}
+      gemini-api-key: ${{ secrets.GEMINI_API_KEY }}
