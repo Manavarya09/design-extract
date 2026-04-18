@@ -21,6 +21,7 @@ import { formatFlutterDart } from '../src/formatters/flutter-dart.js';
 import { formatVueTheme } from '../src/formatters/vue-theme.js';
 import { formatSvelteTheme } from '../src/formatters/svelte-theme.js';
 import { formatAgentRules } from '../src/formatters/agent-rules.js';
+import { reconcileRoutes, formatRoutesReport } from '../src/formatters/routes-reconciliation.js';
 import { loadConfig, mergeConfig } from '../src/config.js';
 import { diffDesigns, formatDiffMarkdown, formatDiffHtml } from '../src/diff.js';
 import { saveSnapshot, getHistory, formatHistoryMarkdown } from '../src/history.js';
@@ -258,6 +259,25 @@ program
           writeFileSync(p, out[name], 'utf-8');
           platformFiles.push({ path: p, label: `WordPress (${name})` });
         }
+      }
+
+      // Multi-route token reconciliation (Tier 2). Only when --depth >= 1 and
+      // the crawler actually returned per-route token data.
+      if (merged.depth >= 1 && Array.isArray(design.routes) && design.routes.length > 0) {
+        const reconciled = reconcileRoutes(design.routes);
+        const sharedPath = join(outDir, `${prefix}-tokens-shared.json`);
+        writeFileSync(sharedPath, JSON.stringify(reconciled.shared, null, 2), 'utf-8');
+        platformFiles.push({ path: sharedPath, label: 'Shared tokens (multi-route)' });
+        const routesDir = join(outDir, `${prefix}-tokens-routes`);
+        mkdirSync(routesDir, { recursive: true });
+        for (const [slug, entry] of Object.entries(reconciled.perRoute)) {
+          const rp = join(routesDir, `${slug}.json`);
+          writeFileSync(rp, JSON.stringify({ url: entry.url, path: entry.path, added: entry.added, changed: entry.changed }, null, 2), 'utf-8');
+          platformFiles.push({ path: rp, label: `Route tokens (${slug})` });
+        }
+        const reportPath = join(outDir, `${prefix}-routes-report.md`);
+        writeFileSync(reportPath, formatRoutesReport(reconciled), 'utf-8');
+        platformFiles.push({ path: reportPath, label: 'Routes report (markdown)' });
       }
 
       // Agent rules (opt-in, also enabled by --full)

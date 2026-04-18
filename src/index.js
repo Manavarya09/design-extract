@@ -25,6 +25,7 @@ import { extractModernCss } from './extractors/modern-css.js';
 import { extractWideGamut } from './extractors/wide-gamut.js';
 import { extractTokenSources } from './extractors/token-sources.js';
 import { extractInteractionStates } from './extractors/interaction-states.js';
+import { formatDtcgTokens } from './formatters/dtcg-tokens.js';
 
 function safeExtract(fn, ...args) {
   try { return fn(...args); } catch { return null; }
@@ -116,6 +117,23 @@ export async function extractDesignLanguage(url, options = {}) {
   } catch { /* non-fatal */ }
 
   design.tokenSources = safeExtract(extractTokenSources, design, styles) || [];
+
+  // Per-route token extraction (Tier 2 multi-page reconciliation).
+  if (Array.isArray(rawData.routes) && rawData.routes.length > 0) {
+    design.routes = rawData.routes.map(r => {
+      const rStyles = r.computedStylesSample || [];
+      const rDesign = {
+        meta: { url: r.url },
+        colors: safeExtract(extractColors, rStyles) || { all: [], neutrals: [], backgrounds: [], text: [], gradients: [] },
+        typography: safeExtract(extractTypography, rStyles) || { families: [], scale: [] },
+        spacing: safeExtract(extractSpacing, rStyles) || { scale: [], base: null },
+        shadows: safeExtract(extractShadows, rStyles) || { values: [] },
+        borders: safeExtract(extractBorders, rStyles) || { radii: [] },
+      };
+      const tokens = safeExtract(formatDtcgTokens, rDesign) || { primitive: {}, semantic: {} };
+      return { url: r.url, path: r.path, tokens };
+    });
+  }
 
   design.score = safeExtract(scoreDesignSystem, design);
   if (design.score === null) warnings.push('scoring failed');

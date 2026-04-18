@@ -109,7 +109,17 @@ export async function crawlPage(url, options = {}) {
 
     // Multi-page crawl: discover internal links and extract from them
     let additionalPages = [];
+    const routes = [];
     if (depth > 0) {
+      // Seed routes with the primary page
+      try {
+        const u0 = new URL(url);
+        routes.push({
+          url,
+          path: u0.pathname || '/',
+          computedStylesSample: (lightData.computedStyles || []).slice(0, 2000),
+        });
+      } catch { /* ignore */ }
       const internalLinks = await discoverInternalLinks(page, url, depth);
       for (const link of internalLinks) {
         try {
@@ -118,6 +128,14 @@ export async function crawlPage(url, options = {}) {
           await page.evaluate(() => document.fonts.ready).catch(() => {});
           const pageData = await extractPageData(page);
           additionalPages.push({ url: link, data: pageData });
+          try {
+            const u = new URL(link);
+            routes.push({
+              url: link,
+              path: u.pathname || '/',
+              computedStylesSample: (pageData.computedStyles || []).slice(0, 2000),
+            });
+          } catch { /* ignore */ }
         } catch { /* skip failed pages */ }
       }
     }
@@ -163,6 +181,7 @@ export async function crawlPage(url, options = {}) {
       light: lightData,
       dark: darkData,
       interactState,
+      routes: routes.length > 0 ? routes : undefined,
       pagesAnalyzed: 1 + additionalPages.length,
       componentScreenshots,
     };
