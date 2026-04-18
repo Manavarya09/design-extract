@@ -39,15 +39,21 @@ function loadExtraction(outputDir) {
     return { tokens: null, design: {} };
   }
 
-  // We have no single dump of the full design object on disk today, so we
-  // build a minimal one sufficient for the tools we expose. Anything not
-  // present simply produces empty arrays / null returns.
+  // Load the MCP companion written at extraction time (`*-mcp.json`).
+  // Falls back to empty shape if absent — older extractions stay usable for
+  // token resources/tools even without regions/components/health.
+  const companionPath = join(outputDir, `${latest.prefix}-mcp.json`);
+  let companion = null;
+  if (existsSync(companionPath)) {
+    try { companion = JSON.parse(readFileSync(companionPath, 'utf-8')); } catch { /* ignore */ }
+  }
+
   const design = {
-    colors: { all: [] },
-    regions: [],
-    componentClusters: [],
-    accessibility: { remediation: [] },
-    cssHealth: null,
+    colors: { all: companion?.colors?.all || [] },
+    regions: companion?.regions || [],
+    componentClusters: companion?.componentClusters || [],
+    accessibility: { remediation: companion?.accessibility?.remediation || [] },
+    cssHealth: companion?.cssHealth ?? null,
   };
 
   return { tokens, design };

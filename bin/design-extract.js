@@ -186,6 +186,17 @@ program
       // WordPress theme (always generated)
       files.push({ name: `${prefix}-wordpress-theme.json`, content: formatWordPress(design), label: 'WordPress Theme' });
 
+      // MCP companion — the subset of `design` the MCP server serves when a
+      // user runs `designlang mcp --output-dir <dir>` later.
+      const mcpPayload = {
+        colors: { all: design.colors?.all || [] },
+        regions: design.regions || [],
+        componentClusters: design.componentClusters || [],
+        accessibility: { remediation: design.accessibility?.remediation || [] },
+        cssHealth: design.cssHealth || null,
+      };
+      files.push({ name: `${prefix}-mcp.json`, content: JSON.stringify(mcpPayload, null, 2), label: 'MCP companion' });
+
       for (const file of files) {
         writeFileSync(join(outDir, file.name), file.content, 'utf-8');
       }
