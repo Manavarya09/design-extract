@@ -7,6 +7,7 @@ import PlatformTabs from './components/PlatformTabs';
 import CssHealth from './components/CssHealth';
 import A11ySlider from './components/A11ySlider';
 import RegionsComponents from './components/RegionsComponents';
+import Specimens from './components/Specimens';
 
 export default function Home() {
   return (
@@ -124,6 +125,7 @@ export default function Home() {
       {/* ── §07 SPECIMENS ─────────────────────────────────── */}
       <section id="specimens">
         <Rule number="07" label="Specimens" />
+        <Specimens />
       </section>
 
       {/* ── §08 COMPARISON ────────────────────────────────── */}
