@@ -85,6 +85,7 @@ export async function extractDesignLanguage(url, options = {}) {
 
 export { crawlPage } from './crawler.js';
 export { formatTokens } from './formatters/tokens.js';
+export { formatDtcgTokens } from './formatters/dtcg-tokens.js';
 export { formatMarkdown } from './formatters/markdown.js';
 export { formatTailwind } from './formatters/tailwind.js';
 export { formatCssVars } from './formatters/css-vars.js';

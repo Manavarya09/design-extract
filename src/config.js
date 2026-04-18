@@ -32,5 +32,6 @@ export function mergeConfig(cliOpts, config) {
     cookie: cliOpts.cookie || config.cookies,
     header: cliOpts.header || config.headers,
     out: cliOpts.out || config.out || './design-extract-output',
+    tokensLegacy: cliOpts.tokensLegacy || config.tokensLegacy || false,
   };
 }

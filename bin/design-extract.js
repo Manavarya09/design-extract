@@ -8,6 +8,7 @@ import ora from 'ora';
 import { extractDesignLanguage } from '../src/index.js';
 import { formatMarkdown } from '../src/formatters/markdown.js';
 import { formatTokens } from '../src/formatters/tokens.js';
+import { formatDtcgTokens } from '../src/formatters/dtcg-tokens.js';
 import { formatTailwind } from '../src/formatters/tailwind.js';
 import { formatCssVars } from '../src/formatters/css-vars.js';
 import { formatPreview } from '../src/formatters/preview.js';
@@ -62,6 +63,7 @@ program
   .option('--cookie <cookies...>', 'cookies for authenticated pages (name=value)')
   .option('--header <headers...>', 'custom headers (name:value)')
   .option('--ignore <selectors...>', 'CSS selectors to remove before extraction')
+  .option('--tokens-legacy', 'Emit pre-v7 flat token JSON (backward compat)')
   .option('--json', 'output raw JSON to stdout (for CI/CD)')
   .option('--json-pretty', 'output formatted JSON to stdout')
   .option('--no-history', 'skip saving to history')
@@ -153,7 +155,7 @@ program
 
       const files = [
         { name: `${prefix}-design-language.md`, content: formatMarkdown(design), label: 'Markdown (AI-optimized)' },
-        { name: `${prefix}-design-tokens.json`, content: formatTokens(design), label: 'Design Tokens (W3C)' },
+        { name: `${prefix}-design-tokens.json`, content: merged.tokensLegacy ? formatTokens(design) : JSON.stringify(formatDtcgTokens(design), null, 2), label: merged.tokensLegacy ? 'Design Tokens (legacy)' : 'Design Tokens (DTCG v1)' },
         { name: `${prefix}-tailwind.config.js`, content: formatTailwind(design), label: 'Tailwind Config' },
         { name: `${prefix}-variables.css`, content: formatCssVars(design), label: 'CSS Variables' },
         { name: `${prefix}-preview.html`, content: formatPreview(design), label: 'Visual Preview' },
