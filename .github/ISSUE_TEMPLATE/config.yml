@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question or discussion
+    url: https://github.com/Manavarya09/design-extract/discussions
+    about: Ask a question, share an extraction, or discuss ideas.
+  - name: designlang website
+    url: https://website-five-lime-65.vercel.app
+    about: Read more about what designlang does.
