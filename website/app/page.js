@@ -1,175 +1,232 @@
-import Extractor from './components/Extractor';
+import Rule from './components/Rule';
+import Marginalia from './components/Marginalia';
 
 export default function Home() {
-  const marqueeText = "COLORS // TYPOGRAPHY // SPACING // LAYOUT // SHADOWS // ACCESSIBILITY // COMPONENTS // ANIMATIONS // BREAKPOINTS // CSS VARIABLES // INTERACTIONS // RESPONSIVE // FIGMA // TAILWIND // REACT // SHADCN // ";
-
   return (
-    <>
-      {/* ── HERO ── */}
-      <section className="hero">
-        <h1 className="hero-title">
-          DESIGN
-          <br />
-          LANG
-          <span>reverse-engineer any website</span>
-        </h1>
-        <p className="hero-sub">
-          One command extracts the complete design language from any live website.
-          8 output files. 15 sections. 12 extractors. No other tool does this.
-        </p>
-        <a href="https://github.com/Manavarya09/design-extract" className="hero-cmd">
-          npx designlang https://vercel.com
-        </a>
-        <div className="scroll-hint">scroll down</div>
-      </section>
-
-      {/* ── STATS ── */}
-      <div className="stats-strip">
-        <div className="stat"><div className="stat-value">8</div><div className="stat-label">Output Files</div></div>
-        <div className="stat"><div className="stat-value">12</div><div className="stat-label">Extractors</div></div>
-        <div className="stat"><div className="stat-value">11</div><div className="stat-label">Component Types</div></div>
-        <div className="stat"><div className="stat-value">15</div><div className="stat-label">Markdown Sections</div></div>
-        <div className="stat"><div className="stat-value">7</div><div className="stat-label">Score Categories</div></div>
-        <div className="stat"><div className="stat-value">4</div><div className="stat-label">Viewports Crawled</div></div>
-      </div>
-
-      {/* ── MARQUEE ── */}
-      <div className="marquee">
-        <div className="marquee-inner">
-          {marqueeText}{marqueeText}{marqueeText}{marqueeText}
+    <main className="page">
+      {/* ── HEAD SLUG ─────────────────────────────────────── */}
+      <header style={{ paddingTop: 'var(--r6)', paddingBottom: 'var(--r7)' }}>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'baseline',
+            gap: 'var(--r5)',
+            borderBottom: 'var(--hair)',
+            paddingBottom: 'var(--r3)',
+          }}
+        >
+          <span className="mono" style={{ fontSize: 13, letterSpacing: '0.02em' }}>
+            designlang
+            <span style={{ color: 'var(--ink-3)', marginLeft: 12 }}>v7.0</span>
+          </span>
+          <nav
+            className="mono"
+            style={{ display: 'flex', gap: 'var(--r5)', fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.1em' }}
+          >
+            <a href="#extract" style={{ borderBottom: 0 }}>Extract</a>
+            <a href="#features" style={{ borderBottom: 0 }}>Features</a>
+            <a href="#specimens" style={{ borderBottom: 0 }}>Specimens</a>
+            <a href="#install" style={{ borderBottom: 0 }}>Install</a>
+            <a href="https://github.com/Manavarya09/design-extract" style={{ borderBottom: 0 }}>GitHub</a>
+            <a href="https://www.npmjs.com/package/designlang" style={{ borderBottom: 0 }}>npm</a>
+          </nav>
         </div>
-      </div>
+      </header>
 
-      {/* ── OUTPUT FILES ── */}
-      <section>
-        <h2 className="section-title">8 Output Files</h2>
-        <div className="files-grid">
-          {[
-            { num: '01', name: '*-design-language.md', desc: 'AI-optimized markdown — feed it to any LLM and it recreates the design from scratch. 15 sections covering every aspect.' },
-            { num: '02', name: '*-preview.html', desc: 'Gorgeous dark-themed visual report with color swatches, type scale rendering, shadow cards, and accessibility score.' },
-            { num: '03', name: '*-tailwind.config.js', desc: 'Drop-in Tailwind CSS theme extension with colors, fonts, spacing, radii, shadows, and screens.' },
-            { num: '04', name: '*-variables.css', desc: 'CSS custom properties organized by category. Import directly into any project.' },
-            { num: '05', name: '*-figma-variables.json', desc: 'Figma Variables import format with light/dark mode support. Hand off to designers instantly.' },
-            { num: '06', name: '*-theme.js', desc: 'React/CSS-in-JS theme object compatible with Chakra UI, Stitches, and Vanilla Extract.' },
-            { num: '07', name: '*-shadcn-theme.css', desc: 'shadcn/ui theme variables in the exact format it expects. Paste into globals.css.' },
-            { num: '08', name: '*-design-tokens.json', desc: 'W3C Design Tokens community group format for tooling integration.' },
-          ].map(f => (
-            <div key={f.num} className="file-card" data-num={f.num}>
-              <div className="file-name">{f.name}</div>
-              <div className="file-desc">{f.desc}</div>
+      {/* ── §00 HERO ──────────────────────────────────────── */}
+      <section id="extract" style={{ paddingBlock: 'var(--r10) var(--r9)', borderTop: 0 }}>
+        <div className="with-margin">
+          <div>
+            <div className="section-label" style={{ marginBottom: 'var(--r6)' }}>
+              <span>§00 — Entry</span>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── WHAT IT EXTRACTS ── */}
-      <section className="section-red">
-        <div className="section-inner">
-          <h2 className="section-title">What It Extracts</h2>
-          <div className="features-list">
-            {[
-              { name: 'Colors', cmd: 'automatic', desc: 'Full palette with primary/secondary/accent/neutral classification. Gradients. Background and text colors with usage context.' },
-              { name: 'Typography', cmd: 'automatic', desc: 'Font families, type scale, heading/body styles, weight distribution, line heights, letter spacing.' },
-              { name: 'Spacing', cmd: 'automatic', desc: 'All unique values with automatic base-unit detection. Identifies 4px/8px grids.' },
-              { name: 'Layout System', cmd: 'automatic', desc: 'Grid column patterns, flex direction usage, container widths, gap values, justify/align patterns. The skeleton, not just the paint.' },
-              { name: 'Shadows', cmd: 'automatic', desc: 'All box-shadows parsed and classified by visual weight (xs through xl).' },
-              { name: 'Components', cmd: 'automatic', desc: '11 types: buttons, cards, inputs, links, navbars, footers, modals, dropdowns, tables, badges, avatars.' },
-              { name: 'Accessibility', cmd: 'automatic', desc: 'WCAG 2.1 contrast ratios for every fg/bg color pair. Overall score and failing pairs.' },
-              { name: 'Responsive', cmd: '--responsive', desc: 'Crawls at 4 viewports. Maps what changes between breakpoints — fonts, nav, columns, hamburger.' },
-              { name: 'Interactions', cmd: '--interactions', desc: 'Hovers and focuses interactive elements. Records actual style transitions — hover colors, focus rings, active states.' },
-              { name: 'CSS Variables', cmd: 'automatic', desc: 'All :root custom properties categorized by type — colors, spacing, typography, shadows, radii.' },
-              { name: 'Animations', cmd: 'automatic', desc: 'Transitions, easing functions, durations, and @keyframes rules.' },
-              { name: 'Design Score', cmd: 'automatic', desc: '7-category quality rating (A-F) — color discipline, typography, spacing, shadows, radii, accessibility, tokenization.' },
-            ].map(f => (
-              <div key={f.name} className="feature">
-                <div className="feature-name">{f.name}</div>
-                <div className="feature-cmd">{f.cmd}</div>
-                <div className="feature-desc">{f.desc}</div>
-              </div>
-            ))}
+            <h1
+              className="display"
+              style={{
+                fontSize: 'clamp(64px, 11vw, 200px)',
+                marginBottom: 'var(--r7)',
+              }}
+            >
+              A website<br />
+              reads as a<br />
+              <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>design system</em>.
+            </h1>
+            <p className="prose" style={{ fontSize: 20, lineHeight: 1.4, maxWidth: '46ch' }}>
+              designlang crawls any URL and returns its complete design language —
+              tokens, typography, spacing, shadows, components, regions, health,
+              remediations — in W3C DTCG format, with native emitters for iOS,
+              Android, Flutter and WordPress, and a live MCP server your editor can read.
+            </p>
           </div>
-        </div>
-      </section>
-
-      {/* ── COMMANDS ── */}
-      <section>
-        <h2 className="section-title">Commands</h2>
-        <div className="commands-grid">
-          {[
-            { name: 'designlang <url>', desc: 'Extract the full design language. Generates 8 output files.' },
-            { name: 'designlang <url> --full', desc: 'Everything at once — screenshots, responsive, interactions.' },
-            { name: 'designlang diff <A> <B>', desc: 'Compare two sites side-by-side. Outputs markdown and HTML.' },
-            { name: 'designlang brands <urls...>', desc: 'Multi-brand comparison matrix. Color overlap, typography, a11y scores.' },
-            { name: 'designlang clone <url>', desc: 'Generate a working Next.js starter with the extracted design applied.' },
-            { name: 'designlang score <url>', desc: 'Rate design system quality. 7 categories, A-F grade, actionable issues.' },
-            { name: 'designlang watch <url>', desc: 'Monitor a site for design changes on a configurable interval.' },
-            { name: 'designlang sync <url>', desc: 'Update local token files from the live site. Code-first source of truth.' },
-            { name: 'designlang history <url>', desc: 'View how a site\'s design has evolved over time.' },
-          ].map(c => (
-            <div key={c.name} className="command-card">
-              <div className="command-name">{c.name}</div>
-              <div className="command-desc">{c.desc}</div>
+          <Marginalia>
+            <div>extraction runtime</div>
+            <div>
+              <code>Playwright 1.59</code>
+              <br />
+              <code>@sparticuz/chromium</code>
             </div>
-          ))}
+            <hr style={{ margin: '12px 0', border: 0, borderTop: '1px solid var(--ink-3)' }} />
+            <div>default invocation</div>
+            <div><code>$ npx designlang &lt;url&gt;</code></div>
+            <p className="foot" style={{ marginTop: 12 }}>
+              Works without install. Playwright fetches Chromium on first run;
+              ≈ 3–6 seconds per page on a modern laptop.
+            </p>
+          </Marginalia>
         </div>
-      </section>
 
-      {/* ── SCORE DEMO ── */}
-      <section className="section-cream">
-        <div className="section-inner">
-          <h2 className="section-title">Design System Scoring</h2>
-          <div className="score-demo">
-            <div>$ designlang score https://vercel.com</div>
-            <br />
-            <div>&nbsp;&nbsp;<span className="score-grade">68</span>/100&nbsp;&nbsp;Grade: D</div>
-            <br />
-            <div>&nbsp;&nbsp;Color Discipline&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██████████░░░░░░░░░░ 50</div>
-            <div>&nbsp;&nbsp;Typography&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██████████████░░░░░░ 70</div>
-            <div>&nbsp;&nbsp;Spacing System&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;████████████████░░░░ 80</div>
-            <div>&nbsp;&nbsp;Shadows&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██████████░░░░░░░░░░ 50</div>
-            <div>&nbsp;&nbsp;Border Radii&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;████████░░░░░░░░░░░░ 40</div>
-            <div>&nbsp;&nbsp;Accessibility&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;███████████████████░ 94</div>
-            <div>&nbsp;&nbsp;Tokenization&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;████████████████████ 100</div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── AGENT SKILL ── */}
-      <section>
-        <h2 className="section-title">Agent Skill</h2>
-        <p style={{ fontSize: '18px', lineHeight: '1.7', color: '#aaa', maxWidth: '700px', marginBottom: '32px' }}>
-          Works with <strong style={{ color: '#fff' }}>Claude Code, Cursor, Codex, and 40+ AI coding agents</strong> via the skills ecosystem.
+        {/* Entry form — wired in PR B. Static scaffold for now. */}
+        <form
+          style={{
+            marginTop: 'var(--r8)',
+            display: 'flex',
+            alignItems: 'stretch',
+            gap: 0,
+            maxWidth: 720,
+            border: 'var(--hair)',
+          }}
+        >
+          <label htmlFor="url" style={{ display: 'none' }}>URL</label>
+          <input
+            id="url"
+            name="url"
+            type="url"
+            placeholder="https://stripe.com"
+            defaultValue="https://stripe.com"
+            className="mono"
+            style={{
+              flex: 1,
+              padding: '18px 20px',
+              fontSize: 16,
+              color: 'var(--ink)',
+              background: 'transparent',
+              borderRight: 'var(--hair)',
+            }}
+          />
+          <button type="button" className="cta" style={{ boxShadow: 'none' }}>
+            Extract
+            <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--ink-3)' }}>↵</span>
+          </button>
+        </form>
+        <p className="mono" style={{ marginTop: 14, fontSize: 11, color: 'var(--ink-3)' }}>
+          Free, rate-limited to 3 extractions per day. Private IPs rejected. No accounts.
         </p>
-        <div className="hero-cmd" style={{ display: 'inline-block' }}>
-          npx skills add Manavarya09/design-extract
-        </div>
       </section>
 
-      {/* ── TRY IT ── */}
-      <section className="section-red" id="try">
-        <div className="section-inner">
-          <h2 className="section-title">Try It</h2>
-          <p style={{ fontSize: '18px', lineHeight: '1.6', marginBottom: '32px', maxWidth: '600px' }}>
-            Paste any URL. We&apos;ll extract the full design language and let you download all 8 files as a ZIP.
+      {/* ── §01 DTCG BROWSER ──────────────────────────────── */}
+      <section id="features">
+        <Rule number="01" label="DTCG token browser" />
+        <div style={{ padding: 'var(--r6) 0' }}>
+          <h2 className="display">Aliases, not values.</h2>
+          <p className="prose" style={{ marginTop: 'var(--r4)', fontSize: 18 }}>
+            v7.0 writes tokens in W3C DTCG. Semantic paths resolve to primitive
+            hexes through <code className="mono">{'{primitive.color.brand.primary}'}</code>.
+            Interactive browser ships in the next pass.
           </p>
-          <Extractor />
         </div>
       </section>
 
-      {/* ── FOOTER ── */}
-      <footer>
-        <div className="footer-title">DESIGNLANG</div>
-        <p style={{ color: '#888', fontSize: '14px' }}>
-          Built by Manavarya Singh. MIT Licensed. Open Source.
-        </p>
-        <div className="footer-links">
-          <a href="https://github.com/Manavarya09/design-extract">GitHub</a>
-          <a href="https://www.npmjs.com/package/designlang">npm</a>
+      {/* ── §02 MCP ───────────────────────────────────────── */}
+      <section>
+        <Rule number="02" label="MCP server" />
+        <div style={{ padding: 'var(--r6) 0' }}>
+          <h2 className="display">Your editor reads this.</h2>
+          <p className="prose" style={{ marginTop: 'var(--r4)', fontSize: 18 }}>
+            <code className="mono">designlang mcp --output-dir ./design-extract-output</code> exposes
+            the last extraction as MCP resources and tools. Claude Code, Cursor,
+            Windsurf. Terminal demo ships next pass.
+          </p>
         </div>
-        <div className="footer-copy">
-          No other tool extracts layout patterns, responsive behavior, interaction states, and scores design quality from a single command.
+      </section>
+
+      {/* ── §03 MULTI-PLATFORM ────────────────────────────── */}
+      <section>
+        <Rule number="03" label="Multi-platform emitters" />
+        <div style={{ padding: 'var(--r6) 0' }}>
+          <h2 className="display">One token. Five languages.</h2>
+          <p className="prose" style={{ marginTop: 'var(--r4)', fontSize: 18 }}>
+            <code className="mono">--platforms all</code> writes SwiftUI, Compose,
+            Flutter, WordPress, plus the existing web outputs. Interactive tabs
+            in the next pass.
+          </p>
         </div>
+      </section>
+
+      {/* ── §04 HEALTH ────────────────────────────────────── */}
+      <section>
+        <Rule number="04" label="CSS health audit" />
+      </section>
+
+      {/* ── §05 REMEDIATION ───────────────────────────────── */}
+      <section>
+        <Rule number="05" label="A11y remediation" />
+      </section>
+
+      {/* ── §06 REGIONS + COMPONENTS ──────────────────────── */}
+      <section>
+        <Rule number="06" label="Regions and components" />
+      </section>
+
+      {/* ── §07 SPECIMENS ─────────────────────────────────── */}
+      <section id="specimens">
+        <Rule number="07" label="Specimens" />
+      </section>
+
+      {/* ── §08 COMPARISON ────────────────────────────────── */}
+      <section>
+        <Rule number="08" label="Compared" />
+      </section>
+
+      {/* ── §09 INSTALL ───────────────────────────────────── */}
+      <section id="install" style={{ paddingBottom: 'var(--r10)' }}>
+        <Rule number="09" label="Install" />
+        <div className="with-margin" style={{ marginTop: 'var(--r5)' }}>
+          <div>
+            <pre
+              className="mono"
+              style={{
+                padding: 'var(--r4) var(--r5)',
+                background: 'var(--ink)',
+                color: 'var(--paper)',
+                fontSize: 14,
+                overflowX: 'auto',
+              }}
+            >{`$ npx designlang https://stripe.com
+$ npx designlang https://stripe.com --platforms all
+$ npx designlang https://stripe.com --emit-agent-rules
+$ designlang mcp --output-dir ./design-extract-output`}</pre>
+          </div>
+          <Marginalia>
+            <div>Node</div>
+            <div><code>≥ 20</code></div>
+            <div style={{ marginTop: 10 }}>License</div>
+            <div><code>MIT</code></div>
+          </Marginalia>
+        </div>
+      </section>
+
+      {/* ── FOOTER ───────────────────────────────────────── */}
+      <footer
+        className="mono"
+        style={{
+          borderTop: 'var(--hair)',
+          padding: 'var(--r5) 0 var(--r7)',
+          fontSize: 12,
+          color: 'var(--ink-2)',
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: 'var(--r6)',
+          justifyContent: 'space-between',
+        }}
+      >
+        <span>designlang / built in Node, Playwright, and opinion.</span>
+        <span>
+          <a href="https://github.com/Manavarya09/design-extract">github</a> ·{' '}
+          <a href="https://www.npmjs.com/package/designlang">npm</a> ·{' '}
+          <a href="https://github.com/Manavarya09/design-extract/discussions">discussions</a>
+        </span>
       </footer>
-    </>
+    </main>
   );
 }

@@ -1,18 +1,47 @@
-import "./globals.css";
+import { Fraunces, Instrument_Sans, JetBrains_Mono } from 'next/font/google';
+import './globals.css';
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  variable: '--font-display',
+  display: 'swap',
+});
+
+const instrumentSans = Instrument_Sans({
+  subsets: ['latin'],
+  variable: '--font-body',
+  display: 'swap',
+});
+
+const mono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+  display: 'swap',
+});
 
 export const metadata = {
-  title: "DESIGNLANG — Reverse-Engineer Any Website's Design System",
-  description: "One command. 8 output files. Colors, typography, spacing, layout, accessibility, interactions, and more. npx designlang",
+  title: 'designlang — reads a website the way a developer reads a stylesheet',
+  description:
+    'Extracts the complete design system from any live website. DTCG tokens, multi-platform emitters, MCP server, agent rules. One URL in, a design system out.',
+  metadataBase: new URL('https://designlang.dev'),
+  openGraph: {
+    title: 'designlang',
+    description: 'Extracts the complete design system from any live website.',
+    type: 'website',
+  },
+  robots: { index: true, follow: true },
+};
+
+export const viewport = {
+  themeColor: '#F3F1EA',
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-      </head>
+    <html
+      lang="en"
+      className={`${fraunces.variable} ${instrumentSans.variable} ${mono.variable}`}
+    >
       <body>{children}</body>
     </html>
   );
