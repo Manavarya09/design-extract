@@ -1,0 +1,13 @@
+{
+  "name": "designlang",
+  "short_name": "designlang",
+  "description": "Extract any website's complete design system as W3C DTCG tokens, Tailwind, Figma variables, shadcn, iOS, Android, Flutter, WordPress, plus an MCP server.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F3F1EA",
+  "theme_color": "#F3F1EA",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
