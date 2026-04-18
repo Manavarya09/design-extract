@@ -25,9 +25,13 @@ export default function Home() {
             paddingBottom: 'var(--r3)',
           }}
         >
-          <span className="mono" style={{ fontSize: 13, letterSpacing: '0.02em' }}>
-            designlang
-            <span style={{ color: 'var(--ink-3)', marginLeft: 12 }}>v7.0</span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/mark.svg" alt="" width={22} height={22} style={{ display: 'block' }} />
+            <span className="mono" style={{ fontSize: 13, letterSpacing: '0.02em' }}>
+              designlang
+              <span style={{ color: 'var(--ink-3)', marginLeft: 12 }}>v7.0</span>
+            </span>
           </span>
           <nav
             className="mono"

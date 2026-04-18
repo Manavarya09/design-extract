@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-label="designlang — reads a website the way a developer reads a stylesheet">
+  <title>designlang</title>
+  <desc>Museum specimen label for designlang. A lowercase d constructed from a ring, a stem, and one extracted orange token, set on warm paper with a palette strip.</desc>
+
+  <!-- Paper card -->
+  <rect width="1200" height="420" fill="#F3F1EA"/>
+  <rect x="1" y="1" width="1198" height="418" fill="none" stroke="#0A0908" stroke-width="2"/>
+
+  <!-- Top caption strip -->
+  <g font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="13" fill="#403C34" letter-spacing="1.4">
+    <text x="40" y="40">SPECIMEN / 01</text>
+    <text x="40" y="58">EXTRACTED 2026</text>
+  </g>
+  <g font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="13" fill="#403C34" letter-spacing="1.4" text-anchor="end">
+    <text x="1160" y="40">v7.0</text>
+    <text x="1160" y="58">W3C DTCG</text>
+  </g>
+
+  <!-- Top hairline -->
+  <line x1="40" y1="82" x2="1160" y2="82" stroke="#0A0908" stroke-width="1"/>
+
+  <!-- Mark: lowercase d with extracted token. Fits inside the band 100-300 (200px tall). -->
+  <g transform="translate(64, 116)">
+    <circle cx="58" cy="120" r="50" fill="none" stroke="#0A0908" stroke-width="24"/>
+    <rect x="94" y="20" width="24" height="164" fill="#0A0908"/>
+    <rect x="124" y="156" width="28" height="28" fill="#FF4800"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="260" y="216"
+        font-family="'Fraunces', 'Iowan Old Style', Georgia, serif"
+        font-size="128" fill="#0A0908" letter-spacing="-3"
+        text-rendering="geometricPrecision">designlang<tspan fill="#FF4800">.</tspan></text>
+
+  <!-- Tagline -->
+  <text x="260" y="268"
+        font-family="'Instrument Sans', 'Helvetica Neue', sans-serif"
+        font-size="18" fill="#403C34" font-style="italic">
+    reads a website the way a developer reads a stylesheet.
+  </text>
+
+  <!-- Bottom hairline -->
+  <line x1="40" y1="308" x2="1160" y2="308" stroke="#0A0908" stroke-width="1"/>
+
+  <!-- Palette strip -->
+  <g transform="translate(40, 344)">
+    <g font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="10" fill="#403C34" letter-spacing="0.7">
+      <g>
+        <rect width="42" height="42" fill="#0A0908"/>
+        <text x="0" y="56">#0A0908</text>
+      </g>
+      <g transform="translate(58, 0)">
+        <rect width="42" height="42" fill="#403C34"/>
+        <text x="0" y="56">#403C34</text>
+      </g>
+      <g transform="translate(116, 0)">
+        <rect width="42" height="42" fill="#8B8778"/>
+        <text x="0" y="56">#8B8778</text>
+      </g>
+      <g transform="translate(174, 0)">
+        <rect width="42" height="42" fill="#D8D3C5"/>
+        <text x="0" y="56">#D8D3C5</text>
+      </g>
+      <g transform="translate(232, 0)">
+        <rect width="42" height="42" fill="#FF4800"/>
+        <text x="0" y="56">#FF4800</text>
+      </g>
+    </g>
+
+    <!-- Right caption -->
+    <g font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="12" fill="#403C34" letter-spacing="1" text-anchor="end">
+      <text x="1120" y="16">$ npx designlang &lt;url&gt;</text>
+      <text x="1120" y="34" fill="#8B8778">MIT / Node ≥ 20 / Playwright</text>
+    </g>
+  </g>
+</svg>
