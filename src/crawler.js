@@ -348,6 +348,68 @@ async function extractPageData(page, ignoreSelectors) {
       }
     } catch { /* no access */ }
 
+    // Component clusters (v7): per-element features for similarity-based grouping.
+    function colorToChannels(str) {
+      if (!str) return [0, 0, 0, 0];
+      const m = String(str).match(/rgba?\(([^)]+)\)/i);
+      if (!m) return [0, 0, 0, 0];
+      const parts = m[1].split(',').map(s => parseFloat(s));
+      return [parts[0] || 0, parts[1] || 0, parts[2] || 0, parts[3] === undefined ? 1 : parts[3]];
+    }
+    function structuralHashOf(el) {
+      const parts = [el.tagName.toLowerCase()];
+      for (const c of el.children) {
+        parts.push(c.tagName.toLowerCase());
+      }
+      return parts.slice(0, 6).join('>');
+    }
+    const candidateSelector = 'button, a[role="button"], .btn, [class*="button"], input[type="text"], input[type="email"], input[type="search"], textarea, [class*="card"]';
+    results.componentCandidates = [];
+    const seenCandidates = new Set();
+    for (const el of document.querySelectorAll(candidateSelector)) {
+      if (results.componentCandidates.length >= 300) break;
+      const rect = el.getBoundingClientRect();
+      if (rect.width < 4 || rect.height < 4) continue;
+      if (seenCandidates.has(el)) continue;
+      seenCandidates.add(el);
+      const cs = getComputedStyle(el);
+      const tag = el.tagName.toLowerCase();
+      let kind = 'other';
+      const cls = typeof el.className === 'string' ? el.className.toLowerCase() : '';
+      if (tag === 'button' || el.getAttribute('role') === 'button' || /\bbtn\b|button/.test(cls)) kind = 'button';
+      else if (tag === 'input' || tag === 'textarea') kind = 'input';
+      else if (tag === 'a') kind = 'link';
+      else if (/card/.test(cls)) kind = 'card';
+      const bg = colorToChannels(cs.backgroundColor);
+      const fg = colorToChannels(cs.color);
+      const styleVector = [
+        parseFloat(cs.paddingTop) || 0,
+        parseFloat(cs.paddingRight) || 0,
+        parseFloat(cs.paddingBottom) || 0,
+        parseFloat(cs.paddingLeft) || 0,
+        bg[0], bg[1], bg[2], bg[3] * 255,
+        fg[0], fg[1], fg[2], fg[3] * 255,
+        parseFloat(cs.borderTopLeftRadius) || 0,
+        parseFloat(cs.borderWidth) || 0,
+        parseFloat(cs.fontSize) || 0,
+        parseFloat(cs.fontWeight) || 0,
+      ];
+      results.componentCandidates.push({
+        kind,
+        structuralHash: structuralHashOf(el),
+        styleVector,
+        css: {
+          background: cs.backgroundColor,
+          color: cs.color,
+          padding: `${cs.paddingTop} ${cs.paddingRight} ${cs.paddingBottom} ${cs.paddingLeft}`,
+          borderRadius: cs.borderTopLeftRadius,
+          border: `${cs.borderWidth} ${cs.borderStyle} ${cs.borderColor}`,
+          fontSize: cs.fontSize,
+          fontWeight: cs.fontWeight,
+        },
+      });
+    }
+
     // Semantic regions (v7): landmark + heading + bounds data for classifier.
     results.sections = Array.from(document.querySelectorAll(
       'header, nav, main, section, footer, aside, [role="banner"], [role="contentinfo"], [role="complementary"], [role="navigation"]'

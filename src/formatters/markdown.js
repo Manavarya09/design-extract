@@ -3,6 +3,7 @@ import { pxToRem } from '../utils.js';
 export function formatMarkdown(design) {
   const lines = [];
   const { meta, colors, typography, spacing, shadows, borders, variables, breakpoints, animations, components } = design;
+  const componentClusters = Array.isArray(design.componentClusters) ? design.componentClusters : [];
 
   lines.push(`# Design Language: ${meta.title || 'Unknown Site'}`);
   lines.push('');
@@ -256,6 +257,30 @@ export function formatMarkdown(design) {
       lines.push('}');
       lines.push('```');
       lines.push('');
+    }
+  }
+
+  // ── Component Clusters (v7) ──
+  if (componentClusters.length > 0) {
+    lines.push('## Component Clusters');
+    lines.push('');
+    lines.push('Reusable component instances grouped by DOM structure and style similarity:');
+    lines.push('');
+    for (const cluster of componentClusters) {
+      const kindLabel = cluster.kind.charAt(0).toUpperCase() + cluster.kind.slice(1);
+      lines.push(`### ${kindLabel} — ${cluster.instanceCount} instance${cluster.instanceCount === 1 ? '' : 's'}, ${cluster.variants.length} variant${cluster.variants.length === 1 ? '' : 's'}`);
+      lines.push('');
+      cluster.variants.forEach((v, i) => {
+        lines.push(`**Variant ${i + 1}** (${v.instanceCount} instance${v.instanceCount === 1 ? '' : 's'})`);
+        lines.push('');
+        lines.push('```css');
+        for (const [prop, val] of Object.entries(v.css || {})) {
+          const cssProp = prop.replace(/([A-Z])/g, '-$1').toLowerCase();
+          lines.push(`  ${cssProp}: ${val};`);
+        }
+        lines.push('```');
+        lines.push('');
+      });
     }
   }
 
