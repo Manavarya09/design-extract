@@ -2,6 +2,7 @@ import Rule from './components/Rule';
 import Marginalia from './components/Marginalia';
 import HeroExtractor from './components/HeroExtractor';
 import TokenBrowser from './components/TokenBrowser';
+import McpSection from './components/McpSection';
 
 export default function Home() {
   return (
@@ -92,14 +93,7 @@ export default function Home() {
       {/* ── §02 MCP ───────────────────────────────────────── */}
       <section>
         <Rule number="02" label="MCP server" />
-        <div style={{ padding: 'var(--r6) 0' }}>
-          <h2 className="display">Your editor reads this.</h2>
-          <p className="prose" style={{ marginTop: 'var(--r4)', fontSize: 18 }}>
-            <code className="mono">designlang mcp --output-dir ./design-extract-output</code> exposes
-            the last extraction as MCP resources and tools. Claude Code, Cursor,
-            Windsurf. Terminal demo ships next pass.
-          </p>
-        </div>
+        <McpSection />
       </section>
 
       {/* ── §03 MULTI-PLATFORM ────────────────────────────── */}
