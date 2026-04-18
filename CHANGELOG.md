@@ -1,5 +1,19 @@
 # Changelog
 
+## [7.2.0] — 2026-04-19
+
+### Added
+
+- **Modern CSS surfacing (Tier 1a)** — crawler now captures pseudo-elements, variable-font axes (`font-variation-settings`), `@container` queries, and `env()` usage. Surfaced on `design.modernCss`. (#33)
+- **Wide-gamut color + CSS source attribution (Tier 1b)** — `oklch()`, `oklab()`, `color-mix()`, `light-dark()`, Display P3, and Rec2020 references are collected on `design.wideGamut`. A new `design.tokenSources` maps each extracted token to the stylesheet URL it first appeared in. (#34)
+- **Auto-interact pass (Tier 2)** — new `--deep-interact` flag (implied by `--full`) runs an interaction pass before extraction: full-page scroll in 4 steps, menu/dropdown opens, hover snapshots for the first batch of buttons/links with computed-style diffs, accordion clicks, and first-match modal trigger. Results populate `design.interactionStates` (hover deltas, menu/modal snapshots). Every step is wrapped in try/catch with per-step timeouts so interaction failures never kill the crawl.
+- **Multi-page token reconciliation (Tier 2)** — when `--depth >= 1` the extractor now emits three new artifacts alongside the merged baseline: `*-tokens-shared.json` (tokens shared across every route), `*-tokens-routes/<slug>.json` (per-route `added` and `changed` deltas), and `*-routes-report.md` (readable summary). Slugs are derived from the route path (`/` → `index`) with automatic collision handling.
+
+### Changed
+
+- `--full` now also enables `--deep-interact`.
+- `--depth <n>` description updated to mention the new reconciliation outputs.
+
 ## [7.1.0] — 2026-04-19
 
 ### Added

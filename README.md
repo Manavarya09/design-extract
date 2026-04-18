@@ -349,11 +349,12 @@ designlang https://staging.internal --cookie-file ./session.json --insecure
 | Self-signed / dev TLS | `--insecure` | Ignore HTTPS/SSL certificate errors |
 | User-Agent override | `--user-agent <ua>` | Set a custom User-Agent string |
 | Chrome extension | `chrome-extension/` | One-click handoff from any tab, MV3, `activeTab` only |
-| Multi-page | `--depth <n>` | Crawl N internal pages for site-wide tokens |
+| Multi-page | `--depth <n>` | Crawl N internal pages; emits shared-vs-per-route token reconciliation (`*-tokens-shared.json`, `*-tokens-routes/<slug>.json`, `*-routes-report.md`) |
 | Screenshots | `--screenshots` | Capture buttons, cards, inputs, nav, hero, full page |
 | Responsive | `--responsive` | Crawl at 4 viewports, map breakpoint changes |
 | Interactions | `--interactions` | Capture hover/focus/active state transitions |
-| Everything | `--full` | Enable screenshots + responsive + interactions |
+| Auto-interact | `--deep-interact` | Scroll, open menus/modals/accordions, hover CTAs before extraction |
+| Everything | `--full` | Enable screenshots + responsive + interactions + deep-interact |
 | Apply | `designlang apply <url>` | Auto-detect framework and write tokens to your project |
 | Clone | `designlang clone <url>` | Generate a working Next.js starter with extracted design |
 | Score | `designlang score <url>` | Rate design quality with visual bar chart breakdown |
@@ -388,7 +389,8 @@ Options:
   --screenshots           Capture component screenshots
   --responsive            Capture at multiple breakpoints
   --interactions          Capture hover/focus/active states
-  --full                  Enable all captures
+  --deep-interact         Auto-interact pass (scroll, menus, modals, accordions, hover CTAs)
+  --full                  Enable all captures (implies --deep-interact)
   --cookie <cookies...>   Cookies for authenticated pages (name=value)
   --cookie-file <path>    Load cookies from JSON / storageState / Netscape cookies.txt
   --header <headers...>   Custom headers (name:value)
