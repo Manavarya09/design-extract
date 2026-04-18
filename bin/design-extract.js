@@ -750,4 +750,14 @@ program
     }
   });
 
+// ── MCP server command ─────────────────────────────────────
+program
+  .command('mcp')
+  .description('Launch designlang MCP server over stdio (exposes latest extraction as resources + tools)')
+  .option('--output-dir <path>', 'Source extraction directory', './design-extract-output')
+  .action(async (opts) => {
+    const { run } = await import('../src/mcp/server.js');
+    await run(opts);
+  });
+
 program.parse();
