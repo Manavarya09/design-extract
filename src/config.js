@@ -34,6 +34,7 @@ export function mergeConfig(cliOpts, config) {
     out: cliOpts.out || config.out || './design-extract-output',
     tokensLegacy: cliOpts.tokensLegacy || config.tokensLegacy || false,
     platforms: parsePlatforms(cliOpts.platforms ?? config.platforms ?? 'web'),
+    emitAgentRules: cliOpts.emitAgentRules || config.emitAgentRules || false,
   };
 }
 

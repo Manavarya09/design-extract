@@ -13,6 +13,7 @@ import { formatIosSwiftUI } from '../src/formatters/ios-swiftui.js';
 import { formatAndroidCompose } from '../src/formatters/android-compose.js';
 import { formatFlutterDart } from '../src/formatters/flutter-dart.js';
 import { formatWordPressTheme } from '../src/formatters/wordpress.js';
+import { formatAgentRules } from '../src/formatters/agent-rules.js';
 
 // ── Shared mock design object ───────────────────────────────────
 
@@ -662,5 +663,47 @@ describe('formatWordPressTheme', () => {
 
   it('functions.php starts with <?php', () => {
     assert.ok(out['functions.php'].startsWith('<?php'));
+  });
+});
+
+// ── formatAgentRules ────────────────────────────────────────────
+
+describe('formatAgentRules', () => {
+  const tokens = formatDtcgTokens(mockDesign);
+  const url = 'https://example.com';
+  const designWithRegions = { ...mockDesign, regions: [{ role: 'hero' }, { role: 'footer' }] };
+  const out = formatAgentRules({ design: designWithRegions, tokens, url });
+
+  it('emits all four files, each non-empty', () => {
+    for (const key of [
+      '.cursor/rules/designlang.mdc',
+      '.claude/skills/designlang/SKILL.md',
+      'CLAUDE.md.fragment',
+      'agents.md',
+    ]) {
+      assert.ok(typeof out[key] === 'string' && out[key].length > 0, `missing ${key}`);
+    }
+  });
+
+  it('Cursor .mdc begins with frontmatter containing alwaysApply: true', () => {
+    const mdc = out['.cursor/rules/designlang.mdc'];
+    assert.ok(mdc.startsWith('---'), 'expected frontmatter start');
+    const fm = mdc.split('---')[1];
+    assert.ok(fm.includes('alwaysApply: true'), 'expected alwaysApply: true');
+  });
+
+  it('all four files reference the source URL', () => {
+    for (const key of Object.keys(out)) {
+      assert.ok(out[key].includes(url), `${key} missing url`);
+    }
+  });
+
+  it('all four files contain resolved hex for semantic.color.action.primary', () => {
+    // mockDesign primary is #0066cc — resolved value should appear verbatim,
+    // and the raw DTCG reference must not leak.
+    for (const key of Object.keys(out)) {
+      assert.ok(out[key].toLowerCase().includes('#0066cc'), `${key} missing resolved hex`);
+      assert.ok(!out[key].includes('{primitive.color.brand.primary}'), `${key} leaked raw DTCG ref`);
+    }
   });
 });

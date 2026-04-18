@@ -20,6 +20,7 @@ import { formatAndroidCompose } from '../src/formatters/android-compose.js';
 import { formatFlutterDart } from '../src/formatters/flutter-dart.js';
 import { formatVueTheme } from '../src/formatters/vue-theme.js';
 import { formatSvelteTheme } from '../src/formatters/svelte-theme.js';
+import { formatAgentRules } from '../src/formatters/agent-rules.js';
 import { loadConfig, mergeConfig } from '../src/config.js';
 import { diffDesigns, formatDiffMarkdown, formatDiffHtml } from '../src/diff.js';
 import { saveSnapshot, getHistory, formatHistoryMarkdown } from '../src/history.js';
@@ -68,6 +69,7 @@ program
   .option('--ignore <selectors...>', 'CSS selectors to remove before extraction')
   .option('--tokens-legacy', 'Emit pre-v7 flat token JSON (backward compat)')
   .option('--platforms <csv>', 'Additional platforms: web,ios,android,flutter,wordpress,all (web is always emitted)', 'web')
+  .option('--emit-agent-rules', 'Emit Cursor/Claude Code/generic agent rules')
   .option('--json', 'output raw JSON to stdout (for CI/CD)')
   .option('--json-pretty', 'output formatted JSON to stdout')
   .option('--no-history', 'skip saving to history')
@@ -225,6 +227,17 @@ program
           mkdirSync(join(p, '..'), { recursive: true });
           writeFileSync(p, out[name], 'utf-8');
           platformFiles.push({ path: p, label: `WordPress (${name})` });
+        }
+      }
+
+      // Agent rules (opt-in, also enabled by --full)
+      if (merged.emitAgentRules || merged.full) {
+        const agentFiles = formatAgentRules({ design, tokens: dtcgTokens, url });
+        for (const rel of Object.keys(agentFiles)) {
+          const p = join(outDir, rel);
+          mkdirSync(join(p, '..'), { recursive: true });
+          writeFileSync(p, agentFiles[rel], 'utf-8');
+          platformFiles.push({ path: p, label: `Agent rules (${rel})` });
         }
       }
 
