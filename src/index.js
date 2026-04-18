@@ -22,6 +22,8 @@ import { remediateFailingPairs } from './extractors/a11y-remediation.js';
 import { extractSemanticRegions } from './extractors/semantic-regions.js';
 import { clusterComponents } from './extractors/component-clusters.js';
 import { extractModernCss } from './extractors/modern-css.js';
+import { extractWideGamut } from './extractors/wide-gamut.js';
+import { extractTokenSources } from './extractors/token-sources.js';
 
 function safeExtract(fn, ...args) {
   try { return fn(...args); } catch { return null; }
@@ -65,6 +67,8 @@ export async function extractDesignLanguage(url, options = {}) {
     regions: safeExtract(extractSemanticRegions, rawData.light.sections) || [],
     componentClusters: safeExtract(clusterComponents, rawData.light.componentCandidates) || [],
     modernCss: safeExtract(extractModernCss, rawData) || { pseudoElements: { count: 0, samples: [] }, variableFonts: { count: 0, axes: [] }, openTypeFeatures: [], textWrap: { wrap: [], decorationStyle: [], decorationThickness: [], underlineOffset: [] }, containerQueries: { count: 0, rules: [] }, envUsage: [] },
+    wideGamut: safeExtract(extractWideGamut, rawData.light.modernColors || []) || { oklch: { count: 0, samples: [] }, oklab: { count: 0, samples: [] }, colorMix: { count: 0, samples: [] }, lightDark: { count: 0, samples: [] }, displayP3: { count: 0, samples: [] }, rec2020: { count: 0, samples: [] }, totalCount: 0 },
+    tokenSources: [],
     score: null,
   };
 
@@ -107,6 +111,8 @@ export async function extractDesignLanguage(url, options = {}) {
       remediation: remediateFailingPairs(failingPairs, palette),
     };
   } catch { /* non-fatal */ }
+
+  design.tokenSources = safeExtract(extractTokenSources, design, styles) || [];
 
   design.score = safeExtract(scoreDesignSystem, design);
   if (design.score === null) warnings.push('scoring failed');

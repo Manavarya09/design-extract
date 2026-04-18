@@ -262,6 +262,41 @@ async function extractPageData(page, ignoreSelectors) {
     }
     const elements = collectElements(document, []);
 
+    // Build a lightweight index: stylesheet URL + their top selectors.
+    // Used to attribute each element's primary source stylesheet.
+    const sheetIndex = [];
+    try {
+      for (const sheet of document.styleSheets) {
+        const entry = { url: sheet.href || '', mediaText: sheet.media ? sheet.media.mediaText : '', selectors: [] };
+        try {
+          let cap = 0;
+          for (const rule of sheet.cssRules) {
+            if (cap >= 200) break;
+            if (rule && rule.selectorText) {
+              entry.selectors.push(rule.selectorText);
+              cap++;
+            }
+          }
+        } catch { /* cross-origin */ }
+        if (entry.url || entry.selectors.length > 0) sheetIndex.push(entry);
+      }
+    } catch { /* no access */ }
+
+    function findSourceFor(el) {
+      // Try to find the first stylesheet that has a selector matching this element.
+      for (const sheet of sheetIndex) {
+        for (const sel of sheet.selectors) {
+          try {
+            // selectorText can contain multiple comma-separated selectors
+            if (el.matches(sel)) {
+              return { url: sheet.url, mediaText: sheet.mediaText };
+            }
+          } catch { /* invalid or unsupported selector */ }
+        }
+      }
+      return null;
+    }
+
     function readPseudo(el, which) {
       try {
         const ps = getComputedStyle(el, which);
@@ -287,6 +322,7 @@ async function extractPageData(page, ignoreSelectors) {
       } catch { return null; }
     }
 
+    let sourceAttrBudget = 500;
     for (const el of elements) {
       const cs = getComputedStyle(el);
       const tag = el.tagName.toLowerCase();
@@ -298,6 +334,13 @@ async function extractPageData(page, ignoreSelectors) {
       const before = readPseudo(el, '::before');
       const after = readPseudo(el, '::after');
       const pseudo = (before || after) ? { before, after } : null;
+
+      let sources = null;
+      if (sourceAttrBudget > 0) {
+        const s = findSourceFor(el);
+        if (s) sources = [s];
+        sourceAttrBudget--;
+      }
 
       results.computedStyles.push({
         tag, classList, role, area,
@@ -343,6 +386,7 @@ async function extractPageData(page, ignoreSelectors) {
         textDecorationThickness: cs.textDecorationThickness || '',
         textUnderlineOffset: cs.textUnderlineOffset || '',
         pseudo,
+        sources,
       });
     }
 
@@ -402,12 +446,35 @@ async function extractPageData(page, ignoreSelectors) {
       }
     } catch { /* no access */ }
 
-    // Container queries (@container rules) and env() usage
+    // Container queries (@container rules), env() usage, and modern colors
     results.containerQueries = [];
     results.envUsage = [];
+    results.modernColors = [];
+    const MODERN_COLOR_RE = /(oklch\([^)]+\)|oklab\([^)]+\)|color-mix\([^)]+\)|light-dark\([^)]+\)|color\(\s*display-p3[^)]+\)|color\(\s*rec2020[^)]+\))/gi;
     function walkRulesForContainersAndEnv(rules) {
       for (const rule of rules) {
         try {
+          // Scan declarations for modern color functions
+          if (rule.style && rule.cssText) {
+            const css = rule.cssText;
+            for (const m of css.matchAll(MODERN_COLOR_RE)) {
+              const raw = m[1];
+              let type = 'other';
+              if (/^oklch/i.test(raw)) type = 'oklch';
+              else if (/^oklab/i.test(raw)) type = 'oklab';
+              else if (/^color-mix/i.test(raw)) type = 'color-mix';
+              else if (/^light-dark/i.test(raw)) type = 'light-dark';
+              else if (/display-p3/i.test(raw)) type = 'display-p3';
+              else if (/rec2020/i.test(raw)) type = 'rec2020';
+              // Try to infer property
+              let property = '';
+              for (let i = 0; i < rule.style.length; i++) {
+                const p = rule.style[i];
+                if ((rule.style.getPropertyValue(p) || '').includes(raw)) { property = p; break; }
+              }
+              results.modernColors.push({ raw, type, property, selector: rule.selectorText || '' });
+            }
+          }
           // Container query
           if (typeof CSSContainerRule !== 'undefined' && rule instanceof CSSContainerRule) {
             const inner = [];
@@ -651,6 +718,20 @@ function parseCrossOriginCSS(cssText, data) {
     data.envUsage.push(m[1]);
   }
   data.envUsage = [...new Set(data.envUsage)];
+  // Modern colors
+  if (!data.modernColors) data.modernColors = [];
+  const modernRe = /(oklch\([^)]+\)|oklab\([^)]+\)|color-mix\([^)]+\)|light-dark\([^)]+\)|color\(\s*display-p3[^)]+\)|color\(\s*rec2020[^)]+\))/gi;
+  for (const m of cssText.matchAll(modernRe)) {
+    const raw = m[1];
+    let type = 'other';
+    if (/^oklch/i.test(raw)) type = 'oklch';
+    else if (/^oklab/i.test(raw)) type = 'oklab';
+    else if (/^color-mix/i.test(raw)) type = 'color-mix';
+    else if (/^light-dark/i.test(raw)) type = 'light-dark';
+    else if (/display-p3/i.test(raw)) type = 'display-p3';
+    else if (/rec2020/i.test(raw)) type = 'rec2020';
+    data.modernColors.push({ raw, type, property: '', selector: '' });
+  }
   // Keyframes
   for (const m of cssText.matchAll(/@keyframes\s+([\w-]+)\s*\{([\s\S]*?)\n\}/g)) {
     const steps = [];
