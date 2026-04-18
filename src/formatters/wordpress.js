@@ -1,3 +1,186 @@
+import { resolveRef } from './_token-ref.js';
+
+const HEADER_VERSION = '7.0.0';
+
+function* walkLeaves(node, prefix) {
+  if (node == null || typeof node !== 'object') return;
+  if ('$value' in node && '$type' in node) {
+    yield { path: prefix, token: node };
+    return;
+  }
+  for (const key of Object.keys(node)) {
+    yield* walkLeaves(node[key], prefix ? `${prefix}.${key}` : key);
+  }
+}
+
+// "semantic.color.action.primary" → "action-primary"
+// "primitive.spacing.s0" → "s0"
+function slugFromPath(path) {
+  const parts = path.split('.');
+  const trimmed = parts.slice(1);
+  let segs;
+  if (trimmed[0] === 'color' && trimmed.length >= 3) {
+    segs = trimmed.slice(1);
+  } else if (trimmed[0] === 'spacing' || trimmed[0] === 'radius') {
+    segs = trimmed.slice(1);
+  } else {
+    segs = trimmed;
+  }
+  return segs
+    .map((s) => s.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase())
+    .join('-')
+    .replace(/[^a-z0-9-]/g, '');
+}
+
+function titleFromPath(path) {
+  return slugFromPath(path)
+    .split('-')
+    .filter(Boolean)
+    .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
+    .join(' ');
+}
+
+function collectWpColors(tokens) {
+  const entries = [];
+  const sem = tokens?.semantic?.color;
+  if (sem) {
+    for (const leaf of walkLeaves(sem, 'semantic.color')) {
+      if (leaf.token.$type !== 'color') continue;
+      const resolved = resolveRef(tokens, leaf.path);
+      if (typeof resolved !== 'string') continue;
+      entries.push({ slug: slugFromPath(leaf.path), color: resolved, name: titleFromPath(leaf.path) });
+    }
+  }
+  return entries;
+}
+
+function collectWpSpacing(tokens) {
+  const entries = [];
+  const spacing = tokens?.primitive?.spacing || {};
+  for (const key of Object.keys(spacing)) {
+    const tok = spacing[key];
+    if (!tok || tok.$type !== 'dimension') continue;
+    const resolved = resolveRef(tokens, `primitive.spacing.${key}`);
+    if (typeof resolved !== 'string') continue;
+    entries.push({ slug: key, size: resolved, name: key.toUpperCase() });
+  }
+  return entries;
+}
+
+function collectWpFontSizes(tokens, design) {
+  const entries = [];
+  const scale = design?.typography?.scale || [];
+  const labelFor = (s) => (s.tags && s.tags[0]) || `fs-${s.size}`;
+  for (const s of scale) {
+    const size = typeof s.size === 'number' ? `${s.size}px` : s.size;
+    const label = String(labelFor(s));
+    entries.push({ slug: label.toLowerCase(), size, name: label });
+  }
+  return entries;
+}
+
+function collectWpFontFamilies(tokens, design) {
+  const entries = [];
+  const fams = design?.typography?.families || [];
+  for (const f of fams) {
+    const name = typeof f === 'string' ? f : f?.name;
+    if (!name) continue;
+    const slug = name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+    entries.push({ slug, fontFamily: `${name}, sans-serif`, name });
+  }
+  return entries;
+}
+
+function buildThemeJson(tokens, design) {
+  const palette = collectWpColors(tokens);
+  const spacingSizes = collectWpSpacing(tokens);
+  const fontSizes = collectWpFontSizes(tokens, design);
+  const fontFamilies = collectWpFontFamilies(tokens, design);
+
+  // Semantic surface/text for styles.color
+  const surfaceDefault = resolveRef(tokens, 'semantic.color.surface.default') || '#ffffff';
+  const textBody = resolveRef(tokens, 'semantic.color.text.body') || '#111111';
+
+  const theme = {
+    $schema: 'https://schemas.wp.org/trunk/theme.json',
+    version: 3,
+    settings: {
+      color: { palette },
+      typography: { fontSizes, fontFamilies },
+      spacing: { spacingSizes },
+    },
+    styles: {
+      color: {
+        background: `var(--wp--preset--color--surface-default, ${surfaceDefault})`,
+        text: `var(--wp--preset--color--text-body, ${textBody})`,
+      },
+    },
+  };
+  return JSON.stringify(theme, null, 2) + '\n';
+}
+
+function buildStyleCss(tokens, design) {
+  const source = tokens?.$metadata?.source || (design?.meta?.url ?? '');
+  const header = `/*
+Theme Name: designlang extracted theme
+Theme URI: https://github.com/Manavarya09/design-extract
+Description: Block theme generated from ${source} by designlang v${HEADER_VERSION}
+Version: 1.0.0
+Author: designlang
+License: MIT
+Text Domain: designlang-theme
+*/
+`;
+  const lines = [header, ':root {'];
+  for (const c of collectWpColors(tokens)) {
+    lines.push(`  --${c.slug}: ${c.color};`);
+  }
+  for (const s of collectWpSpacing(tokens)) {
+    lines.push(`  --spacing-${s.slug}: ${s.size};`);
+  }
+  lines.push('}');
+  return lines.join('\n') + '\n';
+}
+
+function buildFunctionsPhp() {
+  return `<?php
+if (!function_exists('designlang_theme_support')) {
+  function designlang_theme_support() {
+    add_theme_support('wp-block-styles');
+    add_theme_support('editor-styles');
+    add_theme_support('responsive-embeds');
+  }
+  add_action('after_setup_theme', 'designlang_theme_support');
+}
+`;
+}
+
+function buildIndexPhp() {
+  return `<?php get_header(); get_template_part('template-parts/content'); get_footer(); ?>
+`;
+}
+
+function buildIndexHtml() {
+  return `<!-- wp:template-part {"slug":"header"} /-->
+<!-- wp:group {"tagName":"main","layout":{"type":"constrained"}} -->
+<main class="wp-block-group"><!-- wp:post-content /--></main>
+<!-- /wp:group -->
+<!-- wp:template-part {"slug":"footer"} /-->
+`;
+}
+
+// Full block-theme skeleton. `design` is optional context for typography
+// (font families, type scale) that isn't in the DTCG token tree yet.
+export function formatWordPressTheme(tokens, design = {}) {
+  return {
+    'theme.json': buildThemeJson(tokens, design),
+    'style.css': buildStyleCss(tokens, design),
+    'functions.php': buildFunctionsPhp(),
+    'index.php': buildIndexPhp(),
+    'templates/index.html': buildIndexHtml(),
+  };
+}
+
 export function formatWordPress(design) {
   const { colors, typography, spacing } = design;
 

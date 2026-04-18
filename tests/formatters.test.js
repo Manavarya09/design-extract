@@ -12,6 +12,7 @@ import { resolveRef } from '../src/formatters/_token-ref.js';
 import { formatIosSwiftUI } from '../src/formatters/ios-swiftui.js';
 import { formatAndroidCompose } from '../src/formatters/android-compose.js';
 import { formatFlutterDart } from '../src/formatters/flutter-dart.js';
+import { formatWordPressTheme } from '../src/formatters/wordpress.js';
 
 // ── Shared mock design object ───────────────────────────────────
 
@@ -630,5 +631,36 @@ describe('formatFlutterDart', () => {
       /static const Color actionPrimary = Color\(0xFF0066CC\);/.test(out),
       'expected actionPrimary with resolved hex',
     );
+  });
+});
+
+// ── formatWordPressTheme (block-theme skeleton) ─────────────────
+
+describe('formatWordPressTheme', () => {
+  const tokens = formatDtcgTokens(mockDesign);
+  const out = formatWordPressTheme(tokens, mockDesign);
+
+  it('theme.json parses and has color palette with at least one entry', () => {
+    const parsed = JSON.parse(out['theme.json']);
+    assert.ok(Array.isArray(parsed.settings.color.palette));
+    assert.ok(parsed.settings.color.palette.length > 0);
+    // At least one entry should have a hex color derived from semantics
+    const actionPrimary = parsed.settings.color.palette.find(p => p.slug === 'action-primary');
+    assert.ok(actionPrimary);
+    assert.equal(actionPrimary.color.toLowerCase(), '#0066cc');
+  });
+
+  it('theme.json is version 3', () => {
+    const parsed = JSON.parse(out['theme.json']);
+    assert.equal(parsed.version, 3);
+  });
+
+  it('style.css contains Theme Name and --action-primary custom prop', () => {
+    assert.ok(out['style.css'].includes('Theme Name:'));
+    assert.ok(out['style.css'].includes('--action-primary:'));
+  });
+
+  it('functions.php starts with <?php', () => {
+    assert.ok(out['functions.php'].startsWith('<?php'));
   });
 });
