@@ -5,6 +5,7 @@ import TokenBrowser from './components/TokenBrowser';
 import McpSection from './components/McpSection';
 import PlatformTabs from './components/PlatformTabs';
 import CssHealth from './components/CssHealth';
+import A11ySlider from './components/A11ySlider';
 
 export default function Home() {
   return (
@@ -111,7 +112,7 @@ export default function Home() {
 
       {/* ── §05 REMEDIATION ───────────────────────────────── */}
       <section>
-        <Rule number="05" label="A11y remediation" />
+        <A11ySlider />
       </section>
 
       {/* ── §06 REGIONS + COMPONENTS ──────────────────────── */}
