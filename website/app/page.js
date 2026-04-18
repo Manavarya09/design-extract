@@ -55,11 +55,8 @@ export default function Home() {
               <span>§00 — Entry</span>
             </div>
             <h1
-              className="display"
-              style={{
-                fontSize: 'clamp(64px, 11vw, 200px)',
-                marginBottom: 'var(--r7)',
-              }}
+              className="display hero-title"
+              style={{ marginBottom: 'var(--r7)' }}
             >
               A website<br />
               reads as a<br />

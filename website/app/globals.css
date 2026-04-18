@@ -301,9 +301,205 @@ section[id] {
 h1, h2, h3, h4, h5, h6 { font-weight: 400; }
 
 h2.display {
-  font-size: clamp(40px, 6vw, 88px);
+  font-size: clamp(36px, 6vw, 88px);
 }
 
 h3.display {
-  font-size: clamp(28px, 3.5vw, 48px);
+  font-size: clamp(26px, 3.5vw, 48px);
+}
+
+.hero-title {
+  font-size: clamp(48px, 11vw, 200px);
+}
+
+/* ── Mobile & tablet pass ───────────────────────────────────── */
+
+@media (max-width: 860px) {
+  :root {
+    --page-pad-x: 18px;
+    --col-gap: 14px;
+  }
+
+  section {
+    padding-block: var(--r7);
+  }
+
+  .display,
+  .hero-title,
+  h1,
+  h2,
+  h3 {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    hyphens: auto;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-title {
+    font-size: clamp(44px, 13vw, 96px);
+    line-height: 0.95;
+  }
+
+  h2.display {
+    font-size: clamp(32px, 8vw, 56px);
+  }
+
+  h3.display {
+    font-size: clamp(22px, 6vw, 36px);
+  }
+
+  .prose p,
+  .prose {
+    font-size: 16px !important;
+  }
+
+  /* Header nav: horizontal scroll instead of overflow. */
+  header nav {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    white-space: nowrap;
+    gap: var(--r4) !important;
+    font-size: 11px !important;
+    max-width: 60%;
+  }
+
+  header nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hero form: stack input over button, no border on button side. */
+  #extract form {
+    flex-direction: column;
+    max-width: 100% !important;
+  }
+
+  #extract form input {
+    border-right: 0 !important;
+    border-bottom: var(--hair);
+    padding: 14px 16px !important;
+    font-size: 15px !important;
+  }
+
+  #extract form button {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* Tables, code blocks, long scroll strips: constrain inside page, scroll on x. */
+  pre,
+  table,
+  .scroll-x {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  pre {
+    font-size: 12px !important;
+    padding: var(--r3) var(--r4) !important;
+  }
+
+  /* Grid-12 defaults: drop to single column on mobile unless overridden. */
+  .grid-12 {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: var(--r4) !important;
+  }
+
+  /* Min-width: 0 on every grid child so content (like a 640-unit SVG) can't
+     push a 1fr track wider than the viewport. */
+  .grid-12 > *,
+  .with-margin > *,
+  [style*='grid-template-columns'] > * {
+    min-width: 0;
+  }
+
+  /* Everything absolutely should not push the page sideways. */
+  body,
+  main.page {
+    max-width: 100vw;
+    overflow-x: clip;
+  }
+
+  /* Constrain every SVG, image, and video so fixed-width art can't spill. */
+  section svg,
+  section img,
+  section video,
+  section canvas {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Any element that opts into `.scroll-x` or `.tabstrip` scrolls horizontally
+     inside its section on narrow viewports. */
+  .scroll-x,
+  .tabstrip,
+  [role='tablist'] {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  /* Token browser: let it scroll-x on tiny viewports. */
+  section [data-token-browser],
+  section [data-regions-schematic],
+  section [data-platform-code],
+  section [data-specimens-strip] {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Specimen cards / wide cards: the strip itself scrolls; cards keep their
+     design width. */
+  [data-specimens-strip] > * {
+    flex: 0 0 auto;
+  }
+
+  /* Any container with a fixed min-width: safe max-width safety net. */
+  main.page > * {
+    max-width: 100%;
+  }
+
+  /* Inline-style grid overrides — components use style={{gridTemplateColumns:…}}
+     so we match the resulting attribute and force single-column on mobile. */
+  [style*="grid-template-columns: repeat(4"],
+  [style*="grid-template-columns: repeat(3"],
+  [style*="grid-template-columns:5fr"],
+  [style*="grid-template-columns: 5fr"],
+  [style*="grid-template-columns:100px"],
+  [style*="grid-template-columns: 100px"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Specimens strip: horizontal scroll with snap. Cards stay at their
+     design-time width; the parent scrolls. */
+  [style*="scroll-snap-type"] {
+    padding-inline: 0 !important;
+  }
+
+  [style*="scroll-snap-type"] > * {
+    min-width: 80vw;
+    max-width: 92vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: clamp(40px, 12vw, 72px);
+  }
+
+  header nav {
+    max-width: 55%;
+    gap: 14px !important;
+    font-size: 10px !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  .section-label {
+    font-size: 11px !important;
+  }
+
+  pre {
+    font-size: 11px !important;
+  }
 }

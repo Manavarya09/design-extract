@@ -4,3 +4,4 @@ test-output/
 *.log
 .DS_Store
 .vercel/
+.vercel
