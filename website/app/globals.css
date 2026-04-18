@@ -50,6 +50,7 @@
 html {
   background: var(--paper);
   color: var(--ink);
+  color-scheme: light;
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.45;
@@ -59,6 +60,7 @@ html {
 }
 
 body {
+  background: var(--paper);
   min-height: 100dvh;
   overflow-x: hidden;
 }

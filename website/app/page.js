@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <main className="page">
       {/* ── HEAD SLUG ─────────────────────────────────────── */}
-      <header style={{ paddingTop: 'var(--r6)', paddingBottom: 'var(--r7)' }}>
+      <header style={{ paddingTop: 'var(--r4)', paddingBottom: 'var(--r5)' }}>
         <div
           style={{
             display: 'flex',
@@ -44,7 +44,7 @@ export default function Home() {
       </header>
 
       {/* ── §00 HERO ──────────────────────────────────────── */}
-      <section id="extract" style={{ paddingBlock: 'var(--r10) var(--r9)', borderTop: 0 }}>
+      <section id="extract" style={{ paddingBlock: 'var(--r7) var(--r8)', borderTop: 0 }}>
         <div className="with-margin">
           <div>
             <div className="section-label" style={{ marginBottom: 'var(--r6)' }}>
