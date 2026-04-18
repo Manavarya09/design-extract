@@ -1,6 +1,7 @@
 import Rule from './components/Rule';
 import Marginalia from './components/Marginalia';
 import HeroExtractor from './components/HeroExtractor';
+import TokenBrowser from './components/TokenBrowser';
 
 export default function Home() {
   return (
@@ -84,12 +85,7 @@ export default function Home() {
       <section id="features">
         <Rule number="01" label="DTCG token browser" />
         <div style={{ padding: 'var(--r6) 0' }}>
-          <h2 className="display">Aliases, not values.</h2>
-          <p className="prose" style={{ marginTop: 'var(--r4)', fontSize: 18 }}>
-            v7.0 writes tokens in W3C DTCG. Semantic paths resolve to primitive
-            hexes through <code className="mono">{'{primitive.color.brand.primary}'}</code>.
-            Interactive browser ships in the next pass.
-          </p>
+          <TokenBrowser />
         </div>
       </section>
 
