@@ -24,6 +24,7 @@ import { clusterComponents } from './extractors/component-clusters.js';
 import { extractModernCss } from './extractors/modern-css.js';
 import { extractWideGamut } from './extractors/wide-gamut.js';
 import { extractTokenSources } from './extractors/token-sources.js';
+import { extractInteractionStates } from './extractors/interaction-states.js';
 
 function safeExtract(fn, ...args) {
   try { return fn(...args); } catch { return null; }
@@ -33,6 +34,7 @@ export async function extractDesignLanguage(url, options = {}) {
   const rawData = await crawlPage(url, {
     ...options,
     ignore: options.ignore,
+    deepInteract: options.deepInteract,
   });
   const styles = rawData.light.computedStyles;
   const warnings = [];
@@ -69,6 +71,7 @@ export async function extractDesignLanguage(url, options = {}) {
     modernCss: safeExtract(extractModernCss, rawData) || { pseudoElements: { count: 0, samples: [] }, variableFonts: { count: 0, axes: [] }, openTypeFeatures: [], textWrap: { wrap: [], decorationStyle: [], decorationThickness: [], underlineOffset: [] }, containerQueries: { count: 0, rules: [] }, envUsage: [] },
     wideGamut: safeExtract(extractWideGamut, rawData.light.modernColors || []) || { oklch: { count: 0, samples: [] }, oklab: { count: 0, samples: [] }, colorMix: { count: 0, samples: [] }, lightDark: { count: 0, samples: [] }, displayP3: { count: 0, samples: [] }, rec2020: { count: 0, samples: [] }, totalCount: 0 },
     tokenSources: [],
+    interactionStates: safeExtract(extractInteractionStates, rawData.interactState || rawData.light.interactState) || { scrollSettled: false, menusOpened: 0, hover: { sampled: 0, changed: 0, deltas: [] }, accordionsOpened: 0, modals: [] },
     score: null,
   };
 

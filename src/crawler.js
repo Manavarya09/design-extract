@@ -23,6 +23,7 @@ export async function crawlPage(url, options = {}) {
     cookies, headers, ignore,
     insecure = false,
     userAgent,
+    deepInteract = false,
   } = options;
 
   const launchArgs = [
@@ -89,8 +90,16 @@ export async function crawlPage(url, options = {}) {
     }
 
     const title = await page.title();
+
+    // Auto-interact pass (Tier 2): scroll, open menus, hover, open accordions & a first modal.
+    let interactState = null;
+    if (deepInteract) {
+      interactState = await runInteractionPass(page).catch(() => null);
+    }
+
     const lightData = await extractPageData(page, ignore);
     lightData.cssCoverage = cssCoverage;
+    if (interactState) lightData.interactState = interactState;
 
     // Component screenshots
     let componentScreenshots = {};
@@ -153,6 +162,7 @@ export async function crawlPage(url, options = {}) {
       url, title,
       light: lightData,
       dark: darkData,
+      interactState,
       pagesAnalyzed: 1 + additionalPages.length,
       componentScreenshots,
     };
@@ -226,6 +236,137 @@ export async function captureComponentScreenshots(page, outDir) {
   } catch { /* skip */ }
 
   return result;
+}
+
+async function snapshotSelector(page, selector) {
+  try {
+    return await page.evaluate((sel) => {
+      const el = document.querySelector(sel);
+      if (!el) return null;
+      const cs = getComputedStyle(el);
+      return {
+        color: cs.color, backgroundColor: cs.backgroundColor,
+        borderColor: cs.borderColor, boxShadow: cs.boxShadow,
+        transform: cs.transform, opacity: cs.opacity,
+        outline: cs.outline, textDecoration: cs.textDecoration,
+      };
+    }, selector);
+  } catch { return null; }
+}
+
+async function runInteractionPass(page) {
+  const state = {
+    scrollSettled: false,
+    menusOpened: 0,
+    hoverSamples: [],
+    accordionsOpened: 0,
+    modals: [],
+  };
+
+  // 1) Full-page scroll in 4 steps to trigger lazy-load + scroll-linked animations
+  try {
+    for (let i = 1; i <= 4; i++) {
+      await page.evaluate((step) => {
+        const h = document.body.scrollHeight;
+        window.scrollTo(0, (h * step) / 4);
+      }, i).catch(() => {});
+      await page.waitForTimeout(300);
+      await page.waitForLoadState('networkidle', { timeout: 2000 }).catch(() => {});
+    }
+    await page.evaluate(() => window.scrollTo(0, 0)).catch(() => {});
+    await page.waitForTimeout(200);
+    state.scrollSettled = true;
+  } catch { /* ignore */ }
+
+  // 2) Open menus / dropdowns
+  try {
+    const triggers = await page.$$('nav [aria-haspopup], [aria-expanded="false"], .menu-toggle, .hamburger, [data-menu]');
+    for (const t of triggers.slice(0, 5)) {
+      try {
+        await t.click({ timeout: 1000, trial: false });
+        state.menusOpened++;
+      } catch { /* ignore */ }
+    }
+    await page.waitForTimeout(400);
+  } catch { /* ignore */ }
+
+  // 3) Hover up to 6 buttons + 6 links with style diffs
+  try {
+    const btnSelectors = await page.evaluate(() => {
+      const arr = [];
+      const btns = Array.from(document.querySelectorAll('button')).slice(0, 6);
+      btns.forEach((el, i) => arr.push(`button:nth-of-type(${i + 1})`));
+      return arr;
+    });
+    const linkSelectors = await page.evaluate(() => {
+      const arr = [];
+      const links = Array.from(document.querySelectorAll('a[href]')).slice(0, 6);
+      links.forEach((el, i) => arr.push(`a[href]:nth-of-type(${i + 1})`));
+      return arr;
+    });
+    const samples = [...(btnSelectors || []), ...(linkSelectors || [])].slice(0, 12);
+    for (const sel of samples) {
+      const before = await snapshotSelector(page, sel);
+      if (!before) continue;
+      try {
+        await page.hover(sel, { timeout: 500 });
+        await page.waitForTimeout(100);
+        const after = await snapshotSelector(page, sel);
+        if (after) state.hoverSamples.push({ selector: sel, before, after });
+      } catch { /* ignore */ }
+    }
+  } catch { /* ignore */ }
+
+  // 4) Accordions / details
+  try {
+    const accs = await page.$$('details, [role="tab"], [data-accordion]');
+    for (const a of accs.slice(0, 6)) {
+      try {
+        await a.click({ timeout: 800 });
+        state.accordionsOpened++;
+      } catch { /* ignore */ }
+    }
+    await page.waitForTimeout(200);
+  } catch { /* ignore */ }
+
+  // 5) First triggerable modal / dialog
+  try {
+    const candidates = await page.$$('button, a[role="button"]');
+    let triggered = false;
+    for (const c of candidates.slice(0, 30)) {
+      if (triggered) break;
+      try {
+        const txt = (await c.innerText({ timeout: 500 }).catch(() => '')) || '';
+        if (!/sign\s*in|log\s*in|menu|open|subscribe/i.test(txt)) continue;
+        await c.click({ timeout: 2000 });
+        await page.waitForTimeout(600);
+        const snapshot = await page.evaluate(() => {
+          const dlg = document.querySelector('dialog[open], [role="dialog"], [aria-modal="true"]');
+          if (!dlg) return null;
+          const cs = getComputedStyle(dlg);
+          const r = dlg.getBoundingClientRect();
+          return {
+            tag: dlg.tagName.toLowerCase(),
+            role: dlg.getAttribute('role') || '',
+            bg: cs.backgroundColor,
+            color: cs.color,
+            boxShadow: cs.boxShadow,
+            borderRadius: cs.borderRadius,
+            width: r.width,
+            height: r.height,
+          };
+        });
+        if (snapshot) {
+          state.modals.push({ trigger: txt.slice(0, 60), snapshot });
+          triggered = true;
+        }
+        await page.keyboard.press('Escape').catch(() => {});
+        await page.waitForTimeout(200);
+      } catch { /* ignore */ }
+    }
+  } catch { /* ignore */ }
+
+  return state;
 }
 
 async function extractPageData(page, ignoreSelectors) {

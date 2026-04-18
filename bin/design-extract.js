@@ -63,7 +63,8 @@ program
   .option('--framework <type>', 'generate framework theme (react, shadcn, vue, svelte)')
   .option('--responsive', 'capture design at multiple breakpoints')
   .option('--interactions', 'capture hover/focus/active states')
-  .option('--full', 'enable all extra captures (screenshots, responsive, interactions)')
+  .option('--deep-interact', 'auto-interact pass: scroll, open menus/modals/accordions, hover CTAs (implies --interactions)')
+  .option('--full', 'enable all extra captures (screenshots, responsive, interactions, deep-interact)')
   .option('--cookie <cookies...>', 'cookies for authenticated pages (name=value)')
   .option('--cookie-file <path>', 'load cookies from JSON, Playwright storageState, or Netscape cookies.txt')
   .option('--header <headers...>', 'custom headers (name:value)')
@@ -152,6 +153,7 @@ program
         headers: Object.keys(headers).length > 0 ? headers : undefined,
         insecure: merged.insecure || false,
         userAgent: merged.userAgent,
+        deepInteract: merged.deepInteract || merged.full,
       });
 
       // Responsive capture
