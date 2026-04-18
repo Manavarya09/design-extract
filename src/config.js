@@ -33,5 +33,26 @@ export function mergeConfig(cliOpts, config) {
     header: cliOpts.header || config.headers,
     out: cliOpts.out || config.out || './design-extract-output',
     tokensLegacy: cliOpts.tokensLegacy || config.tokensLegacy || false,
+    platforms: parsePlatforms(cliOpts.platforms ?? config.platforms ?? 'web'),
   };
+}
+
+// Normalize the --platforms value into an array. Accepts comma-separated strings
+// or an existing array. Expands "all" to the full list. Always ensures "web"
+// remains included (v7.0: --platforms is additive, web is not disabled).
+export function parsePlatforms(value) {
+  const KNOWN = ['web', 'ios', 'android', 'flutter', 'wordpress'];
+  let list;
+  if (Array.isArray(value)) list = value.slice();
+  else if (typeof value === 'string') list = value.split(',').map((s) => s.trim()).filter(Boolean);
+  else list = ['web'];
+
+  const expanded = new Set();
+  for (const item of list) {
+    const v = item.toLowerCase();
+    if (v === 'all') KNOWN.forEach((k) => expanded.add(k));
+    else if (KNOWN.includes(v)) expanded.add(v);
+  }
+  expanded.add('web'); // web is always emitted in v7.0
+  return KNOWN.filter((k) => expanded.has(k));
 }
