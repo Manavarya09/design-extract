@@ -9,6 +9,7 @@ import { extractDesignLanguage } from '../src/index.js';
 import { refineWithSmart } from '../src/classifiers/smart.js';
 import { crawlCanonicalPages } from '../src/multipage.js';
 import { extractLogo } from '../src/extractors/logo.js';
+import { captureComponentScreenshotsV10 } from '../src/extractors/component-screenshots.js';
 import { buildPromptPack } from '../src/formatters/prompt-pack.js';
 import { formatMarkdown } from '../src/formatters/markdown.js';
 import { formatTokens } from '../src/formatters/tokens.js';
@@ -52,7 +53,7 @@ const program = new Command();
 program
   .name('designlang')
   .description('Extract the complete design language from any website')
-  .version('10.0.0');
+  .version('10.1.0');
 
 // ── Main command: extract ──────────────────────────────────────
 program
@@ -220,6 +221,18 @@ program
         } catch (e) { design.logo = { found: false, error: e.message }; }
       }
 
+      // v10.1: cluster-aware retina component screenshots.
+      if (merged.full || merged.screenshots) {
+        spinner.text = 'Capturing component screenshots (retina)...';
+        try {
+          design.componentScreenshots = await captureComponentScreenshotsV10(url, outDir, {
+            width: merged.width,
+            height: parseInt(merged.height) || 800,
+            channel: merged.systemChrome ? 'chrome' : undefined,
+          });
+        } catch (e) { design.componentScreenshots = { error: e.message }; }
+      }
+
       // v10: multi-page canonical crawl (pricing/docs/blog/about/product).
       const pagesArg = merged.pages != null ? merged.pages : (merged.full ? 5 : 0);
       if (pagesArg > 0) {
@@ -305,6 +318,9 @@ program
       }
       if (design.multiPage) {
         files.push({ name: `${prefix}-multipage.json`, content: JSON.stringify(design.multiPage, null, 2), label: 'Multi-Page Crawl' });
+      }
+      if (design.componentScreenshots && (design.componentScreenshots.components || []).length) {
+        files.push({ name: `${prefix}-screenshots.json`, content: JSON.stringify(design.componentScreenshots, null, 2), label: 'Component Screenshots index' });
       }
       if (merged.prompts !== false) {
         const pack = buildPromptPack(design);
