@@ -6,6 +6,10 @@ import { resolve, join } from 'path';
 import chalk from 'chalk';
 import ora from 'ora';
 import { extractDesignLanguage } from '../src/index.js';
+import { refineWithSmart } from '../src/classifiers/smart.js';
+import { crawlCanonicalPages } from '../src/multipage.js';
+import { extractLogo } from '../src/extractors/logo.js';
+import { buildPromptPack } from '../src/formatters/prompt-pack.js';
 import { formatMarkdown } from '../src/formatters/markdown.js';
 import { formatTokens } from '../src/formatters/tokens.js';
 import { formatDtcgTokens } from '../src/formatters/dtcg-tokens.js';
@@ -48,7 +52,7 @@ const program = new Command();
 program
   .name('designlang')
   .description('Extract the complete design language from any website')
-  .version('9.0.0');
+  .version('10.0.0');
 
 // ── Main command: extract ──────────────────────────────────────
 program
@@ -77,6 +81,9 @@ program
   .option('--tokens-legacy', 'Emit pre-v7 flat token JSON (backward compat)')
   .option('--platforms <csv>', 'Additional platforms: web,ios,android,flutter,wordpress,all (web is always emitted)', 'web')
   .option('--emit-agent-rules', 'Emit Cursor/Claude Code/generic agent rules')
+  .option('--smart', 'use optional LLM fallback when heuristic classifiers have low confidence (needs OPENAI_API_KEY or ANTHROPIC_API_KEY)')
+  .option('--pages <n>', 'crawl N canonical pages (pricing/docs/blog/about/product) in addition to the homepage', parseInt)
+  .option('--no-prompts', 'skip writing the prompt-pack directory')
   .option('--json', 'output raw JSON to stdout (for CI/CD)')
   .option('--json-pretty', 'output formatted JSON to stdout')
   .option('--no-history', 'skip saving to history')
@@ -173,6 +180,65 @@ program
         design.interactions = await captureInteractions(url, { width: merged.width, height: parseInt(merged.height) || 800, wait: merged.wait });
       }
 
+      // v10: optional LLM refinement for low-confidence classifiers.
+      if (merged.smart) {
+        spinner.text = 'Refining classifiers with smart mode...';
+        try {
+          const refined = await refineWithSmart({
+            enabled: true,
+            rawData: design._raw,
+            design,
+            pageIntent: design.pageIntent,
+            sectionRoles: design.sectionRoles,
+            materialLanguage: design.materialLanguage,
+            componentLibrary: design.componentLibrary,
+          });
+          if (refined.applied) {
+            if (refined.updates?.pageIntent) design.pageIntent = { ...design.pageIntent, ...refined.updates.pageIntent };
+            if (refined.updates?.materialLanguage) design.materialLanguage = { ...design.materialLanguage, ...refined.updates.materialLanguage };
+            if (refined.updates?.componentLibrary) design.componentLibrary = { ...design.componentLibrary, ...refined.updates.componentLibrary };
+            design._smart = { provider: refined.provider, errors: refined.errors };
+          } else {
+            design._smart = { skipped: refined.reason };
+          }
+        } catch (e) { design._smart = { error: e.message }; }
+      }
+
+      // v10: logo extraction via a fresh Playwright session.
+      if (merged.full || merged.screenshots) {
+        spinner.text = 'Extracting logo...';
+        try {
+          const { chromium } = await import('playwright');
+          const browser = await chromium.launch({ headless: true, ...(merged.systemChrome && { channel: 'chrome' }) });
+          const ctx = await browser.newContext({ viewport: { width: merged.width, height: parseInt(merged.height) || 800 } });
+          const lp = await ctx.newPage();
+          await lp.goto(url, { waitUntil: 'domcontentloaded', timeout: 20000 }).catch(() => {});
+          await lp.waitForLoadState('networkidle').catch(() => {});
+          mkdirSync(outDir, { recursive: true });
+          design.logo = await extractLogo(lp, outDir, prefix);
+          await browser.close();
+        } catch (e) { design.logo = { found: false, error: e.message }; }
+      }
+
+      // v10: multi-page canonical crawl (pricing/docs/blog/about/product).
+      const pagesArg = merged.pages != null ? merged.pages : (merged.full ? 5 : 0);
+      if (pagesArg > 0) {
+        spinner.text = `Crawling ${pagesArg} canonical pages...`;
+        try {
+          const mp = await crawlCanonicalPages({
+            homepageUrl: url,
+            homepageRawData: design._raw,
+            maxPages: pagesArg,
+            crawlerOptions: { width: merged.width, height: parseInt(merged.height) || 800 },
+            extract: (u, o) => extractDesignLanguage(u, o),
+          });
+          design.multiPage = mp;
+        } catch (e) { design.multiPage = { error: e.message }; }
+      }
+
+      // Drop the internal raw stash before JSON/output serialization.
+      delete design._raw;
+
       // JSON mode: output and exit
       if (jsonMode) {
         const output = opts.jsonPretty ? JSON.stringify(design, null, 2) : JSON.stringify(design);
@@ -229,6 +295,30 @@ program
         files.push({ name: `${prefix}-anatomy.tsx`, content: formatAnatomyStubs(design.componentAnatomy), label: 'Component Anatomy (stubs)' });
       }
       files.push({ name: `${prefix}-voice.json`, content: JSON.stringify(design.voice || {}, null, 2), label: 'Brand Voice' });
+
+      // v10: page intent + section roles + visual DNA + component library + multi-page + prompt pack.
+      files.push({ name: `${prefix}-intent.json`, content: JSON.stringify({ pageIntent: design.pageIntent, sectionRoles: design.sectionRoles }, null, 2), label: 'Page Intent + Section Roles' });
+      files.push({ name: `${prefix}-visual-dna.json`, content: JSON.stringify({ materialLanguage: design.materialLanguage, imageryStyle: design.imageryStyle }, null, 2), label: 'Visual DNA' });
+      files.push({ name: `${prefix}-library.json`, content: JSON.stringify(design.componentLibrary || {}, null, 2), label: 'Component Library Detection' });
+      if (design.logo && design.logo.found) {
+        files.push({ name: `${prefix}-logo.json`, content: JSON.stringify(design.logo, null, 2), label: 'Logo Metadata' });
+      }
+      if (design.multiPage) {
+        files.push({ name: `${prefix}-multipage.json`, content: JSON.stringify(design.multiPage, null, 2), label: 'Multi-Page Crawl' });
+      }
+      if (merged.prompts !== false) {
+        const pack = buildPromptPack(design);
+        const promptsDir = join(outDir, `${prefix}-prompts`);
+        mkdirSync(promptsDir, { recursive: true });
+        writeFileSync(join(promptsDir, 'v0.txt'), pack['v0.txt'], 'utf-8');
+        writeFileSync(join(promptsDir, 'lovable.txt'), pack['lovable.txt'], 'utf-8');
+        writeFileSync(join(promptsDir, 'cursor.md'), pack['cursor.md'], 'utf-8');
+        writeFileSync(join(promptsDir, 'claude-artifacts.md'), pack['claude-artifacts.md'], 'utf-8');
+        for (const r of pack.recipes) {
+          const slug = r.name.replace(/[^a-z0-9]+/gi, '-').toLowerCase() || 'component';
+          writeFileSync(join(promptsDir, `recipe-${slug}.md`), r.content, 'utf-8');
+        }
+      }
 
       for (const file of files) {
         writeFileSync(join(outDir, file.name), file.content, 'utf-8');

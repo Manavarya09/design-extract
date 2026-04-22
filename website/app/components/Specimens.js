@@ -40,14 +40,21 @@ export default function Specimens() {
     styleEl.textContent = `html { transition: --accent var(--accent-transition) ease; } @property --accent { syntax: '<color>'; inherits: true; initial-value: #FF4800; }`;
     document.head.appendChild(styleEl);
 
+    // Only mutate --accent while the specimens strip itself is in the
+    // viewport. Without this gate the card observer fires on mount with all
+    // cards "visible" relative to the strip (its root), so the page-wide
+    // accent flips to the first specimen's brand colour before the user ever
+    // scrolls near this section — hijacking the rest of the page.
+    let stripOnScreen = false;
+
     const io = new IntersectionObserver(
       (entries) => {
+        if (!stripOnScreen) return;
         const visible = entries.filter((e) => e.isIntersecting);
         if (visible.length === 0) {
           root.style.setProperty('--accent', DEFAULT);
           return;
         }
-        // Pick the one with the greatest visibility ratio.
         const top = visible.sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
         const accent = top.target.getAttribute('data-accent') || DEFAULT;
         const safe = contrastsOnPaper(accent) ? accent : '#0A0908';
@@ -56,9 +63,19 @@ export default function Specimens() {
       { root: el, threshold: [0.6] }
     );
 
+    const stripIo = new IntersectionObserver(
+      ([entry]) => {
+        stripOnScreen = entry.isIntersecting;
+        if (!stripOnScreen) root.style.setProperty('--accent', DEFAULT);
+      },
+      { threshold: 0.1 }
+    );
+    stripIo.observe(el);
+
     cards.forEach((c) => io.observe(c));
     return () => {
       io.disconnect();
+      stripIo.disconnect();
       root.style.setProperty('--accent', DEFAULT);
       styleEl.remove();
     };

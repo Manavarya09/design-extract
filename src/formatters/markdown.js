@@ -711,6 +711,97 @@ export function formatMarkdown(design) {
     }
   }
 
+  // ── v10: Page Intent ──
+  if (design.pageIntent && design.pageIntent.type) {
+    lines.push('## Page Intent');
+    lines.push('');
+    lines.push(`**Type:** \`${design.pageIntent.type}\` (confidence ${design.pageIntent.confidence})`);
+    if (design.pageIntent.description) lines.push(`**Description:** ${design.pageIntent.description}`);
+    if (design.pageIntent.alternates?.length) {
+      lines.push('');
+      lines.push('Alternates: ' + design.pageIntent.alternates.map(a => `${a.type} (${a.score})`).join(', '));
+    }
+    lines.push('');
+  }
+
+  // ── v10: Section Roles ──
+  if (design.sectionRoles && design.sectionRoles.sections?.length) {
+    lines.push('## Section Roles');
+    lines.push('');
+    lines.push('Reading order (top→bottom): ' + (design.sectionRoles.readingOrder || []).join(' → '));
+    lines.push('');
+    lines.push('| # | Role | Heading | Confidence |');
+    lines.push('|---|------|---------|------------|');
+    for (const s of design.sectionRoles.sections.slice(0, 20)) {
+      const h = (s.heading || '').replace(/\|/g, '\\|').slice(0, 80);
+      lines.push(`| ${s.index} | ${s.role}${s.subrole ? ` · ${s.subrole}` : ''} | ${h || '—'} | ${s.confidence} |`);
+    }
+    lines.push('');
+  }
+
+  // ── v10: Material Language ──
+  if (design.materialLanguage && design.materialLanguage.label) {
+    lines.push('## Material Language');
+    lines.push('');
+    lines.push(`**Label:** \`${design.materialLanguage.label}\` (confidence ${design.materialLanguage.confidence})`);
+    const m = design.materialLanguage.metrics || {};
+    lines.push('');
+    lines.push('| Metric | Value |');
+    lines.push('|--------|-------|');
+    if (m.saturation != null) lines.push(`| Avg saturation | ${m.saturation} |`);
+    if (m.shadowProfile) lines.push(`| Shadow profile | ${m.shadowProfile} |`);
+    if (m.avgShadowBlur != null) lines.push(`| Avg shadow blur | ${m.avgShadowBlur}px |`);
+    if (m.maxRadius != null) lines.push(`| Max radius | ${m.maxRadius}px |`);
+    if (m.hasBackdropBlur != null) lines.push(`| backdrop-filter in use | ${m.hasBackdropBlur ? 'yes' : 'no'} |`);
+    if (m.gradientCount != null) lines.push(`| Gradients | ${m.gradientCount} |`);
+    lines.push('');
+  }
+
+  // ── v10: Imagery Style ──
+  if (design.imageryStyle && design.imageryStyle.label && design.imageryStyle.label !== 'none') {
+    lines.push('## Imagery Style');
+    lines.push('');
+    lines.push(`**Label:** \`${design.imageryStyle.label}\` (confidence ${design.imageryStyle.confidence})`);
+    const c = design.imageryStyle.counts || {};
+    lines.push(`**Counts:** total ${c.total || 0}, svg ${c.svg || 0}, icon ${c.icon || 0}, screenshot-like ${c.screenshot || 0}, photo-like ${c.photoLike || 0}`);
+    if (design.imageryStyle.dominantAspect) lines.push(`**Dominant aspect:** ${design.imageryStyle.dominantAspect}`);
+    if (design.imageryStyle.radiusProfile) lines.push(`**Radius profile on images:** ${design.imageryStyle.radiusProfile}`);
+    lines.push('');
+  }
+
+  // ── v10: Component Library ──
+  if (design.componentLibrary && design.componentLibrary.library && design.componentLibrary.library !== 'unknown') {
+    lines.push('## Component Library');
+    lines.push('');
+    lines.push(`**Detected:** \`${design.componentLibrary.library}\` (confidence ${design.componentLibrary.confidence})`);
+    if ((design.componentLibrary.evidence || []).length) {
+      lines.push('');
+      lines.push('Evidence:');
+      for (const e of design.componentLibrary.evidence) lines.push(`- ${e}`);
+    }
+    if ((design.componentLibrary.alternates || []).length) {
+      lines.push('');
+      lines.push('Also considered: ' + design.componentLibrary.alternates.map(a => `${a.id} (${a.score})`).join(', '));
+    }
+    lines.push('');
+  }
+
+  // ── v10: Multi-Page Map ──
+  if (design.multiPage && Array.isArray(design.multiPage.pages) && design.multiPage.pages.length) {
+    lines.push('## Multi-Page Map');
+    lines.push('');
+    lines.push('| Page Type | URL | Status |');
+    lines.push('|-----------|-----|--------|');
+    for (const p of design.multiPage.pages) {
+      lines.push(`| ${p.type || '—'} | ${p.url} | ${p.error ? 'error' : 'ok'} |`);
+    }
+    lines.push('');
+    if (design.multiPage.consistency?.shared?.colors?.length) {
+      lines.push(`**Shared colors across pages:** ${design.multiPage.consistency.shared.colors.slice(0, 10).map(c => `\`${c}\``).join(', ')}`);
+      lines.push('');
+    }
+  }
+
   // ── Quick Start ──
   lines.push('## Quick Start');
   lines.push('');

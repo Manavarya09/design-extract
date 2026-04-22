@@ -1,5 +1,47 @@
 # Changelog
 
+## [10.0.0] — 2026-04-22
+
+**The Intent Release.** v9 captured *how* a site looks; v10 captures *what it is* — the semantic layer LLM agents need to rebuild a site faithfully, not just restyle a generic scaffold. Six new extractors, a multi-page crawl orchestrator, an optional smart-classifier LLM fallback, and a ready-to-paste prompt pack. 297/297 tests passing.
+
+### Added — extraction
+
+- **Page Intent classifier** (`src/extractors/page-intent.js`) — labels the crawled URL as `landing` / `pricing` / `docs` / `blog` / `blog-post` / `product` / `about` / `dashboard` / `auth` / `legal`, with URL + title + meta + DOM-shape signals, a confidence score, and ranked alternates.
+- **Section Roles** (`src/extractors/section-roles.js`) — annotates every semantic region with a role (`hero`, `feature-grid`, `logo-wall`, `stats`, `testimonial`, `pricing-table`, `faq`, `steps`, `comparison`, `gallery`, `bento`, `cta`, `footer`), extracts slot copy (headings, lede, CTA counts), and emits reading order.
+- **Material Language** (`src/extractors/material-language.js`) — classifies the visual vocabulary (`glassmorphism` / `neumorphism` / `flat` / `brutalist` / `skeuomorphic` / `material-you` / `soft-ui` / `mixed`) from shadow complexity, backdrop-filter usage, saturation, and geometry.
+- **Imagery Style** (`src/extractors/imagery-style.js`) — fingerprints the imagery (`photography` / `3d-render` / `isometric` / `flat-illustration` / `gradient-mesh` / `icon-only` / `screenshot` / `mixed`), plus dominant aspect ratio and image-radius profile.
+- **Component Library detector** (`src/extractors/component-library.js`) — identifies shadcn/ui, Radix, Headless UI, MUI, Chakra, Mantine, Ant Design, Bootstrap, HeroUI/NextUI, Tailwind UI, Vuetify, or plain Tailwind, with evidence and alternates.
+- **Logo extractor** (`src/extractors/logo.js`) — pulls the site's logo (SVG source or `<img>` bytes) and samples clearspace; writes `*-logo.svg` or `.png` plus `*-logo.json`.
+
+### Added — orchestration
+
+- **Multi-page crawl** (`src/multipage.js`) — `--full` or `--pages <n>` auto-discovers canonical pages from nav (pricing/docs/blog/about/product), runs the full extractor pipeline on each, and emits a cross-page consistency report with shared tokens, per-page uniques, and pairwise Jaccard scores.
+- **Smart classifier fallback** (`src/classifiers/smart.js`) — opt-in `--smart` flag routes low-confidence classifications through the OpenAI or Anthropic API (via `OPENAI_API_KEY` / `ANTHROPIC_API_KEY`). Gracefully no-ops when no key is set. Zero-dep — uses global `fetch`.
+
+### Added — LLM-native outputs
+
+- **Prompt pack** (`src/formatters/prompt-pack.js`) — writes a `*-prompts/` directory with `v0.txt`, `lovable.txt`, `cursor.md`, `claude-artifacts.md`, and atomic `recipe-<component>.md` cards. Tokens, section order, voice, and library guidance are all inlined so one paste is enough.
+- **Markdown sections** (`src/formatters/markdown.js`) — adds Page Intent, Section Roles, Material Language, Imagery Style, Component Library, and (when `--full`) Multi-Page Map sections to `*-design-language.md`.
+
+### Added — output files
+
+- `*-intent.json` — page-type + section-role map
+- `*-visual-dna.json` — material language + imagery style
+- `*-library.json` — component library detection + evidence
+- `*-logo.svg` | `*-logo.png` + `*-logo.json` (with `--full`)
+- `*-multipage.json` — per-page design languages + consistency (with `--full` / `--pages`)
+- `*-prompts/` — prompt pack directory
+
+### New CLI flags
+
+- `--smart` — enable optional LLM refinement for low-confidence classifiers
+- `--pages <n>` — explicitly crawl N canonical pages
+- `--no-prompts` — skip the prompt-pack directory
+
+### Tests
+
+- `tests/v10-features.test.js` — 15 new subtests covering page intent, section roles, component library, material language, imagery style, multi-page discovery, cross-page consistency, and prompt pack. Full suite: 297 passing.
+
 ## [9.0.0] — 2026-04-21
 
 **The Motion & Voice release.** Six new capabilities that push designlang past "extract the paint" and into "extract the *feel*, the *anatomy*, and the *voice*." No competing tool does any of these. All work ships with tests (282/282 passing).

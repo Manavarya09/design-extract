@@ -30,7 +30,7 @@ export default function Home() {
             <img src="/mark.svg" alt="" width={22} height={22} style={{ display: 'block' }} />
             <span className="mono" style={{ fontSize: 13, letterSpacing: '0.02em' }}>
               designlang
-              <span style={{ color: 'var(--ink-3)', marginLeft: 12 }}>v7.0</span>
+              <span style={{ color: 'var(--ink-3)', marginLeft: 12 }}>v10</span>
             </span>
           </span>
           <nav
@@ -89,7 +89,13 @@ export default function Home() {
         <HeroExtractor />
       </section>
 
-      {/* ── §00 v9 — MOTION · ANATOMY · VOICE ─────────────── */}
+      {/* ── §00.5 v10 — INTENT · VISUAL DNA · PROMPT PACK ── */}
+      <section id="v10">
+        <Rule number="00" label="v10 — intent · visual DNA · prompt pack" />
+        <V10Capabilities />
+      </section>
+
+      {/* ── §00.9 v9 — MOTION · ANATOMY · VOICE ──────────── */}
       <section id="v9">
         <Rule number="00" label="v9 — motion · anatomy · voice" />
         <V9Capabilities />
@@ -257,7 +263,7 @@ function InstallTracks() {
 
         {/* Chrome extension */}
         <div className="install-col">
-          <div style={colHead}>track 04 · new in v7.1</div>
+          <div style={colHead}>track 04 · chrome ext</div>
           <h3 className="display" style={colTitle}>Chrome extension</h3>
           <p style={{ fontSize: 14, color: 'var(--ink-2)', marginBottom: 'var(--r3)', maxWidth: '34ch' }}>
             One click from any tab. Opens this page with the URL prefilled.
@@ -380,7 +386,7 @@ function SiteFooter() {
         <div style={{ gridColumn: 'span 3' }}>
           <div style={colHead}>colophon</div>
           <p style={{ fontSize: 12, color: 'var(--ink-3)', fontFamily: 'var(--font-mono)', lineHeight: 1.6 }}>
-            v7.0 · MIT · Manav Arya Singh · 2026.
+            v10 · MIT · Manav Arya Singh · 2026.
           </p>
           <p style={{ fontSize: 11, color: 'var(--ink-3)', marginTop: 10, fontFamily: 'var(--font-mono)', lineHeight: 1.6 }}>
             Set in Fraunces (Undercase), Instrument Sans (Instrument), and JetBrains Mono (JetBrains).
@@ -517,6 +523,181 @@ Verdict: notable-drift (0.24)`,
           <pre style={codeStyle}>{it.code}</pre>
         </div>
       ))}
+    </div>
+  );
+}
+
+function V10Capabilities() {
+  // v10 takes the front page — six new extractors, one orchestrator, one
+  // prompt pack. The design mirrors V9Capabilities but leads with a headline
+  // because v10 is the current release.
+  const items = [
+    {
+      tag: 'A · intent',
+      title: 'Page intent',
+      body: 'A classifier that labels the URL landing / pricing / docs / blog / product / about / dashboard / auth / legal — with confidence and ranked alternates.',
+      code: `type: pricing (0.87)
+signals: url /pricing, $19/mo grid,
+  3 cards, 2 CTAs
+alternates: landing (0.21)`,
+    },
+    {
+      tag: 'B · sections',
+      title: 'Section roles',
+      body: 'Hero, feature-grid, logo-wall, stats, testimonial, pricing-table, faq, steps, comparison, gallery, bento, cta, footer. Plus extracted slot copy and reading order.',
+      code: `reading order:
+  hero → logo-wall → feature-grid
+  → testimonial → pricing-table
+  → faq → cta → footer`,
+    },
+    {
+      tag: 'C · material',
+      title: 'Material language',
+      body: 'Glassmorphism, neumorphism, flat, brutalist, skeuomorphic, material-you, soft-ui — inferred from shadow complexity, backdrop-filter, saturation, and geometry.',
+      code: `label: brutalist (0.78)
+shadow profile: hard (blur 0)
+avg radius: 2px
+saturation: 0.91`,
+    },
+    {
+      tag: 'D · imagery',
+      title: 'Imagery style',
+      body: 'Photography, 3d-render, isometric, flat-illustration, gradient-mesh, icon-only, screenshot — with dominant aspect ratio and image-radius profile.',
+      code: `label: flat-illustration
+svg: 12/14 (86%)
+aspect: square-ish
+radius profile: rounded`,
+    },
+    {
+      tag: 'E · library',
+      title: 'Component library',
+      body: 'Identifies shadcn/ui, Radix, Headless UI, MUI, Chakra, Mantine, Ant Design, Bootstrap, HeroUI/NextUI, Tailwind UI, Vuetify, or plain Tailwind.',
+      code: `library: shadcn/ui (0.82)
+evidence:
+  - shadcn css tokens
+  - radix attributes x 4
+tailwind utility density 71%`,
+    },
+    {
+      tag: 'F · logo',
+      title: 'Logo extraction',
+      body: '--full pulls the live SVG (or raster bytes) and samples clearspace. Writes *-logo.svg and *-logo.json.',
+      code: `kind: svg
+dims: 112 x 28
+aspect: 4.000
+clearspace: 48/32/48/32 px`,
+    },
+    {
+      tag: 'G · multipage',
+      title: 'Multi-page crawl',
+      body: '--full or --pages N auto-discovers pricing / docs / blog / about / product from nav and emits a cross-page consistency report.',
+      code: `pages: 5 (+ homepage)
+shared colors: 17
+pairwise jaccard: 0.82 avg
+per-page uniques flagged`,
+    },
+    {
+      tag: 'H · prompts',
+      title: 'Prompt pack',
+      body: 'Ready-to-paste prompts for v0, Lovable, Cursor, Claude Artifacts. Tokens, section order, voice, and library all inlined so one paste is enough.',
+      code: `*-prompts/
+  v0.txt
+  lovable.txt
+  cursor.md
+  claude-artifacts.md
+  recipe-button.md ...`,
+    },
+    {
+      tag: 'I · smart',
+      title: '--smart classifier',
+      body: 'When heuristic confidence dips below 0.6, optionally route through OpenAI or Anthropic. Zero-dep fetch; no key, no call.',
+      code: `$ designlang <url> --smart
+provider: anthropic
+model: claude-haiku-4-5
+fallback: heuristic (still prints)`,
+    },
+  ];
+
+  const cardStyle = {
+    border: '1px solid var(--ink)',
+    padding: 'var(--r4)',
+    background: 'var(--paper)',
+  };
+  const tagStyle = {
+    fontFamily: 'var(--font-mono)',
+    fontSize: 10,
+    letterSpacing: '0.14em',
+    textTransform: 'uppercase',
+    color: 'var(--accent)',
+    marginBottom: 'var(--r2)',
+    display: 'block',
+  };
+  const titleStyle = {
+    fontSize: 22,
+    lineHeight: 1.1,
+    letterSpacing: '-0.02em',
+    marginBottom: 'var(--r3)',
+  };
+  const bodyStyle = {
+    fontSize: 14,
+    color: 'var(--ink-2)',
+    lineHeight: 1.55,
+    marginBottom: 'var(--r3)',
+  };
+  const codeStyle = {
+    fontFamily: 'var(--font-mono)',
+    fontSize: 11,
+    background: 'var(--ink)',
+    color: 'var(--paper)',
+    padding: 'var(--r2) var(--r3)',
+    display: 'block',
+    overflowX: 'auto',
+    whiteSpace: 'pre',
+  };
+
+  return (
+    <div style={{ padding: 'var(--r5) 0' }}>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'baseline',
+          justifyContent: 'space-between',
+          gap: 'var(--r5)',
+          marginBottom: 'var(--r5)',
+          flexWrap: 'wrap',
+        }}
+      >
+        <h2
+          className="display"
+          style={{ fontSize: 'clamp(40px, 6vw, 72px)', letterSpacing: '-0.03em', lineHeight: 1 }}
+        >
+          The <em style={{ color: 'var(--accent)', fontStyle: 'italic' }}>Intent</em> release.
+        </h2>
+        <p
+          className="prose"
+          style={{ maxWidth: '42ch', fontSize: 16, lineHeight: 1.55, color: 'var(--ink-2)' }}
+        >
+          Everything else captures <em>how</em> a site looks. v10 captures <em>what it is</em> —
+          the semantic layer an LLM needs to rebuild a site faithfully, not just restyle a
+          generic scaffold.
+        </p>
+      </div>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: 'var(--r3)',
+        }}
+      >
+        {items.map((it) => (
+          <div key={it.title} style={cardStyle}>
+            <span style={tagStyle}>{it.tag}</span>
+            <h3 className="display" style={titleStyle}>{it.title}</h3>
+            <p style={bodyStyle}>{it.body}</p>
+            <pre style={codeStyle}>{it.code}</pre>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

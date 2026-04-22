@@ -28,6 +28,11 @@ import { extractInteractionStates } from './extractors/interaction-states.js';
 import { extractMotion } from './extractors/motion.js';
 import { extractComponentAnatomy, formatAnatomyStubs } from './extractors/component-anatomy.js';
 import { extractVoice } from './extractors/voice.js';
+import { extractPageIntent } from './extractors/page-intent.js';
+import { extractSectionRoles } from './extractors/section-roles.js';
+import { extractComponentLibrary } from './extractors/component-library.js';
+import { extractMaterialLanguage } from './extractors/material-language.js';
+import { extractImageryStyle } from './extractors/imagery-style.js';
 import { formatDtcgTokens } from './formatters/dtcg-tokens.js';
 import { formatMotionTokens } from './formatters/motion-tokens.js';
 
@@ -125,6 +130,17 @@ export async function extractDesignLanguage(url, options = {}) {
 
   design.tokenSources = safeExtract(extractTokenSources, design, styles) || [];
 
+  // v10: page intent, section roles, component library, material language,
+  // imagery style. All additive — no existing field is modified.
+  design.pageIntent = safeExtract(extractPageIntent, rawData, { url: rawData.url, title: rawData.title }) || { type: 'unknown', confidence: 0, signals: [] };
+  design.sectionRoles = safeExtract(extractSectionRoles, rawData.light?.sections || [], design.regions, design.pageIntent) || { sections: [], counts: {}, readingOrder: [] };
+  design.componentLibrary = safeExtract(extractComponentLibrary, rawData.light?.stack || {}) || { library: 'unknown', confidence: 0, evidence: [], alternates: [] };
+  design.materialLanguage = safeExtract(extractMaterialLanguage, design) || { label: 'flat', confidence: 0, signals: [], metrics: {} };
+  design.imageryStyle = safeExtract(extractImageryStyle, rawData.light?.images || []) || { label: 'none', confidence: 0, counts: {}, signals: [] };
+  // Stash raw crawler output so downstream orchestration (multipage, smart)
+  // can rebuild the digest without re-crawling.
+  design._raw = rawData;
+
   // Per-route token extraction (Tier 2 multi-page reconciliation).
   if (Array.isArray(rawData.routes) && rawData.routes.length > 0) {
     design.routes = rawData.routes.map(r => {
@@ -179,3 +195,13 @@ export { extractVoice } from './extractors/voice.js';
 export { lintTokens } from './lint.js';
 export { checkDrift, formatDriftMarkdown } from './drift.js';
 export { visualDiff, formatVisualDiffHtml } from './visual-diff.js';
+// v10
+export { extractPageIntent } from './extractors/page-intent.js';
+export { extractSectionRoles } from './extractors/section-roles.js';
+export { extractComponentLibrary } from './extractors/component-library.js';
+export { extractMaterialLanguage } from './extractors/material-language.js';
+export { extractImageryStyle } from './extractors/imagery-style.js';
+export { extractLogo } from './extractors/logo.js';
+export { refineWithSmart } from './classifiers/smart.js';
+export { crawlCanonicalPages, computeCrossPageConsistency, discoverCanonicalPages } from './multipage.js';
+export { buildPromptPack, formatV0Prompt, formatLovablePrompt, formatCursorPrompt, formatClaudeArtifactPrompt } from './formatters/prompt-pack.js';
