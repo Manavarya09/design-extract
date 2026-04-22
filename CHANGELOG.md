@@ -1,5 +1,25 @@
 # Changelog
 
+## [10.1.0] — 2026-04-22
+
+**Component screenshots.** The existing `--screenshots` flag now emits cluster-aware, retina (2×), multi-variant PNGs instead of five hardcoded selectors and a full-page image.
+
+### Added
+
+- **`src/extractors/component-screenshots.js`** — queries the live DOM with the same candidate selector the crawler uses, groups matches by `kind + variantHint + sizeHint`, and captures up to three representatives per group. Falls back to the v9 hardcoded list when no clusters produced anything (auth / docs pages).
+- Retina capture via a dedicated Playwright context at `deviceScaleFactor: 2`.
+- **`*-screenshots.json`** — index file mapping every cropped PNG to its cluster name, variant, bounds, and fallback flag.
+- Markdown formatter gains a **Component Screenshots** section listing the first 20 crops.
+
+### Behaviour
+
+- No new CLI flags. `--screenshots` and `--full` continue to opt into capture.
+- Backward compatible — when no clusters match, the v9 hardcoded selector set still fires.
+
+### Tests
+
+297 → **299** passing.
+
 ## [10.0.0] — 2026-04-22
 
 **The Intent Release.** v9 captured *how* a site looks; v10 captures *what it is* — the semantic layer LLM agents need to rebuild a site faithfully, not just restyle a generic scaffold. Six new extractors, a multi-page crawl orchestrator, an optional smart-classifier LLM fallback, and a ready-to-paste prompt pack. 297/297 tests passing.

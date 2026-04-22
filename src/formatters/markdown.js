@@ -802,6 +802,24 @@ export function formatMarkdown(design) {
     }
   }
 
+  // ── v10.1: Component Screenshots ──
+  if (design.componentScreenshots && Array.isArray(design.componentScreenshots.components) && design.componentScreenshots.components.length) {
+    lines.push('## Component Screenshots');
+    lines.push('');
+    lines.push(`${design.componentScreenshots.components.length} retina crops written to \`screenshots/\`. Index: \`*-screenshots.json\`.`);
+    lines.push('');
+    lines.push('| Cluster | Variant | Size (px) | File |');
+    lines.push('|---------|---------|-----------|------|');
+    for (const c of design.componentScreenshots.components.slice(0, 20)) {
+      lines.push(`| ${c.cluster} | ${c.variant} | ${c.bounds?.w || '?'} × ${c.bounds?.h || '?'} | \`${c.path}\` |`);
+    }
+    if (design.componentScreenshots.fullPage) {
+      lines.push('');
+      lines.push(`Full-page: \`${design.componentScreenshots.fullPage.path}\``);
+    }
+    lines.push('');
+  }
+
   // ── Quick Start ──
   lines.push('## Quick Start');
   lines.push('');

@@ -18,9 +18,9 @@ describe('CLI', () => {
     assert.ok(output.trim().match(/^\d+\.\d+\.\d+$/));
   });
 
-  it('shows version number 10.0.0', () => {
+  it('shows version number 10.1.0', () => {
     const output = execFileSync('node', [CLI_PATH, '--version'], { encoding: 'utf-8' });
-    assert.equal(output.trim(), '10.0.0');
+    assert.equal(output.trim(), '10.1.0');
   });
 
   it('exits with error when no arguments provided', () => {
