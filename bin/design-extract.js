@@ -1,8 +1,12 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import { mkdirSync, writeFileSync } from 'fs';
-import { resolve, join } from 'path';
+import { mkdirSync, writeFileSync, readFileSync } from 'fs';
+import { resolve, join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const PKG_VERSION = JSON.parse(readFileSync(resolve(__dirname, '..', 'package.json'), 'utf-8')).version;
 import chalk from 'chalk';
 import ora from 'ora';
 import { extractDesignLanguage } from '../src/index.js';
@@ -56,7 +60,7 @@ const program = new Command();
 program
   .name('designlang')
   .description('Extract the complete design language from any website')
-  .version('10.3.0');
+  .version(PKG_VERSION);
 
 // ── Main command: extract ──────────────────────────────────────
 program
@@ -343,7 +347,7 @@ program
 
       // v10: page intent + section roles + visual DNA + component library + multi-page + prompt pack.
       files.push({ name: `${prefix}-intent.json`, content: JSON.stringify({ pageIntent: design.pageIntent, sectionRoles: design.sectionRoles }, null, 2), label: 'Page Intent + Section Roles' });
-      files.push({ name: `${prefix}-visual-dna.json`, content: JSON.stringify({ materialLanguage: design.materialLanguage, imageryStyle: design.imageryStyle }, null, 2), label: 'Visual DNA' });
+      files.push({ name: `${prefix}-visual-dna.json`, content: JSON.stringify({ materialLanguage: design.materialLanguage, imageryStyle: design.imageryStyle, backgroundPatterns: design.backgroundPatterns }, null, 2), label: 'Visual DNA' });
       files.push({ name: `${prefix}-library.json`, content: JSON.stringify(design.componentLibrary || {}, null, 2), label: 'Component Library Detection' });
       if (design.logo && design.logo.found) {
         files.push({ name: `${prefix}-logo.json`, content: JSON.stringify(design.logo, null, 2), label: 'Logo Metadata' });
@@ -365,6 +369,12 @@ program
       }
       if (design.perf && !design.perf.error) {
         files.push({ name: `${prefix}-perf.json`, content: JSON.stringify(design.perf, null, 2), label: 'Perf + Bundle' });
+      }
+      if (design.iconSystem && (design.iconSystem.icons || []).length) {
+        files.push({ name: `${prefix}-icon-system.json`, content: JSON.stringify(design.iconSystem, null, 2), label: 'Icon System' });
+      }
+      if (design.stackIntel) {
+        files.push({ name: `${prefix}-stack-intel.json`, content: JSON.stringify(design.stackIntel, null, 2), label: 'Stack Intel (CMS/analytics/experimentation)' });
       }
       if (merged.prompts !== false) {
         const pack = buildPromptPack(design);

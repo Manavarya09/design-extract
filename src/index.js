@@ -34,6 +34,9 @@ import { extractComponentLibrary } from './extractors/component-library.js';
 import { extractMaterialLanguage } from './extractors/material-language.js';
 import { extractImageryStyle } from './extractors/imagery-style.js';
 import { extractSeo } from './extractors/seo.js';
+import { extractIconSystem } from './extractors/icon-system.js';
+import { extractBackgroundPatterns } from './extractors/background-patterns.js';
+import { extractStackIntel } from './extractors/stack-intel.js';
 import { formatDtcgTokens } from './formatters/dtcg-tokens.js';
 import { formatMotionTokens } from './formatters/motion-tokens.js';
 
@@ -139,6 +142,9 @@ export async function extractDesignLanguage(url, options = {}) {
   design.materialLanguage = safeExtract(extractMaterialLanguage, design) || { label: 'flat', confidence: 0, signals: [], metrics: {} };
   design.imageryStyle = safeExtract(extractImageryStyle, rawData.light?.images || []) || { label: 'none', confidence: 0, counts: {}, signals: [] };
   design.seo = safeExtract(extractSeo, rawData) || { openGraph: {}, twitter: {}, structuredData: [], score: {} };
+  design.iconSystem = safeExtract(extractIconSystem, rawData.light?.icons || []) || { library: 'unknown', confidence: 0, stats: {}, signals: [], icons: [] };
+  design.backgroundPatterns = safeExtract(extractBackgroundPatterns, rawData) || { labels: ['plain'], counts: {}, gradientTotals: {}, samples: [] };
+  design.stackIntel = safeExtract(extractStackIntel, rawData.light?.stack || {}) || { cms: [], analytics: [], experimentation: [] };
   // Stash raw crawler output so downstream orchestration (multipage, smart)
   // can rebuild the digest without re-crawling.
   design._raw = rawData;
@@ -209,6 +215,9 @@ export { pairDarkMode } from './extractors/dark-mode-pair.js';
 export { captureResponsiveScreenshots } from './extractors/responsive-screenshots.js';
 export { captureCoreWebVitals, extractFontLoading } from './extractors/perf.js';
 export { extractSeo } from './extractors/seo.js';
+export { extractIconSystem } from './extractors/icon-system.js';
+export { extractBackgroundPatterns } from './extractors/background-patterns.js';
+export { extractStackIntel } from './extractors/stack-intel.js';
 export { refineWithSmart } from './classifiers/smart.js';
 export { crawlCanonicalPages, computeCrossPageConsistency, discoverCanonicalPages } from './multipage.js';
 export { buildPromptPack, formatV0Prompt, formatLovablePrompt, formatCursorPrompt, formatClaudeArtifactPrompt } from './formatters/prompt-pack.js';

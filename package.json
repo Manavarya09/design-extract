@@ -1,6 +1,6 @@
 {
   "name": "designlang",
-  "version": "10.3.0",
+  "version": "10.4.0",
   "description": "Extract the complete design language from any website — colors, typography, spacing, shadows, motion, component anatomy, brand voice, page intent, section roles, material language, component library, imagery style, and logo. Outputs AI-optimized markdown, W3C design tokens, motion tokens, typed component stubs, Tailwind config, and ready-to-paste v0 / Lovable / Cursor / Claude-Artifacts prompts.",
   "type": "module",
   "bin": {

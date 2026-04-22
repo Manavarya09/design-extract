@@ -1,5 +1,17 @@
 # Changelog
 
+## [10.4.0] — 2026-04-22
+
+**Identification trio: icon system, background patterns, stack intel.**
+
+### Added
+
+- **`src/extractors/icon-system.js`** — fingerprints the icon library (Lucide / Heroicons outline+solid / Phosphor / Tabler / Feather / Remix / Material) from stroke vs fill dominance, stroke width, grid size, and rounded-caps presence. Emits per-icon hints agents can act on.
+- **`src/extractors/background-patterns.js`** — classifies noise / dot-grid / line-grid / gradient-mesh / svg-pattern / plain from computed `background-image` values. Merged into `*-visual-dna.json`.
+- **`src/extractors/stack-intel.js`** — extends the existing stack-fingerprint with 12 CMSs (Webflow, Framer, Shopify, Ghost, Sanity, Contentful, Wix, Squarespace, WordPress, Hashnode, Notion, Bubble), 13 analytics platforms, and 7 experimentation platforms.
+- Bin reads its own version from `package.json` — no more per-release version drift in the CLI.
+- New outputs: `*-icon-system.json`, `*-stack-intel.json`.
+
 ## [10.3.0] — 2026-04-22
 
 **Perf + SEO.** designlang now doubles as a lightweight auditor.
