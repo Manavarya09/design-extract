@@ -127,11 +127,11 @@ function typeSet(typography) {
 }
 
 function spaceSet(spacing) {
-  return new Set(((spacing?.scale) || []).map(s => (s.value || s).toString()));
+  return new Set(((spacing?.scale) || []).map(s => String(s.value ?? s)));
 }
 
 function radiusSet(borders) {
-  return new Set(((borders?.radii) || []).map(r => (r.value || r).toString()));
+  return new Set(((borders?.radii) || []).map(r => String(r.value ?? r)));
 }
 
 export function computeCrossPageConsistency(pages) {
