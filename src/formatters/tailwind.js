@@ -1,7 +1,7 @@
 import { rgbToHex, rgbToHsl } from '../utils.js';
 
 function generateColorScale(hex, parsed) {
-  const { h, s } = rgbToHsl(parsed);
+  const { h, s } = parsed.hsl ?? rgbToHsl(parsed.rgb);
   const scale = {};
   const levels = [
     { name: '50', l: 97 }, { name: '100', l: 94 }, { name: '200', l: 86 },
