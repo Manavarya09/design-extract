@@ -84,6 +84,7 @@ program
   .option('--user-agent <ua>', 'override the browser User-Agent string')
   .option('--insecure', 'ignore HTTPS/SSL certificate errors (self-signed, dev, proxies)')
   .option('--ignore <selectors...>', 'CSS selectors to remove before extraction')
+  .option('--ignore-widgets', 'Also ignore a curated list of third-party widgets (Intercom, Drift, HubSpot chat, cookie banners, reCAPTCHA, etc.)  See `designlang widgets`.')
   .option('--selector <css>', 'only extract design from elements matching this CSS selector (e.g. ".pricing-card")')
   .option('--system-chrome', 'use the system Chrome install instead of the bundled Chromium (skips the 150MB Playwright download)')
   .option('--tokens-legacy', 'Emit pre-v7 flat token JSON (backward compat)')
@@ -105,6 +106,11 @@ program
     // Load config file and merge with CLI opts
     const config = loadConfig();
     const merged = mergeConfig(opts, config);
+
+    if (merged.ignoreWidgets || opts.ignoreWidgets) {
+      const { widgetIgnoreList } = await import('../src/widgets.js');
+      merged.ignore = [...(merged.ignore || []), ...widgetIgnoreList()];
+    }
 
     // Validate URL
     validateUrl(url);
@@ -1054,6 +1060,15 @@ program
       spinner.fail(err.message);
       process.exit(1);
     }
+  });
+
+// ── Widgets — print the curated third-party widget ignore list ─
+program
+  .command('widgets')
+  .description('Print the curated widget-ignore selector list used by --ignore-widgets')
+  .action(async () => {
+    const { WIDGET_SELECTORS } = await import('../src/widgets.js');
+    for (const s of WIDGET_SELECTORS) console.log(s);
   });
 
 // ── CI command — single PR-comment-ready report ────────────
