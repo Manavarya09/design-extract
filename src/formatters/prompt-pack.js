@@ -27,6 +27,15 @@ function shadowSnippet(shadows) {
   const s = (shadows?.values || []).slice(0, 3).map(x => (x.value || x).toString());
   return s.length ? s.join(' | ') : '(none)';
 }
+function stringifyShadowEntry(entry) {
+  if (typeof entry === 'string') return entry;
+  if (entry == null) return '';
+  if (typeof entry === 'object') {
+    if (typeof entry.value === 'string') return entry.value;
+    if (typeof entry.raw === 'string') return entry.raw;
+  }
+  return String(entry);
+}
 
 function librarySuggest(library) {
   if (!library || library.library === 'unknown') return null;
@@ -139,7 +148,7 @@ export function formatCursorPrompt(design) {
     `  colors: [${b.colors.map(c => `'${c}'`).join(', ')}],`,
     `  fonts: [${b.fonts.map(f => `'${f}'`).join(', ')}],`,
     `  radii: [${(design.borders?.radii || []).slice(0, 6).map(r => `'${(r.value || r)}'`).join(', ')}],`,
-    `  shadows: [${(design.shadows?.values || []).slice(0, 3).map(s => `'${(s.value || s).replace(/'/g, "\\'")}'`).join(', ')}],`,
+    `  shadows: [${(design.shadows?.values || []).slice(0, 3).map(s => `'${stringifyShadowEntry(s).replace(/'/g, "\\'")}'`).join(', ')}],`,
     '};',
     '```',
     '',
