@@ -14,7 +14,7 @@ import { chromium } from 'playwright';
 import { writeFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 
-const BASE_URL = process.env.ESCRIBA_URL || 'http://localhost:8080';
+const BASE_URL = process.env.ESCRIBA_URL || 'http://localhost:5173/escriba-web/';
 const LOGIN_PATH = process.env.ESCRIBA_LOGIN_PATH || '/login';
 const USERNAME = process.env.ESCRIBA_USER || 'admin2';
 const PASSWORD = process.env.ESCRIBA_PASS || 'admin1234';
