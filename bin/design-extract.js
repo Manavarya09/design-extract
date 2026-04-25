@@ -94,6 +94,7 @@ program
   .option('--smart', 'use optional LLM fallback when heuristic classifiers have low confidence (needs OPENAI_API_KEY or ANTHROPIC_API_KEY)')
   .option('--pages <n>', 'crawl N canonical pages (pricing/docs/blog/about/product) in addition to the homepage', parseInt)
   .option('--no-prompts', 'skip writing the prompt-pack directory')
+  .option('--no-design-md', 'skip writing the agent-native DESIGN.md (single-file, 8-section, YAML front matter)')
   .option('--responsive-shots', 'capture full-page PNGs at 4 breakpoints × (light,dark)')
   .option('--perf', 'measure Core Web Vitals + bundle profile (LCP/CLS/INP, JS/CSS/font/img bytes, third-party count)')
   .option('--json', 'output raw JSON to stdout (for CI/CD)')
@@ -351,6 +352,13 @@ program
         files.push({ name: `${prefix}-anatomy.tsx`, content: formatAnatomyStubs(design.componentAnatomy), label: 'Component Anatomy (stubs)' });
       }
       files.push({ name: `${prefix}-voice.json`, content: JSON.stringify(design.voice || {}, null, 2), label: 'Brand Voice' });
+
+      // v11.2: agent-native single-file DESIGN.md (compatible with the
+      // 8-canonical-section convention; default-on, opt-out via --no-design-md).
+      if (merged.designMd !== false) {
+        const { formatDesignMd } = await import('../src/formatters/design-md.js');
+        files.push({ name: `${prefix}-DESIGN.md`, content: formatDesignMd(design), label: 'DESIGN.md (agent-native)' });
+      }
 
       // v10: page intent + section roles + visual DNA + component library + multi-page + prompt pack.
       files.push({ name: `${prefix}-intent.json`, content: JSON.stringify({ pageIntent: design.pageIntent, sectionRoles: design.sectionRoles }, null, 2), label: 'Page Intent + Section Roles' });

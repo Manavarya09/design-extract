@@ -41,6 +41,7 @@ export default function Home() {
             <a href="#features" style={{ borderBottom: 0 }}>Features</a>
             <a href="#specimens" style={{ borderBottom: 0 }}>Specimens</a>
             <a href="#install" style={{ borderBottom: 0 }}>Install</a>
+            <a href="/vs/design-extractor" style={{ borderBottom: 0, color: 'var(--accent)' }}>vs</a>
             <a href="https://github.com/Manavarya09/design-extract" style={{ borderBottom: 0 }}>GitHub</a>
             <a href="https://www.npmjs.com/package/designlang" style={{ borderBottom: 0 }}>npm</a>
           </nav>
