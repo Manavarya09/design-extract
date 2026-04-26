@@ -34,19 +34,71 @@ function isIPv6Literal(host) {
   return host.includes(':');
 }
 
+// Expand an IPv6 host string to its eight 16-bit pieces. Inlines a dotted-IPv4
+// tail (the WHATWG URL parser may also serialize this back to hex, but we
+// accept either) and resolves "::" by inserting the right number of zero pieces.
+// Returns null on malformed input.
+function expandIPv6(host) {
+  let normalized = host;
+  const dotted = normalized.match(/^(.*:)(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/);
+  if (dotted) {
+    const [, prefix, a, b, c, d] = dotted;
+    const hi = (((+a) & 0xff) << 8) | ((+b) & 0xff);
+    const lo = (((+c) & 0xff) << 8) | ((+d) & 0xff);
+    normalized = `${prefix}${hi.toString(16)}:${lo.toString(16)}`;
+  }
+  let parts;
+  if (normalized.includes('::')) {
+    const [left, right] = normalized.split('::', 2);
+    const leftParts = left ? left.split(':') : [];
+    const rightParts = right ? right.split(':') : [];
+    const missing = 8 - leftParts.length - rightParts.length;
+    if (missing < 0) return null;
+    parts = [...leftParts, ...Array(missing).fill('0'), ...rightParts];
+  } else {
+    parts = normalized.split(':');
+  }
+  if (parts.length !== 8) return null;
+  if (!parts.every((p) => /^[0-9a-f]{1,4}$/.test(p))) return null;
+  return parts;
+}
+
+function piecesAllZero(parts, start, endExclusive) {
+  for (let i = start; i < endExclusive; i++) {
+    if (parseInt(parts[i], 16) !== 0) return false;
+  }
+  return true;
+}
+
 function isPrivateIPv6(rawHost) {
   const host = stripV6Brackets(rawHost).toLowerCase();
   if (!isIPv6Literal(host)) return false;
-  // Normalize abbreviated forms conservatively.
-  if (host === '::1' || host === '0:0:0:0:0:0:0:1') return true;      // loopback
-  if (host === '::' || host === '0:0:0:0:0:0:0:0') return true;        // unspecified
-  // IPv4-mapped / compat: ::ffff:127.0.0.1 → treat the embedded IPv4
-  const v4mapped = host.match(/::ffff:(\d+\.\d+\.\d+\.\d+)/);
-  if (v4mapped && isPrivateIPv4(v4mapped[1])) return true;
-  // fc00::/7 — unique local addresses (fc.. or fd..)
-  if (/^f[cd][0-9a-f]{0,2}:/.test(host)) return true;
+  const parts = expandIPv6(host);
+  if (!parts) return false;
+
+  // Loopback ::1 and unspecified ::
+  if (piecesAllZero(parts, 0, 7) && parseInt(parts[7], 16) === 1) return true;
+  if (piecesAllZero(parts, 0, 8)) return true;
+  // fc00::/7 — unique local addresses
+  if (/^f[cd][0-9a-f]{0,2}$/.test(parts[0])) return true;
   // fe80::/10 — link-local
-  if (/^fe[89ab][0-9a-f]?:/.test(host)) return true;
+  if (/^fe[89ab][0-9a-f]?$/.test(parts[0])) return true;
+
+  // Embedded IPv4 in the low 32 bits — IPv4-mapped (::ffff:a.b.c.d),
+  // IPv4-compatible (::a.b.c.d, deprecated), NAT64 (64:ff9b::a.b.c.d).
+  // Node's WHATWG URL parser re-serializes the dotted tail as two hex pieces,
+  // so "[::ffff:127.0.0.1]" reaches us as "[::ffff:7f00:1]". The previous
+  // dotted-only regex missed every one of these encodings.
+  const isMapped = piecesAllZero(parts, 0, 5) && parts[5] === 'ffff';
+  const isCompat = piecesAllZero(parts, 0, 6);
+  const isNat64 = parts[0] === '64' && parts[1] === 'ff9b' && piecesAllZero(parts, 2, 6);
+  if (isMapped || isCompat || isNat64) {
+    const hi = parseInt(parts[6], 16);
+    const lo = parseInt(parts[7], 16);
+    const v4 = `${(hi >> 8) & 0xff}.${hi & 0xff}.${(lo >> 8) & 0xff}.${lo & 0xff}`;
+    if (isPrivateIPv4(v4)) return true;
+  }
+
   return false;
 }
 

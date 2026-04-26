@@ -105,6 +105,57 @@ test('rejects IPv6 link-local fe80::', () => {
   assert.equal(r.ok, false);
 });
 
+test('rejects IPv4-mapped IPv6 loopback ::ffff:127.0.0.1', () => {
+  const r = validateTargetUrl('http://[::ffff:127.0.0.1]');
+  assert.equal(r.ok, false);
+});
+
+test('rejects IPv4-mapped IPv6 in hex-piece form ::ffff:7f00:1', () => {
+  // WHATWG URL parser re-serializes "::ffff:127.0.0.1" as "::ffff:7f00:1".
+  const r = validateTargetUrl('http://[::ffff:7f00:1]');
+  assert.equal(r.ok, false);
+});
+
+test('rejects IPv4-mapped IPv6 cloud metadata ::ffff:169.254.169.254', () => {
+  const r = validateTargetUrl('http://[::ffff:169.254.169.254]');
+  assert.equal(r.ok, false);
+});
+
+test('rejects IPv4-mapped IPv6 RFC1918 ::ffff:10.0.0.1', () => {
+  const r = validateTargetUrl('http://[::ffff:10.0.0.1]');
+  assert.equal(r.ok, false);
+});
+
+test('rejects IPv4-compatible IPv6 ::127.0.0.1', () => {
+  const r = validateTargetUrl('http://[::127.0.0.1]');
+  assert.equal(r.ok, false);
+});
+
+test('rejects NAT64 64:ff9b:: with private IPv4 tail', () => {
+  const r = validateTargetUrl('http://[64:ff9b::169.254.169.254]');
+  assert.equal(r.ok, false);
+});
+
+test('rejects fully expanded IPv4-mapped 0:0:0:0:0:ffff:7f00:1', () => {
+  const r = validateTargetUrl('http://[0:0:0:0:0:ffff:7f00:1]');
+  assert.equal(r.ok, false);
+});
+
+test('allows public IPv6 (Google DNS)', () => {
+  const r = validateTargetUrl('http://[2001:4860:4860::8888]');
+  assert.equal(r.ok, true);
+});
+
+test('allows public IPv6 (Cloudflare DNS)', () => {
+  const r = validateTargetUrl('http://[2606:4700:4700::1111]');
+  assert.equal(r.ok, true);
+});
+
+test('allows IPv4-mapped public IPv4 ::ffff:8.8.8.8', () => {
+  const r = validateTargetUrl('http://[::ffff:8.8.8.8]');
+  assert.equal(r.ok, true);
+});
+
 test('rejects empty string', () => {
   const r = validateTargetUrl('');
   assert.equal(r.ok, false);
