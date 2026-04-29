@@ -45,6 +45,7 @@ import { generateClone } from '../src/clone.js';
 import { watchSite } from '../src/watch.js';
 import { diffDarkMode } from '../src/darkdiff.js';
 import { applyDesign } from '../src/apply.js';
+import { formatGrade, formatGradeMarkdown } from '../src/formatters/grade.js';
 import { nameFromUrl } from '../src/utils.js';
 
 function validateUrl(url) {
@@ -929,6 +930,81 @@ program
 
     } catch (err) {
       spinner.fail('Scoring failed');
+      console.error(chalk.red(`\n  ${err.message}\n`));
+      process.exit(1);
+    }
+  });
+
+// ── Grade command — shareable HTML report card ─────────────
+program
+  .command('grade <url>')
+  .description('Generate a shareable Design Report Card (HTML + JSON + Markdown)')
+  .option('-o, --out <dir>', 'output directory', './design-extract-output')
+  .option('-n, --name <name>', 'output file prefix (default: derived from URL)')
+  .option('--format <fmt>', 'output format: html, md, json, all', 'all')
+  .option('--open', 'open the HTML report in the default browser')
+  .action(async (url, opts) => {
+    if (!url.startsWith('http')) url = `https://${url}`;
+    validateUrl(url);
+
+    const spinner = ora('Auditing design system...').start();
+    try {
+      const design = await extractDesignLanguage(url);
+      const s = design.score;
+      if (!s) throw new Error('scoring failed — cannot grade');
+
+      const outDir = resolve(opts.out);
+      mkdirSync(outDir, { recursive: true });
+      const prefix = opts.name || nameFromUrl(url);
+      const written = [];
+
+      if (opts.format === 'all' || opts.format === 'html') {
+        const html = formatGrade(design, { version: PKG_VERSION });
+        const p = join(outDir, `${prefix}.grade.html`);
+        writeFileSync(p, html);
+        written.push(p);
+      }
+      if (opts.format === 'all' || opts.format === 'md') {
+        const md = formatGradeMarkdown(design);
+        const p = join(outDir, `${prefix}.grade.md`);
+        writeFileSync(p, md);
+        written.push(p);
+      }
+      if (opts.format === 'all' || opts.format === 'json') {
+        const p = join(outDir, `${prefix}.grade.json`);
+        writeFileSync(p, JSON.stringify({
+          url: design.meta?.url,
+          title: design.meta?.title,
+          timestamp: design.meta?.timestamp,
+          grade: s.grade,
+          overall: s.overall,
+          scores: s.scores,
+          strengths: s.strengths,
+          issues: s.issues,
+        }, null, 2));
+        written.push(p);
+      }
+
+      spinner.stop();
+      const gradeColor = s.grade === 'A' ? chalk.green : s.grade === 'B' ? chalk.cyan : s.grade === 'C' ? chalk.yellow : chalk.red;
+      console.log('');
+      console.log(`  ${gradeColor.bold(`Grade ${s.grade}`)} ${chalk.gray('·')} ${chalk.bold(`${s.overall}/100`)} ${chalk.gray('·')} ${chalk.gray(url)}`);
+      console.log('');
+      for (const f of written) console.log(`  ${chalk.green('✓')} ${chalk.gray(f)}`);
+      console.log('');
+      console.log(chalk.gray(`  Share: open the .grade.html in a browser, post the URL.`));
+      console.log('');
+
+      if (opts.open) {
+        const htmlPath = written.find(p => p.endsWith('.html'));
+        if (htmlPath) {
+          const { spawn } = await import('child_process');
+          const cmd = process.platform === 'darwin' ? 'open' : process.platform === 'win32' ? 'start' : 'xdg-open';
+          spawn(cmd, [htmlPath], { detached: true, stdio: 'ignore' }).unref();
+        }
+      }
+    } catch (err) {
+      spinner.fail('Grade failed');
       console.error(chalk.red(`\n  ${err.message}\n`));
       process.exit(1);
     }

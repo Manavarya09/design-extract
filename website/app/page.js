@@ -20,7 +20,7 @@ export default function Home() {
             <img src="/mark.svg" alt="" width={22} height={22} style={{ display: 'block' }} />
             <span className="mono" style={{ fontSize: 13, letterSpacing: '0.02em' }}>
               designlang
-              <span style={{ color: 'var(--ink-3)', marginLeft: 12 }}>v12</span>
+              <span style={{ color: 'var(--ink-3)', marginLeft: 12 }}>v12.1</span>
             </span>
           </span>
           <nav
@@ -78,9 +78,10 @@ export default function Home() {
           }}
         >
           {[
-            { num: '01', tag: 'features', headline: 'Every capability, one page', href: '/features' },
-            { num: '02', tag: 'vs', headline: 'vs. design-extractor.com', href: '/vs/design-extractor' },
-            { num: '03', tag: 'install', headline: 'CLI · MCP · agent rules · Chrome', href: '/features#install' },
+            { num: '01', tag: 'new · v12.1', headline: 'Grade any site — shareable report card', href: '/features#grade' },
+            { num: '02', tag: 'features', headline: 'Every capability, one page', href: '/features' },
+            { num: '03', tag: 'vs', headline: 'vs. design-extractor.com', href: '/vs/design-extractor' },
+            { num: '04', tag: 'install', headline: 'CLI · MCP · agent rules · Chrome', href: '/features#install' },
           ].map((c, i) => (
             <a
               key={c.num}
@@ -106,7 +107,7 @@ export default function Home() {
           className="mono"
           style={{ fontSize: 11, color: 'var(--ink-3)', letterSpacing: '0.04em', paddingTop: 'var(--r5)', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}
         >
-          <div>v11.2 · MIT · Manav Arya Singh · 2026</div>
+          <div>v12.1 · MIT · Manav Arya Singh · 2026</div>
           <div>Extracted, not generated.</div>
         </div>
       </section>

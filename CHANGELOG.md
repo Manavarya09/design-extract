@@ -1,5 +1,27 @@
 # Changelog
 
+## [12.1.0] — 2026-04-29
+
+**Design Report Card — a shareable audit page, generated from any URL.**
+
+### Added
+
+- **`designlang grade <url>`** — produces a standalone, self-contained HTML
+  "Design Report Card" alongside JSON and Markdown variants. Letter grade
+  (A–F) hero, eight scored dimensions with arc gauges, evidence pulled from
+  the audited site itself (palette swatches, type specimen, spacing rhythm),
+  and a strengths / what-to-fix ledger. Editorial layout, paper/ink theme
+  with a dark toggle, print-ready, OG-meta for shareable links.
+- New formatter: **`src/formatters/grade.js`** with `formatGrade` (HTML) and
+  `formatGradeMarkdown` exports. Reuses the existing `scoreDesignSystem`
+  output — no scoring changes.
+- Flags: `--format html|md|json|all`, `--open` to launch the report in your
+  browser when it finishes.
+
+Why this exists: html.to.design, Locofy, Builder, Polypane all ship
+extraction or layout cloning. None of them grade the design system itself
+in a form you can post on Twitter or email to a client. This is that.
+
 ## [10.5.0] — 2026-04-22
 
 **The states LLMs always botch.**

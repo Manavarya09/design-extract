@@ -14,6 +14,7 @@ import { formatAndroidCompose } from '../src/formatters/android-compose.js';
 import { formatFlutterDart } from '../src/formatters/flutter-dart.js';
 import { formatWordPressTheme } from '../src/formatters/wordpress.js';
 import { formatAgentRules } from '../src/formatters/agent-rules.js';
+import { formatGrade, formatGradeMarkdown } from '../src/formatters/grade.js';
 
 // ── Shared mock design object ───────────────────────────────────
 
@@ -705,5 +706,57 @@ describe('formatAgentRules', () => {
       assert.ok(out[key].toLowerCase().includes('#0066cc'), `${key} missing resolved hex`);
       assert.ok(!out[key].includes('{primitive.color.brand.primary}'), `${key} leaked raw DTCG ref`);
     }
+  });
+});
+
+// ── formatGrade (Design Report Card) ───────────────────────────
+
+describe('formatGrade', () => {
+  it('returns a self-contained HTML document with the grade letter and score', () => {
+    const html = formatGrade(mockDesign, { version: '12.1.0' });
+    assert.ok(html.startsWith('<!doctype html>'), 'should be a complete HTML document');
+    assert.match(html, /<title>[^<]*Grade B[^<]*<\/title>/);
+    assert.ok(html.includes('class="grade-letter">B<'), 'grade letter should be B');
+    assert.ok(html.includes('85 / 100'), 'overall score should appear');
+    assert.ok(html.includes('example.com'), 'host should appear');
+  });
+
+  it('embeds evidence from the audited design (palette, type, dimensions)', () => {
+    const html = formatGrade(mockDesign);
+    assert.ok(html.includes('#0066cc'), 'palette swatch hex must render');
+    assert.ok(html.includes('Color Discipline'), 'dimension label must render');
+    assert.ok(html.includes('Tight, disciplined color palette'), 'strength must render');
+    assert.ok(html.includes('No CSS custom properties found'), 'issue must render');
+  });
+
+  it('escapes user-controlled content to prevent HTML injection', () => {
+    const malicious = { ...mockDesign, meta: { ...mockDesign.meta, title: '<script>alert(1)</script>' } };
+    const html = formatGrade(malicious);
+    assert.ok(!html.includes('<script>alert(1)'), 'script tag must be escaped');
+    assert.ok(html.includes('&lt;script&gt;'), 'should contain escaped form');
+  });
+
+  it('handles typography scale entries shaped as objects ({size, weight, ...})', () => {
+    // Real extractor output is objects with .size, not raw numbers.
+    const html = formatGrade(mockDesign);
+    assert.ok(!html.includes('font-size:NaN'), 'must not produce NaN sizes');
+    assert.ok(!html.includes('[object Object]'), 'must resolve object→number');
+  });
+
+  it('throws a clear error when score is missing', () => {
+    const noScore = { ...mockDesign, score: null };
+    assert.throws(() => formatGrade(noScore), /score missing/);
+  });
+});
+
+describe('formatGradeMarkdown', () => {
+  it('produces a markdown report with grade, dimensions table, strengths, and fixes', () => {
+    const md = formatGradeMarkdown(mockDesign);
+    assert.match(md, /^# Design Report Card/m);
+    assert.match(md, /\*\*Grade B\*\* · 85\/100/);
+    assert.match(md, /\| Dimension \| Score \| Verdict \|/);
+    assert.match(md, /## Strengths/);
+    assert.match(md, /## What to fix/);
+    assert.match(md, /designlang/);
   });
 });

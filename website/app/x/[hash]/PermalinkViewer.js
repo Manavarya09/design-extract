@@ -48,7 +48,7 @@ export default function PermalinkViewer({ hash, url, title, summary, files }) {
           <a href="/" className="mono" style={{ fontSize: 13, letterSpacing: '0.02em', borderBottom: 0, display: 'inline-flex', alignItems: 'center', gap: 10 }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/mark.svg" alt="" width={22} height={22} style={{ display: 'block' }} />
-            designlang <span style={{ color: 'var(--ink-3)', marginLeft: 12 }}>v12</span>
+            designlang <span style={{ color: 'var(--ink-3)', marginLeft: 12 }}>v12.1</span>
           </a>
           <nav className="mono" style={{ display: 'flex', gap: 'var(--r5)', fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
             <a href="/" style={{ borderBottom: 0 }}>Home</a>

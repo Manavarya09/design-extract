@@ -44,7 +44,7 @@ export default function Features() {
           <a href="/" className="mono" style={{ fontSize: 13, letterSpacing: '0.02em', borderBottom: 0, display: 'inline-flex', alignItems: 'center', gap: 10 }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/mark.svg" alt="" width={22} height={22} style={{ display: 'block' }} />
-            designlang <span style={{ color: 'var(--ink-3)', marginLeft: 12 }}>v11</span>
+            designlang <span style={{ color: 'var(--ink-3)', marginLeft: 12 }}>v12.1</span>
           </a>
           <nav
             className="mono"
@@ -73,27 +73,67 @@ export default function Features() {
         </p>
       </section>
 
-      {/* ── §01 v11 — CLONE · CI · STUDIO ────────────────── */}
+      {/* ── §01 v12.1 — GRADE ────────────────────────────── */}
+      <section id="grade">
+        <Rule number="01" label="v12.1 — grade" />
+        <div style={{ padding: 'var(--r6) 0', display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', gap: 'var(--r6)', alignItems: 'start' }}>
+          <div>
+            <h2 className="display" style={{ fontSize: 'clamp(32px, 4vw, 56px)', letterSpacing: '-0.02em', lineHeight: 1.04, marginBottom: 'var(--r4)' }}>
+              A shareable<br /><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>report card</em> for any site.
+            </h2>
+            <p className="prose" style={{ fontSize: 17, lineHeight: 1.55, color: 'var(--ink-2)', marginBottom: 'var(--r4)', maxWidth: '46ch' }}>
+              <code className="mono">designlang grade &lt;url&gt;</code> emits a self-contained HTML audit page —
+              big serif letter grade, eight scored dimensions, evidence pulled from the site itself
+              (palette, type specimen, spacing rhythm), and a strengths / what-to-fix ledger.
+              Editorial layout, dark-mode toggle, print-ready, OG meta. Post the file. Send it to a client.
+            </p>
+            <pre className="mono" style={{ background: 'var(--ink)', color: 'var(--paper)', padding: 'var(--r4) var(--r5)', fontSize: 13, lineHeight: 1.7, overflowX: 'auto' }}>
+{`$ npx designlang grade https://stripe.com
+
+  Grade B · 87/100 · https://stripe.com
+  ✓ stripe-com.grade.html
+  ✓ stripe-com.grade.md
+  ✓ stripe-com.grade.json`}
+            </pre>
+          </div>
+          <ul className="mono" style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: 12, lineHeight: 1.7, letterSpacing: '0.02em' }}>
+            {[
+              ['8 dimensions', 'color · typography · spacing · elevation · radii · a11y · tokenization · css health'],
+              ['Evidence', 'real palette swatches · type specimen in the site’s own font · spacing rhythm bars'],
+              ['Self-contained', 'one HTML file · no API · no build step · OG meta for shareable links'],
+              ['CI-ready', '--format json | md | html | all · exits 0 with the grade'],
+              ['Themes', 'paper / ink with dark-mode toggle · print-ready'],
+            ].map(([k, v]) => (
+              <li key={k} style={{ paddingBlock: 'var(--r3)', borderTop: '1px solid var(--ink-3)' }}>
+                <span style={{ textTransform: 'uppercase', letterSpacing: '0.14em', color: 'var(--ink-3)', fontSize: 10, display: 'block', marginBottom: 4 }}>{k}</span>
+                <span style={{ color: 'var(--ink)' }}>{v}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* ── §02 v11 — CLONE · CI · STUDIO ────────────────── */}
       <section id="v11">
-        <Rule number="01" label="v11 — clone · ci · studio" />
+        <Rule number="02" label="v11 — clone · ci · studio" />
         <V11Showcase />
       </section>
 
       {/* ── §02 v10 — SEMANTIC INTELLIGENCE ──────────────── */}
       <section id="v10">
-        <Rule number="02" label="v10 — semantic intelligence" />
+        <Rule number="03" label="v10 — semantic intelligence" />
         <V10Capabilities />
       </section>
 
       {/* ── §03 v9 — MOTION · ANATOMY · VOICE ────────────── */}
       <section id="v9">
-        <Rule number="03" label="v9 — motion · anatomy · voice" />
+        <Rule number="04" label="v9 — motion · anatomy · voice" />
         <V9Capabilities />
       </section>
 
       {/* ── §04 DTCG BROWSER ─────────────────────────────── */}
       <section id="tokens">
-        <Rule number="04" label="DTCG token browser" />
+        <Rule number="05" label="DTCG token browser" />
         <div style={{ padding: 'var(--r6) 0' }}>
           <TokenBrowser />
         </div>
@@ -101,13 +141,13 @@ export default function Features() {
 
       {/* ── §05 MCP ──────────────────────────────────────── */}
       <section id="mcp">
-        <Rule number="05" label="MCP server" />
+        <Rule number="06" label="MCP server" />
         <McpSection />
       </section>
 
       {/* ── §06 MULTI-PLATFORM ───────────────────────────── */}
       <section id="platforms">
-        <Rule number="06" label="multi-platform emitters" />
+        <Rule number="07" label="multi-platform emitters" />
         <PlatformTabs />
       </section>
 
