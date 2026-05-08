@@ -34,7 +34,18 @@ export async function runCi(url, opts) {
 
   // 1. Extract
   const { extractDesignLanguage } = await import('./index.js');
-  const design = await extractDesignLanguage(url);
+  let design;
+  try {
+    design = await extractDesignLanguage(url);
+  } catch (err) {
+    out.push(section('Extraction', `_failed — ${err.message}_`));
+    const md = out.join('\n');
+    const mdPath = join(outDir, 'ci-report.md');
+    writeFileSync(mdPath, md, 'utf-8');
+    const summary = { url, score: null, grade: null, driftVerdict: 'unknown', timestamp: new Date().toISOString() };
+    writeFileSync(join(outDir, 'ci-summary.json'), JSON.stringify(summary, null, 2), 'utf-8');
+    return { mdPath, md, summary, shouldFail: true };
+  }
 
   // 2. Score block
   if (design.score) {

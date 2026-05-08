@@ -66,7 +66,12 @@ function findNearest(value, palette) {
 
 export async function checkDrift(url, { tokens: tokensFile, tolerance = 8, options = {} } = {}) {
   const local = loadLocalTokens(tokensFile);
-  const design = await extractDesignLanguage(url, options);
+  let design;
+  try {
+    design = await extractDesignLanguage(url, options);
+  } catch (err) {
+    throw new Error(`Extraction failed for ${url}: ${err.message}`);
+  }
   const livePalette = design.colors?.all || [];
 
   const drifted = [];

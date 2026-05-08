@@ -22,7 +22,12 @@ function toDataUri(p) {
 
 async function captureFor(url, options = {}) {
   const raw = await crawlPage(url, { ...options, screenshots: true });
-  const design = await extractDesignLanguage(url, { ...options, screenshots: true });
+  let design;
+  try {
+    design = await extractDesignLanguage(url, { ...options, screenshots: true });
+  } catch (err) {
+    throw new Error(`Extraction failed for ${url}: ${err.message}`);
+  }
   return { raw, design };
 }
 
