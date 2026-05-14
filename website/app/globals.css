@@ -588,6 +588,12 @@ code, pre, kbd { font-family: var(--ff-mono); font-size: 13px; }
 @keyframes spin { to { transform: rotate(360deg); } }
 .spin { animation: spin 1s linear infinite; }
 
+/* ── Share row (post-extraction CTA) ─────────────────────────── */
+
+.share-row {
+  display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+}
+
 /* ── Copyable command (hero) ─────────────────────────────────── */
 
 .copycmd {

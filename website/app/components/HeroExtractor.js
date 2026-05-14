@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Marginalia from './Marginalia';
 import ResultViewer from './ResultViewer';
+import ShareExtractionButton from './ShareExtractionButton';
 
 const STAGE_LABEL = {
   crawl: 'walking DOM',
@@ -344,6 +345,16 @@ export default function HeroExtractor() {
           onDownloadZip={handleDownload}
           downloadBusy={downloadBusy}
         />
+      )}
+
+      {status === 'done' && (
+        <div style={{ marginTop: 18, paddingTop: 14, borderTop: '1px solid var(--hairline)' }}>
+          <ShareExtractionButton
+            url={inputRef.current?.value || ''}
+            hash={typeof window !== 'undefined' ? window.location.pathname.match(/^\/x\/([\w-]+)/)?.[1] : null}
+            summary={summary}
+          />
+        </div>
       )}
 
       <style jsx>{`
