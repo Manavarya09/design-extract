@@ -1,3 +1,5 @@
+import CopyCmd from '../../components/CopyCmd';
+
 export const metadata = {
   title: 'designlang vs design-extractor.com — honest comparison',
   description:
@@ -86,7 +88,7 @@ export default function Vs() {
               No signup, no API key. The whole CLI lives behind <code className="kbd">npx</code>.
             </p>
             <div className="row" style={{ justifyContent: 'center', flexWrap: 'wrap' }}>
-              <code className="kbd" style={{ fontSize: 13, padding: '8px 14px' }}>npx designlang stripe.com</code>
+              <CopyCmd cmd="npx designlang stripe.com" hint="" />
               <a href="/" className="btn btn-primary">Try it live</a>
             </div>
           </div>

@@ -1,3 +1,5 @@
+import CopyCmd from '../components/CopyCmd';
+
 export const metadata = {
   title: 'Features — designlang',
   description:
@@ -98,7 +100,7 @@ export default function Features() {
             <h2 className="h2" style={{ fontSize: 28 }}>One command.</h2>
             <p className="lede" style={{ margin: '0 auto 20px' }}>Every output above lands in <code className="kbd">./design-extract-output</code> in seconds.</p>
             <div className="row" style={{ justifyContent: 'center', flexWrap: 'wrap' }}>
-              <code className="kbd" style={{ fontSize: 13, padding: '8px 14px' }}>npx designlang stripe.com</code>
+              <CopyCmd cmd="npx designlang stripe.com" hint="" />
               <a href="/" className="btn btn-primary">Try it live</a>
             </div>
           </div>
