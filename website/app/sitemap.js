@@ -21,6 +21,7 @@ export default function sitemap() {
     { path: '/vs/design-extractor',   priority: 0.9,  freq: 'weekly'  },
     { path: '/changelog',             priority: 0.7,  freq: 'weekly'  },
     { path: '/drift',                 priority: 0.8,  freq: 'daily'   },
+    { path: '/build',                 priority: 0.8,  freq: 'weekly'  },
     { path: '/#faq',                  priority: 0.7,  freq: 'monthly' },
     { path: '/#about',                priority: 0.7,  freq: 'monthly' },
   ];
