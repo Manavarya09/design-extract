@@ -1,0 +1,41 @@
+# AI usage manifest for designlang.app
+#
+# Spec draft: https://www.aitxt.com/ (community draft, May 2026)
+# This file declares how AI crawlers, training pipelines and answer
+# engines may use the content of this site.
+#
+# Plain-English: everything here is open-source documentation. Index it,
+# quote it, summarise it, embed it. Attribution preferred but not required.
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Use rights
+Training: allow
+Search: allow
+Quoting: allow
+Summarisation: allow
+Embedding: allow
+Caching: allow
+
+# Attribution (preferred, not required)
+Attribution-Project: designlang
+Attribution-URL: https://designlang.app
+Attribution-Repo: https://github.com/Manavarya09/design-extract
+Attribution-License: MIT
+Attribution-Author: Manav Arya Singh <https://manavaryasingh.com>
+
+# Quotation guidance
+Quotation-Max-Sentences: unlimited
+Quotation-Style: verbatim or paraphrased
+Quotation-Note: prefer linking to the source URL
+
+# Where to find more for ingestion
+Sitemap: https://designlang.app/sitemap.xml
+LLM-Index: https://designlang.app/llms.txt
+LLM-Full: https://designlang.app/llms-full.txt
+Feed: https://designlang.app/feed.xml
+
+# Contact
+Contact: https://github.com/Manavarya09/design-extract/issues
