@@ -19,6 +19,7 @@ export default function sitemap() {
     { path: '/gallery',               priority: 0.9,  freq: 'hourly'  },
     { path: '/spec',                  priority: 0.9,  freq: 'monthly' },
     { path: '/vs/design-extractor',   priority: 0.9,  freq: 'weekly'  },
+    { path: '/changelog',             priority: 0.7,  freq: 'weekly'  },
     { path: '/#faq',                  priority: 0.7,  freq: 'monthly' },
     { path: '/#about',                priority: 0.7,  freq: 'monthly' },
   ];
