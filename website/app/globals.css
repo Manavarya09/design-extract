@@ -629,32 +629,31 @@ code, pre, kbd { font-family: var(--ff-mono); font-size: 13px; }
   .copycmd-hint { display: none; }
 }
 
-/* ── Changelog page ──────────────────────────────────────────── */
+/* ── Drift leaderboard ───────────────────────────────────────── */
 
-.cl-prose { max-width: 70ch; color: var(--fg); padding-bottom: 80px; }
-.cl-prose .cl-h1 { display: none; } /* page header already shown */
-.cl-prose .cl-h2 {
-  font-size: 28px; font-weight: 500; letter-spacing: -0.015em;
-  color: #fff; margin: 56px 0 14px; padding-top: 18px;
-  border-top: 1px solid var(--hairline);
+.drift-list { list-style: none; margin: 0; padding: 0; }
+.drift-row {
+  display: grid;
+  grid-template-columns: 32px 160px 1fr 60px 50px 1fr;
+  gap: 18px; align-items: center;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--hairline);
+  font-size: 13px;
 }
-.cl-prose .cl-h2:first-of-type { margin-top: 24px; padding-top: 0; border-top: 0; }
-.cl-prose .cl-h3 { font-size: 18px; font-weight: 500; margin: 28px 0 8px; color: #fff; }
-.cl-prose .cl-p  { margin: 0 0 14px; color: var(--fg-2); line-height: 1.65; }
-.cl-prose .cl-list { margin: 0 0 14px; padding-left: 22px; color: var(--fg-2); line-height: 1.65; }
-.cl-prose code {
-  background: rgba(255,255,255,0.05); padding: 2px 6px; border-radius: 4px;
-  border: 1px solid var(--hairline); color: #ffd2d2; font-size: 13px;
+.drift-row:last-child { border-bottom: 0; }
+.drift-row:hover { background: rgba(255,255,255,0.02); }
+.drift-rank { color: var(--fg-3); font-size: 11px; }
+.drift-host { color: #fff; font-weight: 500; }
+.drift-bar  { display: block; height: 8px; background: rgba(255,255,255,0.05); border-radius: 999px; overflow: hidden; }
+.drift-bar  span { display: block; height: 100%; border-radius: 999px; transition: width .3s ease; }
+.drift-num   { font-weight: 600; }
+.drift-delta { color: var(--fg-3); }
+.drift-meta  { color: var(--fg-2); font-size: 12.5px; }
+
+@media (max-width: 720px) {
+  .drift-row { grid-template-columns: 32px 1fr 60px; row-gap: 4px; }
+  .drift-bar, .drift-delta, .drift-meta { display: none; }
 }
-.cl-prose .cl-pre {
-  background: rgba(0,0,0,0.5); border: 1px solid var(--hairline);
-  padding: 14px 16px; border-radius: 10px; overflow-x: auto; color: var(--fg);
-  margin: 0 0 18px;
-}
-.cl-prose .cl-pre code { background: transparent; border: 0; padding: 0; color: var(--fg); font-size: 13px; }
-.cl-prose a { color: var(--red-3); border-bottom: 1px solid rgba(255,128,128,0.3); }
-.cl-prose a:hover { color: #fff; border-bottom-color: rgba(255,255,255,0.5); }
-.cl-prose strong { color: #fff; font-weight: 500; }
 
 /* ── FAQ ─────────────────────────────────────────────────────── */
 
