@@ -1110,6 +1110,32 @@ code, pre, kbd { font-family: var(--ff-mono); font-size: 13px; }
   box-shadow: 0 30px 80px -30px rgba(0,0,0,0.7);
   min-height: 540px;
 }
+/* group selector row sitting above the tabs */
+.gb-source-groups {
+  display: flex; gap: 4px; flex-wrap: wrap;
+  padding: 10px 14px;
+  background: rgba(0,0,0,0.4);
+  border-bottom: 1px solid var(--hairline);
+}
+.gb-source-group {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  font-family: var(--ff-mono); font-size: 11px;
+  color: var(--fg-3); cursor: pointer;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: color .15s, background .15s, border-color .15s;
+}
+.gb-source-group:hover { color: #fff; background: rgba(255,255,255,0.04); }
+.gb-source-group.is-active { color: #fff; background: rgba(239,68,68,0.16); border-color: rgba(239,68,68,0.4); }
+.gb-source-group-count {
+  font-size: 10px; color: var(--fg-3);
+  padding: 1px 6px; border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+}
+.gb-source-group.is-active .gb-source-group-count { color: #ffd2d2; background: rgba(239,68,68,0.22); }
+
 .gb-source-head {
   display: flex; align-items: center; gap: 16px;
   padding: 10px 14px;

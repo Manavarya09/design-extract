@@ -184,14 +184,16 @@ export default async function GalleryBrandPage({ params }) {
   if (!meta) notFound();
 
   const [
-    tokensRaw, designMd, voiceRaw, motionRaw, intentRaw,
-    tailwindCfg, cssVars, shadcnCss, themeJs, wpThemeRaw,
+    tokensRaw, designMd, designLanguageMd, voiceRaw, motionRaw, intentRaw,
+    tailwindCfg, cssVars, shadcnCss, themeJs, wpThemeRaw, figmaVarsRaw,
     anatomyTsx, mcpRaw, iconRaw, formStatesRaw,
-    promptV0, promptLovable, promptCursor, promptClaude,
+    libraryRaw, stackIntelRaw, seoRaw, visualDnaRaw,
+    promptV0, promptLovable, promptCursor, promptClaude, promptRecipeButton, promptRecipeCard,
     fileList,
   ] = await Promise.all([
     findFile(slug, '-design-tokens.json'),
     findFile(slug, '-DESIGN.md'),
+    findFile(slug, '-design-language.md'),
     findFile(slug, '-voice.json'),
     findFile(slug, '-motion-tokens.json'),
     findFile(slug, '-intent.json'),
@@ -200,14 +202,21 @@ export default async function GalleryBrandPage({ params }) {
     findFile(slug, '-shadcn-theme.css'),
     findFile(slug, '-theme.js'),
     findFile(slug, '-wordpress-theme.json'),
+    findFile(slug, '-figma-variables.json'),
     findFile(slug, '-anatomy.tsx'),
     findFile(slug, '-mcp.json'),
     findFile(slug, '-icon-system.json'),
     findFile(slug, '-form-states.json'),
+    findFile(slug, '-library.json'),
+    findFile(slug, '-stack-intel.json'),
+    findFile(slug, '-seo.json'),
+    findFile(slug, '-visual-dna.json'),
     readPrompt(slug, 'v0.txt'),
     readPrompt(slug, 'lovable.txt'),
     readPrompt(slug, 'cursor.md'),
     readPrompt(slug, 'claude-artifacts.md'),
+    readPrompt(slug, 'recipe-button.md'),
+    readPrompt(slug, 'recipe-card.md'),
     listFiles(slug),
   ]);
 
@@ -363,15 +372,38 @@ export default async function GalleryBrandPage({ params }) {
               host={host}
               slug={slug}
               files={[
-                { id: 'design',   label: 'DESIGN.md',          body: designMd    || '' },
-                { id: 'tokens',   label: 'design-tokens.json', body: tokensRaw   || '' },
-                { id: 'tailwind', label: 'tailwind.config.js', body: tailwindCfg || '' },
-                { id: 'css',      label: 'variables.css',      body: cssVars     || '' },
-                { id: 'shadcn',   label: 'shadcn-theme.css',   body: shadcnCss   || '' },
-                { id: 'theme',    label: 'theme.js',           body: themeJs     || '' },
-                { id: 'wp',       label: 'wordpress-theme.json', body: wpThemeRaw || '' },
-                { id: 'anatomy',  label: 'anatomy.tsx',        body: anatomyTsx  || '' },
-                { id: 'mcp',      label: 'mcp.json',           body: mcpRaw      || '' },
+                // spec
+                { id: 'design',     label: 'DESIGN.md',           body: designMd          || '', group: 'spec' },
+                { id: 'designlang', label: 'design-language.md',  body: designLanguageMd  || '', group: 'spec' },
+                // tokens & emitters
+                { id: 'tokens',     label: 'design-tokens.json',  body: tokensRaw         || '', group: 'tokens' },
+                { id: 'tailwind',   label: 'tailwind.config.js',  body: tailwindCfg       || '', group: 'tokens' },
+                { id: 'css',        label: 'variables.css',       body: cssVars           || '', group: 'tokens' },
+                { id: 'shadcn',     label: 'shadcn-theme.css',    body: shadcnCss         || '', group: 'tokens' },
+                { id: 'theme',      label: 'theme.js',            body: themeJs           || '', group: 'tokens' },
+                { id: 'figma',      label: 'figma-variables.json', body: figmaVarsRaw     || '', group: 'tokens' },
+                { id: 'wp',         label: 'wordpress-theme.json', body: wpThemeRaw       || '', group: 'tokens' },
+                // structure
+                { id: 'anatomy',    label: 'anatomy.tsx',         body: anatomyTsx        || '', group: 'structure' },
+                { id: 'icons',      label: 'icon-system.json',    body: iconRaw           || '', group: 'structure' },
+                { id: 'states',     label: 'form-states.json',    body: formStatesRaw     || '', group: 'structure' },
+                // semantic / agent
+                { id: 'mcp',        label: 'mcp.json',            body: mcpRaw            || '', group: 'agent' },
+                { id: 'voice',      label: 'voice.json',          body: voiceRaw          || '', group: 'agent' },
+                { id: 'motion',     label: 'motion-tokens.json',  body: motionRaw         || '', group: 'agent' },
+                // page intel
+                { id: 'intent',     label: 'intent.json',         body: intentRaw         || '', group: 'intel' },
+                { id: 'library',    label: 'library.json',        body: libraryRaw        || '', group: 'intel' },
+                { id: 'stack',      label: 'stack-intel.json',    body: stackIntelRaw     || '', group: 'intel' },
+                { id: 'seo',        label: 'seo.json',            body: seoRaw            || '', group: 'intel' },
+                { id: 'visualdna',  label: 'visual-dna.json',     body: visualDnaRaw      || '', group: 'intel' },
+                // prompts
+                { id: 'prompt-v0',     label: 'prompts/v0.txt',                body: promptV0          || '', group: 'prompts' },
+                { id: 'prompt-lov',    label: 'prompts/lovable.txt',           body: promptLovable     || '', group: 'prompts' },
+                { id: 'prompt-cur',    label: 'prompts/cursor.md',             body: promptCursor      || '', group: 'prompts' },
+                { id: 'prompt-cla',    label: 'prompts/claude-artifacts.md',   body: promptClaude      || '', group: 'prompts' },
+                { id: 'recipe-btn',    label: 'prompts/recipe-button.md',      body: promptRecipeButton || '', group: 'prompts' },
+                { id: 'recipe-card',   label: 'prompts/recipe-card.md',        body: promptRecipeCard   || '', group: 'prompts' },
               ].filter(t => t.body)}
             />
           </div>
@@ -500,7 +532,7 @@ export default async function GalleryBrandPage({ params }) {
               </div>
               <span className="mono faint" style={{ fontSize: 12 }}>{anatomyTsx.length.toLocaleString()} chars · TypeScript</span>
             </header>
-            <pre className="mcp-snippet" style={{ maxHeight: 420, overflow: 'auto' }}>{anatomyTsx.slice(0, 2400)}</pre>
+            <pre className="mcp-snippet" style={{ maxHeight: 600, overflow: 'auto' }}>{anatomyTsx}</pre>
           </div>
         </section>
       )}
@@ -541,34 +573,36 @@ export default async function GalleryBrandPage({ params }) {
                 <code className="kbd" style={{ fontSize: 12, padding: '6px 10px' }}>npx designlang mcp --url {url}</code>
               </div>
             </header>
-            <pre className="mcp-snippet" style={{ maxHeight: 420, overflow: 'auto' }}>{mcpRaw.slice(0, 2400)}</pre>
+            <pre className="mcp-snippet" style={{ maxHeight: 600, overflow: 'auto' }}>{mcpRaw}</pre>
           </div>
         </section>
       )}
 
       {/* Prompt pack */}
-      {(promptV0 || promptLovable || promptCursor || promptClaude) && (
+      {(promptV0 || promptLovable || promptCursor || promptClaude || promptRecipeButton || promptRecipeCard) && (
         <section className="section" style={{ paddingTop: 32 }} id="prompts">
           <div className="wrap">
             <header style={{ marginBottom: 22 }}>
               <h2 className="h2" style={{ fontSize: 28, marginBottom: 8 }}>Prompt pack</h2>
               <p className="lede" style={{ margin: 0 }}>
-                Paste-ready prompts pre-loaded with the {host} system, for v0, Lovable, Cursor and Claude Artifacts.
+                Paste-ready prompts pre-loaded with the {host} system. Generators (v0, Lovable, Cursor, Claude Artifacts) and per-component recipes (button, card).
               </p>
             </header>
             <div className="grid-2">
               {[
-                ['v0',     promptV0],
-                ['Lovable', promptLovable],
-                ['Cursor', promptCursor],
-                ['Claude Artifacts', promptClaude],
+                ['v0',                promptV0],
+                ['Lovable',           promptLovable],
+                ['Cursor',            promptCursor],
+                ['Claude Artifacts',  promptClaude],
+                ['Recipe · Button',   promptRecipeButton],
+                ['Recipe · Card',     promptRecipeCard],
               ].filter(([, body]) => body).map(([label, body]) => (
                 <div key={label} className="card" style={{ padding: '18px 20px', display: 'flex', flexDirection: 'column', gap: 10 }}>
                   <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
                     <span className="h3" style={{ margin: 0, fontSize: 16 }}>{label}</span>
                     <span className="mono faint" style={{ fontSize: 11 }}>{body.length.toLocaleString()} chars</span>
                   </header>
-                  <pre style={{ margin: 0, padding: '12px 14px', background: 'rgba(0,0,0,0.4)', border: '1px solid var(--hairline)', borderRadius: 8, fontFamily: 'var(--ff-mono)', fontSize: 11.5, lineHeight: 1.55, color: 'var(--fg-2)', maxHeight: 200, overflow: 'auto', whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>{body.slice(0, 600)}{body.length > 600 ? '…' : ''}</pre>
+                  <pre style={{ margin: 0, padding: '12px 14px', background: 'rgba(0,0,0,0.4)', border: '1px solid var(--hairline)', borderRadius: 8, fontFamily: 'var(--ff-mono)', fontSize: 11.5, lineHeight: 1.55, color: 'var(--fg-2)', maxHeight: 360, overflow: 'auto', whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>{body}</pre>
                 </div>
               ))}
             </div>
