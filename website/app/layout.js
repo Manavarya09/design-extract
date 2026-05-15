@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import StructuredData from './components/StructuredData';
+import MobileMenu from './components/MobileMenu';
 import {
   SITE_URL,
   SITE_NAME,
@@ -130,6 +131,7 @@ async function Nav() {
             <span>npm i designlang</span>
             <span className="nav-cta-glyph" aria-hidden>↗</span>
           </a>
+          <MobileMenu stars={formatStars(stars)} />
         </div>
       </header>
     </div>
