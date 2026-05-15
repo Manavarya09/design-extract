@@ -323,7 +323,121 @@ code, pre, kbd { font-family: var(--ff-mono); font-size: 13px; }
 }
 .card-body { padding: 22px 24px; }
 
-/* ── Code card (terminal) ────────────────────────────────────── */
+/* ── TUI hero card (bespoke "designlang" terminal) ───────────── */
+
+.tui {
+  position: relative;
+  display: flex; flex-direction: column;
+  background:
+    linear-gradient(180deg, rgba(18, 8, 8, 0.95) 0%, rgba(8, 4, 4, 0.95) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.18);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 40px 100px -30px rgba(0,0,0,0.85),
+    0 0 0 1px rgba(239,68,68,0.08),
+    0 0 100px -20px rgba(239,68,68,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+  font-family: var(--ff-mono);
+}
+.tui::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,128,128,0.5), transparent);
+}
+
+.tui-head {
+  display: flex; align-items: center; gap: 14px;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(239,68,68,0.12);
+  background: rgba(239,68,68,0.04);
+  font-size: 11px;
+}
+.tui-tag {
+  color: #ffd2d2;
+  padding: 3px 9px; border-radius: 4px;
+  background: rgba(239,68,68,0.16);
+  border: 1px solid rgba(239,68,68,0.35);
+  letter-spacing: 0.04em;
+}
+.tui-route { color: var(--fg-2); flex: 1; letter-spacing: 0.02em; }
+.tui-route::before { content: '~'; opacity: 0.4; margin-right: 4px; }
+.tui-meta {
+  color: var(--fg-3); display: inline-flex; align-items: center; gap: 6px;
+}
+.tui-blip {
+  display: inline-block; width: 6px; height: 6px; border-radius: 999px;
+  background: #4ade80;
+  box-shadow: 0 0 8px rgba(74,222,128,0.7);
+}
+
+.tui-body { padding: 18px 22px; font-size: 12.5px; line-height: 1.65; }
+
+.tui-line { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+.tui-prompt { color: var(--red-3); font-weight: 600; }
+.tui-cmd    { color: #fff; }
+.tui-arg    { color: #c4f0a8; }
+.tui-flag   { color: #ffd166; }
+
+.tui-divider {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(239,68,68,0.0) 0%, rgba(239,68,68,0.18) 50%, rgba(239,68,68,0.0) 100%);
+  margin: 12px 0;
+}
+
+.tui-step {
+  display: grid;
+  grid-template-columns: 14px 160px 1fr 56px;
+  gap: 12px; align-items: center;
+  font-size: 11.5px;
+  padding: 2px 0;
+}
+.tui-step-tick { color: #4ade80; font-weight: 600; }
+.tui-step-label { color: var(--fg-2); }
+.tui-step-bar  { display: block; height: 4px; background: rgba(255,255,255,0.05); border-radius: 999px; overflow: hidden; }
+.tui-step-bar span {
+  display: block; height: 100%; border-radius: 999px;
+  background: linear-gradient(90deg, var(--red-2), var(--red-3));
+  width: 0;
+  animation: tui-fill .8s cubic-bezier(.2,.8,.2,1) forwards;
+}
+@keyframes tui-fill { from { width: 0; } }
+.tui-step-ms   { color: var(--fg-3); text-align: right; font-size: 11px; }
+
+.tui-summary { padding: 4px 0 8px; }
+.tui-summary-row {
+  display: flex; align-items: baseline; gap: 12px;
+  font-size: 12px;
+}
+.tui-summary-label {
+  text-transform: uppercase; letter-spacing: 0.16em; font-size: 10px; color: var(--fg-3);
+}
+.tui-summary-val { color: var(--fg); }
+.tui-num         { color: #ffd166; font-weight: 600; }
+
+.tui-files { margin-top: 6px; font-size: 11.5px; }
+.tui-file  { color: var(--fg-2); padding: 1px 0; }
+.tui-file-pre { color: var(--fg-3); margin-right: 6px; }
+.tui-ext { color: #ff8080; }
+
+.tui-foot {
+  display: flex; align-items: center; gap: 14px;
+  padding: 10px 14px;
+  border-top: 1px solid rgba(239,68,68,0.12);
+  background: rgba(0,0,0,0.4);
+  font-size: 10.5px;
+  color: var(--fg-3);
+  letter-spacing: 0.04em;
+}
+.tui-foot-led {
+  display: inline-block; width: 6px; height: 6px; border-radius: 999px;
+  background: #4ade80; margin-right: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tui-step-bar span { animation: none !important; width: 100% !important; }
+}
+
+/* ── Code card (terminal) — legacy, still used elsewhere ─────── */
 
 .code-card {
   background: linear-gradient(180deg, rgba(14, 14, 14, 0.92), rgba(5, 5, 5, 0.92));
@@ -730,29 +844,38 @@ code, pre, kbd { font-family: var(--ff-mono); font-size: 13px; }
 .gal-host { color: #fff; font-weight: 500; }
 .gal-grade { padding: 2px 7px; border-radius: 4px; background: rgba(255,255,255,0.14); color: #fff; font-size: 10px; letter-spacing: 0.08em; }
 
-/* gallery card with real logo cover */
+/* gallery card with brand logo dominating the cover */
 .gal-real { aspect-ratio: 4/5; }
 .gal-logo {
   position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
   pointer-events: none;
+  padding: 22px;
 }
 .gal-logo img {
-  width: 64px; height: 64px;
-  border-radius: 14px;
-  background: rgba(255,255,255,0.96);
-  padding: 8px;
+  width: 60%; height: 60%;
+  max-width: 200px; max-height: 200px;
+  border-radius: 28px;
+  background: rgba(255,255,255,0.97);
+  padding: clamp(20px, 5%, 40px);
   box-shadow:
-    0 12px 30px -6px rgba(0,0,0,0.55),
-    0 0 0 1px rgba(0,0,0,0.06),
-    inset 0 1px 0 rgba(255,255,255,0.6);
-  transition: transform .25s cubic-bezier(.2,.8,.2,1);
+    0 24px 60px -10px rgba(0,0,0,0.65),
+    0 0 0 1px rgba(0,0,0,0.05),
+    inset 0 1px 0 rgba(255,255,255,0.7);
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease;
   object-fit: contain;
 }
-.gal-real:hover .gal-logo img { transform: scale(1.08) rotate(-2deg); }
+.gal-real:hover .gal-logo img {
+  transform: scale(1.06) rotate(-2deg);
+  box-shadow:
+    0 36px 80px -12px rgba(0,0,0,0.75),
+    0 0 0 1px rgba(0,0,0,0.05),
+    inset 0 1px 0 rgba(255,255,255,0.7);
+}
 .gal-real .gal-meta {
-  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.85));
-  padding: 22px 14px 14px;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.92));
+  padding: 32px 16px 16px;
+  z-index: 1;
 }
 
 /* ── Misc ────────────────────────────────────────────────────── */
