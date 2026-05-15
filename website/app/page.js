@@ -91,57 +91,21 @@ function Hero() {
           </div>
 
           <div className="tui">
-            <div className="tui-head">
-              <div className="tui-tag mono">designlang/cli</div>
-              <div className="tui-route mono">~ ▸ stripe.com</div>
-              <div className="tui-meta mono"><span className="tui-blip" />8.9s · cold</div>
-            </div>
-            <div className="tui-body">
-              <div className="tui-line">
-                <span className="tui-prompt">▸</span>
-                <span className="tui-cmd">npx designlang <span className="tui-arg">stripe.com</span> <span className="tui-flag">--pdf</span></span>
-              </div>
-              <div className="tui-divider" />
-              {[
-                { label: 'walking dom',           ms:  640 },
-                { label: 'resolving palette',     ms: 1240 },
-                { label: 'reading type',          ms:  380 },
-                { label: 'measuring rhythm',      ms:  720 },
-                { label: 'clustering components', ms: 1820 },
-                { label: 'auditing contrast',    ms:  510 },
-                { label: 'rendering pdf',        ms: 2110 },
-              ].map((step, i) => (
-                <div key={step.label} className="tui-step">
-                  <span className="tui-step-tick">✓</span>
-                  <span className="tui-step-label">{step.label}</span>
-                  <span className="tui-step-bar" aria-hidden>
-                    <span style={{ width: `${Math.min(100, step.ms / 22)}%`, animationDelay: `${i * 90}ms` }} />
-                  </span>
-                  <span className="tui-step-ms">{step.ms}ms</span>
-                </div>
-              ))}
-              <div className="tui-divider" />
-              <div className="tui-summary">
-                <div className="tui-summary-row">
-                  <span className="tui-summary-label">brand book</span>
-                  <span className="tui-summary-val mono">
-                    <span className="tui-num">42</span> tokens · <span className="tui-num">3</span> fonts · grade <span className="tui-num">A+</span>
-                  </span>
-                </div>
-              </div>
-              <div className="tui-files mono">
-                <div className="tui-file"><span className="tui-file-pre">├</span> stripe-com.brand.<span className="tui-ext">html</span></div>
-                <div className="tui-file"><span className="tui-file-pre">├</span> stripe-com.brand.<span className="tui-ext">pdf</span></div>
-                <div className="tui-file"><span className="tui-file-pre">├</span> stripe-com.tokens.<span className="tui-ext">json</span></div>
-                <div className="tui-file"><span className="tui-file-pre">└</span> stripe-com.tailwind.<span className="tui-ext">config.js</span></div>
-              </div>
-            </div>
-            <div className="tui-foot mono">
-              <span><span className="tui-foot-led" /> done</span>
-              <span>17 files</span>
-              <span>cached for 24h</span>
-              <span style={{ marginLeft: 'auto' }}>↵ press to re-run</span>
-            </div>
+            <pre className="tui-out">
+{'$ npx designlang stripe.com --pdf\n\n'}
+{'  walking dom\n'}
+{'  resolving palette\n'}
+{'  reading type\n'}
+{'  measuring rhythm\n'}
+{'  clustering components\n'}
+{'  auditing contrast\n'}
+{'  rendering pdf\n\n'}
+{'Brand book · 42 tokens · 3 fonts · grade A+\n\n'}
+{'  stripe-com.brand.html\n'}
+{'  stripe-com.brand.pdf\n'}
+{'  stripe-com.tokens.json\n'}
+{'  stripe-com.tailwind.config.js'}
+            </pre>
           </div>
         </div>
       </div>
