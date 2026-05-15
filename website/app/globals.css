@@ -1066,6 +1066,41 @@ code, pre, kbd { font-family: var(--ff-mono); font-size: 13px; }
   box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12);
 }
 
+/* "vs design-extractor" strip on the brand page */
+.gb-vs-strip {
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  background: rgba(255,255,255,0.02);
+}
+.gb-vs-row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 18px; padding: 16px 0; flex-wrap: wrap;
+}
+@media (max-width: 640px) {
+  .gb-vs-row { padding: 14px 0; }
+}
+
+/* downloads list (artefact roll-up) */
+.gb-dl-group + .gb-dl-group { border-top: 1px solid var(--hairline); }
+.gb-dl-group-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 14px 20px;
+  background: rgba(255,255,255,0.02);
+  font-family: var(--ff-mono); font-size: 12px;
+  letter-spacing: 0.04em; color: var(--fg);
+  border-bottom: 1px solid var(--hairline);
+}
+.gb-dl-list { list-style: none; margin: 0; padding: 0; }
+.gb-dl-list li { border-bottom: 1px solid var(--hairline); }
+.gb-dl-list li:last-child { border-bottom: 0; }
+.gb-dl-list a {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 20px;
+  font-size: 13px; color: var(--fg-2);
+  transition: background .15s, color .15s;
+}
+.gb-dl-list a:hover { background: rgba(255,255,255,0.03); color: #fff; }
+
 /* tabbed source viewer */
 .gb-source {
   display: flex; flex-direction: column;

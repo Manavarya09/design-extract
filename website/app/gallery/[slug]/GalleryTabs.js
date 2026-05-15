@@ -2,25 +2,21 @@
 
 import { useState } from 'react';
 
-export default function GalleryTabs({ host, slug, designMd, tailwindCfg, cssVars, tokensJson }) {
-  const TABS = [
-    { id: 'design',   label: 'DESIGN.md',         body: designMd,    lang: 'markdown' },
-    { id: 'tokens',   label: 'design-tokens.json', body: tokensJson, lang: 'json'     },
-    { id: 'tailwind', label: 'tailwind.config.js', body: tailwindCfg, lang: 'js'       },
-    { id: 'css',      label: 'variables.css',      body: cssVars,    lang: 'css'      },
-  ].filter(t => t.body);
-
+export default function GalleryTabs({ slug, files = [] }) {
+  const TABS = files.filter(t => t.body);
   const [active, setActive] = useState(TABS[0]?.id);
   const [copied, setCopied] = useState(false);
   const tab = TABS.find(t => t.id === active) || TABS[0];
 
   async function copy() {
     try {
-      await navigator.clipboard.writeText(tab.body || '');
+      await navigator.clipboard.writeText(tab?.body || '');
       setCopied(true);
       setTimeout(() => setCopied(false), 1400);
     } catch { /* noop */ }
   }
+
+  if (TABS.length === 0) return null;
 
   return (
     <div className="gb-source">
