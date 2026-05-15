@@ -33,12 +33,20 @@ export default function sitemap() {
     priority,
   }));
 
-  const galleryPages = GALLERY_SLUGS.map((slug) => ({
-    url: `${SITE_URL}/gallery/${slug}/brand.html`,
-    lastModified: now,
-    changeFrequency: 'monthly',
-    priority: 0.7,
-  }));
+  const galleryPages = GALLERY_SLUGS.flatMap((slug) => ([
+    {
+      url: `${SITE_URL}/gallery/${slug}`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${SITE_URL}/gallery/${slug}/brand.html`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+  ]));
 
   return [...base, ...galleryPages];
 }

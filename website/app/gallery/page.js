@@ -64,9 +64,7 @@ export default async function Gallery() {
             {FEATURED.map(g => (
               <a
                 key={g.host}
-                href={`/gallery/${g.slug}/brand.html`}
-                target="_blank"
-                rel="noreferrer"
+                href={`/gallery/${g.slug}`}
                 className="gal-card gal-real"
               >
                 <div
