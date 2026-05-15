@@ -104,7 +104,6 @@ async function Nav() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/brand-mark.svg" alt="" className="nav-mark-img" width={26} height={26} />
           <span className="nav-wordmark">designlang</span>
-          <span className="nav-version mono">v12.12</span>
         </a>
 
         <nav className="nav-pillnav" aria-label="primary">

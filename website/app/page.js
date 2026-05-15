@@ -72,10 +72,6 @@ function Hero() {
       <div className="wrap">
         <div className="hero-grid">
           <div>
-            <div className="hero-pills">
-              <span className="pill pill-red">v12.12.0</span>
-              <span className="pill">PDF brand books</span>
-            </div>
             <h1 className="h1">
               Reverse-engineer<br />
               any website&rsquo;s<br />
