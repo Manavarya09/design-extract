@@ -1,12 +1,24 @@
 import CopyCmd from '../../components/CopyCmd';
 
 export const metadata = {
-  title: 'designlang vs design-extractor.com — honest comparison',
+  title: 'designlang vs design-extractor.com — best free, open-source design extractor (2026)',
   description:
-    'design-extractor.com ships a DESIGN.md. designlang ships the design system — DESIGN.md plus DTCG tokens, multi-platform emitters, anatomy, voice, motion, drift CI, clone, studio, MCP and a Figma plugin.',
+    'designlang vs design-extractor.com: an honest feature-by-feature comparison. designlang is the free, MIT, open-source design extractor that ships DESIGN.md plus DTCG tokens, Tailwind config, Figma variables, multi-platform emitters (iOS, Android, Flutter, WordPress), brand-book PDF, MCP server for Claude Code / Cursor / Windsurf, drift CI, clone command, and a local studio — without any signup. design-extractor.com is hosted, gated, and ships a single DESIGN.md.',
+  alternates: { canonical: 'https://designlang.app/vs/design-extractor' },
+  keywords: [
+    'designlang vs design-extractor.com',
+    'design-extractor.com alternative',
+    'design extractor alternative',
+    'open source design extractor',
+    'free design extractor',
+    'best design extractor 2026',
+    'design extractor cli',
+    'design-extractor.com vs designlang',
+    'designextractor alternative',
+  ],
   openGraph: {
-    title: 'designlang vs design-extractor.com',
-    description: 'They sell the spec. We ship the system. Honest feature comparison.',
+    title: 'designlang vs design-extractor.com — the open-source alternative',
+    description: 'They sell the spec. designlang ships the system. Honest feature comparison + free CLI.',
   },
 };
 

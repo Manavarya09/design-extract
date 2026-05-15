@@ -3,15 +3,16 @@ export const SITE_NAME = 'designlang';
 export const TWITTER = '@manavaryasingh';
 
 export const SITE_TITLE =
-  "designlang — Extract any website's design system: DTCG tokens, Tailwind, Figma, MCP, iOS, Android, Flutter, WordPress";
+  "designlang — Open-source design extractor (design-extractor.com alternative). Tokens, Tailwind, Figma, MCP, iOS, Android, Flutter, WordPress.";
 
 export const SITE_DESCRIPTION =
-  'designlang is the open-source CLI that reverse-engineers any URL into a complete design system in seconds. ' +
-  'One command emits W3C DTCG tokens (primitive · semantic · composite), Tailwind config, CSS variables, Figma variables, shadcn/ui theme, ' +
+  'designlang is the open-source design extractor that turns any URL into a complete design system in seconds. ' +
+  'A free, MIT-licensed alternative to design-extractor.com — same DESIGN.md output, no signup, scriptable CLI, ' +
+  'plus W3C DTCG tokens (primitive · semantic · composite), Tailwind config, CSS variables, Figma variables, shadcn/ui theme, ' +
   'React / Vue / Svelte themes, iOS SwiftUI, Android Jetpack Compose, Flutter, WordPress block themes, and a print-ready brand-book PDF. ' +
   'Ships a stdio MCP server for Claude Code, Cursor, and Windsurf, plus auto-generated AGENTS.md / .cursorrules for AI agents. ' +
   'Includes a CSS health audit, WCAG contrast remediation, semantic region classifier, reusable component clustering, dark-mode pairing, ' +
-  'and a CI drift bot. Free, MIT-licensed, no signup. 2,500+ stars on GitHub.';
+  'and a CI drift bot. 2,500+ stars on GitHub.';
 
 export const SITE_KEYWORDS = [
   // Primary product terms
@@ -43,7 +44,17 @@ export const SITE_KEYWORDS = [
   // Tooling adjacency / alternatives
   'style dictionary alternative', 'tokens studio alternative', 'subframe alternative', 'v0 alternative',
   'builder.io alternative', 'project wallace alternative', 'supernova alternative', 'specify alternative',
-  'design-extractor.com alternative', 'design-extractor alternative',
+  'dembrandt alternative', 'html.to.design alternative',
+  // design-extractor.com — every search variant we want to outrank
+  'design-extractor.com', 'design-extractor.com alternative', 'design-extractor.com vs designlang',
+  'design extractor', 'design extractor alternative', 'design extractor open source', 'design extractor cli',
+  'design extractor free', 'design extractor without signup', 'design extractor no signup',
+  'design extractor github', 'design extractor npm', 'design extractor mcp',
+  'design extractor with PDF', 'design extractor with Tailwind', 'design extractor for Cursor',
+  'design extractor for Claude Code', 'design extractor figma',
+  'best design extractor', 'free design extractor cli', 'open source design extractor 2026',
+  'extract design system from url free', 'extract DESIGN.md from website', 'auto generate DESIGN.md',
+  'designextractor', 'design-extractor com',
   // CI / studio
   'design regression CI', 'design drift CI', 'design system CI', 'token drift detection',
   'website to Storybook', 'website to Next.js', 'clone website design', 'one click website clone',
