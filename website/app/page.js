@@ -167,24 +167,189 @@ function ExtractSection() {
 
 function FeaturesSection() {
   return (
-    <section className="section">
+    <section className="section bento-section">
       <div className="wrap">
-        <p className="eyebrow">what&rsquo;s inside</p>
-        <h2 className="h2">Everything you would build by hand.</h2>
-        <p className="lede" style={{ marginBottom: 36 }}>
-          Nine extractors, eight emitters, one design system. No paid tier. No API keys.
-        </p>
-        <div className="grid-3">
-          {FEATURES.map(f => (
-            <article key={f.title} className="feature">
-              <span className="feature-tag">{f.tag}</span>
-              <h3>{f.title}</h3>
-              <p>{f.body}</p>
-            </article>
-          ))}
+        <header className="bento-head">
+          <p className="eyebrow">what&rsquo;s inside</p>
+          <h2 className="h2">Everything you would build by hand.</h2>
+          <p className="lede">
+            Nine extractors, eleven emitters, one design system — for the open web, every native runtime, and your AI editor.
+          </p>
+          <div className="bento-stats mono">
+            <span><strong>26</strong> capabilities</span>
+            <span className="bento-sep">/</span>
+            <span><strong>11</strong> output formats</span>
+            <span className="bento-sep">/</span>
+            <span><strong>3</strong> MCP-aware editors</span>
+            <span className="bento-sep">/</span>
+            <span><strong>$0</strong> · MIT</span>
+          </div>
+        </header>
+
+        <div className="bento">
+          {/* Row 1: hero card (DTCG, full width) */}
+          <article className="bento-card bento-hero">
+            <div className="bento-card-text">
+              <span className="feature-tag">tokens</span>
+              <h3>W3C DTCG tokens, fully linked.</h3>
+              <p>
+                Primitive · semantic · composite. Drop-in for Tailwind, CSS vars, Figma variables,
+                shadcn theme, and React / Vue / Svelte. Reads from the live DOM — the names match
+                what your designers actually shipped.
+              </p>
+            </div>
+            <div className="bento-card-viz" aria-hidden>
+              <div className="dtcg-tree">
+                <div className="dtcg-row"><span className="dtcg-key">primitive.color.brand.500</span><span className="dtcg-swatch" style={{ background: '#dc2626' }} /><span className="dtcg-val">#dc2626</span></div>
+                <div className="dtcg-row dtcg-indent"><span className="dtcg-key">↳ semantic.color.action.primary</span><span className="dtcg-swatch" style={{ background: '#dc2626' }} /><span className="dtcg-val">{'{primitive.color.brand.500}'}</span></div>
+                <div className="dtcg-row dtcg-indent2"><span className="dtcg-key">↳ button.solid.background</span><span className="dtcg-swatch" style={{ background: '#dc2626' }} /><span className="dtcg-val">{'{semantic.color.action.primary}'}</span></div>
+                <div className="dtcg-row" style={{ marginTop: 10 }}><span className="dtcg-key">primitive.spacing.4</span><span className="dtcg-bar" style={{ width: 16 }} /><span className="dtcg-val">16px</span></div>
+                <div className="dtcg-row dtcg-indent"><span className="dtcg-key">↳ semantic.spacing.gutter</span><span className="dtcg-bar" style={{ width: 16 }} /><span className="dtcg-val">{'{primitive.spacing.4}'}</span></div>
+              </div>
+            </div>
+          </article>
+
+          {/* Row 2: two big cards */}
+          <article className="bento-card bento-2">
+            <div className="bento-card-text">
+              <span className="feature-tag">multi-platform</span>
+              <h3>One run, eleven outputs.</h3>
+              <p>iOS SwiftUI, Android Compose, Flutter Dart, WordPress block theme, plus every web format. No second tool.</p>
+            </div>
+            <div className="bento-card-viz bento-platforms" aria-hidden>
+              {[
+                ['Tail',     '#06b6d4'],
+                ['CSS',      '#264de4'],
+                ['shadcn',   '#0f172a'],
+                ['Figma',    '#a259ff'],
+                ['React',    '#61dafb'],
+                ['Vue',      '#42b883'],
+                ['Svelte',   '#ff3e00'],
+                ['iOS',      '#0071e3'],
+                ['Android',  '#3ddc84'],
+                ['Flutter',  '#02569b'],
+                ['WP',       '#21759b'],
+                ['PDF',      '#dc2626'],
+              ].map(([label, color]) => (
+                <span key={label} className="platform-chip" style={{ background: color }}>{label}</span>
+              ))}
+            </div>
+          </article>
+
+          <article className="bento-card bento-2">
+            <div className="bento-card-text">
+              <span className="feature-tag">mcp</span>
+              <h3>Lives inside your editor.</h3>
+              <p>Stdio MCP for Claude Code, Cursor, Windsurf. Plus auto-generated AGENTS.md / .cursorrules / Claude skills.</p>
+            </div>
+            <div className="bento-card-viz" aria-hidden>
+              <pre className="mcp-snippet">
+                <span className="tok-com">{'# .claude/mcp.json'}</span>{'\n'}
+                <span className="tok-pun">{'{'}</span>{'\n'}
+                {'  '}<span className="tok-key">{'"designlang"'}</span>: <span className="tok-pun">{'{'}</span>{'\n'}
+                {'    '}<span className="tok-key">{'"command"'}</span>: <span className="tok-str">{'"npx"'}</span>,{'\n'}
+                {'    '}<span className="tok-key">{'"args"'}</span>: <span className="tok-str">{'["designlang","mcp"]'}</span>{'\n'}
+                {'  '}<span className="tok-pun">{'}'}</span>{'\n'}
+                <span className="tok-pun">{'}'}</span>
+              </pre>
+            </div>
+          </article>
+
+          {/* Row 3: three small cards */}
+          <article className="bento-card bento-3">
+            <span className="feature-tag">a11y</span>
+            <h3>WCAG remediation.</h3>
+            <p>The smallest hue-shift that passes AA. Not just a red badge.</p>
+            <div className="bento-card-viz" aria-hidden>
+              <div className="a11y-pair">
+                <div className="a11y-tile a11y-fail" style={{ background: '#7f1d1d', color: '#a06868' }}>
+                  <span className="a11y-aa">Aa</span>
+                  <span className="a11y-ratio">2.1 · fail</span>
+                </div>
+                <span className="a11y-arrow">→</span>
+                <div className="a11y-tile a11y-pass" style={{ background: '#7f1d1d', color: '#ffffff' }}>
+                  <span className="a11y-aa">Aa</span>
+                  <span className="a11y-ratio">7.4 · AA</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article className="bento-card bento-3">
+            <span className="feature-tag">voice</span>
+            <h3>Real CTAs, real headlines.</h3>
+            <p>The brand voice extracted from the page itself — not Lorem ipsum.</p>
+            <div className="bento-card-viz" aria-hidden>
+              <blockquote className="voice-quote">
+                &ldquo;Make payments your competitive advantage.&rdquo;
+                <span className="voice-meta">— headline · stripe.com</span>
+              </blockquote>
+            </div>
+          </article>
+
+          <article className="bento-card bento-3">
+            <span className="feature-tag">pdf</span>
+            <h3>Brand books, native PDF.</h3>
+            <p>13 chapters, page bookmarks, running footer, tokens attached.</p>
+            <div className="bento-card-viz" aria-hidden>
+              <div className="pdf-cover">
+                <div className="pdf-cover-band" />
+                <div className="pdf-cover-title">Stripe</div>
+                <div className="pdf-cover-meta mono">v1.0 · 13 chapters</div>
+              </div>
+            </div>
+          </article>
+
+          {/* Row 4: three small cards */}
+          <article className="bento-card bento-3">
+            <span className="feature-tag">css health</span>
+            <h3>CSS health audit.</h3>
+            <p>Specificity, dead rules, duplicates. Fix what AI agents trip over.</p>
+            <div className="bento-card-viz" aria-hidden>
+              <div className="health-bars">
+                <div className="health-row"><span className="health-label mono">specificity</span><span className="health-bar"><span style={{ width: '78%', background: '#fde68a' }} /></span><span className="health-num mono">B+</span></div>
+                <div className="health-row"><span className="health-label mono">dead rules</span><span className="health-bar"><span style={{ width: '92%', background: '#86efac' }} /></span><span className="health-num mono">A</span></div>
+                <div className="health-row"><span className="health-label mono">duplicates</span><span className="health-bar"><span style={{ width: '64%', background: '#fdba74' }} /></span><span className="health-num mono">B−</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article className="bento-card bento-3">
+            <span className="feature-tag">dark mode</span>
+            <h3>Dual extraction.</h3>
+            <p>Walks both themes, diffs them, emits one set of paired tokens.</p>
+            <div className="bento-card-viz" aria-hidden>
+              <div className="dual-themes">
+                <div className="theme-tile theme-light">
+                  <span className="mono">light</span>
+                  <span className="theme-swatches"><i style={{ background: '#fafafa' }} /><i style={{ background: '#171717' }} /><i style={{ background: '#dc2626' }} /></span>
+                </div>
+                <div className="theme-tile theme-dark">
+                  <span className="mono">dark</span>
+                  <span className="theme-swatches"><i style={{ background: '#0a0a0a' }} /><i style={{ background: '#fafafa' }} /><i style={{ background: '#ff5757' }} /></span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article className="bento-card bento-3">
+            <span className="feature-tag">ci</span>
+            <h3>Drift CI bot.</h3>
+            <p>Snapshot your tokens. Fail the build when the live system silently moves.</p>
+            <div className="bento-card-viz" aria-hidden>
+              <div className="ci-log mono">
+                <div><span className="ci-pass">✓</span> 47 tokens · in sync</div>
+                <div><span className="ci-warn">!</span> 1 hue shift · accent</div>
+                <div><span className="ci-pass">✓</span> all checks passing</div>
+              </div>
+            </div>
+          </article>
         </div>
-        <div style={{ marginTop: 28 }}>
-          <a href="/features" className="btn btn-ghost">All features</a>
+
+        <div style={{ marginTop: 32, display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'center' }}>
+          <a href="/features" className="btn btn-primary">See all 26 capabilities</a>
+          <a href="/blog/mcp-launch" className="btn btn-ghost">Wire it into your editor</a>
+          <span className="mono faint" style={{ fontSize: 12, marginLeft: 'auto' }}>nothing above is paywalled</span>
         </div>
       </div>
     </section>
