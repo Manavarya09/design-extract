@@ -22,6 +22,16 @@ Or use npx (no install required):
 npx designlang <url>
 ```
 
+## Auto-Loaded Design Context
+
+When the MCP server starts, it automatically scans the project for existing design config files and pre-loads them as MCP resources — no manual extraction needed for basic context:
+
+- **`design-tokens.json`** — W3C DTCG tokens (searched in `./`, `./src/`, `./app/`, `./styles/`)
+- **`tailwind.config.*`** — Tailwind theme colors, spacing, and font families (searched in `./`)
+- **`globals.css`** — CSS custom properties from `:root` blocks (searched in `./`, `./src/`, `./app/`, `./styles/`)
+
+Running `/extract-design` against a URL produces a richer extraction that supersedes auto-detected context.
+
 ## Process
 
 1. **Run the extraction** on the provided URL:

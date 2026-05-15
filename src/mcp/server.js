@@ -13,6 +13,7 @@ import {
 } from '@modelcontextprotocol/sdk/types.js';
 import { buildResources } from './resources.js';
 import { buildTools } from './tools.js';
+import { scanProjectDesignFiles } from './project-scan.js';
 
 // Best-effort reconstruction of a design object from the files on disk.
 // We only need what the tools/resources consume: tokens + regions +
@@ -61,7 +62,7 @@ function loadExtraction(outputDir) {
 
 export async function run({ outputDir }) {
   const resolved = resolve(outputDir || './design-extract-output');
-  const loaded = loadExtraction(resolved);
+  const loaded = loadExtraction(resolved) || scanProjectDesignFiles(process.cwd());
   const tokens = loaded?.tokens ?? null;
   const design = loaded?.design ?? {};
 
