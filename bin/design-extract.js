@@ -23,6 +23,7 @@ import { formatTokens } from '../src/formatters/tokens.js';
 import { formatDtcgTokens } from '../src/formatters/dtcg-tokens.js';
 import { formatTailwind } from '../src/formatters/tailwind.js';
 import { formatTailwindV4 } from '../src/formatters/tailwind-v4.js';
+import { formatTsDefs } from '../src/formatters/ts-defs.js';
 import { formatCssVars } from '../src/formatters/css-vars.js';
 import { formatPreview } from '../src/formatters/preview.js';
 import { formatFigma } from '../src/formatters/figma.js';
@@ -323,6 +324,7 @@ program
         { name: `${prefix}-design-tokens.json`, content: merged.tokensLegacy ? formatTokens(design) : JSON.stringify(formatDtcgTokens(design), null, 2), label: merged.tokensLegacy ? 'Design Tokens (legacy)' : 'Design Tokens (DTCG v1)' },
         { name: `${prefix}-tailwind.config.js`, content: formatTailwind(design), label: 'Tailwind Config (v3)' },
         { name: `${prefix}-tailwind-v4.css`,    content: formatTailwindV4(design), label: 'Tailwind v4 @theme (CSS-first)' },
+        { name: `${prefix}-tokens.d.ts`,        content: formatTsDefs(design),     label: 'TypeScript token types' },
         { name: `${prefix}-variables.css`, content: formatCssVars(design), label: 'CSS Variables' },
         { name: `${prefix}-preview.html`, content: formatPreview(design), label: 'Visual Preview' },
         { name: `${prefix}-figma-variables.json`, content: formatFigma(design), label: 'Figma Variables' },
