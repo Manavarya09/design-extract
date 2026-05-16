@@ -7,6 +7,12 @@
     "designlang": "./bin/design-extract.js"
   },
   "main": "src/index.js",
+  "exports": {
+    ".":       "./src/index.js",
+    "./api":   "./src/api.js",
+    "./mcp":   "./src/mcp/index.js",
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "postinstall": "npx playwright install chromium --with-deps 2>/dev/null || npx playwright install chromium",
     "start": "node bin/design-extract.js",
