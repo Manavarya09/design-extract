@@ -7,6 +7,7 @@ import { formatTailwind } from '../../src/formatters/tailwind.js';
 import { formatTailwindV4 } from '../../src/formatters/tailwind-v4.js';
 import { formatTsDefs } from '../../src/formatters/ts-defs.js';
 import { formatCssReset } from '../../src/formatters/css-reset.js';
+import { formatGradientsCss, formatGradientsJson } from '../../src/formatters/gradients.js';
 import { formatCssVars } from '../../src/formatters/css-vars.js';
 import { formatPreview } from '../../src/formatters/preview.js';
 import { formatFigma } from '../../src/formatters/figma.js';
@@ -33,6 +34,8 @@ export function buildFiles(design, targetUrl) {
     [`${prefix}-tailwind-v4.css`]:    formatTailwindV4(design),
     [`${prefix}-tokens.d.ts`]:        formatTsDefs(design),
     [`${prefix}-reset.css`]:          formatCssReset(design),
+    [`${prefix}-gradients.css`]:      formatGradientsCss(design),
+    [`${prefix}-gradients.json`]:     formatGradientsJson(design),
     [`${prefix}-variables.css`]: formatCssVars(design),
     [`${prefix}-preview.html`]: formatPreview(design),
     [`${prefix}.brand.html`]: formatBrandBook(design),
