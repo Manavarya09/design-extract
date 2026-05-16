@@ -48,7 +48,7 @@ Drop a live design-score badge in any README:
 
 ```bash
 npm i -g designlang                         # global
-npx skills add Manavarya09/design-extract   # as an agent skill (40+ agents)
+npx skills add Manavarya09/design-extract   # as an agent skill (40+ agents, including Autohand Code CLI)
 ```
 
 ## What you get
@@ -268,13 +268,13 @@ Manifest: [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json) · marketpl
 
 ## Agent skill (other ecosystems)
 
-Works with **Cursor, Codex, and 40+ AI coding agents** via the skills ecosystem:
+Works with **Cursor, Codex, [Autohand Code CLI](https://github.com/autohandai/code-cli), and 40+ AI coding agents** via the skills ecosystem:
 
 ```bash
 npx skills add Manavarya09/design-extract
 ```
 
-In Cursor / Codex / etc., use `/extract-design <url>`.
+In Cursor / Codex / Autohand Code CLI / etc., use `/extract-design <url>`.
 
 ## Website
 
@@ -287,5 +287,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). PRs welcome!
 ## License
 
 [MIT](LICENSE) - Manav Arya Singh
-
 
