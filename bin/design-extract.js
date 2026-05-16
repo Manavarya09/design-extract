@@ -110,6 +110,7 @@ program
   .option('--no-design-md', 'skip writing the agent-native DESIGN.md (single-file, 8-section, YAML front matter)')
   .option('--responsive-shots', 'capture full-page PNGs at 4 breakpoints × (light,dark)')
   .option('--perf', 'measure Core Web Vitals + bundle profile (LCP/CLS/INP, JS/CSS/font/img bytes, third-party count)')
+  .option('--palette <n>', 'compress the extracted palette to N perceptually distinct colours via LAB-space k-means (default: emit every unique colour)', parseInt)
   .option('--json', 'output raw JSON to stdout (for CI/CD)')
   .option('--json-pretty', 'output formatted JSON to stdout')
   .option('--no-history', 'skip saving to history')
@@ -308,6 +309,21 @@ program
 
       // Drop the internal raw stash before JSON/output serialization.
       delete design._raw;
+
+      // Optional palette compression — perceptual LAB k-means down to N colours.
+      const paletteTarget = parseInt(opts.palette, 10);
+      if (paletteTarget > 0 && Array.isArray(design.colors?.all)) {
+        try {
+          const { compressPalette } = await import('../src/utils/palette-compress.js');
+          const before = design.colors.all.length;
+          const compressed = compressPalette(design.colors.all, paletteTarget);
+          design.colors.all = compressed;
+          design.colors._compressed = { from: before, to: compressed.length, target: paletteTarget };
+          spinner.text = `Compressed palette: ${before} → ${compressed.length} colours`;
+        } catch (e) {
+          console.warn(`(palette compress skipped: ${e.message})`);
+        }
+      }
 
       // JSON mode: output and exit
       if (jsonMode) {
