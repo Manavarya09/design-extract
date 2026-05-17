@@ -1,5 +1,44 @@
 # Changelog
 
+## [12.14.0] — 2026-05-17
+
+**Real downloadable PDFs everywhere + a one-shot agent prompt every AI can paste.**
+
+Two big shipping themes: every extraction now produces a real
+print-ready PDF on demand (not just an HTML brand book), and every
+extraction writes a self-contained agent prompt that drops into any
+LLM — Claude, GPT, Gemini, Cursor, Windsurf, v0.
+
+- **`--pdf` flag in the main `extract` command** — renders the
+  brand-book HTML to a 13-chapter PDF (chapter bookmarks, running
+  footer, embedded fonts, selectable text). Verified ~440KB per brand.
+
+  ```bash
+  npx designlang stripe.com --pdf --paper letter --landscape
+  ```
+
+- **One-shot agent prompt (`<host>-AGENT.md`)** — a single file you
+  paste into any AI agent. Includes colour roles, type, spacing, radii,
+  motion, voice (tone / pronoun / CTA verbs / real headlines),
+  component anatomy, WCAG score, 7 build rules ("never invent a hex",
+  "snap spacing to scale", etc.), and a manifest of every other
+  artefact designlang produced for context.
+
+- **Server-side PDF endpoint** — `GET /api/pdf/<hash>` renders the
+  cached extraction's brand book to PDF via the same Browserless /
+  Chromium path the `/api/extract` route uses. Cached for an hour on
+  CDN edge with 24h stale-while-revalidate.
+
+- **Website UI** — `/gallery/[slug]` hero CTA is now
+  `Download brand book PDF`; new full-width "Agent prompt" section
+  with a `Copy NN.NKB prompt` button. Post-extraction share row gains
+  `Download brand PDF` and `Copy agent prompt`.
+
+- **Pre-rendered static assets** — all 8 featured brand books in
+  `website/public/gallery/<slug>/` now include the new `.brand.pdf`,
+  `-AGENT.md`, `-reset.css`, `-gradients.css/.json` files so the
+  static gallery has working downloads from minute one.
+
 ## [12.13.0] — 2026-05-16
 
 **Six new emitters + a public programmatic API.**
