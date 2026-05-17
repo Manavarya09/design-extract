@@ -26,6 +26,7 @@ import { formatTailwindV4 } from '../src/formatters/tailwind-v4.js';
 import { formatTsDefs } from '../src/formatters/ts-defs.js';
 import { formatCssReset } from '../src/formatters/css-reset.js';
 import { formatGradientsCss, formatGradientsJson } from '../src/formatters/gradients.js';
+import { formatAgentPrompt } from '../src/formatters/agent-prompt.js';
 import { formatCssVars } from '../src/formatters/css-vars.js';
 import { formatPreview } from '../src/formatters/preview.js';
 import { formatFigma } from '../src/formatters/figma.js';
@@ -346,6 +347,7 @@ program
         { name: `${prefix}-reset.css`,          content: formatCssReset(design),   label: 'Brand-aware CSS reset' },
         { name: `${prefix}-gradients.css`,      content: formatGradientsCss(design), label: 'Extracted gradients (utility classes)' },
         { name: `${prefix}-gradients.json`,     content: formatGradientsJson(design), label: 'Extracted gradients (structured)' },
+        { name: `${prefix}-AGENT.md`,           content: formatAgentPrompt(design), label: 'Agent system prompt (paste into Claude/GPT/Cursor)' },
         { name: `${prefix}-variables.css`, content: formatCssVars(design), label: 'CSS Variables' },
         { name: `${prefix}-preview.html`, content: formatPreview(design), label: 'Visual Preview' },
         { name: `${prefix}-figma-variables.json`, content: formatFigma(design), label: 'Figma Variables' },
