@@ -14,7 +14,7 @@
           "s": 0,
           "l": 0
         },
-        "count": 2131,
+        "count": 2139,
         "contexts": [
           "text",
           "border",
@@ -34,7 +34,7 @@
           "s": 10,
           "l": 96
         },
-        "count": 384,
+        "count": 388,
         "contexts": [
           "text",
           "border",
@@ -73,7 +73,7 @@
           "s": 0,
           "l": 100
         },
-        "count": 170,
+        "count": 171,
         "contexts": [
           "background",
           "text",
@@ -1260,46 +1260,46 @@
         "unusedPercent": 0
       },
       {
-        "url": "https://www.notion.com/_next/static/css/c611ecdb99aeff37.css",
-        "totalBytes": 74188,
-        "usedBytes": 51897,
-        "unusedBytes": 22291,
-        "unusedPercent": 30
+        "url": "https://www.notion.com/_next/static/css/ea462999d44badfc.css",
+        "totalBytes": 25471,
+        "usedBytes": 25464,
+        "unusedBytes": 7,
+        "unusedPercent": 0
       },
       {
-        "url": "https://www.notion.com/_next/static/css/cb8df83067fd132e.css",
-        "totalBytes": 93173,
-        "usedBytes": 47952,
-        "unusedBytes": 45221,
-        "unusedPercent": 49
+        "url": "https://www.notion.com/_next/static/css/b836710569d98562.css",
+        "totalBytes": 7107,
+        "usedBytes": 7100,
+        "unusedBytes": 7,
+        "unusedPercent": 0
       },
       {
-        "url": "https://www.notion.com/_next/static/css/4f890ddfce86d14f.css",
-        "totalBytes": 62938,
-        "usedBytes": 354,
-        "unusedBytes": 62584,
-        "unusedPercent": 99
-      },
-      {
-        "url": "https://www.notion.com/_next/static/css/607bc033c265bcf2.css",
-        "totalBytes": 38007,
+        "url": "https://www.notion.com/_next/static/css/c80b1587435906ea.css",
+        "totalBytes": 37948,
         "usedBytes": 2256,
-        "unusedBytes": 35751,
+        "unusedBytes": 35692,
         "unusedPercent": 94
       },
       {
-        "url": "https://www.notion.com/_next/static/css/754422e18a4d00b9.css",
-        "totalBytes": 69437,
-        "usedBytes": 11836,
-        "unusedBytes": 57601,
+        "url": "https://www.notion.com/_next/static/css/0aece31f10975f1f.css",
+        "totalBytes": 69380,
+        "usedBytes": 11816,
+        "unusedBytes": 57564,
         "unusedPercent": 83
       },
       {
-        "url": "https://www.notion.com/_next/static/css/146ea106d63ef148.css",
-        "totalBytes": 160082,
-        "usedBytes": 160075,
+        "url": "https://www.notion.com/_next/static/css/d8d4aca52a52fdd4.css",
+        "totalBytes": 160071,
+        "usedBytes": 160064,
         "unusedBytes": 7,
         "unusedPercent": 0
+      },
+      {
+        "url": "https://www.notion.com/_next/static/css/0023be44f22cebdd.css",
+        "totalBytes": 22968,
+        "usedBytes": 21964,
+        "unusedBytes": 1004,
+        "unusedPercent": 4
       },
       {
         "url": "https://www.notion.com/_next/static/css/1ebf448456e344ba.css",
@@ -1309,39 +1309,39 @@
         "unusedPercent": 30
       },
       {
-        "url": "https://www.notion.com/_next/static/css/06f8360f8190e810.css",
-        "totalBytes": 265470,
-        "usedBytes": 220096,
-        "unusedBytes": 45374,
-        "unusedPercent": 17
-      },
-      {
-        "url": "https://www.notion.com/_next/static/css/c430f27c2007d134.css",
-        "totalBytes": 23083,
-        "usedBytes": 22056,
-        "unusedBytes": 1027,
-        "unusedPercent": 4
-      },
-      {
-        "url": "https://www.notion.com/_next/static/css/009db914bd4af287.css",
-        "totalBytes": 7033,
-        "usedBytes": 7026,
-        "unusedBytes": 7,
-        "unusedPercent": 0
-      },
-      {
-        "url": "https://www.notion.com/_next/static/css/5c1cdc19a1374ab9.css",
-        "totalBytes": 25494,
-        "usedBytes": 25487,
-        "unusedBytes": 7,
-        "unusedPercent": 0
-      },
-      {
         "url": "https://www.notion.com/_next/static/css/b05dff5ac27c8241.css",
         "totalBytes": 51257,
         "usedBytes": 45644,
         "unusedBytes": 5613,
         "unusedPercent": 11
+      },
+      {
+        "url": "https://www.notion.com/_next/static/css/c2b8aa63a0d39391.css",
+        "totalBytes": 266418,
+        "usedBytes": 220530,
+        "unusedBytes": 45888,
+        "unusedPercent": 17
+      },
+      {
+        "url": "https://www.notion.com/_next/static/css/768bf9bed049d037.css",
+        "totalBytes": 93266,
+        "usedBytes": 47762,
+        "unusedBytes": 45504,
+        "unusedPercent": 49
+      },
+      {
+        "url": "https://www.notion.com/_next/static/css/370145e07f28b413.css",
+        "totalBytes": 62737,
+        "usedBytes": 354,
+        "unusedBytes": 62383,
+        "unusedPercent": 99
+      },
+      {
+        "url": "https://www.notion.com/_next/static/css/d9d33634f5ebc45d.css",
+        "totalBytes": 74239,
+        "usedBytes": 52013,
+        "unusedBytes": 22226,
+        "unusedPercent": 30
       },
       {
         "url": "https://www.notion.com/front-static/external/transcend/transcend.css?v=1.0.6",
@@ -1358,12 +1358,12 @@
         "unusedPercent": 100
       }
     ],
-    "totalBytes": 890716,
-    "usedBytes": 599691,
-    "unusedBytes": 291025,
+    "totalBytes": 891416,
+    "usedBytes": 599979,
+    "unusedBytes": 291437,
     "unusedPercent": 33,
     "importantCount": 9,
-    "duplicates": 8256,
+    "duplicates": 8236,
     "vendorPrefixes": {
       "webkit": 134,
       "moz": 19,
@@ -1386,7 +1386,7 @@
     },
     "issues": [
       "9 !important rules",
-      "8256 duplicate declarations"
+      "8236 duplicate declarations"
     ]
   }
 }

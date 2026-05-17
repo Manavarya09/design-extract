@@ -1,0 +1,280 @@
+{
+  "$schema": "https://designlang.app/schemas/gradients.json",
+  "source": "https://vercel.com",
+  "generated": "2026-05-17T21:16:17.784Z",
+  "count": 11,
+  "gradients": [
+    {
+      "raw": "conic-gradient(from 180deg at 50% 70%, rgba(250, 250, 250, 0) 0deg, rgb(238, 195, 45) 72deg, rgb(236, 75, 75) 144deg, rgb(112, 154, 185) 216deg, rgb(77, 255, 191) 288deg, rgba(250, 250, 250, 0) 360deg)",
+      "type": "conic",
+      "direction": "from 180deg at 50% 70%",
+      "stops": [
+        {
+          "color": "rgba(250, 250, 250, 0) 0deg",
+          "position": null
+        },
+        {
+          "color": "rgb(238, 195, 45) 72deg",
+          "position": null
+        },
+        {
+          "color": "rgb(236, 75, 75) 144deg",
+          "position": null
+        },
+        {
+          "color": "rgb(112, 154, 185) 216deg",
+          "position": null
+        },
+        {
+          "color": "rgb(77, 255, 191) 288deg",
+          "position": null
+        },
+        {
+          "color": "rgba(250, 250, 250, 0) 360deg",
+          "position": null
+        }
+      ],
+      "classification": "complex"
+    },
+    {
+      "raw": "linear-gradient(to right, rgb(235, 235, 235), rgb(235, 235, 235) 50%, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0))",
+      "type": "linear",
+      "direction": "to right",
+      "stops": [
+        {
+          "color": "rgb(235, 235, 235)",
+          "position": null
+        },
+        {
+          "color": "rgb(235, 235, 235)",
+          "position": "50%"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": "0px"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": null
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "linear-gradient(rgb(235, 235, 235), rgb(235, 235, 235) 50%, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0))",
+      "type": "linear",
+      "direction": null,
+      "stops": [
+        {
+          "color": "rgb(235, 235, 235)",
+          "position": null
+        },
+        {
+          "color": "rgb(235, 235, 235)",
+          "position": "50%"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": "0px"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": null
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "linear-gradient(to right, rgb(212, 238, 247), rgb(212, 238, 247) 50%, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0))",
+      "type": "linear",
+      "direction": "to right",
+      "stops": [
+        {
+          "color": "rgb(212, 238, 247)",
+          "position": null
+        },
+        {
+          "color": "rgb(212, 238, 247)",
+          "position": "50%"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": "0px"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": null
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "linear-gradient(rgb(212, 238, 247), rgb(212, 238, 247) 50%, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0))",
+      "type": "linear",
+      "direction": null,
+      "stops": [
+        {
+          "color": "rgb(212, 238, 247)",
+          "position": null
+        },
+        {
+          "color": "rgb(212, 238, 247)",
+          "position": "50%"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": "0px"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": null
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "linear-gradient(to right, rgb(255, 232, 224), rgb(255, 232, 224) 50%, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0))",
+      "type": "linear",
+      "direction": "to right",
+      "stops": [
+        {
+          "color": "rgb(255, 232, 224)",
+          "position": null
+        },
+        {
+          "color": "rgb(255, 232, 224)",
+          "position": "50%"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": "0px"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": null
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "linear-gradient(rgb(255, 232, 224), rgb(255, 232, 224) 50%, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0))",
+      "type": "linear",
+      "direction": null,
+      "stops": [
+        {
+          "color": "rgb(255, 232, 224)",
+          "position": null
+        },
+        {
+          "color": "rgb(255, 232, 224)",
+          "position": "50%"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": "0px"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": null
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "linear-gradient(to right, rgb(199, 245, 226), rgb(199, 245, 226) 50%, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0))",
+      "type": "linear",
+      "direction": "to right",
+      "stops": [
+        {
+          "color": "rgb(199, 245, 226)",
+          "position": null
+        },
+        {
+          "color": "rgb(199, 245, 226)",
+          "position": "50%"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": "0px"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": null
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "linear-gradient(rgb(199, 245, 226), rgb(199, 245, 226) 50%, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0))",
+      "type": "linear",
+      "direction": null,
+      "stops": [
+        {
+          "color": "rgb(199, 245, 226)",
+          "position": null
+        },
+        {
+          "color": "rgb(199, 245, 226)",
+          "position": "50%"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": "0px"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": null
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "linear-gradient(to right, rgb(247, 234, 212), rgb(247, 234, 212) 50%, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0))",
+      "type": "linear",
+      "direction": "to right",
+      "stops": [
+        {
+          "color": "rgb(247, 234, 212)",
+          "position": null
+        },
+        {
+          "color": "rgb(247, 234, 212)",
+          "position": "50%"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": "0px"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": null
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "linear-gradient(rgb(247, 234, 212), rgb(247, 234, 212) 50%, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0))",
+      "type": "linear",
+      "direction": null,
+      "stops": [
+        {
+          "color": "rgb(247, 234, 212)",
+          "position": null
+        },
+        {
+          "color": "rgb(247, 234, 212)",
+          "position": "50%"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": "0px"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": null
+        }
+      ],
+      "classification": "bold"
+    }
+  ]
+}

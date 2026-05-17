@@ -323,10 +323,10 @@
     "sheets": [
       {
         "url": "https://arc.net/",
-        "totalBytes": 1301,
-        "usedBytes": 0,
-        "unusedBytes": 1301,
-        "unusedPercent": 100
+        "totalBytes": 40,
+        "usedBytes": 40,
+        "unusedBytes": 0,
+        "unusedPercent": 0
       },
       {
         "url": "https://arc.net/",
@@ -336,18 +336,18 @@
         "unusedPercent": 18
       },
       {
+        "url": "https://arc.net/",
+        "totalBytes": 1301,
+        "usedBytes": 0,
+        "unusedBytes": 1301,
+        "unusedPercent": 100
+      },
+      {
         "url": "https://arc.net/_next/static/css/df28c1bc1b1a6c7d.css",
         "totalBytes": 6309,
         "usedBytes": 0,
         "unusedBytes": 6309,
         "unusedPercent": 100
-      },
-      {
-        "url": "https://arc.net/",
-        "totalBytes": 40,
-        "usedBytes": 40,
-        "unusedBytes": 0,
-        "unusedPercent": 0
       },
       {
         "url": "https://arc.net/",

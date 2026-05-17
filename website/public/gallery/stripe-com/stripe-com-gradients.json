@@ -1,0 +1,496 @@
+{
+  "$schema": "https://designlang.app/schemas/gradients.json",
+  "source": "https://stripe.com",
+  "generated": "2026-05-17T21:15:59.521Z",
+  "count": 19,
+  "gradients": [
+    {
+      "raw": "radial-gradient(66.35% 66.35%, rgba(255, 255, 255, 0.9) 0px, rgba(255, 255, 255, 0) 100%)",
+      "type": "radial",
+      "direction": null,
+      "stops": [
+        {
+          "color": "",
+          "position": "66.35%"
+        },
+        {
+          "color": "rgba(255, 255, 255, 0.9)",
+          "position": "0px"
+        },
+        {
+          "color": "rgba(255, 255, 255, 0)",
+          "position": "100%"
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "radial-gradient(circle, rgb(127, 125, 252), rgb(244, 75, 204) 33%, rgb(229, 237, 245) 66%)",
+      "type": "radial",
+      "direction": "circle",
+      "stops": [
+        {
+          "color": "rgb(127, 125, 252)",
+          "position": null
+        },
+        {
+          "color": "rgb(244, 75, 204)",
+          "position": "33%"
+        },
+        {
+          "color": "rgb(229, 237, 245)",
+          "position": "66%"
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "radial-gradient(50% 50%, rgba(83, 58, 253, 0.8) 62.5%, rgba(83, 58, 253, 0) 100%)",
+      "type": "radial",
+      "direction": null,
+      "stops": [
+        {
+          "color": "",
+          "position": "50%"
+        },
+        {
+          "color": "rgba(83, 58, 253, 0.8)",
+          "position": "62.5%"
+        },
+        {
+          "color": "rgba(83, 58, 253, 0)",
+          "position": "100%"
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "radial-gradient(50% 50%, rgba(243, 99, 243, 0.8) 53.85%, rgba(243, 99, 243, 0) 100%)",
+      "type": "radial",
+      "direction": null,
+      "stops": [
+        {
+          "color": "",
+          "position": "50%"
+        },
+        {
+          "color": "rgba(243, 99, 243, 0.8)",
+          "position": "53.85%"
+        },
+        {
+          "color": "rgba(243, 99, 243, 0)",
+          "position": "100%"
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "radial-gradient(50% 50%, rgb(255, 207, 94) 41.35%, rgba(255, 207, 94, 0) 100%)",
+      "type": "radial",
+      "direction": null,
+      "stops": [
+        {
+          "color": "",
+          "position": "50%"
+        },
+        {
+          "color": "rgb(255, 207, 94)",
+          "position": "41.35%"
+        },
+        {
+          "color": "rgba(255, 207, 94, 0)",
+          "position": "100%"
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "linear-gradient(rgb(255, 255, 255) 41.35%, rgba(255, 255, 255, 0))",
+      "type": "linear",
+      "direction": null,
+      "stops": [
+        {
+          "color": "rgb(255, 255, 255)",
+          "position": "41.35%"
+        },
+        {
+          "color": "rgba(255, 255, 255, 0)",
+          "position": null
+        }
+      ],
+      "classification": "brand"
+    },
+    {
+      "raw": "linear-gradient(90deg, rgb(114, 50, 241) 3.13%, rgb(251, 118, 250) 50%, rgb(255, 207, 94))",
+      "type": "linear",
+      "direction": "90deg",
+      "stops": [
+        {
+          "color": "rgb(114, 50, 241)",
+          "position": "3.13%"
+        },
+        {
+          "color": "rgb(251, 118, 250)",
+          "position": "50%"
+        },
+        {
+          "color": "rgb(255, 207, 94)",
+          "position": null
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "linear-gradient(90deg, rgba(0, 0, 0, 0) 0px, rgb(252, 253, 254) 50%, rgba(0, 0, 0, 0) 100%)",
+      "type": "linear",
+      "direction": "90deg",
+      "stops": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": "0px"
+        },
+        {
+          "color": "rgb(252, 253, 254)",
+          "position": "50%"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": "100%"
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "radial-gradient(103.24% 102.63% at 50% 102.63%, rgb(72, 111, 253) 0px, rgb(127, 129, 243) 9.84%, rgb(196, 137, 255) 20.83%, rgb(218, 192, 255) 34.13%, rgb(234, 220, 255) 44.86%, rgb(249, 246, 255) 58.59%, rgb(248, 250, 253) 100%)",
+      "type": "radial",
+      "direction": null,
+      "stops": [
+        {
+          "color": "103.24%",
+          "position": "102.63%"
+        },
+        {
+          "color": "rgb(72, 111, 253)",
+          "position": "0px"
+        },
+        {
+          "color": "rgb(127, 129, 243)",
+          "position": "9.84%"
+        },
+        {
+          "color": "rgb(196, 137, 255)",
+          "position": "20.83%"
+        },
+        {
+          "color": "rgb(218, 192, 255)",
+          "position": "34.13%"
+        },
+        {
+          "color": "rgb(234, 220, 255)",
+          "position": "44.86%"
+        },
+        {
+          "color": "rgb(249, 246, 255)",
+          "position": "58.59%"
+        },
+        {
+          "color": "rgb(248, 250, 253)",
+          "position": "100%"
+        }
+      ],
+      "classification": "complex"
+    },
+    {
+      "raw": "radial-gradient(102.68% 99.11% at 50% 104.6%, rgb(203, 131, 255) 0px, rgb(255, 144, 185) 15.77%, rgb(255, 201, 119) 30.62%, rgb(255, 215, 155) 38.04%, rgb(255, 241, 220) 50.11%, rgb(255, 255, 255) 63.1%, rgb(252, 253, 254) 77.95%, rgb(248, 250, 253) 98.81%)",
+      "type": "radial",
+      "direction": null,
+      "stops": [
+        {
+          "color": "102.68% 99.11% at 50%",
+          "position": "104.6%"
+        },
+        {
+          "color": "rgb(203, 131, 255)",
+          "position": "0px"
+        },
+        {
+          "color": "rgb(255, 144, 185)",
+          "position": "15.77%"
+        },
+        {
+          "color": "rgb(255, 201, 119)",
+          "position": "30.62%"
+        },
+        {
+          "color": "rgb(255, 215, 155)",
+          "position": "38.04%"
+        },
+        {
+          "color": "rgb(255, 241, 220)",
+          "position": "50.11%"
+        },
+        {
+          "color": "rgb(255, 255, 255)",
+          "position": "63.1%"
+        },
+        {
+          "color": "rgb(252, 253, 254)",
+          "position": "77.95%"
+        },
+        {
+          "color": "rgb(248, 250, 253)",
+          "position": "98.81%"
+        }
+      ],
+      "classification": "complex"
+    },
+    {
+      "raw": "radial-gradient(102.84% 104.98% at 50% 104.98%, rgb(0, 113, 193) 1.33%, rgb(96, 168, 226) 15.71%, rgb(180, 216, 255) 33.15%, rgb(217, 235, 255) 45%, rgb(248, 250, 253) 60%)",
+      "type": "radial",
+      "direction": null,
+      "stops": [
+        {
+          "color": "102.84%",
+          "position": "104.98%"
+        },
+        {
+          "color": "rgb(0, 113, 193)",
+          "position": "1.33%"
+        },
+        {
+          "color": "rgb(96, 168, 226)",
+          "position": "15.71%"
+        },
+        {
+          "color": "rgb(180, 216, 255)",
+          "position": "33.15%"
+        },
+        {
+          "color": "rgb(217, 235, 255)",
+          "position": "45%"
+        },
+        {
+          "color": "rgb(248, 250, 253)",
+          "position": "60%"
+        }
+      ],
+      "classification": "complex"
+    },
+    {
+      "raw": "radial-gradient(102.83% 103.24% at 49.98% 104.51%, rgb(255, 180, 81) 0px, rgb(239, 198, 128) 16.73%, rgb(180, 216, 255) 33.03%, rgb(210, 232, 255) 43.38%, rgb(250, 253, 255) 59.16%, rgb(253, 254, 255) 76.24%, rgb(248, 250, 253) 100%)",
+      "type": "radial",
+      "direction": null,
+      "stops": [
+        {
+          "color": "102.83% 103.24% at 49.98%",
+          "position": "104.51%"
+        },
+        {
+          "color": "rgb(255, 180, 81)",
+          "position": "0px"
+        },
+        {
+          "color": "rgb(239, 198, 128)",
+          "position": "16.73%"
+        },
+        {
+          "color": "rgb(180, 216, 255)",
+          "position": "33.03%"
+        },
+        {
+          "color": "rgb(210, 232, 255)",
+          "position": "43.38%"
+        },
+        {
+          "color": "rgb(250, 253, 255)",
+          "position": "59.16%"
+        },
+        {
+          "color": "rgb(253, 254, 255)",
+          "position": "76.24%"
+        },
+        {
+          "color": "rgb(248, 250, 253)",
+          "position": "100%"
+        }
+      ],
+      "classification": "complex"
+    },
+    {
+      "raw": "radial-gradient(103.12% 100% at 50% 100%, rgb(255, 165, 119) 0px, rgb(255, 144, 161) 15.52%, rgb(221, 173, 255) 30.09%, rgb(236, 216, 255) 45.72%, rgb(245, 234, 255) 54.96%, rgb(248, 250, 253) 88.16%)",
+      "type": "radial",
+      "direction": null,
+      "stops": [
+        {
+          "color": "103.12%",
+          "position": "100%"
+        },
+        {
+          "color": "rgb(255, 165, 119)",
+          "position": "0px"
+        },
+        {
+          "color": "rgb(255, 144, 161)",
+          "position": "15.52%"
+        },
+        {
+          "color": "rgb(221, 173, 255)",
+          "position": "30.09%"
+        },
+        {
+          "color": "rgb(236, 216, 255)",
+          "position": "45.72%"
+        },
+        {
+          "color": "rgb(245, 234, 255)",
+          "position": "54.96%"
+        },
+        {
+          "color": "rgb(248, 250, 253)",
+          "position": "88.16%"
+        }
+      ],
+      "classification": "complex"
+    },
+    {
+      "raw": "radial-gradient(102.82% 106.44% at 50% 106.44%, rgb(252, 253, 254) 1.11%, rgb(103, 99, 228) 28.73%, rgb(69, 59, 179) 45.76%, rgb(41, 34, 125) 63.37%, rgb(30, 32, 100) 78.67%, rgb(20, 30, 75) 100%)",
+      "type": "radial",
+      "direction": null,
+      "stops": [
+        {
+          "color": "102.82%",
+          "position": "106.44%"
+        },
+        {
+          "color": "rgb(252, 253, 254)",
+          "position": "1.11%"
+        },
+        {
+          "color": "rgb(103, 99, 228)",
+          "position": "28.73%"
+        },
+        {
+          "color": "rgb(69, 59, 179)",
+          "position": "45.76%"
+        },
+        {
+          "color": "rgb(41, 34, 125)",
+          "position": "63.37%"
+        },
+        {
+          "color": "rgb(30, 32, 100)",
+          "position": "78.67%"
+        },
+        {
+          "color": "rgb(20, 30, 75)",
+          "position": "100%"
+        }
+      ],
+      "classification": "complex"
+    },
+    {
+      "raw": "radial-gradient(circle, rgb(247, 45, 243), rgb(83, 58, 253) 33%, rgb(229, 237, 245) 66%)",
+      "type": "radial",
+      "direction": "circle",
+      "stops": [
+        {
+          "color": "rgb(247, 45, 243)",
+          "position": null
+        },
+        {
+          "color": "rgb(83, 58, 253)",
+          "position": "33%"
+        },
+        {
+          "color": "rgb(229, 237, 245)",
+          "position": "66%"
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "radial-gradient(circle, rgb(255, 173, 0), rgb(255, 118, 0) 33%, rgb(229, 237, 245) 66%)",
+      "type": "radial",
+      "direction": "circle",
+      "stops": [
+        {
+          "color": "rgb(255, 173, 0)",
+          "position": null
+        },
+        {
+          "color": "rgb(255, 118, 0)",
+          "position": "33%"
+        },
+        {
+          "color": "rgb(229, 237, 245)",
+          "position": "66%"
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "linear-gradient(68deg, rgba(83, 58, 253, 0.08) 0.78%, rgba(255, 140, 108, 0.8) 30.61%, rgba(218, 75, 254, 0.8) 79.02%)",
+      "type": "linear",
+      "direction": "68deg",
+      "stops": [
+        {
+          "color": "rgba(83, 58, 253, 0.08)",
+          "position": "0.78%"
+        },
+        {
+          "color": "rgba(255, 140, 108, 0.8)",
+          "position": "30.61%"
+        },
+        {
+          "color": "rgba(218, 75, 254, 0.8)",
+          "position": "79.02%"
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "linear-gradient(73.3deg, rgba(218, 75, 254, 0.8) 9.85%, rgba(113, 92, 255, 0.48) 61.94%)",
+      "type": "linear",
+      "direction": "73.3deg",
+      "stops": [
+        {
+          "color": "rgba(218, 75, 254, 0.8)",
+          "position": "9.85%"
+        },
+        {
+          "color": "rgba(113, 92, 255, 0.48)",
+          "position": "61.94%"
+        }
+      ],
+      "classification": "brand"
+    },
+    {
+      "raw": "linear-gradient(74.71deg, rgba(83, 58, 253, 0.08) -215.1%, rgba(255, 140, 108, 0.8) -169.26%, rgba(218, 75, 254, 0.8) -12.8%, rgba(113, 92, 255, 0.8) 18.59%, rgba(83, 58, 253, 0.8) 39.04%)",
+      "type": "linear",
+      "direction": "74.71deg",
+      "stops": [
+        {
+          "color": "rgba(83, 58, 253, 0.08) -",
+          "position": "215.1%"
+        },
+        {
+          "color": "rgba(255, 140, 108, 0.8) -",
+          "position": "169.26%"
+        },
+        {
+          "color": "rgba(218, 75, 254, 0.8) -",
+          "position": "12.8%"
+        },
+        {
+          "color": "rgba(113, 92, 255, 0.8)",
+          "position": "18.59%"
+        },
+        {
+          "color": "rgba(83, 58, 253, 0.8)",
+          "position": "39.04%"
+        }
+      ],
+      "classification": "complex"
+    }
+  ]
+}

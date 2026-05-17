@@ -4,9 +4,9 @@
   "evidence": [],
   "alternates": [],
   "signals": {
-    "tailwindLike": 0.044,
+    "tailwindLike": 0.032,
     "radixAttrCount": 0,
-    "classSampleSize": 434
+    "classSampleSize": 436
   },
   "needsSmart": true
 }

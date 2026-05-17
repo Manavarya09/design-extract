@@ -1,6 +1,6 @@
 # Design Language: Arc from The Browser Company
 
-> Extracted from `https://arc.net` on May 15, 2026
+> Extracted from `https://arc.net` on May 18, 2026
 > 450 elements analyzed
 
 This document describes the complete design language of the website. It is structured for AI/LLM consumption — use it to faithfully recreate the visual design in any framework.

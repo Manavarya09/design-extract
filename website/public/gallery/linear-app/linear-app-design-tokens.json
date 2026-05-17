@@ -4,7 +4,7 @@
     "version": "7.0.0",
     "spec": "https://design-tokens.github.io/community-group/format/",
     "source": "https://linear.app",
-    "generatedAt": "2026-05-14T22:15:57.366Z"
+    "generatedAt": "2026-05-17T21:15:59.867Z"
   },
   "primitive": {
     "color": {
@@ -295,7 +295,7 @@
     },
     "shadow": {
       "sh0": {
-        "$value": "rgba(94, 106, 210, 0) 0px 0px 0px 9.8766px",
+        "$value": "rgba(94, 106, 210, 0.008) 0px 0px 0px 9.22975px",
         "$type": "shadow"
       },
       "sh1": {

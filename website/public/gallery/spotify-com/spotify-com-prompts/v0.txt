@@ -6,8 +6,8 @@ COLORS:
   #696969
   #1ed760
   #555555
-  #121212
   #7c7c7c
+  #121212
   #1f1f1f
   #333333
   #468254
@@ -19,7 +19,7 @@ SPACING: 1, 15, 20, 23, 28, 35, 40, 48
 RADIUS: 2, 6, 10, 16, 20, 32
 SHADOWS: rgb(124, 124, 124) 0px 0px 0px 1px inset | rgb(18, 18, 18) 0px 1px 0px 0px, rgb(124, 124, 124) 0px 0px 0px 1px inset | rgb(128, 128, 128) 0px 0px 5px 0px
 MATERIAL LANGUAGE: material-you
-VOICE: Tone: neutral · Headings: Sentence case · CTA verbs: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+VOICE: Tone: friendly · Headings: Sentence case · CTA verbs: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
 SECTIONS (in order):
 - cta
 - testimonials — heading: "Home"

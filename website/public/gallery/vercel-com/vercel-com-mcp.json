@@ -14,7 +14,7 @@
           "s": 0,
           "l": 9
         },
-        "count": 2954,
+        "count": 2951,
         "contexts": [
           "text",
           "border",
@@ -34,7 +34,7 @@
           "s": 0,
           "l": 92
         },
-        "count": 2342,
+        "count": 2339,
         "contexts": [
           "border",
           "background"
@@ -376,24 +376,6 @@
         ]
       },
       {
-        "hex": "#067a6e",
-        "rgb": {
-          "r": 6,
-          "g": 122,
-          "b": 110,
-          "a": 1
-        },
-        "hsl": {
-          "h": 174,
-          "s": 91,
-          "l": 25
-        },
-        "count": 1,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
         "hex": "#ea3e83",
         "rgb": {
           "r": 234,
@@ -412,17 +394,17 @@
         ]
       },
       {
-        "hex": "#ff990a",
+        "hex": "#067a6e",
         "rgb": {
-          "r": 255,
-          "g": 153,
-          "b": 10,
+          "r": 6,
+          "g": 122,
+          "b": 110,
           "a": 1
         },
         "hsl": {
-          "h": 35,
-          "s": 100,
-          "l": 52
+          "h": 174,
+          "s": 91,
+          "l": 25
         },
         "count": 1,
         "contexts": [
@@ -466,17 +448,17 @@
         ]
       },
       {
-        "hex": "#ffc96b",
+        "hex": "#ff990a",
         "rgb": {
           "r": 255,
-          "g": 201,
-          "b": 107,
+          "g": 153,
+          "b": 10,
           "a": 1
         },
         "hsl": {
-          "h": 38,
+          "h": 35,
           "s": 100,
-          "l": 71
+          "l": 52
         },
         "count": 1,
         "contexts": [
@@ -495,6 +477,24 @@
           "h": 125,
           "s": 60,
           "l": 64
+        },
+        "count": 1,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#ffc96b",
+        "rgb": {
+          "r": 255,
+          "g": 201,
+          "b": 107,
+          "a": 1
+        },
+        "hsl": {
+          "h": 38,
+          "s": 100,
+          "l": 71
         },
         "count": 1,
         "contexts": [
@@ -1194,25 +1194,11 @@
   "cssHealth": {
     "sheets": [
       {
-        "url": "https://vercel.com/vc-ap-vercel-marketing/_next/static/immutable/chunks/1y3m6d1q5q3ln.css",
-        "totalBytes": 122927,
-        "usedBytes": 27786,
-        "unusedBytes": 95141,
-        "unusedPercent": 77
-      },
-      {
-        "url": "https://vercel.com/vc-ap-vercel-marketing/_next/static/immutable/chunks/0-wh64ms_lrzo.css",
-        "totalBytes": 121902,
-        "usedBytes": 14444,
-        "unusedBytes": 107458,
-        "unusedPercent": 88
-      },
-      {
-        "url": "https://vercel.com/vc-ap-vercel-marketing/_next/static/immutable/chunks/37lq4pxhe4upr.css",
-        "totalBytes": 7373,
-        "usedBytes": 74,
-        "unusedBytes": 7299,
-        "unusedPercent": 99
+        "url": "https://vercel.com/vc-ap-vercel-marketing/_next/static/immutable/chunks/2uf4d3_jvy94_.css",
+        "totalBytes": 117954,
+        "usedBytes": 15609,
+        "unusedBytes": 102345,
+        "unusedPercent": 87
       },
       {
         "url": "https://vercel.com/vc-ap-vercel-marketing/_next/static/immutable/chunks/3s8zb7ruf0--9.css",
@@ -1223,10 +1209,52 @@
       },
       {
         "url": "https://vercel.com/",
-        "totalBytes": 103,
-        "usedBytes": 58,
-        "unusedBytes": 45,
-        "unusedPercent": 44
+        "totalBytes": 99,
+        "usedBytes": 0,
+        "unusedBytes": 99,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://vercel.com/vc-ap-vercel-marketing/_next/static/immutable/chunks/2n6bdi0qqa14k.css",
+        "totalBytes": 566150,
+        "usedBytes": 517468,
+        "unusedBytes": 48682,
+        "unusedPercent": 9
+      },
+      {
+        "url": "https://vercel.com/vc-ap-vercel-marketing/_next/static/immutable/chunks/37lq4pxhe4upr.css",
+        "totalBytes": 7373,
+        "usedBytes": 74,
+        "unusedBytes": 7299,
+        "unusedPercent": 99
+      },
+      {
+        "url": "https://vercel.com/vc-ap-vercel-marketing/_next/static/immutable/chunks/1y3m6d1q5q3ln.css",
+        "totalBytes": 122927,
+        "usedBytes": 27786,
+        "unusedBytes": 95141,
+        "unusedPercent": 77
+      },
+      {
+        "url": "https://vercel.com/vc-ap-vercel-marketing/_next/static/immutable/chunks/44-5mmd745jwj.css",
+        "totalBytes": 2539,
+        "usedBytes": 676,
+        "unusedBytes": 1863,
+        "unusedPercent": 73
+      },
+      {
+        "url": "https://vercel.com/vc-ap-vercel-marketing/_next/static/immutable/chunks/3q-cil37aaytx.css",
+        "totalBytes": 2117,
+        "usedBytes": 0,
+        "unusedBytes": 2117,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://vercel.com/vc-ap-vercel-marketing/_next/static/immutable/chunks/0-wh64ms_lrzo.css",
+        "totalBytes": 121902,
+        "usedBytes": 14444,
+        "unusedBytes": 107458,
+        "unusedPercent": 88
       },
       {
         "url": "https://vercel.com/vc-ap-vercel-marketing/_next/static/immutable/chunks/2bth6v7mdypmo.css",
@@ -1237,17 +1265,10 @@
       },
       {
         "url": "https://vercel.com/",
-        "totalBytes": 99,
-        "usedBytes": 0,
-        "unusedBytes": 99,
-        "unusedPercent": 100
-      },
-      {
-        "url": "https://vercel.com/vc-ap-vercel-marketing/_next/static/immutable/chunks/44-5mmd745jwj.css",
-        "totalBytes": 2539,
-        "usedBytes": 676,
-        "unusedBytes": 1863,
-        "unusedPercent": 73
+        "totalBytes": 103,
+        "usedBytes": 58,
+        "unusedBytes": 45,
+        "unusedPercent": 44
       },
       {
         "url": "https://vercel.com/vc-ap-vercel-marketing/_next/static/immutable/chunks/3at-j3b11heov.css",
@@ -1257,27 +1278,6 @@
         "unusedPercent": 97
       },
       {
-        "url": "https://vercel.com/vc-ap-vercel-marketing/_next/static/immutable/chunks/2uf4d3_jvy94_.css",
-        "totalBytes": 117954,
-        "usedBytes": 15609,
-        "unusedBytes": 102345,
-        "unusedPercent": 87
-      },
-      {
-        "url": "https://vercel.com/vc-ap-vercel-marketing/_next/static/immutable/chunks/3yhealln9g5is.css",
-        "totalBytes": 564752,
-        "usedBytes": 516070,
-        "unusedBytes": 48682,
-        "unusedPercent": 9
-      },
-      {
-        "url": "https://vercel.com/vc-ap-vercel-marketing/_next/static/immutable/chunks/3q-cil37aaytx.css",
-        "totalBytes": 2117,
-        "usedBytes": 0,
-        "unusedBytes": 2117,
-        "unusedPercent": 100
-      },
-      {
         "url": "https://vercel.com/vc-ap-vercel-marketing/_next/static/immutable/chunks/1_jk2-zyrzbs-.css",
         "totalBytes": 246,
         "usedBytes": 0,
@@ -1285,14 +1285,14 @@
         "unusedPercent": 100
       }
     ],
-    "totalBytes": 1016398,
-    "usedBytes": 579800,
+    "totalBytes": 1017796,
+    "usedBytes": 581198,
     "unusedBytes": 436598,
     "unusedPercent": 43,
-    "importantCount": 1193,
-    "duplicates": 11518,
+    "importantCount": 1194,
+    "duplicates": 11530,
     "vendorPrefixes": {
-      "webkit": 307,
+      "webkit": 306,
       "moz": 19,
       "ms": 11,
       "o": 0
@@ -1309,11 +1309,11 @@
         1.89,
         0.16
       ],
-      "count": 10793
+      "count": 10820
     },
     "issues": [
-      "1193 !important rules",
-      "11518 duplicate declarations"
+      "1194 !important rules",
+      "11530 duplicate declarations"
     ]
   }
 }

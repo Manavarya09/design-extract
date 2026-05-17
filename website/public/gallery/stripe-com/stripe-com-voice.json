@@ -1,0 +1,126 @@
+{
+  "tone": "neutral",
+  "pronoun": "you-only",
+  "headingStyle": "Sentence case",
+  "headingLengthClass": "balanced",
+  "ctaVerbs": [
+    {
+      "value": "read",
+      "count": 20
+    },
+    {
+      "value": "stripe",
+      "count": 10
+    },
+    {
+      "value": "continue",
+      "count": 6
+    },
+    {
+      "value": "get",
+      "count": 5
+    },
+    {
+      "value": "sign",
+      "count": 4
+    },
+    {
+      "value": "view",
+      "count": 4
+    },
+    {
+      "value": "watch",
+      "count": 3
+    },
+    {
+      "value": "contact",
+      "count": 2
+    },
+    {
+      "value": "accept",
+      "count": 2
+    },
+    {
+      "value": "see",
+      "count": 2
+    }
+  ],
+  "buttonPatterns": [
+    {
+      "value": "read the story",
+      "count": 12
+    },
+    {
+      "value": "continue\nweiter\n続行\ncontinue",
+      "count": 6
+    },
+    {
+      "value": "contact sales",
+      "count": 2
+    },
+    {
+      "value": "stripe for enterprises",
+      "count": 2
+    },
+    {
+      "value": "stripe for startups",
+      "count": 2
+    },
+    {
+      "value": "stripe for platforms",
+      "count": 2
+    },
+    {
+      "value": "stripe press",
+      "count": 2
+    },
+    {
+      "value": "works in progress",
+      "count": 2
+    },
+    {
+      "value": "products",
+      "count": 1
+    },
+    {
+      "value": "solutions",
+      "count": 1
+    },
+    {
+      "value": "developers",
+      "count": 1
+    },
+    {
+      "value": "resources",
+      "count": 1
+    },
+    {
+      "value": "pricing",
+      "count": 1
+    },
+    {
+      "value": "sign in\nsign in\ncontact sales",
+      "count": 1
+    },
+    {
+      "value": "sign in\nsign in",
+      "count": 1
+    }
+  ],
+  "sampleHeadings": [
+    "Financial infrastructure to grow your revenue. Accept payments, offer financial services, and implement custom revenue models—from your first transaction to your billionth.",
+    "Financial infrastructure to grow your revenue. Accept payments, offer financial services, and implement custom revenue models—from your first transaction to your billionth.",
+    "Flexible solutions for every business model.",
+    "Accept and optimize payments globally—online and in person",
+    "Enable any billing model",
+    "Financial infrastructure to grow your revenue. Accept payments, offer financial services, and implement custom revenue models—from your first transaction to your billionth.",
+    "Financial infrastructure to grow your revenue. Accept payments, offer financial services, and implement custom revenue models—from your first transaction to your billionth.",
+    "Flexible solutions for every business model.",
+    "Accept and optimize payments globally—online and in person",
+    "Enable any billing model"
+  ],
+  "stats": {
+    "buttons": 83,
+    "headings": 43
+  }
+}

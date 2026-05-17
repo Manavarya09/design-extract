@@ -114,6 +114,9 @@
   --border-width-1: 0.0625rem;
   --border-width-2: 0.125rem;
   --border-width-4: 0.25rem;
+  --border-style-solid: solid;
+  --border-style-dashed: dashed;
+  --border-style-none: none;
   --color-gray-100: #f9f9f8;
   --color-gray-200: #f6f5f4;
   --color-gray-300: #dfdcd9;
@@ -242,8 +245,6 @@
   --color-campaigns-dev-platform-dos-alpha-white: var(--color-alpha-white-700);
   --color-campaigns-dev-platform-dos-alpha-lavender: #cbcbef70;
   --color-campaigns-dev-platform-dos-alpha-gray: #f6f6fc70;
-  --decoration-focus-ring-outline-offset: 0.125rem;
-  --decoration-focus-ring-outline-thickness: 0.125rem;
   --font-family-primary-sans: NotionInter;
   --font-family-primary-serif: "Lyon Text";
   --font-family-primary-serif-japanese: "Lyon Text";
@@ -256,14 +257,15 @@
   --font-family-primary-handwriting: "Permanent Marker";
   --font-family-primary-mono: "iA Writer Mono";
   --font-family-primary-emoji: "Apple Color Emoji";
+  --color-card-accent: #097fe8;
   --color-button-primary-background-active: #005bab;
   --color-button-tertiary-text: #000000f2;
   --color-button-primary-border: #fff0;
+  --color-action-button-primary-background-focus: #f6f5f4;
   --color-background-surface-neutral-focus: #dfdcd9;
   --spacing-card-padding-inline-block: 2rem;
-  --color-code-comment: #0000008a;
   --color-background-surface-accent-muted: #f2f9ff;
-  --color-action-button-primary-background-focus: #f6f5f4;
+  --color-code-comment: #0000008a;
   --color-terminal-text: #000000f2;
   --color-icon-button-active: #615d59;
   --color-interaction-indicator-active: #0000004d;
@@ -332,6 +334,7 @@
   --color-badge-bold-text: #fff;
   --color-badge-mono-text: #000;
   --color-menu-button-border-selected: #0000001a;
+  --border-interaction-focus-ring-style: solid;
   --color-card-border: #0000001a;
   --color-code-literal: #0000008a;
   --typography-card-title-feature-font: 700 1.625rem /2rem NotionInter,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";
@@ -353,8 +356,8 @@
   --color-accent: #62aef0;
   --typography-card-title-feature-md-font: 700 2rem /2.5rem NotionInter,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";
   --color-action-button-alpha-icon-disabled: #0000004d;
-  --color-link-primary-text: #0075de;
   --color-background-surface-accent-muted-active: #e6f3fe;
+  --color-link-primary-text: #0075de;
   --color-terminal-background: #f9f9f8;
   --color-card-body-text: #00000096;
   --color-action-button-alpha-icon: #000000f2;
@@ -370,8 +373,8 @@
   --color-card-title-text: #000;
   --color-link-primary-text-hover: #00396b;
   --color-button-primary-text: #fff;
-  --color-badge-mono-background: #f6f5f4;
   --color-background-surface-accent: #62aef0;
+  --color-badge-mono-background: #f6f5f4;
   --typography-card-title-letter-spacing: -0.015625rem;
   --color-menu-button-background: #f9f9f8;
   --color-background-surface-neutral-hover: #dfdcd9;
@@ -380,8 +383,8 @@
   --color-link-secondary-text-hover: #000000bf;
   --color-button-tertiary-background-focus: #f6f5f4;
   --color-button-ghost-background-active: #f6f5f4;
-  --color-menu-button-background-selected-active: #f6f5f4;
   --color-code-string: #14832b;
+  --color-menu-button-background-selected-active: #f6f5f4;
   --typography-card-body-letter-spacing: 0;
   --color-banner: #ffffffd9;
   --color-button-tertiary-border: #0000001a;
@@ -404,8 +407,8 @@
   --color-menu-button-background-active: #f6f5f4;
   --color-menu-button-border-selected-focus: #0003;
   --color-button-primary-background-hover: #005bab;
-  --color-button-tertiary-background: #fff;
   --color-menu-button-background-focus: #f6f5f4;
+  --color-button-tertiary-background: #fff;
   --typography-card-note-letter-spacing: 0;
   --color-text-strong: #000000f2;
   --spacing-card-padding-inline: 1rem;
@@ -422,8 +425,10 @@
   --color-accent-soft: #e6f3fe;
   --color-menu-button-border: #f9f9f8;
   --typography-card-context-feature-font: 400 0.875rem /1.25rem NotionInter,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";
+  --dimension-interaction-focus-ring-outline-width: 0.125rem;
   --color-button-secondary-background: #e6f3fe;
   --typography-card-quote-letter-spacing: 0;
+  --dimension-interaction-focus-ring-outline-offset: 0.125rem;
   --color-menu-button-text: #000000e6;
   --color-button-secondary-background-focus: #f2f9ff;
   --color-button-ghost-background-focus: #f6f5f4;
@@ -433,7 +438,6 @@
   --color-button-primary-background-focus: #005bab;
   --color-button-secondary-background-active: #f2f9ff;
   --color-menu-button-border-focus: #f9f9f8;
-  --color-card-accent: #097fe8;
   /* — spacing — */
   --spacing-block-s: 20px;
   --spacing-block-m: 24px;
@@ -582,8 +586,8 @@
   --typography-interaction-menu-list-item-label-letter-spacing: 0;
   --typography-interaction-button-medium-letter-spacing: 0;
   --typography-article-subheading-lg-letter-spacing: -0.015625rem;
-  --typography-interaction-menu-list-item-label-emphasis-md-letter-spacing: -0.015625rem;
   --typography-interaction-menu-button-letter-spacing: 0;
+  --typography-interaction-menu-list-item-label-emphasis-md-letter-spacing: -0.015625rem;
   --typography-navigation-heading-letter-spacing: 0.0078125rem;
   --typography-article-caption-letter-spacing: 0.0078125rem;
   --typography-navigation-body-letter-spacing: 0;
@@ -620,8 +624,8 @@
   --spacing-section: 10rem;
   --typography-article-subheading-letter-spacing: -0.0078125rem;
   --typography-global-title-emphasis-md-letter-spacing: -0.1328125rem;
-  --typography-article-body-bold-letter-spacing: 0;
   --typography-navigation-link-emphasis-letter-spacing: 0;
+  --typography-article-body-bold-letter-spacing: 0;
   --typography-global-subheading-letter-spacing: -0.015625rem;
   --typography-global-deck-sm-letter-spacing: -0.0078125rem;
   --typography-global-title-letter-spacing: -0.09375rem;
@@ -816,14 +820,20 @@
   --shadow-300: 0px 0.667px 3.502px #00000003,0px 2.933px 7.252px rgba(0,0,0,.016),0px 7.2px 14.462px #00000005,0px 13.867px 28.348px rgba(0,0,0,.024),0px 23.333px 52.123px #00000008,0px 36px 89px #0000000a;
   /* — other — */
   --direction: 1;
+  --em-ratio-0-1: 0.1em;
+  --link-underline-offset: var(--em-ratio-0-1);
   --grid-column-width: 1fr;
   --grid-gutter: 28px;
   --grid-sm-gutter: 12px;
   --grid-columns: 12;
   --global-navigation-height: 64px;
   --header-height: 60px;
-  --decoration-link-underline-offset: 0.1em;
   --decoration-link-underline-thickness: 0.0625rem;
+  --offset-0: 0;
+  --offset-1: 0.0625rem;
+  --offset-2: 0.125rem;
+  --thickness-1: 0.0625rem;
+  --thickness-2: 0.125rem;
   --motion-timing-function-ease-in-out-quint: cubic-bezier(0.86,0,0.07,1);
   --motion-timing-function-ease-in-out-quart: cubic-bezier(0.76,0,0.24,1);
   --motion-timing-function-ease-in-out-quad: cubic-bezier(0.45,0,0.55,1);
@@ -852,6 +862,7 @@
   --motion-global-transform-duration: 300ms;
   --motion-global-fade-in-duration: 150ms;
   /* — dependencies — */
+  --link-underline-offset: --em-ratio-0-1;
   --color-campaigns-dev-platform-dos-white: --color-white;
   --color-campaigns-dev-platform-dos-alpha-white: --color-alpha-white-700;
   --font-family-sans: --font-family-primary-sans,--font-family-fallback-sans;

@@ -1,7 +1,7 @@
 # Design Language: Linear – The system for product development
 
-> Extracted from `https://linear.app` on May 15, 2026
-> 3932 elements analyzed
+> Extracted from `https://linear.app` on May 18, 2026
+> 3933 elements analyzed
 
 This document describes the complete design language of the website. It is structured for AI/LLM consumption — use it to faithfully recreate the visual design in any framework.
 
@@ -19,11 +19,11 @@ This document describes the complete design language of the website. It is struc
 
 | Hex | HSL | Usage Count |
 |-----|-----|-------------|
-| `#f7f8f8` | hsl(180, 7%, 97%) | 6016 |
-| `#62666d` | hsl(218, 5%, 41%) | 719 |
+| `#f7f8f8` | hsl(180, 7%, 97%) | 6030 |
+| `#62666d` | hsl(218, 5%, 41%) | 717 |
 | `#d0d6e0` | hsl(218, 21%, 85%) | 368 |
 | `#e2e4e7` | hsl(216, 9%, 90%) | 295 |
-| `#8a8f98` | hsl(219, 6%, 57%) | 277 |
+| `#8a8f98` | hsl(219, 6%, 57%) | 267 |
 | `#08090a` | hsl(210, 11%, 4%) | 53 |
 | `#23252a` | hsl(223, 9%, 15%) | 12 |
 | `#383b3f` | hsl(214, 6%, 23%) | 6 |
@@ -96,11 +96,11 @@ background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 2
 
 | Hex | Contexts | Count |
 |-----|----------|-------|
-| `#f7f8f8` | text, border, background | 6016 |
-| `#62666d` | text, border, background | 719 |
+| `#f7f8f8` | text, border, background | 6030 |
+| `#62666d` | text, border, background | 717 |
 | `#d0d6e0` | text, border | 368 |
 | `#e2e4e7` | background, border, text | 295 |
-| `#8a8f98` | text, border | 277 |
+| `#8a8f98` | text, border | 267 |
 | `#f79ce0` | text, border | 90 |
 | `#08090a` | background, text, border | 53 |
 | `#f7bf8b` | text, border | 44 |
@@ -131,8 +131,8 @@ background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 2
 
 ### Font Families
 
-- **Inter Variable** — used for all (3616 elements)
-- **Berkeley Mono** — used for body (316 elements)
+- **Inter Variable** — used for all (3618 elements)
+- **Berkeley Mono** — used for body (315 elements)
 
 ### Type Scale
 
@@ -172,7 +172,7 @@ body { font-size: 14px; font-weight: 510; line-height: 21px; }
 
 ### Font Weights in Use
 
-`400` (3675x), `510` (231x), `590` (22x), `300` (4x)
+`400` (3680x), `510` (231x), `590` (18x), `300` (4x)
 
 ## Spacing
 
@@ -217,7 +217,7 @@ body { font-size: 14px; font-weight: 510; line-height: 21px; }
 
 **sm** — blur: 0px
 ```css
-box-shadow: rgba(94, 106, 210, 0) 0px 0px 0px 9.8766px;
+box-shadow: rgba(94, 106, 210, 0.008) 0px 0px 0px 9.22975px;
 ```
 
 **sm** — blur: 0px
@@ -309,11 +309,11 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --color-text-primary: #f7f8f8;
 --color-brand-bg: #5e6ad2;
 --color-bg-marketing: #010102;
---modal-dp-control-primary-hover: initial;
---color-linear-security: #7a7fad;
 --color-bg-panel: #0f1011;
---scrollbar-color-active: rgba(255,255,255,0.4);
+--color-linear-security: #7a7fad;
+--modal-dp-control-primary-hover: initial;
 --color-bg-tint: #141516;
+--scrollbar-color-active: rgba(255,255,255,0.4);
 --header-border: rgba(255,255,255,0.08);
 --focus-ring-width: 1px;
 --border-hairline: 1px;
@@ -380,9 +380,9 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --title-3-letter-spacing: -0.012em;
 --editor-block-menu-size: 20px;
 --scrollbar-size-active: 10px;
---font-size-miniPlus: 0.75rem;
---text-regular-letter-spacing: -0.011em;
 --text-regular-size: 0.9375rem;
+--text-regular-letter-spacing: -0.011em;
+--font-size-miniPlus: 0.75rem;
 --editor-block-spacing-small: calc(0.375 * 1rem);
 --font-size-microPlus: 0.6875rem;
 --title-7-size: 3.5rem;
@@ -425,11 +425,11 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --title-5-size: 2.5rem;
 --title-1-letter-spacing: -0.012em;
 --scrollbar-size: 6px;
---text-large-size: 1.0625rem;
 --min-tap-size: 44px;
+--text-large-size: 1.0625rem;
 --page-padding-inline: 24px;
---text-large-letter-spacing: 0;
 --title-8-letter-spacing: -0.022em;
+--text-large-letter-spacing: 0;
 --text-small-letter-spacing: -0.013em;
 --title-9-size: 4.5rem;
 --title-3-size: 1.5rem;
@@ -523,8 +523,8 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --sx-138kmyo: #424449;
 --xaxo4ug: ;
 --sx-1mc3c6y: #1e2022;
---cursor-disabled: not-allowed;
 --xq9soxx: inherit;
+--cursor-disabled: not-allowed;
 --x1fphd1n: ;
 --layer-tooltip: 1100;
 --ease-in-out-quart: cubic-bezier(0.77,0,0.175,1);
@@ -546,8 +546,8 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --sx-jw5zf4: #39b350;
 --xkbzynh: transparent;
 --sx-pqiwo2: #373a56;
---x13kjjc4: ;
 --title-1: 590 1.0625rem /1.4 "Inter Variable","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Open Sans","Helvetica Neue",sans-serif;
+--x13kjjc4: ;
 --xds2y8i: 5px;
 --x1ele6il: ;
 --xw1p5jj: ;
@@ -555,15 +555,15 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --x1urpf9d: ;
 --transparent: rgba(255,255,255,0);
 --layer-2: 2;
+--sx-6zt3z6: 1px solid #323439;
 --editor-bullet-disc-offset: 0.5em;
---sx-6zt3z6: 1px solid #28292e;
 --xcx2ark: ;
 --sx-1fh23cp: #9c9da1;
 --xohseg1: ;
 --xtw6awd: ;
 --xx7veac: transparent;
---sx-1vyp3gc: #ffeac6;
 --xickszr: ;
+--sx-1vyp3gc: #ffeac6;
 --x1yxqotz: ;
 --x1m4y240: ;
 --x7jk47a: ;
@@ -575,8 +575,8 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --x1gakdvt: ;
 --sx-umgfby: 0 1px 1px inset #00000011, 0 1px 3px inset #00000011, 0 2px 5px inset #00000019;
 --xjw5zf4: ;
---sx-1rzu7x2: #626366;
 --xbpgheo: ;
+--sx-1rzu7x2: #626366;
 --x1s7kw6p: transparent;
 --x11lpf43: 0.8125rem;
 --ease-out-circ: cubic-bezier(0.075,0.82,0.165,1);
@@ -584,16 +584,16 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --sx-1n1r1h9: #ffffff0d;
 --title-5: 590 2.5rem /1.1 "Inter Variable","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Open Sans","Helvetica Neue",sans-serif;
 --sx-1cxqmhc: #00e8ff;
---sx-5t1vcl: #00ceff;
 --1fr: minmax(0,1fr);
+--sx-5t1vcl: #00ceff;
 --xirmyh9: ;
 --sx-2icmlu: #08080826;
 --sx-cx2ark: #37393e;
 --title-6: 590 3rem /1 "Inter Variable","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Open Sans","Helvetica Neue",sans-serif;
 --x1qdowq0: ;
 --dvh: 1dvh;
---xykavoc: 5px;
 --xn8xqcl: ;
+--xykavoc: 5px;
 --sx-1h56kua: #f0bf00;
 --sx-1rsaf4u: #2a2d48;
 --xkwfvdu: var(--x1o1lnwn);
@@ -604,7 +604,7 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --xot17o6: ;
 --x1umwnkk: "Berkeley Mono","SFMono Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
 --x1ps2i54: ;
---sx-k68kma: #2d2f34;
+--sx-k68kma: #37393e;
 --x1rnpv0l: ;
 --xciqj87: ;
 --cursor-none: none;
@@ -621,17 +621,17 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --xumgfby: ;
 --x105wzx7: ;
 --sx-13kjjc4: #38393d;
---svh: 1svh;
 --sx-1q6smeb: #ff6565;
+--svh: 1svh;
 --xnihqbq: ;
 --ease-in-quint: cubic-bezier(0.755,0.05,0.855,0.06);
 --sx-c3gk8m: 0 0 0 1px #5e69d1;
---sx-16hn3q3: #242629;
+--sx-16hn3q3: #292a2e;
 --x129bhjt: ;
 --speed-highlightFadeIn: 0s;
 --dp-label-title: initial;
---x1crf4sx: ;
 --sx-1xaoi8i: #7a88ff;
+--x1crf4sx: ;
 --sx-d1bcc1: #08080826;
 --homepage-max-width: calc(1344px + 10px * 2);
 --mask-off: transparent;
@@ -653,20 +653,20 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --x74qs5: ;
 --sx-ws85c5: #fcfaff;
 --sx-15wwovl: #28292e;
---sx-6ayg1n: #2e3036;
+--sx-6ayg1n: #2c2e34;
 --sx-1qdowq0: #00000066;
 --sx-ikq9iy: #322122;
 --xas9fd0: ;
---xk68kma: ;
---xnnhj77: ;
 --layer-max: 10000;
+--xnnhj77: ;
+--xk68kma: ;
 --dp-label-base: initial;
---ease-out-expo: cubic-bezier(0.19,1,0.22,1);
 --xwsz0k3: ;
 --sx-g52i5g: #1c1f24;
 --x19k7np8: 1;
 --_number-flow-d-width: 0;
 --sx-9o00jb: #00c6d9;
+--ease-out-expo: cubic-bezier(0.19,1,0.22,1);
 --mask-invisible: transparent;
 --xi20l48: ;
 --layer-dialog: 700;
@@ -680,7 +680,7 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --x1stx5uy: ;
 --x133wec9: ;
 --x6zt3z6: ;
---sx-142jeir: #28292e;
+--sx-142jeir: #323439;
 --cursor-pointer: pointer;
 --editor-safe-area: 16px;
 --x1q6smeb: ;
@@ -697,8 +697,8 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --x1em7oyp: ;
 --title-4: 590 2rem /1.125 "Inter Variable","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Open Sans","Helvetica Neue",sans-serif;
 --sx-17ckey5: #ff5d5e;
---x1ospiv4: ;
 --xc3gk8m: ;
+--x1ospiv4: ;
 --sx-74qs5: #00000001;
 --mask-ease: rgba(0,0,0,0.2);
 --sx-14ggo8w: #1e2823;
@@ -714,8 +714,8 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --editor-todolist-checkbox-width: 14px;
 --x1g0wh59: transparent;
 --sx-1urpf9d: #ffffff0d;
---xor1tl7: ;
 --sx-1stx5uy: #74e3ff;
+--xor1tl7: ;
 --sx-7ide1: #747ee9;
 --x142jeir: ;
 --x1uoekal: ;
@@ -732,12 +732,12 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --sx-ot17o6: #00cee2;
 --sx-1gm0lru: #282a30;
 --sx-34xdpc: #d9343f;
---sx-1gxylln: #232528;
+--sx-1gxylln: #242629;
 --ease-out-quart: cubic-bezier(0.165,0.84,0.44,1);
 --sx-1ccqs4f: #3f4145;
 --xugsh4: ;
---x3zwjav: ;
 --sx-feitbp: #ffffff;
+--x3zwjav: ;
 --layer-debug: 5100;
 --sx-fwc8so: #cf4608;
 --ease-in-circ: cubic-bezier(0.6,0.04,0.98,0.335);
@@ -750,7 +750,7 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --sx-1fphd1n: #232427;
 --ease-in-quart: cubic-bezier(0.895,0.03,0.685,0.22);
 --ease-in-out-cubic: cubic-bezier(0.645,0.045,0.355,1);
---sx-5igtf4: #ffffff0d;
+--sx-5igtf4: #ffffff1b;
 --page-inset: 32px;
 --x34xdpc: ;
 --sx-as9fd0: #282a30;
@@ -764,10 +764,10 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --sx-w1p5jj: #37393e;
 --layer-command-menu: 650;
 --ease-in-out-expo: cubic-bezier(1,0,0,1);
+--sx-1ospiv4: #ffffff22;
 --command-menu-item-details-max-width: 100%;
 --sx-1k7v50d: 0 4px 40px #00000019, 0 3px 20px #0000001f,0 3px 12px #0000001f, 0 2px 8px #0000001f, 0 1px 1px #0000001f;
 --x138rywl: 13vh;
---sx-1ospiv4: #ffffff14;
 --x13m9wh7: ;
 --layer-dialog-overlay: 699;
 --xjupg42: ;
@@ -777,7 +777,7 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --sx-1jffjrl: #6a76e3;
 --dp-label-faint: initial;
 --layer-footer: 50;
---sx-cb0zzs: #35373d;
+--sx-cb0zzs: #33353b;
 --sx-ch85qk: #5e69d1;
 --sx-1ubxoo9: #1e2022;
 --x1ccqs4f: ;
@@ -789,12 +789,12 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --x1dd5bcf: ;
 --layer-scrollbar: 75;
 --sx-1dhg814: 0 3px 8px #0000001f, 0 2px 5px #0000001f, 0 1px 1px #0000001f;
---sx-629164: #2b2c2f;
+--sx-629164: #2c2d30;
 --sx-1dd5bcf: #9c9da1;
 --sx-1uoekal: #00b8cb;
 --cursor-tooltip: help;
---x1rsaf4u: ;
 --sx-1uztw8p: #ffffff30;
+--x1rsaf4u: ;
 --x1k7nh0l: ;
 --xv3o8qy: ;
 --xys2i3t: ;
@@ -823,15 +823,15 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --xj1ai0m: ;
 --sx-irmyh9: #ffffff13;
 --sx-11lpf43: 0.8125rem;
---layer-header: 100;
 --sx-1bu05id: #ff8583;
+--layer-header: 100;
 --grid-columns: 12;
 --x138kmyo: ;
 --x13sdql6: "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Segoe UI","Twemoji Mozilla","Noto Color Emoji","Android Emoji";
 --x1dcvabv: ;
 --x180qi0f: ;
 --sx-19hxmp1: #adbaff;
---sx-1o1lnwn: #28292e;
+--sx-1o1lnwn: #323439;
 --layer-toasts: 800;
 --sx-1gcjx5j: #2d2f37;
 --x183dfpr: ;
@@ -841,7 +841,7 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --x1uu732i: 12px;
 --x9o00jb: ;
 --sx-i20l48: #f34e52;
---sx-1edn6di: #2f3034;
+--sx-1edn6di: #33353a;
 --xkig6sr: ;
 --sx-j1ai0m: #e4e5e9;
 --x1qlh175: ;
@@ -858,18 +858,18 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --title-8: 590 4rem /1.06 "Inter Variable","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Open Sans","Helvetica Neue",sans-serif;
 --dp-thin-pixel: 1px;
 --x18pfyxa: 6px 12px;
---sx-10845vo: #c9ffff;
 --x1ipkkxf: "Inter Variable","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue","Linear Thai",sans-serif;
+--sx-axo4ug: 0 0 0 0.5px #323439;
+--sx-10845vo: #c9ffff;
 --xay0skx: ;
 --sx-10o0rs5: #e4e5e9;
---sx-axo4ug: 0 0 0 0.5px #28292e;
 --sx-1ps2i54: #1b282d;
 --layer-skip-nav: 5000;
 --x1ubxoo9: ;
---sx-1umwnkk: "Berkeley Mono","SFMono Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
 --xikq9iy: ;
+--sx-1umwnkk: "Berkeley Mono","SFMono Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
 --x1n1r1h9: ;
---sx-1jmjcvw: #ffffff0d;
+--sx-1jmjcvw: #ffffff1b;
 --x1xaoi8i: ;
 --sx-105wzx7: #edbf0a;
 --x1bu05id: ;
@@ -885,12 +885,12 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --xjrz3l0: transparent;
 --editor-list-inset: 1.5rem;
 --xsfnrch: ;
---sx-1ele6il: 1px;
 --x6od1kq: ;
+--sx-1ele6il: 1px;
 --xws85c5: ;
 --100dvh: calc(100 * 1dvh);
---sx-x8afrf: 6px;
 --x5t1vcl: ;
+--sx-x8afrf: 6px;
 --x11vg3qk: ;
 --radix-select-trigger-width: 0px;
 --sx-ciqj87: #3de261;
@@ -1788,7 +1788,7 @@ grid-template-columns: 621px 621px;
 - 1 WCAG contrast failures
 - 80 !important rules — prefer specificity over overrides
 - 83% of CSS is unused — consider purging
-- 5916 duplicate CSS declarations
+- 5918 duplicate CSS declarations
 
 ## Gradients
 

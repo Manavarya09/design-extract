@@ -17,7 +17,7 @@ COLORS:
 FONTS: [object Object], [object Object]
 SPACING: 1, 39, 47, 51, 56, 69, 79, 91
 RADIUS: 1, 4, 7, 12, 16, 20
-SHADOWS: rgba(94, 106, 210, 0) 0px 0px 0px 9.8766px | rgba(0, 0, 0, 0.1) 0px 0px 0px 2px | rgba(0, 0, 0, 0.2) 0px 0px 0px 1px
+SHADOWS: rgba(94, 106, 210, 0.008) 0px 0px 0px 9.22975px | rgba(0, 0, 0, 0.1) 0px 0px 0px 2px | rgba(0, 0, 0, 0.2) 0px 0px 0px 1px
 MATERIAL LANGUAGE: material-you
 VOICE: Tone: neutral · Headings: Sentence case · CTA verbs: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
 SECTIONS (in order):

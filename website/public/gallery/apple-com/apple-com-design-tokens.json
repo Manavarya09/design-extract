@@ -4,7 +4,7 @@
     "version": "7.0.0",
     "spec": "https://design-tokens.github.io/community-group/format/",
     "source": "https://apple.com",
-    "generatedAt": "2026-05-14T22:15:56.129Z"
+    "generatedAt": "2026-05-17T21:15:57.762Z"
   },
   "primitive": {
     "color": {
@@ -82,7 +82,7 @@
           "$type": "color"
         },
         "bg8": {
-          "$value": "#1246c4",
+          "$value": "#ea33c0",
           "$type": "color"
         },
         "bg9": {
@@ -94,7 +94,7 @@
           "$type": "color"
         },
         "bg11": {
-          "$value": "#3e4fca",
+          "$value": "#450a54",
           "$type": "color"
         },
         "bg12": {

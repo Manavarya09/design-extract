@@ -1,0 +1,56 @@
+{
+  "$schema": "https://designlang.app/schemas/gradients.json",
+  "source": "https://figma.com",
+  "generated": "2026-05-17T21:16:19.285Z",
+  "count": 2,
+  "gradients": [
+    {
+      "raw": "repeating-conic-gradient(rgb(51, 223, 223) 0deg, rgb(51, 223, 223) 18deg, rgba(0, 0, 0, 0) 18deg, rgba(0, 0, 0, 0) 30deg)",
+      "type": "repeating-conic",
+      "direction": null,
+      "stops": [
+        {
+          "color": "rgb(51, 223, 223) 0deg",
+          "position": null
+        },
+        {
+          "color": "rgb(51, 223, 223) 18deg",
+          "position": null
+        },
+        {
+          "color": "rgba(0, 0, 0, 0) 18deg",
+          "position": null
+        },
+        {
+          "color": "rgba(0, 0, 0, 0) 30deg",
+          "position": null
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "repeating-conic-gradient(rgb(185, 142, 1) 0deg, rgb(185, 142, 1) 18deg, rgba(0, 0, 0, 0) 18deg, rgba(0, 0, 0, 0) 30deg)",
+      "type": "repeating-conic",
+      "direction": null,
+      "stops": [
+        {
+          "color": "rgb(185, 142, 1) 0deg",
+          "position": null
+        },
+        {
+          "color": "rgb(185, 142, 1) 18deg",
+          "position": null
+        },
+        {
+          "color": "rgba(0, 0, 0, 0) 18deg",
+          "position": null
+        },
+        {
+          "color": "rgba(0, 0, 0, 0) 30deg",
+          "position": null
+        }
+      ],
+      "classification": "bold"
+    }
+  ]
+}

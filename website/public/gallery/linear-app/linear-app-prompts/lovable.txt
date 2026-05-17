@@ -3,7 +3,7 @@ Visual feel: material-you. Tone: neutral · Headings: Sentence case · CTA verbs
 Primary palette: #f7f8f8, #62666d, #d0d6e0, #e2e4e7, #8a8f98.
 Typography: [object Object], [object Object].
 Corner radius vocabulary: 1, 4, 7, 12, 16, 20.
-Shadow vocabulary: rgba(94, 106, 210, 0) 0px 0px 0px 9.8766px | rgba(0, 0, 0, 0.1) 0px 0px 0px 2px | rgba(0, 0, 0, 0.2) 0px 0px 0px 1px.
+Shadow vocabulary: rgba(94, 106, 210, 0.008) 0px 0px 0px 9.22975px | rgba(0, 0, 0, 0.1) 0px 0px 0px 2px | rgba(0, 0, 0, 0.2) 0px 0px 0px 1px.
 Page structure:
 - logo-wall
 - testimonials — heading: "The product development

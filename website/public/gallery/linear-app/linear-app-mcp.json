@@ -14,7 +14,7 @@
           "s": 7,
           "l": 97
         },
-        "count": 6016,
+        "count": 6030,
         "contexts": [
           "text",
           "border",
@@ -34,7 +34,7 @@
           "s": 5,
           "l": 41
         },
-        "count": 719,
+        "count": 717,
         "contexts": [
           "text",
           "border",
@@ -93,7 +93,7 @@
           "s": 6,
           "l": 57
         },
-        "count": 277,
+        "count": 267,
         "contexts": [
           "text",
           "border"
@@ -1195,41 +1195,6 @@
   "cssHealth": {
     "sheets": [
       {
-        "url": "https://static.linear.app/web/_next/static/css/1ff68c247a797b57.css",
-        "totalBytes": 126235,
-        "usedBytes": 18508,
-        "unusedBytes": 107727,
-        "unusedPercent": 85
-      },
-      {
-        "url": "https://static.linear.app/web/_next/static/css/726d93e2b8cba4df.css",
-        "totalBytes": 3850,
-        "usedBytes": 1736,
-        "unusedBytes": 2114,
-        "unusedPercent": 55
-      },
-      {
-        "url": "https://static.linear.app/web/_next/static/css/337955cfbe3440b1.css",
-        "totalBytes": 14820,
-        "usedBytes": 723,
-        "unusedBytes": 14097,
-        "unusedPercent": 95
-      },
-      {
-        "url": "https://static.linear.app/web/_next/static/css/f2cd8db85b99b93a.css",
-        "totalBytes": 9496,
-        "usedBytes": 6317,
-        "unusedBytes": 3179,
-        "unusedPercent": 33
-      },
-      {
-        "url": "https://static.linear.app/web/_next/static/css/00c74161d93b4fc0.css",
-        "totalBytes": 3313,
-        "usedBytes": 0,
-        "unusedBytes": 3313,
-        "unusedPercent": 100
-      },
-      {
         "url": "https://static.linear.app/web/_next/static/css/58fab6e95113fa01.css",
         "totalBytes": 1349,
         "usedBytes": 254,
@@ -1244,20 +1209,6 @@
         "unusedPercent": 100
       },
       {
-        "url": "https://static.linear.app/web/_next/static/css/a336c311589ca073.css",
-        "totalBytes": 74437,
-        "usedBytes": 1311,
-        "unusedBytes": 73126,
-        "unusedPercent": 98
-      },
-      {
-        "url": "https://static.linear.app/web/_next/static/css/f8646e7726775adc.css",
-        "totalBytes": 5896,
-        "usedBytes": 0,
-        "unusedBytes": 5896,
-        "unusedPercent": 100
-      },
-      {
         "url": "https://static.linear.app/web/_next/static/css/e33eebaa9bcca044.css",
         "totalBytes": 2560,
         "usedBytes": 0,
@@ -1265,18 +1216,25 @@
         "unusedPercent": 100
       },
       {
-        "url": "https://static.linear.app/web/_next/static/css/0db40ec3258822d5.css",
-        "totalBytes": 47663,
-        "usedBytes": 1416,
-        "unusedBytes": 46247,
-        "unusedPercent": 97
+        "url": "https://static.linear.app/web/_next/static/css/3815d844e4bc9875.css",
+        "totalBytes": 126422,
+        "usedBytes": 18508,
+        "unusedBytes": 107914,
+        "unusedPercent": 85
       },
       {
-        "url": "https://static.linear.app/web/_next/static/css/e64bd6f3a118133b.css",
+        "url": "https://static.linear.app/web/_next/static/css/6cf5d455b441123f.css",
         "totalBytes": 76675,
         "usedBytes": 7298,
         "unusedBytes": 69377,
         "unusedPercent": 90
+      },
+      {
+        "url": "https://static.linear.app/web/_next/static/css/ff244e1956f7c113.css",
+        "totalBytes": 82194,
+        "usedBytes": 39882,
+        "unusedBytes": 42312,
+        "unusedPercent": 51
       },
       {
         "url": "https://static.linear.app/web/_next/static/css/5b94d1c96fae3e00.css",
@@ -1286,6 +1244,13 @@
         "unusedPercent": 85
       },
       {
+        "url": "https://static.linear.app/web/_next/static/css/a336c311589ca073.css",
+        "totalBytes": 74437,
+        "usedBytes": 1311,
+        "unusedBytes": 73126,
+        "unusedPercent": 98
+      },
+      {
         "url": "https://static.linear.app/web/_next/static/css/39f6486263b77907.css",
         "totalBytes": 11432,
         "usedBytes": 0,
@@ -1293,19 +1258,54 @@
         "unusedPercent": 100
       },
       {
-        "url": "https://static.linear.app/web/_next/static/css/ff244e1956f7c113.css",
-        "totalBytes": 82194,
-        "usedBytes": 39882,
-        "unusedBytes": 42312,
-        "unusedPercent": 51
+        "url": "https://static.linear.app/web/_next/static/css/337955cfbe3440b1.css",
+        "totalBytes": 14820,
+        "usedBytes": 723,
+        "unusedBytes": 14097,
+        "unusedPercent": 95
+      },
+      {
+        "url": "https://static.linear.app/web/_next/static/css/00c74161d93b4fc0.css",
+        "totalBytes": 3313,
+        "usedBytes": 0,
+        "unusedBytes": 3313,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://static.linear.app/web/_next/static/css/f8646e7726775adc.css",
+        "totalBytes": 5896,
+        "usedBytes": 0,
+        "unusedBytes": 5896,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://static.linear.app/web/_next/static/css/f2cd8db85b99b93a.css",
+        "totalBytes": 9496,
+        "usedBytes": 6317,
+        "unusedBytes": 3179,
+        "unusedPercent": 33
+      },
+      {
+        "url": "https://static.linear.app/web/_next/static/css/0db40ec3258822d5.css",
+        "totalBytes": 47663,
+        "usedBytes": 1416,
+        "unusedBytes": 46247,
+        "unusedPercent": 97
+      },
+      {
+        "url": "https://static.linear.app/web/_next/static/css/726d93e2b8cba4df.css",
+        "totalBytes": 3850,
+        "usedBytes": 1736,
+        "unusedBytes": 2114,
+        "unusedPercent": 55
       }
     ],
-    "totalBytes": 490943,
+    "totalBytes": 491130,
     "usedBytes": 82009,
-    "unusedBytes": 408934,
+    "unusedBytes": 409121,
     "unusedPercent": 83,
     "importantCount": 80,
-    "duplicates": 5916,
+    "duplicates": 5918,
     "vendorPrefixes": {
       "webkit": 200,
       "moz": 132,
@@ -1328,7 +1328,7 @@
     },
     "issues": [
       "80 !important rules",
-      "5916 duplicate declarations",
+      "5918 duplicate declarations",
       "83% unused CSS"
     ]
   }

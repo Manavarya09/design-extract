@@ -1,0 +1,52 @@
+{
+  "$schema": "https://designlang.app/schemas/gradients.json",
+  "source": "https://apple.com",
+  "generated": "2026-05-17T21:15:57.930Z",
+  "count": 2,
+  "gradients": [
+    {
+      "raw": "radial-gradient(100% 33% at 0% 100%, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0))",
+      "type": "radial",
+      "direction": null,
+      "stops": [
+        {
+          "color": "",
+          "position": "100%"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0.5)",
+          "position": "0%"
+        },
+        {
+          "color": "rgba(255, 255, 255, 0)",
+          "position": null
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "linear-gradient(rgba(29, 29, 31, 0.4) 0%, rgba(29, 29, 31, 0) 70px, rgba(29, 29, 31, 0) calc(100% - 70px), rgba(29, 29, 31, 0.4) 100%)",
+      "type": "linear",
+      "direction": null,
+      "stops": [
+        {
+          "color": "rgba(29, 29, 31, 0.4)",
+          "position": "0%"
+        },
+        {
+          "color": "rgba(29, 29, 31, 0)",
+          "position": "70px"
+        },
+        {
+          "color": "rgba(29, 29, 31, 0) calc(100% - 70px)",
+          "position": null
+        },
+        {
+          "color": "rgba(29, 29, 31, 0.4)",
+          "position": "100%"
+        }
+      ],
+      "classification": "bold"
+    }
+  ]
+}

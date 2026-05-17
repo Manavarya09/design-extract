@@ -1,7 +1,7 @@
 # Design Language: Spotify - Web Player: Music for everyone
 
-> Extracted from `https://spotify.com` on May 15, 2026
-> 2965 elements analyzed
+> Extracted from `https://spotify.com` on May 18, 2026
+> 2974 elements analyzed
 
 This document describes the complete design language of the website. It is structured for AI/LLM consumption — use it to faithfully recreate the visual design in any framework.
 
@@ -20,17 +20,17 @@ This document describes the complete design language of the website. It is struc
 | Hex | HSL | Usage Count |
 |-----|-----|-------------|
 | `#ffffff` | hsl(0, 0%, 100%) | 2847 |
-| `#b3b3b3` | hsl(0, 0%, 70%) | 2172 |
+| `#b3b3b3` | hsl(0, 0%, 70%) | 2199 |
 | `#000000` | hsl(0, 0%, 0%) | 722 |
-| `#696969` | hsl(0, 0%, 41%) | 128 |
+| `#696969` | hsl(0, 0%, 41%) | 129 |
 | `#555555` | hsl(0, 0%, 33%) | 44 |
-| `#121212` | hsl(0, 0%, 7%) | 32 |
-| `#7c7c7c` | hsl(0, 0%, 49%) | 26 |
+| `#7c7c7c` | hsl(0, 0%, 49%) | 24 |
+| `#121212` | hsl(0, 0%, 7%) | 20 |
 | `#1f1f1f` | hsl(0, 0%, 12%) | 15 |
-| `#333333` | hsl(0, 0%, 20%) | 11 |
+| `#333333` | hsl(0, 0%, 20%) | 9 |
 | `#292929` | hsl(0, 0%, 16%) | 5 |
-| `#7b7669` | hsl(43, 8%, 45%) | 3 |
 | `#c1c1c1` | hsl(0, 0%, 76%) | 2 |
+| `#402830` | hsl(340, 23%, 20%) | 2 |
 
 ### Background Colors
 
@@ -59,23 +59,27 @@ background-image: linear-gradient(rgba(0, 0, 0, 0.6) 0%, rgb(18, 18, 18) 100%), 
 | Hex | Contexts | Count |
 |-----|----------|-------|
 | `#ffffff` | background, text, border | 2847 |
-| `#b3b3b3` | text, border, background | 2172 |
+| `#b3b3b3` | text, border, background | 2199 |
 | `#000000` | text, border, background | 722 |
-| `#696969` | text, border | 128 |
+| `#696969` | text, border | 129 |
 | `#1ed760` | background | 54 |
 | `#555555` | background, text, border | 44 |
-| `#121212` | background, text, border | 32 |
-| `#7c7c7c` | text, border, background | 26 |
+| `#7c7c7c` | text, border, background | 24 |
+| `#121212` | background, text, border | 20 |
 | `#1f1f1f` | background | 15 |
-| `#333333` | background | 11 |
+| `#333333` | background | 9 |
 | `#468254` | background | 9 |
 | `#3860be` | text, border, background | 6 |
 | `#346e4a` | background, border | 6 |
 | `#292929` | border, background | 5 |
 | `#0000ee` | text, border | 4 |
-| `#7b7669` | background, border | 3 |
 | `#c1c1c1` | border, text | 2 |
+| `#402830` | background | 2 |
+| `#667a7a` | background | 2 |
 | `#6e7598` | background | 2 |
+| `#7a7a11` | background | 2 |
+| `#404040` | background | 2 |
+| `#401800` | background | 2 |
 | `#002038` | background | 2 |
 | `#517aa3` | background | 2 |
 | `#a16387` | background | 2 |
@@ -84,16 +88,12 @@ background-image: linear-gradient(rgba(0, 0, 0, 0.6) 0%, rgb(18, 18, 18) 100%), 
 | `#eeeeee` | background | 2 |
 | `#d8d8d8` | border | 2 |
 | `#1db954` | background, border | 2 |
-| `#667a7a` | background | 1 |
-| `#500000` | background | 1 |
-| `#ba3cd1` | background | 1 |
-| `#a03840` | background | 1 |
 
 ## Typography
 
 ### Font Families
 
-- **SpotifyMixUI** — used for all (2834 elements)
+- **SpotifyMixUI** — used for all (2843 elements)
 - **Times** — used for body (115 elements)
 - **SpotifyMixUITitle** — used for all (16 elements)
 
@@ -129,7 +129,7 @@ body { font-size: 16px; font-weight: 400; line-height: normal; }
 
 ### Font Weights in Use
 
-`400` (2839x), `700` (94x), `600` (28x), `500` (4x)
+`400` (2854x), `700` (94x), `600` (22x), `500` (4x)
 
 ## Spacing
 
@@ -152,7 +152,7 @@ body { font-size: 16px; font-weight: 400; line-height: normal; }
 
 | Label | Value | Count |
 |-------|-------|-------|
-| xs | 2px | 44 |
+| xs | 2px | 41 |
 | md | 6px | 147 |
 | md | 10px | 4 |
 | lg | 16px | 1 |
@@ -229,8 +229,8 @@ box-shadow: rgba(0, 0, 0, 0.5) 0px 8px 24px 0px;
 --end-gradient-color: rgb(0, 0, 0);
 --gradient-color-bottom: rgb(24, 24, 24);
 --text-bright-accent: #1ed760;
---essential-bright-accent: #1ed760;
 --encore-border-width-thicker: 8px;
+--essential-bright-accent: #1ed760;
 ```
 
 ### Spacing
@@ -239,9 +239,9 @@ box-shadow: rgba(0, 0, 0, 0.5) 0px 8px 24px 0px;
 --encore-control-size-larger: 56px;
 --encore-layout-margin-tighter: 24px;
 --encore-text-size-smaller-2: .75rem;
---encore-graphic-size-informative-smaller: 1rem;
 --content-spacing: 16px;
 --encore-text-size-larger-3: 3rem;
+--encore-graphic-size-informative-smaller: 1rem;
 --encore-text-size-larger-5: 6rem;
 --encore-spacing-looser-4: 64px;
 --encore-layout-margin-looser: 64px;
@@ -252,9 +252,9 @@ box-shadow: rgba(0, 0, 0, 0.5) 0px 8px 24px 0px;
 --encore-spacing-looser-6: 128px;
 --encore-graphic-size-decorative-larger-3: 48px;
 --encore-graphic-size-decorative-larger: 32px;
+--encore-spacing-looser-5: 96px;
 --encore-spacing-tighter-5: 2px;
 --encore-graphic-size-decorative-larger-2: 40px;
---encore-spacing-looser-5: 96px;
 --encore-spacing-tighter-2: 8px;
 --encore-graphic-size-informative-larger-2: 2.5rem;
 --encore-layout-margin-base: 32px;
@@ -268,14 +268,14 @@ box-shadow: rgba(0, 0, 0, 0.5) 0px 8px 24px 0px;
 --encore-control-size-smaller: 32px;
 --encore-graphic-size-informative-larger: 2rem;
 --encore-text-size-larger-2: 2rem;
+--encore-graphic-size-decorative-base: 24px;
+--encore-spacing-looser-3: 48px;
 --encore-graphic-size-decorative-smaller: 16px;
 --encore-spacing-looser: 24px;
---encore-text-size-larger: 1.5rem;
---encore-spacing-looser-3: 48px;
---encore-graphic-size-decorative-base: 24px;
 --encore-graphic-size-informative-base: 1.5rem;
 --encore-graphic-size-decorative-larger-4: 64px;
 --encore-spacing-tighter: 12px;
+--encore-text-size-larger: 1.5rem;
 --encore-spacing-base: 16px;
 --encore-graphic-size-informative-larger-5: 5.5rem;
 --encore-spacing-tighter-3: 6px;
@@ -294,8 +294,8 @@ box-shadow: rgba(0, 0, 0, 0.5) 0px 8px 24px 0px;
 --text-warning: #ffa42b;
 --text-positive: #1ed760;
 --encore-bodyMono-font-stack: SpotifyMixMono,CircularSp-Arab,CircularSp-Hebr,CircularSp-Cyrl,CircularSp-Grek,CircularSp-Deva,Helvetica Neue,helvetica,arial,Hiragino Sans,Hiragino Kaku Gothic ProN,Meiryo,MS Gothic;
---text-announcement: #539df5;
 --fallback-fonts: Helvetica Neue,helvetica,arial,Hiragino Sans,Hiragino Kaku Gothic ProN,Meiryo,MS Gothic;
+--text-announcement: #539df5;
 --text-base: #fff;
 ```
 
@@ -339,12 +339,12 @@ box-shadow: rgba(0, 0, 0, 0.5) 0px 8px 24px 0px;
 --essential-positive: #1ed760;
 --essential-subdued: #7c7c7c;
 --encore-opacity-disabled: .3;
---encore-productive-exit-duration: .2s;
---encore-opacity-active: .7;
 --background-highlight: #1f1f1f;
---encore-short-1: .25s;
---encore-z-index-dialog: 1050;
+--encore-opacity-active: .7;
+--encore-productive-exit-duration: .2s;
 --essential-warning: #ffa42b;
+--encore-z-index-dialog: 1050;
+--encore-short-1: .25s;
 --encore-z-index-skiplink: 9999;
 --decorative-base: #fff;
 --encore-button-hover-scale: 1.04;
@@ -362,12 +362,12 @@ box-shadow: rgba(0, 0, 0, 0.5) 0px 8px 24px 0px;
 --cinema-canvas-height: 0px;
 --marquee-width: 0px;
 --cinema-media-distance-from-top: 0px;
---background-tinted-base: #ffffff1a;
 --encore-productive: cubic-bezier(.3,0,0,1);
 --essential-negative: #ed2c3f;
 --encore-shortest-2: .1s;
 --top-bar-z-index: 1;
 --content-max-width: 1955px;
+--background-tinted-base: #ffffff1a;
 --encore-productive-enter: .25s/**/cubic-bezier(0,0,.2,1);
 --onboarding-circle-percentage: 0%;
 ```
@@ -493,7 +493,7 @@ Detected UI component patterns and their most common styles:
 }
 ```
 
-### Links (340 instances)
+### Links (355 instances)
 
 ```css
 .link {
@@ -826,7 +826,7 @@ Reusable component instances grouped by DOM structure and style similarity:
 
 ## Layout System
 
-**17 grid containers** and **768 flex containers** detected.
+**17 grid containers** and **765 flex containers** detected.
 
 ### Container Widths
 
@@ -862,7 +862,7 @@ grid-template-columns: none;
 | Direction/Wrap | Count |
 |----------------|-------|
 | column/nowrap | 278x |
-| row/nowrap | 487x |
+| row/nowrap | 484x |
 | row/wrap | 3x |
 
 **Gap values:** `12px`, `16px`, `16px 32px`, `20px`, `24px`, `2px`, `4px`, `8px`, `8px 12px`, `8px normal`, `normal 12px`
@@ -1016,7 +1016,7 @@ background: linear-gradient(rgba(0, 0, 0, 0.6) 0%, rgb(18, 18, 18) 100%);
 
 ## Brand Voice
 
-**Tone:** neutral · **Pronoun:** you-only · **Headings:** Sentence case (tight)
+**Tone:** friendly · **Pronoun:** you-only · **Headings:** Sentence case (tight)
 
 ### Top CTA Verbs
 
@@ -1093,7 +1093,7 @@ Reading order (top→bottom): content → content → content → content → co
 
 | Metric | Value |
 |--------|-------|
-| Avg saturation | 0.508 |
+| Avg saturation | 0.507 |
 | Shadow profile | soft |
 | Avg shadow blur | 0px |
 | Max radius | 9999px |

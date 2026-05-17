@@ -1,0 +1,62 @@
+{
+  "materialLanguage": {
+    "label": "flat",
+    "confidence": 0,
+    "signals": [],
+    "metrics": {
+      "saturation": 0.488,
+      "shadowProfile": "soft",
+      "avgShadowBlur": 0,
+      "maxShadowBlur": 0,
+      "insetShadows": 0,
+      "avgRadius": 25.8,
+      "maxRadius": 100,
+      "hasPill": false,
+      "hasBackdropBlur": false,
+      "gradientCount": 19
+    },
+    "alternates": []
+  },
+  "imageryStyle": {
+    "label": "flat-illustration",
+    "confidence": 0.3,
+    "counts": {
+      "total": 71,
+      "svg": 43,
+      "icon": 1,
+      "hero": 0,
+      "screenshot": 0,
+      "photoLike": 2
+    },
+    "dominantAspect": "ultra-wide",
+    "radiusProfile": "square",
+    "alternates": [
+      {
+        "label": "photography",
+        "score": 0.35
+      }
+    ],
+    "signals": [
+      "raster photo-ext",
+      "raster photo-ext",
+      "svg-heavy"
+    ]
+  },
+  "backgroundPatterns": {
+    "labels": [
+      "plain"
+    ],
+    "counts": {
+      "noise": 0,
+      "dotGrid": 0,
+      "lineGrid": 0,
+      "meshCount": 0,
+      "svgPattern": 0
+    },
+    "gradientTotals": {
+      "radial": 18,
+      "linear": 7
+    },
+    "samples": []
+  }
+}

@@ -108,7 +108,7 @@
         "role": "steps",
         "subrole": null,
         "confidence": 0.75,
-        "heading": "MacBook Air",
+        "heading": "iPhone",
         "bounds": {
           "x": 0,
           "y": 0,
@@ -118,9 +118,9 @@
         "buttonCount": 35,
         "cardCount": 30,
         "slots": {
-          "heading": "MacBook Air",
+          "heading": "iPhone",
           "subheadings": [
-            "iPhone",
+            "MacBook Air",
             "iPad Air",
             "Apple for College",
             "Apple Watch Series 11"
@@ -135,7 +135,7 @@
         "role": "hero",
         "subrole": null,
         "confidence": 0.85,
-        "heading": "MacBook Air",
+        "heading": "iPhone",
         "bounds": {
           "x": 0,
           "y": 114,
@@ -145,9 +145,9 @@
         "buttonCount": 6,
         "cardCount": 0,
         "slots": {
-          "heading": "MacBook Air",
+          "heading": "iPhone",
           "subheadings": [
-            "iPhone",
+            "MacBook Air",
             "iPad Air"
           ],
           "ctaCount": 6

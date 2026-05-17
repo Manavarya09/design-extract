@@ -2,6 +2,7 @@ import { readFile, readdir } from 'node:fs/promises';
 import { join } from 'node:path';
 import { notFound } from 'next/navigation';
 import GalleryTabs from './GalleryTabs';
+import CopyAgentPrompt from './CopyAgentPrompt';
 
 export const revalidate = 86400;
 export const dynamic = 'force-static';
@@ -189,6 +190,7 @@ export default async function GalleryBrandPage({ params }) {
     anatomyTsx, mcpRaw, iconRaw, formStatesRaw,
     libraryRaw, stackIntelRaw, seoRaw, visualDnaRaw,
     promptV0, promptLovable, promptCursor, promptClaude, promptRecipeButton, promptRecipeCard,
+    agentPromptRaw,
     fileList,
   ] = await Promise.all([
     findFile(slug, '-design-tokens.json'),
@@ -217,6 +219,7 @@ export default async function GalleryBrandPage({ params }) {
     readPrompt(slug, 'claude-artifacts.md'),
     readPrompt(slug, 'recipe-button.md'),
     readPrompt(slug, 'recipe-card.md'),
+    findFile(slug, '-AGENT.md'),
     listFiles(slug),
   ]);
 
@@ -280,8 +283,9 @@ export default async function GalleryBrandPage({ params }) {
                 Generated with one command.
               </p>
               <div className="row" style={{ marginTop: 20, gap: 10, flexWrap: 'wrap' }}>
-                <a href={`/gallery/${slug}/brand.html`} target="_blank" rel="noreferrer" className="btn btn-primary">Open brand book ↗</a>
-                <a href="#tokens" className="btn btn-ghost">Browse tokens</a>
+                <a href={`/gallery/${slug}/${slug}.brand.pdf`} className="btn btn-primary" download={`${host}-brand.pdf`}>Download brand book PDF</a>
+                <a href={`/gallery/${slug}/brand.html`} target="_blank" rel="noreferrer" className="btn btn-ghost">Open in browser ↗</a>
+                <a href="#agent" className="btn btn-ghost">Agent prompt</a>
                 <a href="#downloads" className="btn btn-ghost">All {fileCount} files</a>
               </div>
             </div>
@@ -554,6 +558,21 @@ export default async function GalleryBrandPage({ params }) {
                 <div className="dx-num"><div className="dx-num-value">{icons.library !== 'unknown' ? icons.library : '—'}</div><div className="dx-num-label mono">library</div></div>
               </div>
             </div>
+          </div>
+        </section>
+      )}
+
+      {/* Agent prompt — paste anywhere */}
+      {agentPromptRaw && (
+        <section className="section" style={{ paddingTop: 32 }} id="agent">
+          <div className="wrap">
+            <header style={{ marginBottom: 22 }}>
+              <h2 className="h2" style={{ fontSize: 28, marginBottom: 8 }}>Agent prompt</h2>
+              <p className="lede" style={{ margin: 0 }}>
+                One self-contained system prompt with every {host} token, anatomy slot and voice rule. Drop it into any AI agent and it builds in this brand without hallucinating.
+              </p>
+            </header>
+            <CopyAgentPrompt body={agentPromptRaw} host={host} />
           </div>
         </section>
       )}

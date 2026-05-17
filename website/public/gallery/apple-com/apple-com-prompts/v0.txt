@@ -13,7 +13,7 @@ COLORS:
   #d2d2d7
   #140a12
   #9fc6f4
-  #1246c4
+  #ea33c0
 FONTS: [object Object], [object Object], [object Object]
 SPACING: 1, 4, 24, 26, 29, 32, 34, 37
 RADIUS: 5, 8, 11, 50, 980, 999
@@ -23,8 +23,8 @@ VOICE: Tone: friendly · Headings: Title Case · CTA verbs: [object Object], [ob
 SECTIONS (in order):
 - sidebar
 - sidebar
-- steps — heading: "MacBook Air"
-- hero — heading: "MacBook Air"
+- steps — heading: "iPhone"
+- hero — heading: "iPhone"
 - cta — heading: "Apple for College"
 - gallery — heading: "Endless entertainment."
 - footer — heading: "Apple Footer"

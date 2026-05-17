@@ -86,8 +86,8 @@ export const theme = {
     "neutral200": "#000000",
     "neutral300": "#696969",
     "neutral400": "#555555",
-    "neutral500": "#121212",
-    "neutral600": "#7c7c7c",
+    "neutral500": "#7c7c7c",
+    "neutral600": "#121212",
     "neutral700": "#1f1f1f",
     "neutral800": "#333333",
     "neutral900": "#292929"

@@ -14,7 +14,7 @@
           "s": 0,
           "l": 0
         },
-        "count": 2351,
+        "count": 2355,
         "contexts": [
           "text",
           "border",
@@ -776,31 +776,17 @@
   "cssHealth": {
     "sheets": [
       {
-        "url": "https://www.figma.com/_netlify/_next/static/css/f03300ce0c70ed64.css",
-        "totalBytes": 1024,
-        "usedBytes": 0,
-        "unusedBytes": 1024,
-        "unusedPercent": 100
-      },
-      {
-        "url": "https://www.figma.com/",
-        "totalBytes": 39,
-        "usedBytes": 0,
-        "unusedBytes": 39,
-        "unusedPercent": 100
-      },
-      {
-        "url": "https://www.figma.com/",
-        "totalBytes": 199143,
-        "usedBytes": 0,
-        "unusedBytes": 199143,
-        "unusedPercent": 100
-      },
-      {
         "url": "https://www.figma.com/_netlify/_next/static/css/f564ddd3fbf8f7e4.css",
         "totalBytes": 407,
         "usedBytes": 0,
         "unusedBytes": 407,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://www.figma.com/_netlify/_next/static/css/f03300ce0c70ed64.css",
+        "totalBytes": 1024,
+        "usedBytes": 0,
+        "unusedBytes": 1024,
         "unusedPercent": 100
       },
       {
@@ -818,69 +804,6 @@
         "unusedPercent": 59
       },
       {
-        "url": "https://player.vimeo.com/video/1103862294?h=802500bb17&title=0&byline=0&portrait=0&keyboard=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
-        "totalBytes": 443,
-        "usedBytes": 189,
-        "unusedBytes": 254,
-        "unusedPercent": 57
-      },
-      {
-        "url": "https://player.vimeo.com/video/1103862294?h=802500bb17&title=0&byline=0&portrait=0&keyboard=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
-        "totalBytes": 749,
-        "usedBytes": 0,
-        "unusedBytes": 749,
-        "unusedPercent": 100
-      },
-      {
-        "url": "https://player.vimeo.com/video/1103862294?h=802500bb17&title=0&byline=0&portrait=0&keyboard=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
-        "totalBytes": 696,
-        "usedBytes": 0,
-        "unusedBytes": 696,
-        "unusedPercent": 100
-      },
-      {
-        "url": "https://player.vimeo.com/video/1106141156?h=394f5f9721&title=0&byline=0&portrait=0&keyboard=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
-        "totalBytes": 749,
-        "usedBytes": 0,
-        "unusedBytes": 749,
-        "unusedPercent": 100
-      },
-      {
-        "url": "https://player.vimeo.com/video/1106141156?h=394f5f9721&title=0&byline=0&portrait=0&keyboard=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
-        "totalBytes": 443,
-        "usedBytes": 189,
-        "unusedBytes": 254,
-        "unusedPercent": 57
-      },
-      {
-        "url": "https://player.vimeo.com/video/1106141156?h=394f5f9721&title=0&byline=0&portrait=0&keyboard=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
-        "totalBytes": 696,
-        "usedBytes": 0,
-        "unusedBytes": 696,
-        "unusedPercent": 100
-      },
-      {
-        "url": "https://player.vimeo.com/video/1103822384?h=d87e2634b3&title=0&byline=0&portrait=0&keyboard=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
-        "totalBytes": 696,
-        "usedBytes": 0,
-        "unusedBytes": 696,
-        "unusedPercent": 100
-      },
-      {
-        "url": "https://player.vimeo.com/video/1103822384?h=d87e2634b3&title=0&byline=0&portrait=0&keyboard=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
-        "totalBytes": 443,
-        "usedBytes": 189,
-        "unusedBytes": 254,
-        "unusedPercent": 57
-      },
-      {
-        "url": "https://player.vimeo.com/video/1103822384?h=d87e2634b3&title=0&byline=0&portrait=0&keyboard=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
-        "totalBytes": 749,
-        "usedBytes": 0,
-        "unusedBytes": 749,
-        "unusedPercent": 100
-      },
-      {
         "url": "https://player.vimeo.com/video/1103822624?h=d2e608ba23&title=0&byline=0&portrait=0&keyboard=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
         "totalBytes": 443,
         "usedBytes": 189,
@@ -888,18 +811,11 @@
         "unusedPercent": 57
       },
       {
-        "url": "https://player.vimeo.com/video/1103822624?h=d2e608ba23&title=0&byline=0&portrait=0&keyboard=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
-        "totalBytes": 749,
-        "usedBytes": 0,
-        "unusedBytes": 749,
-        "unusedPercent": 100
-      },
-      {
-        "url": "https://player.vimeo.com/video/1103822624?h=d2e608ba23&title=0&byline=0&portrait=0&keyboard=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
-        "totalBytes": 696,
-        "usedBytes": 0,
-        "unusedBytes": 696,
-        "unusedPercent": 100
+        "url": "https://player.vimeo.com/video/1103862294?h=802500bb17&title=0&byline=0&portrait=0&keyboard=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
+        "totalBytes": 443,
+        "usedBytes": 189,
+        "unusedBytes": 254,
+        "unusedPercent": 57
       },
       {
         "url": "https://player.vimeo.com/video/1103822125?h=e4b4944014&title=0&byline=0&portrait=0&keyboard=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
@@ -923,55 +839,6 @@
         "unusedPercent": 57
       },
       {
-        "url": "https://player.vimeo.com/video/1106141794?h=a7cdd1b89d&title=0&byline=0&portrait=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
-        "totalBytes": 443,
-        "usedBytes": 189,
-        "unusedBytes": 254,
-        "unusedPercent": 57
-      },
-      {
-        "url": "https://player.vimeo.com/video/1106141794?h=a7cdd1b89d&title=0&byline=0&portrait=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
-        "totalBytes": 696,
-        "usedBytes": 0,
-        "unusedBytes": 696,
-        "unusedPercent": 100
-      },
-      {
-        "url": "https://player.vimeo.com/video/1106141794?h=a7cdd1b89d&title=0&byline=0&portrait=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
-        "totalBytes": 749,
-        "usedBytes": 0,
-        "unusedBytes": 749,
-        "unusedPercent": 100
-      },
-      {
-        "url": "https://player.vimeo.com/video/1103822749?h=ad2a6b8283&title=0&byline=0&portrait=0&keyboard=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
-        "totalBytes": 749,
-        "usedBytes": 0,
-        "unusedBytes": 749,
-        "unusedPercent": 100
-      },
-      {
-        "url": "https://player.vimeo.com/video/1103822749?h=ad2a6b8283&title=0&byline=0&portrait=0&keyboard=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
-        "totalBytes": 696,
-        "usedBytes": 0,
-        "unusedBytes": 696,
-        "unusedPercent": 100
-      },
-      {
-        "url": "https://player.vimeo.com/video/1103822749?h=ad2a6b8283&title=0&byline=0&portrait=0&keyboard=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
-        "totalBytes": 443,
-        "usedBytes": 189,
-        "unusedBytes": 254,
-        "unusedPercent": 57
-      },
-      {
-        "url": "https://player.vimeo.com/video/1103822703?h=c8f0240387&title=0&byline=0&portrait=0&keyboard=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
-        "totalBytes": 443,
-        "usedBytes": 189,
-        "unusedBytes": 254,
-        "unusedPercent": 57
-      },
-      {
         "url": "https://player.vimeo.com/video/1103822703?h=c8f0240387&title=0&byline=0&portrait=0&keyboard=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
         "totalBytes": 696,
         "usedBytes": 0,
@@ -984,6 +851,55 @@
         "usedBytes": 0,
         "unusedBytes": 749,
         "unusedPercent": 100
+      },
+      {
+        "url": "https://player.vimeo.com/video/1103822703?h=c8f0240387&title=0&byline=0&portrait=0&keyboard=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
+        "totalBytes": 443,
+        "usedBytes": 189,
+        "unusedBytes": 254,
+        "unusedPercent": 57
+      },
+      {
+        "url": "https://player.vimeo.com/video/1103822749?h=ad2a6b8283&title=0&byline=0&portrait=0&keyboard=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
+        "totalBytes": 443,
+        "usedBytes": 189,
+        "unusedBytes": 254,
+        "unusedPercent": 57
+      },
+      {
+        "url": "https://player.vimeo.com/video/1103822749?h=ad2a6b8283&title=0&byline=0&portrait=0&keyboard=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
+        "totalBytes": 696,
+        "usedBytes": 0,
+        "unusedBytes": 696,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://player.vimeo.com/video/1103822749?h=ad2a6b8283&title=0&byline=0&portrait=0&keyboard=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
+        "totalBytes": 749,
+        "usedBytes": 0,
+        "unusedBytes": 749,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://player.vimeo.com/video/1106141794?h=a7cdd1b89d&title=0&byline=0&portrait=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
+        "totalBytes": 443,
+        "usedBytes": 189,
+        "unusedBytes": 254,
+        "unusedPercent": 57
+      },
+      {
+        "url": "https://player.vimeo.com/video/1106141156?h=394f5f9721&title=0&byline=0&portrait=0&keyboard=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
+        "totalBytes": 443,
+        "usedBytes": 189,
+        "unusedBytes": 254,
+        "unusedPercent": 57
+      },
+      {
+        "url": "https://player.vimeo.com/video/1103822384?h=d87e2634b3&title=0&byline=0&portrait=0&keyboard=0&muted=1&controls=0&dnt=1&loop=1&app_id=122963&unmute_button=0",
+        "totalBytes": 443,
+        "usedBytes": 189,
+        "unusedBytes": 254,
+        "unusedPercent": 57
       },
       {
         "url": "https://f.vimeocdn.com/p/4.46.50/css/player.css",
@@ -1004,13 +920,6 @@
         "totalBytes": 237164,
         "usedBytes": 7093,
         "unusedBytes": 230071,
-        "unusedPercent": 97
-      },
-      {
-        "url": "https://f.vimeocdn.com/p/4.46.50/css/player.css",
-        "totalBytes": 237164,
-        "usedBytes": 7132,
-        "unusedBytes": 230032,
         "unusedPercent": 97
       },
       {
@@ -1030,8 +939,15 @@
       {
         "url": "https://f.vimeocdn.com/p/4.46.50/css/player.css",
         "totalBytes": 237164,
-        "usedBytes": 7093,
-        "unusedBytes": 230071,
+        "usedBytes": 7614,
+        "unusedBytes": 229550,
+        "unusedPercent": 97
+      },
+      {
+        "url": "https://f.vimeocdn.com/p/4.46.50/css/player.css",
+        "totalBytes": 237164,
+        "usedBytes": 7614,
+        "unusedBytes": 229550,
         "unusedPercent": 97
       },
       {
@@ -1049,16 +965,16 @@
         "unusedPercent": 100
       }
     ],
-    "totalBytes": 2312907,
-    "usedBytes": 140527,
-    "unusedBytes": 2172380,
-    "unusedPercent": 94,
-    "importantCount": 216,
-    "duplicates": 41308,
+    "totalBytes": 2106500,
+    "usedBytes": 141530,
+    "unusedBytes": 1964970,
+    "unusedPercent": 93,
+    "importantCount": 200,
+    "duplicates": 36128,
     "vendorPrefixes": {
-      "webkit": 1932,
-      "moz": 236,
-      "ms": 648,
+      "webkit": 1134,
+      "moz": 126,
+      "ms": 348,
       "o": 0
     },
     "keyframes": [],
@@ -1070,15 +986,15 @@
       ],
       "average": [
         0,
-        2.37,
-        0.3
+        2.42,
+        0.29
       ],
-      "count": 19639
+      "count": 18572
     },
     "issues": [
-      "216 !important rules",
-      "41308 duplicate declarations",
-      "94% unused CSS"
+      "200 !important rules",
+      "36128 duplicate declarations",
+      "93% unused CSS"
     ]
   }
 }

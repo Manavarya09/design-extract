@@ -1,7 +1,7 @@
 # Design Language: Vercel: Build and deploy the best web experiences with the AI Cloud
 
-> Extracted from `https://vercel.com` on May 15, 2026
-> 3043 elements analyzed
+> Extracted from `https://vercel.com` on May 18, 2026
+> 3040 elements analyzed
 
 This document describes the complete design language of the website. It is structured for AI/LLM consumption — use it to faithfully recreate the visual design in any framework.
 
@@ -19,8 +19,8 @@ This document describes the complete design language of the website. It is struc
 
 | Hex | HSL | Usage Count |
 |-----|-----|-------------|
-| `#171717` | hsl(0, 0%, 9%) | 2954 |
-| `#ebebeb` | hsl(0, 0%, 92%) | 2342 |
+| `#171717` | hsl(0, 0%, 9%) | 2951 |
+| `#ebebeb` | hsl(0, 0%, 92%) | 2339 |
 | `#4d4d4d` | hsl(0, 0%, 30%) | 567 |
 | `#ffffff` | hsl(0, 0%, 100%) | 123 |
 | `#666666` | hsl(0, 0%, 40%) | 67 |
@@ -88,8 +88,8 @@ background-image: linear-gradient(rgb(247, 234, 212), rgb(247, 234, 212) 50%, rg
 
 | Hex | Contexts | Count |
 |-----|----------|-------|
-| `#171717` | text, border, background | 2954 |
-| `#ebebeb` | border, background | 2342 |
+| `#171717` | text, border, background | 2951 |
+| `#ebebeb` | border, background | 2339 |
 | `#4d4d4d` | text, border | 567 |
 | `#ffffff` | background, text, border | 123 |
 | `#666666` | text | 67 |
@@ -108,20 +108,20 @@ background-image: linear-gradient(rgb(247, 234, 212), rgb(247, 234, 212) 50%, rg
 | `#297a3a` | text | 2 |
 | `#7820bc` | text, background | 2 |
 | `#cce6ff` | background | 1 |
-| `#067a6e` | background | 1 |
 | `#ea3e83` | background | 1 |
-| `#ff990a` | background | 1 |
+| `#067a6e` | background | 1 |
 | `#bf89ec` | background | 1 |
 | `#398e4a` | background | 1 |
-| `#ffc96b` | background | 1 |
+| `#ff990a` | background | 1 |
 | `#6cda75` | background | 1 |
+| `#ffc96b` | background | 1 |
 
 ## Typography
 
 ### Font Families
 
-- **Geist** — used for all (2731 elements)
-- **Geist Mono** — used for all (312 elements)
+- **Geist** — used for all (2729 elements)
+- **Geist Mono** — used for all (311 elements)
 
 ### Type Scale
 
@@ -162,7 +162,7 @@ body { font-size: 16px; font-weight: 400; line-height: 24px; }
 
 ### Font Weights in Use
 
-`400` (2740x), `500` (243x), `600` (58x), `700` (2x)
+`400` (2737x), `500` (243x), `600` (58x), `700` (2x)
 
 ## Spacing
 
@@ -274,8 +274,8 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --geist-secondary-dark: #333;
 --ds-focus-ring: 0 0 0 2px hsla(0, 0%, 100%, 1), 0 0 0 4px hsla(212, 100%, 48%, 1);
 --accents-3: #999;
---geist-selection-text-color: hsla(0, 0%, 95%, 1);
 --accents-8: #111;
+--geist-selection-text-color: hsla(0, 0%, 95%, 1);
 --color-zinc-900: lab(8.30603% .618205 -2.16572);
 --accents-2: #eaeaea;
 --color-gray-950: lab(1.90334% .278696 -5.48866);
@@ -394,7 +394,6 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --font-mono: "Geist Mono", Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
 --ship-text: #ff5b4f;
 --text-base--line-height: calc(1.5 / 1);
---tracking-wider: .05em;
 --text-fluid-24-32: clamp(1.5rem, .6429rem + 1.4286vi, 2rem);
 --text-fluid-24-28: clamp(1.5rem, 1.0714rem + .7143vi, 1.75rem);
 --text-fluid-16-28: clamp(1rem, -.2857rem + 2.1429vi, 1.75rem);
@@ -520,8 +519,8 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --tw-exit-translate-y: 0;
 --ds-blue-1000: hsla(211, 100%, 15%, 1);
 --tw-gradient-to-position: 100%;
---animate-sandbox-left-reverse: sandbox-left-reverse .5s ease-in-out forwards;
 --ds-amber-600: hsla(36, 90%, 62%, 1);
+--animate-sandbox-left-reverse: sandbox-left-reverse .5s ease-in-out forwards;
 --ds-white: lab(100% 0 0);
 --ds-background-200: hsla(0, 0%, 98%, 1);
 --ds-red-500-value: 0, 82%, 85%;
@@ -529,16 +528,16 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --ds-blue-400: hsla(209, 100%, 90%, 1);
 --animate-flip-front: flip-front .5s cubic-bezier(.4, .04, .04, 1) forwards;
 --ds-teal-700: hsla(173, 80%, 36%, 1);
+--geist-highlight-magenta: #eb367f;
 --ds-green-800: hsla(132, 43%, 39%, 1);
 --ds-red-200: hsla(0, 100%, 96%, 1);
---geist-highlight-magenta: #eb367f;
 --ds-purple-1000: hsla(276, 100%, 15%, 1);
 --vh100-offset: calc(64px + 0px);
 --ds-green-100-value: 120, 60%, 96%;
 --ds-gray-500: hsla(0, 0%, 79%, 1);
 --scroller-start: #fff;
---vaul-overlay-background-end: #0006;
 --ds-purple-800: hsla(272, 47%, 45%, 1);
+--vaul-overlay-background-end: #0006;
 --ds-purple-300: hsla(274, 78%, 95%, 1);
 --ds-amber-500: hsla(38, 100%, 71%, 1);
 --tw-scale-y: 1;
@@ -590,8 +589,8 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --tw-exit-rotate: 0;
 --develop-end-gradient: #00dfd8;
 --ds-purple-600-value: 273, 72%, 73%;
---ds-purple-300-value: 274, 78%, 95%;
 --ds-blue-700: hsla(212, 100%, 48%, 1);
+--ds-purple-300-value: 274, 78%, 95%;
 --ds-amber-600-value: 36, 90%, 62%;
 --container-sm: 401px;
 --ds-green-100: hsla(120, 60%, 96%, 1);
@@ -624,24 +623,25 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --tw-animation-fill-mode: none;
 --tw-exit-blur: 0;
 --animate-feedbackFadeOut: feedbackFadeOut .2s cubic-bezier(.16, 1, .3, 1) forwards;
---ds-pink-500: hsla(340, 75%, 84%, 1);
 --ds-red-900-value: 358, 66%, 48%;
+--ds-pink-500: hsla(340, 75%, 84%, 1);
 --ds-pink-100-value: 330, 100%, 96%;
 --geist-highlight-pink: #ff0080;
 --geist-cyan-light: #79ffe1;
 --ds-green-600: hsla(125, 60%, 64%, 1);
 --ds-red-1000-value: 355, 49%, 15%;
 --vaul-overlay-background-start: #0000;
---geist-cyan: #50e3c2;
 --ds-green-900: hsla(133, 50%, 32%, 1);
+--geist-cyan: #50e3c2;
 --ds-pink-900: hsla(336, 65%, 45%, 1);
 --tw-enter-translate-x: 0;
 --container-4xl: 56rem;
 --ds-purple-1000-value: 276, 100%, 15%;
+--animate-fade-in: fade-in 1.25s cubic-bezier(.4, .04, .04, 1) forwards;
 --ds-amber-800: hsla(35, 100%, 52%, 1);
 --ds-green-700-value: 131, 41%, 46%;
---preview-line-end: #9a1fb8;
 --ds-amber-400-value: 42, 100%, 78%;
+--preview-line-end: #9a1fb8;
 --ds-gray-alpha-500: #00000036;
 --ds-green-300: hsla(120, 60%, 91%, 1);
 --animate-fadeInTooltipFaster: fadeInTooltip .1s ease-in .1s forwards;
@@ -649,8 +649,8 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --ds-blue-900: hsla(211, 100%, 42%, 1);
 --ds-gray-600: hsla(0, 0%, 66%, 1);
 --ds-purple-500: hsla(274, 70%, 82%, 1);
---ds-pink-800: hsla(336, 74%, 51%, 1);
 --ds-green-400: hsla(122, 60%, 86%, 1);
+--ds-pink-800: hsla(336, 74%, 51%, 1);
 --ds-blue-500: hsla(209, 100%, 80%, 1);
 --ds-green-900-value: 133, 50%, 32%;
 --animate-blink: blink 1s infinite;
@@ -663,10 +663,10 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --header-height: 64px;
 --aspect-video: 16 / 9;
 --ds-teal-100: hsla(169, 70%, 96%, 1);
---ds-green-1000-value: 128, 29%, 15%;
 --develop-line-end: #019ae9;
---ds-blue-600: hsla(208, 100%, 66%, 1);
+--ds-green-1000-value: 128, 29%, 15%;
 --animate-loading: loading 8s ease-in-out infinite;
+--ds-blue-600: hsla(208, 100%, 66%, 1);
 --tw-animation-delay: 0s;
 --animate-marquee: marquee 40s linear infinite;
 --ds-green-800-value: 132, 43%, 39%;
@@ -754,31 +754,31 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --geist-error-dark: #c50000;
 --ds-motion-overlay-duration: .3s;
 --ds-purple-800-value: 272, 47%, 45%;
---wv-red: #ff4e42;
 --ds-gray-alpha-900: #000000b3;
+--wv-red: #ff4e42;
 --ds-gray-900: hsla(0, 0%, 30%, 1);
 --geist-violet: #7928ca;
 --ship-line-end: #f9cb28;
 --geist-console-header: #efe7ed;
 --geist-success-lighter: #d3e5ff;
 --ds-red-100-value: 0, 100%, 97%;
---geist-error-light: #ff1a1a;
---animate-accordion-down: accordion-down .2s ease-out;
 --ds-purple-100-value: 276, 100%, 97%;
+--animate-accordion-down: accordion-down .2s ease-out;
+--geist-error-light: #ff1a1a;
 --tw-scale-z: 1;
 --ds-red-800: hsla(358, 70%, 52%, 1);
 --ds-purple-700-value: 272, 51%, 54%;
 --ds-amber-300: hsla(43, 96%, 90%, 1);
 --tw-scroll-snap-strictness: proximity;
---ds-green-500: hsla(124, 60%, 75%, 1);
 --ds-background-200-value: 0, 0%, 98%;
 --container-lg: 961px;
+--ds-green-500: hsla(124, 60%, 75%, 1);
 --geist-highlight-yellow: #fff500;
 --ds-green-400-value: 122, 60%, 86%;
 --ds-pink-100: hsla(330, 100%, 96%, 1);
 --ds-blue-700-value: 212, 100%, 48%;
---ds-teal-600: hsla(170, 70%, 57%, 1);
 --geist-success: #0070f3;
+--ds-teal-600: hsla(170, 70%, 57%, 1);
 --ds-green-500-value: 124, 60%, 75%;
 --ds-gray-alpha-200: #00000014;
 --ds-gray-400: hsla(0, 0%, 92%, 1);
@@ -810,8 +810,8 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --ds-blue-100-value: 212, 100%, 97%;
 --tw-divide-y-reverse: 0;
 --ds-teal-200: hsla(167, 70%, 94%, 1);
---container-2xl: 1400px;
 --tw-exit-scale: 1;
+--container-2xl: 1400px;
 --ds-purple-200: hsla(277, 87%, 97%, 1);
 --ds-amber-200-value: 44, 100%, 92%;
 --tw-scale-x: 1;
@@ -1487,8 +1487,8 @@ grid-template-columns: 359.656px 359.656px 359.656px;
 
 **Issues:**
 - 2 WCAG contrast failures
-- 1193 !important rules — prefer specificity over overrides
-- 11518 duplicate CSS declarations
+- 1194 !important rules — prefer specificity over overrides
+- 11530 duplicate CSS declarations
 
 ## Gradients
 

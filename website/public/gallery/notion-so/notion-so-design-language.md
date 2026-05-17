@@ -1,7 +1,7 @@
 # Design Language: The AI workspace that works for you. | Notion
 
-> Extracted from `https://notion.so` on May 15, 2026
-> 1564 elements analyzed
+> Extracted from `https://notion.so` on May 18, 2026
+> 1570 elements analyzed
 
 This document describes the complete design language of the website. It is structured for AI/LLM consumption — use it to faithfully recreate the visual design in any framework.
 
@@ -19,10 +19,10 @@ This document describes the complete design language of the website. It is struc
 
 | Hex | HSL | Usage Count |
 |-----|-----|-------------|
-| `#000000` | hsl(0, 0%, 0%) | 2131 |
-| `#f6f5f4` | hsl(30, 10%, 96%) | 384 |
+| `#000000` | hsl(0, 0%, 0%) | 2139 |
+| `#f6f5f4` | hsl(30, 10%, 96%) | 388 |
 | `#a39e98` | hsl(33, 6%, 62%) | 202 |
-| `#ffffff` | hsl(0, 0%, 100%) | 170 |
+| `#ffffff` | hsl(0, 0%, 100%) | 171 |
 | `#615d59` | hsl(30, 4%, 36%) | 48 |
 | `#78736f` | hsl(27, 4%, 45%) | 14 |
 | `#191918` | hsl(60, 2%, 10%) | 2 |
@@ -47,10 +47,10 @@ background-image: linear-gradient(rgba(255, 255, 255, 0), rgb(255, 255, 255));
 
 | Hex | Contexts | Count |
 |-----|----------|-------|
-| `#000000` | text, border, background | 2131 |
-| `#f6f5f4` | text, border, background | 384 |
+| `#000000` | text, border, background | 2139 |
+| `#f6f5f4` | text, border, background | 388 |
 | `#a39e98` | text, border | 202 |
-| `#ffffff` | background, text, border | 170 |
+| `#ffffff` | background, text, border | 171 |
 | `#615d59` | text, border | 48 |
 | `#0075de` | text, border, background | 31 |
 | `#097fe8` | background, text, border | 25 |
@@ -82,7 +82,7 @@ background-image: linear-gradient(rgba(255, 255, 255, 0), rgb(255, 255, 255));
 
 ### Font Families
 
-- **NotionInter** — used for all (1557 elements)
+- **NotionInter** — used for all (1563 elements)
 - **Times** — used for body (5 elements)
 - **Lyon Text** — used for body (2 elements)
 
@@ -126,7 +126,7 @@ body { font-size: 14px; font-weight: 400; line-height: 20px; }
 
 ### Font Weights in Use
 
-`400` (1256x), `500` (240x), `700` (43x), `600` (25x)
+`400` (1260x), `500` (242x), `700` (43x), `600` (25x)
 
 ## Spacing
 
@@ -158,8 +158,8 @@ body { font-size: 14px; font-weight: 400; line-height: 20px; }
 
 | Label | Value | Count |
 |-------|-------|-------|
-| sm | 4px | 33 |
-| md | 8px | 92 |
+| sm | 4px | 34 |
+| md | 8px | 93 |
 | lg | 12px | 52 |
 | lg | 16px | 4 |
 | full | 50px | 2 |
@@ -227,6 +227,9 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 18px 0px, rgba(0, 0, 0, 0.027) 0px 2.025
 --border-width-1: 0.0625rem;
 --border-width-2: 0.125rem;
 --border-width-4: 0.25rem;
+--border-style-solid: solid;
+--border-style-dashed: dashed;
+--border-style-none: none;
 --color-gray-100: #f9f9f8;
 --color-gray-200: #f6f5f4;
 --color-gray-300: #dfdcd9;
@@ -355,8 +358,6 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 18px 0px, rgba(0, 0, 0, 0.027) 0px 2.025
 --color-campaigns-dev-platform-dos-alpha-white: var(--color-alpha-white-700);
 --color-campaigns-dev-platform-dos-alpha-lavender: #cbcbef70;
 --color-campaigns-dev-platform-dos-alpha-gray: #f6f6fc70;
---decoration-focus-ring-outline-offset: 0.125rem;
---decoration-focus-ring-outline-thickness: 0.125rem;
 --font-family-primary-sans: NotionInter;
 --font-family-primary-serif: "Lyon Text";
 --font-family-primary-serif-japanese: "Lyon Text";
@@ -369,14 +370,15 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 18px 0px, rgba(0, 0, 0, 0.027) 0px 2.025
 --font-family-primary-handwriting: "Permanent Marker";
 --font-family-primary-mono: "iA Writer Mono";
 --font-family-primary-emoji: "Apple Color Emoji";
+--color-card-accent: #097fe8;
 --color-button-primary-background-active: #005bab;
 --color-button-tertiary-text: #000000f2;
 --color-button-primary-border: #fff0;
+--color-action-button-primary-background-focus: #f6f5f4;
 --color-background-surface-neutral-focus: #dfdcd9;
 --spacing-card-padding-inline-block: 2rem;
---color-code-comment: #0000008a;
 --color-background-surface-accent-muted: #f2f9ff;
---color-action-button-primary-background-focus: #f6f5f4;
+--color-code-comment: #0000008a;
 --color-terminal-text: #000000f2;
 --color-icon-button-active: #615d59;
 --color-interaction-indicator-active: #0000004d;
@@ -445,6 +447,7 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 18px 0px, rgba(0, 0, 0, 0.027) 0px 2.025
 --color-badge-bold-text: #fff;
 --color-badge-mono-text: #000;
 --color-menu-button-border-selected: #0000001a;
+--border-interaction-focus-ring-style: solid;
 --color-card-border: #0000001a;
 --color-code-literal: #0000008a;
 --typography-card-title-feature-font: 700 1.625rem /2rem NotionInter,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";
@@ -466,8 +469,8 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 18px 0px, rgba(0, 0, 0, 0.027) 0px 2.025
 --color-accent: #62aef0;
 --typography-card-title-feature-md-font: 700 2rem /2.5rem NotionInter,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";
 --color-action-button-alpha-icon-disabled: #0000004d;
---color-link-primary-text: #0075de;
 --color-background-surface-accent-muted-active: #e6f3fe;
+--color-link-primary-text: #0075de;
 --color-terminal-background: #f9f9f8;
 --color-card-body-text: #00000096;
 --color-action-button-alpha-icon: #000000f2;
@@ -483,8 +486,8 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 18px 0px, rgba(0, 0, 0, 0.027) 0px 2.025
 --color-card-title-text: #000;
 --color-link-primary-text-hover: #00396b;
 --color-button-primary-text: #fff;
---color-badge-mono-background: #f6f5f4;
 --color-background-surface-accent: #62aef0;
+--color-badge-mono-background: #f6f5f4;
 --typography-card-title-letter-spacing: -0.015625rem;
 --color-menu-button-background: #f9f9f8;
 --color-background-surface-neutral-hover: #dfdcd9;
@@ -493,8 +496,8 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 18px 0px, rgba(0, 0, 0, 0.027) 0px 2.025
 --color-link-secondary-text-hover: #000000bf;
 --color-button-tertiary-background-focus: #f6f5f4;
 --color-button-ghost-background-active: #f6f5f4;
---color-menu-button-background-selected-active: #f6f5f4;
 --color-code-string: #14832b;
+--color-menu-button-background-selected-active: #f6f5f4;
 --typography-card-body-letter-spacing: 0;
 --color-banner: #ffffffd9;
 --color-button-tertiary-border: #0000001a;
@@ -517,8 +520,8 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 18px 0px, rgba(0, 0, 0, 0.027) 0px 2.025
 --color-menu-button-background-active: #f6f5f4;
 --color-menu-button-border-selected-focus: #0003;
 --color-button-primary-background-hover: #005bab;
---color-button-tertiary-background: #fff;
 --color-menu-button-background-focus: #f6f5f4;
+--color-button-tertiary-background: #fff;
 --typography-card-note-letter-spacing: 0;
 --color-text-strong: #000000f2;
 --spacing-card-padding-inline: 1rem;
@@ -535,8 +538,10 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 18px 0px, rgba(0, 0, 0, 0.027) 0px 2.025
 --color-accent-soft: #e6f3fe;
 --color-menu-button-border: #f9f9f8;
 --typography-card-context-feature-font: 400 0.875rem /1.25rem NotionInter,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";
+--dimension-interaction-focus-ring-outline-width: 0.125rem;
 --color-button-secondary-background: #e6f3fe;
 --typography-card-quote-letter-spacing: 0;
+--dimension-interaction-focus-ring-outline-offset: 0.125rem;
 --color-menu-button-text: #000000e6;
 --color-button-secondary-background-focus: #f2f9ff;
 --color-button-ghost-background-focus: #f6f5f4;
@@ -546,7 +551,6 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 18px 0px, rgba(0, 0, 0, 0.027) 0px 2.025
 --color-button-primary-background-focus: #005bab;
 --color-button-secondary-background-active: #f2f9ff;
 --color-menu-button-border-focus: #f9f9f8;
---color-card-accent: #097fe8;
 ```
 
 ### Spacing
@@ -699,8 +703,8 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 18px 0px, rgba(0, 0, 0, 0.027) 0px 2.025
 --typography-interaction-menu-list-item-label-letter-spacing: 0;
 --typography-interaction-button-medium-letter-spacing: 0;
 --typography-article-subheading-lg-letter-spacing: -0.015625rem;
---typography-interaction-menu-list-item-label-emphasis-md-letter-spacing: -0.015625rem;
 --typography-interaction-menu-button-letter-spacing: 0;
+--typography-interaction-menu-list-item-label-emphasis-md-letter-spacing: -0.015625rem;
 --typography-navigation-heading-letter-spacing: 0.0078125rem;
 --typography-article-caption-letter-spacing: 0.0078125rem;
 --typography-navigation-body-letter-spacing: 0;
@@ -737,8 +741,8 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 18px 0px, rgba(0, 0, 0, 0.027) 0px 2.025
 --spacing-section: 10rem;
 --typography-article-subheading-letter-spacing: -0.0078125rem;
 --typography-global-title-emphasis-md-letter-spacing: -0.1328125rem;
---typography-article-body-bold-letter-spacing: 0;
 --typography-navigation-link-emphasis-letter-spacing: 0;
+--typography-article-body-bold-letter-spacing: 0;
 --typography-global-subheading-letter-spacing: -0.015625rem;
 --typography-global-deck-sm-letter-spacing: -0.0078125rem;
 --typography-global-title-letter-spacing: -0.09375rem;
@@ -945,14 +949,20 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 18px 0px, rgba(0, 0, 0, 0.027) 0px 2.025
 
 ```css
 --direction: 1;
+--em-ratio-0-1: 0.1em;
+--link-underline-offset: var(--em-ratio-0-1);
 --grid-column-width: 1fr;
 --grid-gutter: 28px;
 --grid-sm-gutter: 12px;
 --grid-columns: 12;
 --global-navigation-height: 64px;
 --header-height: 60px;
---decoration-link-underline-offset: 0.1em;
 --decoration-link-underline-thickness: 0.0625rem;
+--offset-0: 0;
+--offset-1: 0.0625rem;
+--offset-2: 0.125rem;
+--thickness-1: 0.0625rem;
+--thickness-2: 0.125rem;
 --motion-timing-function-ease-in-out-quint: cubic-bezier(0.86,0,0.07,1);
 --motion-timing-function-ease-in-out-quart: cubic-bezier(0.76,0,0.24,1);
 --motion-timing-function-ease-in-out-quad: cubic-bezier(0.45,0,0.55,1);
@@ -985,6 +995,7 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 18px 0px, rgba(0, 0, 0, 0.027) 0px 2.025
 ### Dependencies
 
 ```css
+--link-underline-offset: --em-ratio-0-1;
 --color-campaigns-dev-platform-dos-white: --color-white;
 --color-campaigns-dev-platform-dos-alpha-white: --color-alpha-white-700;
 --font-family-sans: --font-family-primary-sans,--font-family-fallback-sans;
@@ -1255,7 +1266,7 @@ Detected UI component patterns and their most common styles:
 }
 ```
 
-### Links (133 instances)
+### Links (135 instances)
 
 ```css
 .link {
@@ -1265,7 +1276,7 @@ Detected UI component patterns and their most common styles:
 }
 ```
 
-### Navigation (227 instances)
+### Navigation (230 instances)
 
 ```css
 .navigatio {
@@ -1670,7 +1681,7 @@ Reusable component instances grouped by DOM structure and style similarity:
 
 ## Layout System
 
-**121 grid containers** and **257 flex containers** detected.
+**122 grid containers** and **258 flex containers** detected.
 
 ### Container Widths
 
@@ -1687,7 +1698,7 @@ Reusable component instances grouped by DOM structure and style similarity:
 
 | Columns | Usage Count |
 |---------|-------------|
-| 1-column | 82x |
+| 1-column | 83x |
 | 2-column | 23x |
 | 3-column | 9x |
 | 12-column | 2x |
@@ -1713,7 +1724,7 @@ gap: 28px;
 
 | Direction/Wrap | Count |
 |----------------|-------|
-| row/nowrap | 183x |
+| row/nowrap | 184x |
 | column/nowrap | 64x |
 | row/wrap | 10x |
 
@@ -1758,7 +1769,7 @@ gap: 28px;
 **Issues:**
 - 1 WCAG contrast failures
 - 9 !important rules — prefer specificity over overrides
-- 8256 duplicate CSS declarations
+- 8236 duplicate CSS declarations
 
 ## Gradients
 
@@ -1834,7 +1845,7 @@ background: linear-gradient(rgba(255, 255, 255, 0), rgb(255, 255, 255));
 
 ### Easing Families
 
-- **ease-in-out** (141 uses) — `ease`
+- **ease-in-out** (142 uses) — `ease`
 - **linear** (1 uses) — `linear`
 - **custom** (17 uses) — `cubic-bezier(0.45, 0, 0.55, 1)`, `cubic-bezier(0.645, 0.045, 0.355, 1)`
 

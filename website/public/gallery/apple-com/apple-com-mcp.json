@@ -249,17 +249,17 @@
         ]
       },
       {
-        "hex": "#1246c4",
+        "hex": "#ea33c0",
         "rgb": {
-          "r": 18,
-          "g": 70,
-          "b": 196,
+          "r": 234,
+          "g": 51,
+          "b": 192,
           "a": 1
         },
         "hsl": {
-          "h": 222,
-          "s": 83,
-          "l": 42
+          "h": 314,
+          "s": 81,
+          "l": 56
         },
         "count": 1,
         "contexts": [
@@ -303,17 +303,17 @@
         ]
       },
       {
-        "hex": "#3e4fca",
+        "hex": "#450a54",
         "rgb": {
-          "r": 62,
-          "g": 79,
-          "b": 202,
+          "r": 69,
+          "g": 10,
+          "b": 84,
           "a": 1
         },
         "hsl": {
-          "h": 233,
-          "s": 57,
-          "l": 52
+          "h": 288,
+          "s": 79,
+          "l": 18
         },
         "count": 1,
         "contexts": [
@@ -392,7 +392,7 @@
         "w": 1280,
         "h": 4959
       },
-      "heading": "MacBook Air",
+      "heading": "iPhone",
       "buttonCount": 35,
       "cardCount": 30,
       "className": "main"
@@ -406,7 +406,7 @@
         "w": 1280,
         "h": 2100
       },
-      "heading": "MacBook Air",
+      "heading": "iPhone",
       "buttonCount": 6,
       "cardCount": 0,
       "className": "section section-hero"
@@ -725,25 +725,11 @@
         "unusedPercent": 82
       },
       {
-        "url": "https://www.apple.com/ac/globalfooter/8/en_US/styles/ac-globalfooter.built.css",
-        "totalBytes": 56204,
-        "usedBytes": 8791,
-        "unusedBytes": 47413,
-        "unusedPercent": 84
-      },
-      {
         "url": "https://www.apple.com/ac/localnav/9/styles/ac-localnav.built.css",
         "totalBytes": 82381,
         "usedBytes": 628,
         "unusedBytes": 81753,
         "unusedPercent": 99
-      },
-      {
-        "url": "https://www.apple.com/api-www/global-elements/global-header/v1/assets/globalheader.css",
-        "totalBytes": 170263,
-        "usedBytes": 19708,
-        "unusedBytes": 150555,
-        "unusedPercent": 88
       },
       {
         "url": "https://www.apple.com/wss/fonts?families=SF+Pro,v3|SF+Pro+Icons,v3",
@@ -753,11 +739,18 @@
         "unusedPercent": 100
       },
       {
-        "url": "https://www.apple.com/home/built/styles/home_dwch8xh4.built.css",
+        "url": "https://www.apple.com/home/built/styles/home_1ppetumn.built.css",
         "totalBytes": 3293,
         "usedBytes": 797,
         "unusedBytes": 2496,
         "unusedPercent": 76
+      },
+      {
+        "url": "https://www.apple.com/ac/globalfooter/8/en_US/styles/ac-globalfooter.built.css",
+        "totalBytes": 56204,
+        "usedBytes": 8791,
+        "unusedBytes": 47413,
+        "unusedPercent": 84
       },
       {
         "url": "https://www.apple.com/v/home/a/styles/main.built.css",
@@ -767,11 +760,11 @@
         "unusedPercent": 93
       },
       {
-        "url": "https://www.apple.com/",
-        "totalBytes": 28,
-        "usedBytes": 0,
-        "unusedBytes": 28,
-        "unusedPercent": 100
+        "url": "https://www.apple.com/api-www/global-elements/global-header/v1/assets/globalheader.css",
+        "totalBytes": 170263,
+        "usedBytes": 19708,
+        "unusedBytes": 150555,
+        "unusedPercent": 88
       },
       {
         "url": "https://www.apple.com/v/home/a/built/styles/home-gallery.built.css",
@@ -788,11 +781,11 @@
         "unusedPercent": 72
       }
     ],
-    "totalBytes": 706986,
+    "totalBytes": 706958,
     "usedBytes": 85192,
-    "unusedBytes": 621794,
+    "unusedBytes": 621766,
     "unusedPercent": 88,
-    "importantCount": 26,
+    "importantCount": 25,
     "duplicates": 7465,
     "vendorPrefixes": {
       "webkit": 178,
@@ -812,10 +805,10 @@
         1.87,
         0.18
       ],
-      "count": 5821
+      "count": 5820
     },
     "issues": [
-      "26 !important rules",
+      "25 !important rules",
       "7465 duplicate declarations",
       "88% unused CSS"
     ]

@@ -353,6 +353,7 @@ export default function HeroExtractor() {
             url={inputRef.current?.value || ''}
             hash={typeof window !== 'undefined' ? window.location.pathname.match(/^\/x\/([\w-]+)/)?.[1] : null}
             summary={summary}
+            files={files}
           />
         </div>
       )}

@@ -1,6 +1,6 @@
 # Design Language: Apple
 
-> Extracted from `https://apple.com` on May 15, 2026
+> Extracted from `https://apple.com` on May 18, 2026
 > 1906 elements analyzed
 
 This document describes the complete design language of the website. It is structured for AI/LLM consumption — use it to faithfully recreate the visual design in any framework.
@@ -29,7 +29,7 @@ This document describes the complete design language of the website. It is struc
 
 ### Background Colors
 
-Used on large-area elements: `#ffffff`, `#fafafc`, `#e8e8ed`, `#f5f5f7`, `#000000`, `#f4f8fb`, `#140a12`, `#9fc6f4`, `#1246c4`, `#443c2a`, `#3397d4`, `#3e4fca`, `#5d4a32`
+Used on large-area elements: `#ffffff`, `#fafafc`, `#e8e8ed`, `#f5f5f7`, `#000000`, `#f4f8fb`, `#140a12`, `#9fc6f4`, `#ea33c0`, `#443c2a`, `#3397d4`, `#450a54`, `#5d4a32`
 
 ### Text Colors
 
@@ -62,10 +62,10 @@ background-image: linear-gradient(rgba(29, 29, 31, 0.4) 0%, rgba(29, 29, 31, 0) 
 | `#d2d2d7` | background | 1 |
 | `#140a12` | background | 1 |
 | `#9fc6f4` | background | 1 |
-| `#1246c4` | background | 1 |
+| `#ea33c0` | background | 1 |
 | `#443c2a` | background | 1 |
 | `#3397d4` | background | 1 |
-| `#3e4fca` | background | 1 |
+| `#450a54` | background | 1 |
 | `#5d4a32` | background | 1 |
 
 ## Typography
@@ -774,7 +774,7 @@ grid-template-columns: 930px;
 **Strengths:** Tight, disciplined color palette, Well-defined spacing scale, Clean elevation system, Consistent border radii, Strong accessibility compliance, Good CSS variable tokenization
 
 **Issues:**
-- 26 !important rules — prefer specificity over overrides
+- 25 !important rules — prefer specificity over overrides
 - 88% of CSS is unused — consider purging
 - 7465 duplicate CSS declarations
 
@@ -907,7 +907,7 @@ background: linear-gradient(rgba(29, 29, 31, 0.4) 0%, rgba(29, 29, 31, 0) 70px, 
 | variant | count | sample label |
 |---|---|---|
 | default | 54 | Continue |
-| secondary | 7 | Buy |
+| secondary | 7 | Shop iPhone |
 | link | 2 | 0
 + |
 
@@ -945,13 +945,13 @@ background: linear-gradient(rgba(29, 29, 31, 0.4) 0%, rgba(29, 29, 31, 0) 70px, 
 
 ### Sample Headings
 
-> MacBook Air
 > iPhone
+> MacBook Air
 > iPad Air
 > Apple for College
 > Apple Watch Series 11
-> MacBook Air
 > iPhone
+> MacBook Air
 > iPad Air
 > Apple for College
 > Apple Watch Series 11
@@ -972,8 +972,8 @@ Reading order (top→bottom): sidebar → sidebar → steps → nav → hero →
 | 0 | sidebar | — | 0.4 |
 | 1 | sidebar | — | 0.4 |
 | 2 | nav | — | 0.9 |
-| 3 | steps | MacBook Air | 0.75 |
-| 4 | hero | MacBook Air | 0.85 |
+| 3 | steps | iPhone | 0.75 |
+| 4 | hero | iPhone | 0.85 |
 | 5 | cta | Apple for College | 0.75 |
 | 6 | gallery | Endless entertainment. | 0.7 |
 | 7 | footer | Apple Footer | 0.95 |
@@ -987,7 +987,7 @@ Reading order (top→bottom): sidebar → sidebar → steps → nav → hero →
 
 | Metric | Value |
 |--------|-------|
-| Avg saturation | 0.395 |
+| Avg saturation | 0.399 |
 | Shadow profile | soft |
 | Avg shadow blur | 0px |
 | Max radius | 999px |

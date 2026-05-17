@@ -1,0 +1,595 @@
+{
+  "pageIntent": {
+    "type": "landing",
+    "confidence": 0.75,
+    "path": "/",
+    "title": "Stripe | Financial Infrastructure to Grow Your Revenue",
+    "description": "Stripe is a financial services platform that helps all types of businesses accept payments, build flexible billing models, and manage money movement.",
+    "signals": [
+      {
+        "kind": "url",
+        "type": "landing",
+        "weight": 0.45,
+        "detail": "root-path"
+      },
+      {
+        "kind": "shape",
+        "type": "landing",
+        "weight": 0.3,
+        "detail": "features+hero+footer"
+      }
+    ],
+    "alternates": [],
+    "needsSmart": false
+  },
+  "sectionRoles": {
+    "sections": [
+      {
+        "index": 0,
+        "tag": "header",
+        "role": "cta",
+        "subrole": null,
+        "confidence": 0.75,
+        "heading": null,
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "w": 1280,
+          "h": 76
+        },
+        "buttonCount": 15,
+        "cardCount": 11,
+        "slots": {
+          "ctaCount": 15,
+          "lede": "Products\nSolutions\nDevelopers\nResources\nPricing\nSign in\nSign in\nContact sales"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 1,
+        "tag": "nav",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": null,
+        "bounds": {
+          "x": 18,
+          "y": 6,
+          "w": 1244,
+          "h": 64
+        },
+        "buttonCount": 15,
+        "cardCount": 11,
+        "slots": {
+          "ctaCount": 15,
+          "lede": "Products\nSolutions\nDevelopers\nResources\nPricing\nSign in\nSign in\nContact sales"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 2,
+        "tag": "section",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": null,
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        },
+        "buttonCount": 3,
+        "cardCount": 0,
+        "slots": {
+          "ctaCount": 3,
+          "lede": "Start nowContact sales"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 3,
+        "tag": "section",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": null,
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        },
+        "buttonCount": 1,
+        "cardCount": 0,
+        "slots": {
+          "ctaCount": 1,
+          "lede": "Back"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 4,
+        "tag": "main",
+        "role": "pricing-table",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": "Financial infrastructure to grow your revenue. Accept payments, offer financial services, and implement custom revenue models—from your first transaction to your billionth.",
+        "bounds": {
+          "x": 0,
+          "y": 76,
+          "w": 1280,
+          "h": 13359.53125
+        },
+        "buttonCount": 95,
+        "cardCount": 361,
+        "slots": {
+          "heading": "Financial infrastructure to grow your revenue. Accept payments, offer financial services, and implement custom revenue models—from your first transaction to your billionth.",
+          "subheadings": [
+            "Financial infrastructure to grow your revenue. Accept payments, offer financial services, and implement custom revenue models—from your first transaction to your billionth.",
+            "Flexible solutions for every business model.",
+            "Accept and optimize payments globally—online and in person",
+            "Enable any billing model"
+          ],
+          "ctaCount": 95
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 5,
+        "tag": "section",
+        "role": "testimonial",
+        "subrole": null,
+        "confidence": 0.8,
+        "heading": "Financial infrastructure to grow your revenue. Accept payments, offer financial services, and implement custom revenue models—from your first transaction to your billionth.",
+        "bounds": {
+          "x": 0,
+          "y": 76,
+          "w": 1280,
+          "h": 617
+        },
+        "buttonCount": 3,
+        "cardCount": 36,
+        "slots": {
+          "heading": "Financial infrastructure to grow your revenue. Accept payments, offer financial services, and implement custom revenue models—from your first transaction to your billionth.",
+          "subheadings": [
+            "Financial infrastructure to grow your revenue. Accept payments, offer financial services, and implement custom revenue models—from your first transaction to your billionth."
+          ],
+          "ctaCount": 3
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 6,
+        "tag": "section",
+        "role": "pricing-table",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": "Flexible solutions for every business model.",
+        "bounds": {
+          "x": 0,
+          "y": 693,
+          "w": 1280,
+          "h": 2177.734375
+        },
+        "buttonCount": 15,
+        "cardCount": 152,
+        "slots": {
+          "heading": "Flexible solutions for every business model.",
+          "subheadings": [
+            "Accept and optimize payments globally—online and in person",
+            "Enable any billing model",
+            "Monetize through agentic commerce",
+            "Create a card issuing program"
+          ],
+          "ctaCount": 15
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 7,
+        "tag": "section",
+        "role": "content",
+        "subrole": null,
+        "confidence": 0.3,
+        "heading": null,
+        "bounds": {
+          "x": 0,
+          "y": 2870.734375,
+          "w": 1280,
+          "h": 560
+        },
+        "buttonCount": 1,
+        "cardCount": 0,
+        "slots": {
+          "ctaCount": 1,
+          "lede": "Building the economic infrastructure for AI\nWatch now"
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 8,
+        "tag": "section",
+        "role": "stats",
+        "subrole": null,
+        "confidence": 0.85,
+        "heading": "The backbone of global commerce",
+        "bounds": {
+          "x": 0,
+          "y": 3430.734375,
+          "w": 1280,
+          "h": 969.921875
+        },
+        "buttonCount": 4,
+        "cardCount": 0,
+        "slots": {
+          "heading": "The backbone of global commerce",
+          "ctaCount": 4
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 9,
+        "tag": "section",
+        "role": "pricing-table",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": "Powering businesses of all sizes.",
+        "bounds": {
+          "x": 0,
+          "y": 4400.65625,
+          "w": 1280,
+          "h": 4583.734375
+        },
+        "buttonCount": 40,
+        "cardCount": 92,
+        "slots": {
+          "heading": "Powering businesses of all sizes.",
+          "subheadings": [
+            "Transform your enterprise with agile financial infrastructure",
+            "Hertz unifies commerce with Stripe.",
+            "URBN consolidates $5 billion in online and in-store revenue onto Stripe.",
+            "Instacart powers online grocery delivery with Stripe."
+          ],
+          "ctaCount": 40
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 10,
+        "tag": "section",
+        "role": "testimonial",
+        "subrole": null,
+        "confidence": 0.8,
+        "heading": "Transform your enterprise with agile financial infrastructure",
+        "bounds": {
+          "x": 33,
+          "y": 4696.03125,
+          "w": 1214,
+          "h": 1379.5
+        },
+        "buttonCount": 30,
+        "cardCount": 0,
+        "slots": {
+          "heading": "Transform your enterprise with agile financial infrastructure",
+          "subheadings": [
+            "Hertz unifies commerce with Stripe.",
+            "URBN consolidates $5 billion in online and in-store revenue onto Stripe.",
+            "Instacart powers online grocery delivery with Stripe.",
+            "Le Monde improves local and international payments with Stripe."
+          ],
+          "ctaCount": 30,
+          "lede": "Transform your enterprise with agile financial infrastructure\nStripe for enterprises"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 11,
+        "tag": "header",
+        "role": "testimonial",
+        "subrole": null,
+        "confidence": 0.8,
+        "heading": "Transform your enterprise with agile financial infrastructure",
+        "bounds": {
+          "x": 33,
+          "y": 4696.03125,
+          "w": 1214,
+          "h": 130.21875
+        },
+        "buttonCount": 2,
+        "cardCount": 0,
+        "slots": {
+          "heading": "Transform your enterprise with agile financial infrastructure",
+          "ctaCount": 2,
+          "lede": "Transform your enterprise with agile financial infrastructure\nStripe for enterprises"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 12,
+        "tag": "section",
+        "role": "pricing-table",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": "Build a foundation for your startup that enables faster growth",
+        "bounds": {
+          "x": 33,
+          "y": 6235.53125,
+          "w": 1214,
+          "h": 1019.84375
+        },
+        "buttonCount": 4,
+        "cardCount": 75,
+        "slots": {
+          "heading": "Build a foundation for your startup that enables faster growth",
+          "ctaCount": 4,
+          "lede": "Build a foundation for your startup that enables faster growth\nStripe for startups"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 13,
+        "tag": "header",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.4,
+        "heading": "Build a foundation for your startup that enables faster growth",
+        "bounds": {
+          "x": 33,
+          "y": 6235.53125,
+          "w": 1214,
+          "h": 130.21875
+        },
+        "buttonCount": 2,
+        "cardCount": 0,
+        "slots": {
+          "heading": "Build a foundation for your startup that enables faster growth",
+          "ctaCount": 2,
+          "lede": "Build a foundation for your startup that enables faster growth\nStripe for startups"
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 14,
+        "tag": "section",
+        "role": "gallery",
+        "subrole": null,
+        "confidence": 0.7,
+        "heading": null,
+        "bounds": {
+          "x": 33,
+          "y": 6389.75,
+          "w": 1214,
+          "h": 617.453125
+        },
+        "buttonCount": 2,
+        "cardCount": 56,
+        "slots": {
+          "ctaCount": 2
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 15,
+        "tag": "section",
+        "role": "testimonial",
+        "subrole": null,
+        "confidence": 0.8,
+        "heading": "Make your SaaS platform a complete financial operating system",
+        "bounds": {
+          "x": 33,
+          "y": 7415.375,
+          "w": 1214,
+          "h": 1521.015625
+        },
+        "buttonCount": 6,
+        "cardCount": 17,
+        "slots": {
+          "heading": "Make your SaaS platform a complete financial operating system",
+          "ctaCount": 6,
+          "lede": "Make your SaaS platform a complete financial operating system\nStripe for platforms"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 16,
+        "tag": "header",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.4,
+        "heading": "Make your SaaS platform a complete financial operating system",
+        "bounds": {
+          "x": 33,
+          "y": 7415.375,
+          "w": 1214,
+          "h": 130.21875
+        },
+        "buttonCount": 2,
+        "cardCount": 0,
+        "slots": {
+          "heading": "Make your SaaS platform a complete financial operating system",
+          "ctaCount": 2,
+          "lede": "Make your SaaS platform a complete financial operating system\nStripe for platforms"
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 17,
+        "tag": "section",
+        "role": "testimonial",
+        "subrole": null,
+        "confidence": 0.8,
+        "heading": "Reliable, extensible infrastructure for every stack.",
+        "bounds": {
+          "x": 0,
+          "y": 8984.390625,
+          "w": 1280,
+          "h": 2336.9375
+        },
+        "buttonCount": 3,
+        "cardCount": 6,
+        "slots": {
+          "heading": "Reliable, extensible infrastructure for every stack.",
+          "subheadings": [
+            "Connect to existing systems.",
+            "Scale with confidence.",
+            "Choose an integration path."
+          ],
+          "ctaCount": 3
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 18,
+        "tag": "section",
+        "role": "pricing-table",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": "What’s happening",
+        "bounds": {
+          "x": 0,
+          "y": 11321.328125,
+          "w": 1280,
+          "h": 1734.015625
+        },
+        "buttonCount": 26,
+        "cardCount": 73,
+        "slots": {
+          "heading": "What’s happening",
+          "subheadings": [
+            "Businesses on Stripe generated $1.9T in 2025.",
+            "150K+ users have their best day ever on Stripe.",
+            "Tidemark’s vertical and SMB SaaS benchmark report.",
+            "Shopify’s Tobi Lütke sits down with John Collison."
+          ],
+          "ctaCount": 26
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 19,
+        "tag": "section",
+        "role": "pricing-table",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": "What’s happening",
+        "bounds": {
+          "x": 33,
+          "y": 11417.328125,
+          "w": 1214,
+          "h": 694.640625
+        },
+        "buttonCount": 18,
+        "cardCount": 73,
+        "slots": {
+          "heading": "What’s happening",
+          "subheadings": [
+            "Businesses on Stripe generated $1.9T in 2025.",
+            "150K+ users have their best day ever on Stripe.",
+            "Tidemark’s vertical and SMB SaaS benchmark report.",
+            "Shopify’s Tobi Lütke sits down with John Collison."
+          ],
+          "ctaCount": 18
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 20,
+        "tag": "header",
+        "role": "gallery",
+        "subrole": null,
+        "confidence": 0.7,
+        "heading": "What’s happening",
+        "bounds": {
+          "x": 33,
+          "y": 11417.328125,
+          "w": 1214,
+          "h": 102.375
+        },
+        "buttonCount": 2,
+        "cardCount": 0,
+        "slots": {
+          "heading": "What’s happening",
+          "ctaCount": 2
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 21,
+        "tag": "section",
+        "role": "cta",
+        "subrole": null,
+        "confidence": 0.75,
+        "heading": null,
+        "bounds": {
+          "x": 0,
+          "y": 13055.34375,
+          "w": 1280,
+          "h": 380.1875
+        },
+        "buttonCount": 3,
+        "cardCount": 2,
+        "slots": {
+          "ctaCount": 3,
+          "lede": "Ready to get started?"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 22,
+        "tag": "footer",
+        "role": "footer",
+        "subrole": null,
+        "confidence": 0.95,
+        "heading": null,
+        "bounds": {
+          "x": 0,
+          "y": 13435.53125,
+          "w": 1280,
+          "h": 1010.578125
+        },
+        "buttonCount": 1,
+        "cardCount": 77,
+        "slots": {
+          "ctaCount": 1
+        },
+        "needsSmart": false
+      }
+    ],
+    "counts": {
+      "cta": 2,
+      "nav": 5,
+      "pricing-table": 6,
+      "testimonial": 5,
+      "content": 1,
+      "stats": 1,
+      "gallery": 2,
+      "footer": 1
+    },
+    "readingOrder": [
+      "cta",
+      "nav",
+      "nav",
+      "nav",
+      "pricing-table",
+      "testimonial",
+      "pricing-table",
+      "content",
+      "stats",
+      "pricing-table",
+      "testimonial",
+      "testimonial",
+      "pricing-table",
+      "nav",
+      "gallery",
+      "testimonial",
+      "nav",
+      "testimonial",
+      "pricing-table",
+      "pricing-table",
+      "gallery",
+      "cta",
+      "footer"
+    ]
+  }
+}

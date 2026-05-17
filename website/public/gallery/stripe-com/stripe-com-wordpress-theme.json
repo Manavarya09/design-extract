@@ -1,0 +1,203 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "color": {
+      "palette": [
+        {
+          "slug": "primary",
+          "color": "#533afd",
+          "name": "Primary"
+        },
+        {
+          "slug": "secondary",
+          "color": "#e5edf5",
+          "name": "Secondary"
+        },
+        {
+          "slug": "accent",
+          "color": "#ffe0d1",
+          "name": "Accent"
+        },
+        {
+          "slug": "neutral-1",
+          "color": "#000000",
+          "name": "Neutral 1"
+        },
+        {
+          "slug": "neutral-2",
+          "color": "#50617a",
+          "name": "Neutral 2"
+        },
+        {
+          "slug": "neutral-3",
+          "color": "#ffffff",
+          "name": "Neutral 3"
+        },
+        {
+          "slug": "neutral-4",
+          "color": "#64748d",
+          "name": "Neutral 4"
+        },
+        {
+          "slug": "neutral-5",
+          "color": "#101010",
+          "name": "Neutral 5"
+        },
+        {
+          "slug": "bg-ffffff",
+          "color": "#ffffff",
+          "name": "Background #ffffff"
+        },
+        {
+          "slug": "bg-e5edf5",
+          "color": "#e5edf5",
+          "name": "Background #e5edf5"
+        },
+        {
+          "slug": "bg-f8fafd",
+          "color": "#f8fafd",
+          "name": "Background #f8fafd"
+        }
+      ],
+      "gradients": [
+        {
+          "slug": "gradient-1",
+          "gradient": "radial-gradient(66.35% 66.35%, rgba(255, 255, 255, 0.9) 0px, rgba(255, 255, 255, 0) 100%)",
+          "name": "Gradient 1"
+        },
+        {
+          "slug": "gradient-2",
+          "gradient": "radial-gradient(circle, rgb(127, 125, 252), rgb(244, 75, 204) 33%, rgb(229, 237, 245) 66%)",
+          "name": "Gradient 2"
+        },
+        {
+          "slug": "gradient-3",
+          "gradient": "radial-gradient(50% 50%, rgba(83, 58, 253, 0.8) 62.5%, rgba(83, 58, 253, 0) 100%)",
+          "name": "Gradient 3"
+        },
+        {
+          "slug": "gradient-4",
+          "gradient": "radial-gradient(50% 50%, rgba(243, 99, 243, 0.8) 53.85%, rgba(243, 99, 243, 0) 100%)",
+          "name": "Gradient 4"
+        },
+        {
+          "slug": "gradient-5",
+          "gradient": "radial-gradient(50% 50%, rgb(255, 207, 94) 41.35%, rgba(255, 207, 94, 0) 100%)",
+          "name": "Gradient 5"
+        }
+      ]
+    },
+    "typography": {
+      "fontFamilies": [
+        {
+          "fontFamily": "sohne-var",
+          "slug": "sohne-var",
+          "name": "sohne-var"
+        }
+      ],
+      "fontSizes": [
+        {
+          "size": "56px",
+          "slug": "size-56",
+          "name": "56px"
+        },
+        {
+          "size": "48px",
+          "slug": "size-48",
+          "name": "48px"
+        },
+        {
+          "size": "32px",
+          "slug": "size-32",
+          "name": "32px"
+        },
+        {
+          "size": "26px",
+          "slug": "size-26",
+          "name": "26px"
+        },
+        {
+          "size": "22px",
+          "slug": "size-22",
+          "name": "22px"
+        },
+        {
+          "size": "20px",
+          "slug": "size-20",
+          "name": "20px"
+        },
+        {
+          "size": "18px",
+          "slug": "size-18",
+          "name": "18px"
+        },
+        {
+          "size": "16px",
+          "slug": "size-16",
+          "name": "16px"
+        }
+      ]
+    },
+    "spacing": {
+      "spacingSizes": [
+        {
+          "size": "1px",
+          "slug": "spacing-1",
+          "name": "1px"
+        },
+        {
+          "size": "28px",
+          "slug": "spacing-28",
+          "name": "28px"
+        },
+        {
+          "size": "32px",
+          "slug": "spacing-32",
+          "name": "32px"
+        },
+        {
+          "size": "40px",
+          "slug": "spacing-40",
+          "name": "40px"
+        },
+        {
+          "size": "48px",
+          "slug": "spacing-48",
+          "name": "48px"
+        },
+        {
+          "size": "52px",
+          "slug": "spacing-52",
+          "name": "52px"
+        },
+        {
+          "size": "60px",
+          "slug": "spacing-60",
+          "name": "60px"
+        },
+        {
+          "size": "64px",
+          "slug": "spacing-64",
+          "name": "64px"
+        }
+      ]
+    },
+    "layout": {
+      "contentSize": "1266px",
+      "wideSize": "1400px"
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "#ffffff",
+      "text": "#000000"
+    },
+    "typography": {
+      "fontSize": "16px",
+      "lineHeight": "normal",
+      "fontFamily": "sohne-var"
+    },
+    "spacing": {}
+  }
+}

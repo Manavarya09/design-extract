@@ -1,0 +1,63 @@
+{
+  "openGraph": {
+    "title": "Stripe | Financial Infrastructure to Grow Your Revenue",
+    "description": "Stripe is a financial services platform that helps all types of businesses accept payments, build flexible billing models, and manage money movement.",
+    "image": "https://images.stripeassets.com/fzn2n1nzq965/XtX984S1GJVsVOXFC7kMu/01988281e867728dfb09aa7793a6e3b9/Stripe.jpg?q=80",
+    "url": "https://stripe.com/ae/",
+    "type": "website"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "site": "@stripe",
+    "title": "Stripe | Financial Infrastructure to Grow Your Revenue",
+    "description": "Stripe is a financial services platform that helps all types of businesses accept payments, build flexible billing models, and manage money movement.",
+    "image": "https://images.stripeassets.com/fzn2n1nzq965/XtX984S1GJVsVOXFC7kMu/01988281e867728dfb09aa7793a6e3b9/Stripe.jpg?q=80"
+  },
+  "description": "Stripe is a financial services platform that helps all types of businesses accept payments, build flexible billing models, and manage money movement.",
+  "canonical": null,
+  "themeColor": null,
+  "viewport": "width=device-width, initial-scale=1, viewport-fit=cover",
+  "favicons": [
+    {
+      "rel": "icon",
+      "href": "https://images.stripeassets.com/fzn2n1nzq965/1hgcBNd12BfT9VLgbId7By/01d91920114b124fb4cf6d448f9f06eb/favicon.svg",
+      "sizes": "",
+      "type": "image/svg+xml"
+    },
+    {
+      "rel": "icon",
+      "href": "https://images.stripeassets.com/fzn2n1nzq965/4vVgZi0ZMoEzOhkcv7EVwK/8cce6fdcf2733b2ec8e99548908847ed/favicon.png?w=96&h=96",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "rel": "shortcut icon",
+      "href": "https://assets.stripeassets.com/fzn2n1nzq965/nu0iR4KqmkdJ52fgRts09/c3a10df318e7ffb1f516073daadea625/favicon.ico",
+      "sizes": "",
+      "type": ""
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://images.stripeassets.com/fzn2n1nzq965/4vVgZi0ZMoEzOhkcv7EVwK/8cce6fdcf2733b2ec8e99548908847ed/favicon.png?w=180&h=180",
+      "sizes": "180x180",
+      "type": ""
+    }
+  ],
+  "manifest": null,
+  "structuredData": [
+    {
+      "type": "Thing",
+      "name": null,
+      "sample": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"url\":\"https://stripe.com/\",\"name\":\"Stripe\"},{\"@type\":\"Organization\",\"@id\":\"https://stripe.com/#organization\",\"url\":\"https://stripe.com/\",\"name\":\"Stripe\",\"legalName\":\"Stripe, LLC\",\"founders\":[{\"@type\":\"Person\",\"name\":\"Patrick Collison\"},{\"@type\":\"Person\",\"name\":\"John Collison\"}],\"description\":\"Stripe powers online and in-person payment "
+    }
+  ],
+  "score": {
+    "hasOg": true,
+    "hasTwitter": true,
+    "hasDescription": true,
+    "hasCanonical": false,
+    "hasStructuredData": true,
+    "hasFavicon": true,
+    "hasThemeColor": false
+  }
+}

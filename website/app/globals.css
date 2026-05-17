@@ -936,6 +936,48 @@ code, pre, kbd { font-family: var(--ff-mono); font-size: 13px; }
   .copycmd-hint { display: none; }
 }
 
+/* ── Agent prompt card (paste-into-Claude/GPT/Cursor) ──────── */
+
+.ap-card {
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(239, 68, 68, 0.32);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px -30px rgba(0,0,0,0.7), 0 0 0 1px rgba(239,68,68,0.06);
+}
+.ap-head {
+  display: flex; align-items: center; gap: 14px; justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--hairline);
+  background: rgba(239, 68, 68, 0.06);
+  flex-wrap: wrap;
+}
+.ap-body {
+  margin: 0;
+  padding: 22px 24px;
+  font-family: var(--ff-mono);
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: var(--fg);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  max-height: 520px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.ap-foot {
+  padding: 12px 18px;
+  font-size: 11px;
+  border-top: 1px solid var(--hairline);
+  background: rgba(255,255,255,0.02);
+}
+
+@media (max-width: 540px) {
+  .ap-head  { padding: 12px 14px; }
+  .ap-body  { padding: 14px 16px; font-size: 11px; max-height: 380px; }
+  .ap-foot  { padding: 10px 14px; }
+}
+
 /* ── Drift leaderboard ───────────────────────────────────────── */
 
 .drift-list { list-style: none; margin: 0; padding: 0; }

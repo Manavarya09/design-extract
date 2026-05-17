@@ -1,0 +1,97 @@
+{
+  "$description": "Motion tokens extracted by designlang",
+  "duration": {
+    "xs": {
+      "$value": "100ms",
+      "$type": "duration",
+      "ms": 100
+    },
+    "sm": {
+      "$value": "200ms",
+      "$type": "duration",
+      "ms": 200
+    },
+    "md": {
+      "$value": "300ms",
+      "$type": "duration",
+      "ms": 300
+    },
+    "lg": {
+      "$value": "500ms",
+      "$type": "duration",
+      "ms": 500
+    },
+    "xl": {
+      "$value": "800ms",
+      "$type": "duration",
+      "ms": 800
+    }
+  },
+  "easing": {
+    "custom-311": {
+      "$value": "cubic-bezier(0.45, 0.05, 0.55, 0.95)",
+      "$type": "cubicBezier",
+      "family": "custom"
+    },
+    "custom-900": {
+      "$value": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "$type": "cubicBezier",
+      "family": "custom"
+    },
+    "custom-0": {
+      "$value": "cubic-bezier(0.6, 0, 0.2, 0.5)",
+      "$type": "cubicBezier",
+      "family": "custom"
+    },
+    "ease-out-955": {
+      "$value": "cubic-bezier(0.25, 1, 0.5, 1)",
+      "$type": "cubicBezier",
+      "family": "ease-out"
+    },
+    "ease-in-out": {
+      "$value": "ease",
+      "$type": "cubicBezier",
+      "family": "ease-in-out"
+    },
+    "linear": {
+      "$value": "linear",
+      "$type": "cubicBezier",
+      "family": "linear"
+    },
+    "steps": {
+      "$value": "steps(1)",
+      "$type": "cubicBezier",
+      "family": "steps"
+    },
+    "ease-out-212": {
+      "$value": "cubic-bezier(0.165, 0.84, 0.44, 1)",
+      "$type": "cubicBezier",
+      "family": "ease-out"
+    },
+    "ease-out-953": {
+      "$value": "cubic-bezier(0.16, 1, 0.3, 1)",
+      "$type": "cubicBezier",
+      "family": "ease-out"
+    },
+    "ease-out-11": {
+      "$value": "cubic-bezier(0.33, 1, 0.68, 1)",
+      "$type": "cubicBezier",
+      "family": "ease-out"
+    },
+    "custom-9": {
+      "$value": "cubic-bezier(0.65, 0, 0.35, 1)",
+      "$type": "cubicBezier",
+      "family": "custom"
+    },
+    "custom-899": {
+      "$value": "cubic-bezier(0.3, 0, 0.2, 1)",
+      "$type": "cubicBezier",
+      "family": "custom"
+    }
+  },
+  "spring": {},
+  "$meta": {
+    "feel": "responsive",
+    "scrollLinked": true
+  }
+}

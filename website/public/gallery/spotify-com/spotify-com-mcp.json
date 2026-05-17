@@ -34,7 +34,7 @@
           "s": 0,
           "l": 70
         },
-        "count": 2172,
+        "count": 2199,
         "contexts": [
           "text",
           "border",
@@ -74,7 +74,7 @@
           "s": 0,
           "l": 41
         },
-        "count": 128,
+        "count": 129,
         "contexts": [
           "text",
           "border"
@@ -119,26 +119,6 @@
         ]
       },
       {
-        "hex": "#121212",
-        "rgb": {
-          "r": 18,
-          "g": 18,
-          "b": 18,
-          "a": 1
-        },
-        "hsl": {
-          "h": 0,
-          "s": 0,
-          "l": 7
-        },
-        "count": 32,
-        "contexts": [
-          "background",
-          "text",
-          "border"
-        ]
-      },
-      {
         "hex": "#7c7c7c",
         "rgb": {
           "r": 124,
@@ -151,11 +131,31 @@
           "s": 0,
           "l": 49
         },
-        "count": 26,
+        "count": 24,
         "contexts": [
           "text",
           "border",
           "background"
+        ]
+      },
+      {
+        "hex": "#121212",
+        "rgb": {
+          "r": 18,
+          "g": 18,
+          "b": 18,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 7
+        },
+        "count": 20,
+        "contexts": [
+          "background",
+          "text",
+          "border"
         ]
       },
       {
@@ -189,7 +189,7 @@
           "s": 0,
           "l": 20
         },
-        "count": 11,
+        "count": 9,
         "contexts": [
           "background"
         ]
@@ -290,25 +290,6 @@
         ]
       },
       {
-        "hex": "#7b7669",
-        "rgb": {
-          "r": 123,
-          "g": 118,
-          "b": 105,
-          "a": 1
-        },
-        "hsl": {
-          "h": 43,
-          "s": 8,
-          "l": 45
-        },
-        "count": 3,
-        "contexts": [
-          "background",
-          "border"
-        ]
-      },
-      {
         "hex": "#c1c1c1",
         "rgb": {
           "r": 193,
@@ -328,6 +309,42 @@
         ]
       },
       {
+        "hex": "#402830",
+        "rgb": {
+          "r": 64,
+          "g": 40,
+          "b": 48,
+          "a": 1
+        },
+        "hsl": {
+          "h": 340,
+          "s": 23,
+          "l": 20
+        },
+        "count": 2,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#667a7a",
+        "rgb": {
+          "r": 102,
+          "g": 122,
+          "b": 122,
+          "a": 1
+        },
+        "hsl": {
+          "h": 180,
+          "s": 9,
+          "l": 44
+        },
+        "count": 2,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
         "hex": "#6e7598",
         "rgb": {
           "r": 110,
@@ -339,6 +356,60 @@
           "h": 230,
           "s": 17,
           "l": 51
+        },
+        "count": 2,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#7a7a11",
+        "rgb": {
+          "r": 122,
+          "g": 122,
+          "b": 17,
+          "a": 1
+        },
+        "hsl": {
+          "h": 60,
+          "s": 76,
+          "l": 27
+        },
+        "count": 2,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#404040",
+        "rgb": {
+          "r": 64,
+          "g": 64,
+          "b": 64,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 25
+        },
+        "count": 2,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#401800",
+        "rgb": {
+          "r": 64,
+          "g": 24,
+          "b": 0,
+          "a": 1
+        },
+        "hsl": {
+          "h": 23,
+          "s": 100,
+          "l": 13
         },
         "count": 2,
         "contexts": [
@@ -491,89 +562,17 @@
         ]
       },
       {
-        "hex": "#667a7a",
+        "hex": "#701818",
         "rgb": {
-          "r": 102,
-          "g": 122,
-          "b": 122,
-          "a": 1
-        },
-        "hsl": {
-          "h": 180,
-          "s": 9,
-          "l": 44
-        },
-        "count": 1,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#500000",
-        "rgb": {
-          "r": 80,
-          "g": 0,
-          "b": 0,
+          "r": 112,
+          "g": 24,
+          "b": 24,
           "a": 1
         },
         "hsl": {
           "h": 0,
-          "s": 100,
-          "l": 16
-        },
-        "count": 1,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#ba3cd1",
-        "rgb": {
-          "r": 186,
-          "g": 60,
-          "b": 209,
-          "a": 1
-        },
-        "hsl": {
-          "h": 291,
-          "s": 62,
-          "l": 53
-        },
-        "count": 1,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#a03840",
-        "rgb": {
-          "r": 160,
-          "g": 56,
-          "b": 64,
-          "a": 1
-        },
-        "hsl": {
-          "h": 355,
-          "s": 48,
-          "l": 42
-        },
-        "count": 1,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#d02028",
-        "rgb": {
-          "r": 208,
-          "g": 32,
-          "b": 40,
-          "a": 1
-        },
-        "hsl": {
-          "h": 357,
-          "s": 73,
-          "l": 47
+          "s": 65,
+          "l": 27
         },
         "count": 1,
         "contexts": [
@@ -599,71 +598,17 @@
         ]
       },
       {
-        "hex": "#b02800",
+        "hex": "#186090",
         "rgb": {
-          "r": 176,
-          "g": 40,
-          "b": 0,
-          "a": 1
-        },
-        "hsl": {
-          "h": 14,
-          "s": 100,
-          "l": 35
-        },
-        "count": 1,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#707e04",
-        "rgb": {
-          "r": 112,
-          "g": 126,
-          "b": 4,
-          "a": 1
-        },
-        "hsl": {
-          "h": 67,
-          "s": 94,
-          "l": 25
-        },
-        "count": 1,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#484028",
-        "rgb": {
-          "r": 72,
-          "g": 64,
-          "b": 40,
-          "a": 1
-        },
-        "hsl": {
-          "h": 45,
-          "s": 29,
-          "l": 22
-        },
-        "count": 1,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#2860a0",
-        "rgb": {
-          "r": 40,
+          "r": 24,
           "g": 96,
-          "b": 160,
+          "b": 144,
           "a": 1
         },
         "hsl": {
-          "h": 212,
-          "s": 60,
-          "l": 39
+          "h": 204,
+          "s": 71,
+          "l": 33
         },
         "count": 1,
         "contexts": [
@@ -671,17 +616,17 @@
         ]
       },
       {
-        "hex": "#857548",
+        "hex": "#177ace",
         "rgb": {
-          "r": 133,
-          "g": 117,
-          "b": 72,
+          "r": 23,
+          "g": 122,
+          "b": 206,
           "a": 1
         },
         "hsl": {
-          "h": 44,
-          "s": 30,
-          "l": 40
+          "h": 208,
+          "s": 80,
+          "l": 45
         },
         "count": 1,
         "contexts": [
@@ -689,35 +634,143 @@
         ]
       },
       {
-        "hex": "#883028",
+        "hex": "#a01010",
         "rgb": {
-          "r": 136,
-          "g": 48,
-          "b": 40,
-          "a": 1
-        },
-        "hsl": {
-          "h": 5,
-          "s": 55,
-          "l": 35
-        },
-        "count": 1,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#380000",
-        "rgb": {
-          "r": 56,
-          "g": 0,
-          "b": 0,
+          "r": 160,
+          "g": 16,
+          "b": 16,
           "a": 1
         },
         "hsl": {
           "h": 0,
-          "s": 100,
-          "l": 11
+          "s": 82,
+          "l": 35
+        },
+        "count": 1,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#b03830",
+        "rgb": {
+          "r": 176,
+          "g": 56,
+          "b": 48,
+          "a": 1
+        },
+        "hsl": {
+          "h": 4,
+          "s": 57,
+          "l": 44
+        },
+        "count": 1,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#501810",
+        "rgb": {
+          "r": 80,
+          "g": 24,
+          "b": 16,
+          "a": 1
+        },
+        "hsl": {
+          "h": 8,
+          "s": 67,
+          "l": 19
+        },
+        "count": 1,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#d02028",
+        "rgb": {
+          "r": 208,
+          "g": 32,
+          "b": 40,
+          "a": 1
+        },
+        "hsl": {
+          "h": 357,
+          "s": 73,
+          "l": 47
+        },
+        "count": 1,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#a03840",
+        "rgb": {
+          "r": 160,
+          "g": 56,
+          "b": 64,
+          "a": 1
+        },
+        "hsl": {
+          "h": 355,
+          "s": 48,
+          "l": 42
+        },
+        "count": 1,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#b04808",
+        "rgb": {
+          "r": 176,
+          "g": 72,
+          "b": 8,
+          "a": 1
+        },
+        "hsl": {
+          "h": 23,
+          "s": 91,
+          "l": 36
+        },
+        "count": 1,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#ba3cd1",
+        "rgb": {
+          "r": 186,
+          "g": 60,
+          "b": 209,
+          "a": 1
+        },
+        "hsl": {
+          "h": 291,
+          "s": 62,
+          "l": 53
+        },
+        "count": 1,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#587888",
+        "rgb": {
+          "r": 88,
+          "g": 120,
+          "b": 136,
+          "a": 1
+        },
+        "hsl": {
+          "h": 200,
+          "s": 21,
+          "l": 44
         },
         "count": 1,
         "contexts": [
@@ -779,24 +832,6 @@
         ]
       },
       {
-        "hex": "#381800",
-        "rgb": {
-          "r": 56,
-          "g": 24,
-          "b": 0,
-          "a": 1
-        },
-        "hsl": {
-          "h": 26,
-          "s": 100,
-          "l": 11
-        },
-        "count": 1,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
         "hex": "#c00808",
         "rgb": {
           "r": 192,
@@ -826,42 +861,6 @@
           "h": 223,
           "s": 64,
           "l": 35
-        },
-        "count": 1,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#a86741",
-        "rgb": {
-          "r": 168,
-          "g": 103,
-          "b": 65,
-          "a": 1
-        },
-        "hsl": {
-          "h": 22,
-          "s": 44,
-          "l": 46
-        },
-        "count": 1,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#482828",
-        "rgb": {
-          "r": 72,
-          "g": 40,
-          "b": 40,
-          "a": 1
-        },
-        "hsl": {
-          "h": 0,
-          "s": 29,
-          "l": 22
         },
         "count": 1,
         "contexts": [
@@ -1569,13 +1568,6 @@
         "unusedPercent": 56
       },
       {
-        "url": "https://www.google.com/recaptcha/enterprise/anchor?ar=1&k=6LfCVLAUAAAAALFwwRnnCJ12DalriUGbj8FW_J39&co=aHR0cHM6Ly9vcGVuLnNwb3RpZnkuY29tOjQ0Mw..&hl=en&v=U5VsmTDhJM1iOJUyw4DEUTYv&size=invisible&anchor-ms=20000&execute-ms=30000&cb=ril9hmj6lgab",
-        "totalBytes": 16160,
-        "usedBytes": 0,
-        "unusedBytes": 16160,
-        "unusedPercent": 100
-      },
-      {
         "url": "https://www.gstatic.com/recaptcha/releases/U5VsmTDhJM1iOJUyw4DEUTYv/styles__ltr.css",
         "totalBytes": 83358,
         "usedBytes": 3029,
@@ -1583,10 +1575,10 @@
         "unusedPercent": 96
       },
       {
-        "url": "https://open.spotifycdn.com/cdn/build/web-player/dwp-feedback-bar.931ea758.css",
-        "totalBytes": 1081,
+        "url": "https://www.google.com/recaptcha/enterprise/anchor?ar=1&k=6LfCVLAUAAAAALFwwRnnCJ12DalriUGbj8FW_J39&co=aHR0cHM6Ly9vcGVuLnNwb3RpZnkuY29tOjQ0Mw..&hl=en&v=U5VsmTDhJM1iOJUyw4DEUTYv&size=invisible&anchor-ms=20000&execute-ms=30000&cb=r4cke6ofs6uc",
+        "totalBytes": 16160,
         "usedBytes": 0,
-        "unusedBytes": 1081,
+        "unusedBytes": 16160,
         "unusedPercent": 100
       },
       {
@@ -1597,11 +1589,18 @@
         "unusedPercent": 89
       },
       {
-        "url": "https://open.spotifycdn.com/cdn/build/web-player/dwp-watch-feed-view-container.c7fc0b7b.css",
-        "totalBytes": 10006,
-        "usedBytes": 0,
-        "unusedBytes": 10006,
-        "unusedPercent": 100
+        "url": "https://open.spotifycdn.com/cdn/build/web-player/dwp-top-bar.0ec3bbd9.css",
+        "totalBytes": 360,
+        "usedBytes": 264,
+        "unusedBytes": 96,
+        "unusedPercent": 27
+      },
+      {
+        "url": "https://open.spotifycdn.com/cdn/build/web-player/dwp-home-header.0ec3bbd9.css",
+        "totalBytes": 360,
+        "usedBytes": 264,
+        "unusedBytes": 96,
+        "unusedPercent": 27
       },
       {
         "url": "https://open.spotifycdn.com/cdn/build/web-player/dwp-now-playing-bar.dd8a2e76.css",
@@ -1611,32 +1610,11 @@
         "unusedPercent": 76
       },
       {
-        "url": "https://open.spotifycdn.com/cdn/build/web-player/2642.a902f130.css",
-        "totalBytes": 46139,
-        "usedBytes": 3513,
-        "unusedBytes": 42626,
-        "unusedPercent": 92
-      },
-      {
-        "url": "https://open.spotifycdn.com/cdn/build/web-player/dwp-top-bar.0ec3bbd9.css",
-        "totalBytes": 360,
-        "usedBytes": 264,
-        "unusedBytes": 96,
-        "unusedPercent": 27
-      },
-      {
-        "url": "https://open.spotifycdn.com/cdn/build/web-player/dwp-panel-section.d500d742.css",
-        "totalBytes": 48145,
+        "url": "https://open.spotifycdn.com/cdn/build/web-player/dwp-feedback-bar.931ea758.css",
+        "totalBytes": 1081,
         "usedBytes": 0,
-        "unusedBytes": 48145,
+        "unusedBytes": 1081,
         "unusedPercent": 100
-      },
-      {
-        "url": "https://open.spotifycdn.com/cdn/build/web-player/xpui-root-dialogs.5cb6b120.css",
-        "totalBytes": 38514,
-        "usedBytes": 755,
-        "unusedBytes": 37759,
-        "unusedPercent": 98
       },
       {
         "url": "https://open.spotifycdn.com/cdn/build/web-player/dwp-home-chips-row.fb404ad3.css",
@@ -1646,6 +1624,20 @@
         "unusedPercent": 93
       },
       {
+        "url": "https://open.spotifycdn.com/cdn/build/web-player/2642.a902f130.css",
+        "totalBytes": 46139,
+        "usedBytes": 3513,
+        "unusedBytes": 42626,
+        "unusedPercent": 92
+      },
+      {
+        "url": "https://open.spotifycdn.com/cdn/build/web-player/dwp-panel-section.d500d742.css",
+        "totalBytes": 48145,
+        "usedBytes": 0,
+        "unusedBytes": 48145,
+        "unusedPercent": 100
+      },
+      {
         "url": "https://open.spotifycdn.com/cdn/build/web-player/dwp-video-player.e7563948.css",
         "totalBytes": 14866,
         "usedBytes": 2074,
@@ -1653,11 +1645,18 @@
         "unusedPercent": 86
       },
       {
-        "url": "https://open.spotifycdn.com/cdn/build/web-player/dwp-home-header.0ec3bbd9.css",
-        "totalBytes": 360,
-        "usedBytes": 264,
-        "unusedBytes": 96,
-        "unusedPercent": 27
+        "url": "https://open.spotifycdn.com/cdn/build/web-player/dwp-watch-feed-view-container.c7fc0b7b.css",
+        "totalBytes": 10006,
+        "usedBytes": 0,
+        "unusedBytes": 10006,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://open.spotifycdn.com/cdn/build/web-player/xpui-root-dialogs.5cb6b120.css",
+        "totalBytes": 38514,
+        "usedBytes": 755,
+        "unusedBytes": 37759,
+        "unusedPercent": 98
       },
       {
         "url": "https://open.spotifycdn.com/cdn/build/web-player/listening-stats-modal.e46fcd5c.css",
