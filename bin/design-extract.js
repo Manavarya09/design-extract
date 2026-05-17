@@ -114,6 +114,9 @@ program
   .option('--responsive-shots', 'capture full-page PNGs at 4 breakpoints × (light,dark)')
   .option('--perf', 'measure Core Web Vitals + bundle profile (LCP/CLS/INP, JS/CSS/font/img bytes, third-party count)')
   .option('--palette <n>', 'compress the extracted palette to N perceptually distinct colours via LAB-space k-means (default: emit every unique colour)', parseInt)
+  .option('--pdf', 'also render a print-ready brand-book PDF (chapter bookmarks, running footer, embedded tokens)')
+  .option('--paper <size>', 'PDF paper size when --pdf is set: a4 | letter | tabloid', 'a4')
+  .option('--landscape', 'PDF landscape orientation when --pdf is set')
   .option('--json', 'output raw JSON to stdout (for CI/CD)')
   .option('--json-pretty', 'output formatted JSON to stdout')
   .option('--no-history', 'skip saving to history')
@@ -448,6 +451,32 @@ program
 
       for (const file of files) {
         writeFileSync(join(outDir, file.name), file.content, 'utf-8');
+      }
+
+      // Brand book — always emit the HTML (cheap, ~100KB). Optionally
+      // render it to PDF behind --pdf (needs Playwright, ~3–5s).
+      try {
+        const brandHtml = formatBrandBook(design, { version: PKG_VERSION });
+        const brandHtmlPath = join(outDir, `${prefix}.brand.html`);
+        writeFileSync(brandHtmlPath, brandHtml, 'utf-8');
+        files.push({ name: `${prefix}.brand.html`, label: 'Brand book (HTML)' });
+
+        if (opts.pdf) {
+          spinner.text = 'Rendering brand book PDF...';
+          const pdfPath = join(outDir, `${prefix}.brand.pdf`);
+          await htmlToPdf(brandHtml, {
+            paper: opts.paper || 'a4',
+            landscape: !!opts.landscape,
+            outPath: pdfPath,
+            metadata: {
+              title: `${new URL(design?.meta?.url || `https://${prefix}`).hostname} brand guidelines`,
+              subject: `${prefix} brand guidelines`,
+            },
+          });
+          files.push({ name: `${prefix}.brand.pdf`, label: 'Brand book (PDF · print-ready)' });
+        }
+      } catch (e) {
+        if (!merged.quiet) console.warn(`(brand book skipped: ${e.message})`);
       }
 
       // Multi-platform emission (v7.0). web is already emitted above.
