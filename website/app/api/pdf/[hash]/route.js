@@ -12,11 +12,7 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 export const maxDuration = 60;
 
-async function getBrowserOptions() {
-  if (process.env.BROWSERLESS_TOKEN) {
-    const region = process.env.BROWSERLESS_REGION || 'production-sfo';
-    return { wsEndpoint: `wss://${region}.browserless.io/?token=${process.env.BROWSERLESS_TOKEN}` };
-  }
+async function getLocalBrowserOptions() {
   if (process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME) {
     const chromium = (await import('@sparticuz/chromium')).default;
     return {
@@ -25,6 +21,21 @@ async function getBrowserOptions() {
     };
   }
   return {};
+}
+
+async function getBrowserOptions() {
+  if (process.env.BROWSERLESS_TOKEN) {
+    const region = process.env.BROWSERLESS_REGION || 'production-sfo';
+    return { wsEndpoint: `wss://${region}.browserless.io/?token=${process.env.BROWSERLESS_TOKEN}` };
+  }
+  return getLocalBrowserOptions();
+}
+
+// Open a browser from options; never let a dead remote browser win.
+async function openBrowser(chromium, opts) {
+  if (opts.wsEndpoint) return chromium.connect(opts.wsEndpoint);
+  if (opts.executablePath) return chromium.launch({ executablePath: opts.executablePath, args: opts.browserArgs || [] });
+  return chromium.launch();
 }
 
 function safeHost(url) {
@@ -49,20 +60,23 @@ export async function GET(_req, { params }) {
   const host = safeHost(design?.meta?.url);
   const html = formatBrandBook(design);
 
-  // Spin up a browser via the same path /api/extract uses.
+  // Spin up a browser via the same path /api/extract uses. If Browserless
+  // is down or out of quota, fall back to the bundled Chromium.
   const { chromium } = await import('playwright-core');
   const opts = await getBrowserOptions();
   let browser;
   try {
-    if (opts.wsEndpoint) {
-      browser = await chromium.connect(opts.wsEndpoint);
-    } else if (opts.executablePath) {
-      browser = await chromium.launch({ executablePath: opts.executablePath, args: opts.browserArgs || [] });
-    } else {
-      browser = await chromium.launch();
-    }
+    browser = await openBrowser(chromium, opts);
   } catch (e) {
-    return err(500, `browser launch failed: ${e.message}`);
+    if (opts.wsEndpoint) {
+      try {
+        browser = await openBrowser(chromium, await getLocalBrowserOptions());
+      } catch (e2) {
+        return err(500, `browser launch failed: ${e2.message}`);
+      }
+    } else {
+      return err(500, `browser launch failed: ${e.message}`);
+    }
   }
 
   try {

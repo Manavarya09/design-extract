@@ -31,6 +31,18 @@ const STAGES = [
   'score',
 ];
 
+// Bundled Chromium via @sparticuz on Vercel/Lambda; bare launch in dev.
+async function getLocalBrowserOptions() {
+  if (process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME) {
+    const chromium = (await import('@sparticuz/chromium')).default;
+    return {
+      executablePath: await chromium.executablePath(),
+      browserArgs: chromium.args,
+    };
+  }
+  return {};
+}
+
 async function getBrowserOptions() {
   // Preferred path: connect to a remote Playwright browser (Browserless v2).
   // No Chromium binary on the function — cold starts drop from ~3s to ~50ms,
@@ -41,15 +53,22 @@ async function getBrowserOptions() {
       wsEndpoint: `wss://${region}.browserless.io/?token=${process.env.BROWSERLESS_TOKEN}`,
     };
   }
-  // Fallback: bundled Chromium via @sparticuz on Vercel/Lambda. Costs CPU.
-  if (process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME) {
-    const chromium = (await import('@sparticuz/chromium')).default;
-    return {
-      executablePath: await chromium.executablePath(),
-      browserArgs: chromium.args,
-    };
-  }
-  return {};
+  return getLocalBrowserOptions();
+}
+
+// A Browserless failure (quota exhausted → 401, region down, ws error)
+// should not break extraction — it just means we fall back to the
+// bundled Chromium for that request.
+function isBrowserlessFailure(err) {
+  const m = String(err?.message || err || '').toLowerCase();
+  return (
+    m.includes('browserless') ||
+    m.includes('401') ||
+    m.includes('unauthorized') ||
+    m.includes('usage limit') ||
+    m.includes('connectovercdp') ||
+    m.includes('websocket')
+  );
 }
 
 function ndjson(obj) {
@@ -159,7 +178,21 @@ export async function POST(request) {
         controller.enqueue(ndjson({ type: 'stage', name: 'crawl' }));
 
         const browserOpts = await getBrowserOptions();
-        const design = await extractDesignLanguage(targetUrl, browserOpts);
+        let design;
+        try {
+          design = await extractDesignLanguage(targetUrl, browserOpts);
+        } catch (err) {
+          // Browserless quota / auth / connection failure — retry once on
+          // the bundled Chromium so a dead remote browser never takes the
+          // whole extractor down.
+          if (browserOpts.wsEndpoint && isBrowserlessFailure(err)) {
+            console.warn('[extract] browserless failed, falling back to bundled chromium', err?.message);
+            const fallback = await getLocalBrowserOptions();
+            design = await extractDesignLanguage(targetUrl, fallback);
+          } else {
+            throw err;
+          }
+        }
 
         // Post-stage markers once extraction resolves.
         for (const stage of STAGES.slice(1)) {
