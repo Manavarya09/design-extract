@@ -36,6 +36,9 @@ import { formatBrandBook }       from './formatters/brand-book.js';
 import { formatGradientsCss,
          formatGradientsJson }   from './formatters/gradients.js';
 import { formatAgentRules }      from './formatters/agent-rules.js';
+import { formatAgentPrompt }     from './formatters/agent-prompt.js';
+import { formatMotionLab }       from './formatters/motion-lab.js';
+import { formatFramerMotion }    from './formatters/framer-motion.js';
 
 // Utils
 import { compressPalette }       from './utils/palette-compress.js';
@@ -86,6 +89,9 @@ export const RENDERERS = Object.freeze({
   'brand-book-html':     (d) => formatBrandBook(d),
   'gradients-css':       (d) => formatGradientsCss(d),
   'gradients-json':      (d) => formatGradientsJson(d),
+  'agent-prompt':        (d) => formatAgentPrompt(d),
+  'motion-lab':          (d) => formatMotionLab(d),
+  'framer-motion':       (d) => formatFramerMotion(d),
 
   // frameworks
   'react-theme':         (d) => formatReactTheme(d),
@@ -147,6 +153,9 @@ export function renderAll(design, opts = {}) {
     'brand-book-html':    'brand.html',
     'gradients-css':      'gradients.css',
     'gradients-json':     'gradients.json',
+    'agent-prompt':       'AGENT.md',
+    'motion-lab':         'motion.html',
+    'framer-motion':      'motion.framer.js',
     'react-theme':        'theme.js',
     'shadcn-theme':       'shadcn-theme.css',
     'vue-theme':          'theme.vue.js',

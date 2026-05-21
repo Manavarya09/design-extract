@@ -9,6 +9,8 @@ import { formatTsDefs } from '../../src/formatters/ts-defs.js';
 import { formatCssReset } from '../../src/formatters/css-reset.js';
 import { formatGradientsCss, formatGradientsJson } from '../../src/formatters/gradients.js';
 import { formatAgentPrompt } from '../../src/formatters/agent-prompt.js';
+import { formatMotionLab } from '../../src/formatters/motion-lab.js';
+import { formatFramerMotion } from '../../src/formatters/framer-motion.js';
 import { formatCssVars } from '../../src/formatters/css-vars.js';
 import { formatPreview } from '../../src/formatters/preview.js';
 import { formatFigma } from '../../src/formatters/figma.js';
@@ -38,6 +40,8 @@ export function buildFiles(design, targetUrl) {
     [`${prefix}-gradients.css`]:      formatGradientsCss(design),
     [`${prefix}-gradients.json`]:     formatGradientsJson(design),
     [`${prefix}-AGENT.md`]:           formatAgentPrompt(design),
+    [`${prefix}-motion.html`]:        formatMotionLab(design),
+    [`${prefix}-motion.framer.js`]:   formatFramerMotion(design),
     [`${prefix}-variables.css`]: formatCssVars(design),
     [`${prefix}-preview.html`]: formatPreview(design),
     [`${prefix}.brand.html`]: formatBrandBook(design),
