@@ -28,7 +28,7 @@
     "confidence": 0.667,
     "counts": {
       "total": 10,
-      "svg": 10,
+      "svg": 7,
       "icon": 2,
       "hero": 0,
       "screenshot": 0,
@@ -39,7 +39,7 @@
     "alternates": [
       {
         "label": "flat-illustration",
-        "score": 1.6
+        "score": 1.15
       }
     ],
     "signals": [

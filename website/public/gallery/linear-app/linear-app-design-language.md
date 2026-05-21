@@ -1,7 +1,7 @@
 # Design Language: Linear – The system for product development
 
-> Extracted from `https://linear.app` on May 18, 2026
-> 3933 elements analyzed
+> Extracted from `https://linear.app` on May 21, 2026
+> 3943 elements analyzed
 
 This document describes the complete design language of the website. It is structured for AI/LLM consumption — use it to faithfully recreate the visual design in any framework.
 
@@ -19,11 +19,11 @@ This document describes the complete design language of the website. It is struc
 
 | Hex | HSL | Usage Count |
 |-----|-----|-------------|
-| `#f7f8f8` | hsl(180, 7%, 97%) | 6030 |
-| `#62666d` | hsl(218, 5%, 41%) | 717 |
+| `#f7f8f8` | hsl(180, 7%, 97%) | 6042 |
+| `#62666d` | hsl(218, 5%, 41%) | 719 |
 | `#d0d6e0` | hsl(218, 21%, 85%) | 368 |
 | `#e2e4e7` | hsl(216, 9%, 90%) | 295 |
-| `#8a8f98` | hsl(219, 6%, 57%) | 267 |
+| `#8a8f98` | hsl(219, 6%, 57%) | 273 |
 | `#08090a` | hsl(210, 11%, 4%) | 53 |
 | `#23252a` | hsl(223, 9%, 15%) | 12 |
 | `#383b3f` | hsl(214, 6%, 23%) | 6 |
@@ -96,11 +96,11 @@ background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 2
 
 | Hex | Contexts | Count |
 |-----|----------|-------|
-| `#f7f8f8` | text, border, background | 6030 |
-| `#62666d` | text, border, background | 717 |
+| `#f7f8f8` | text, border, background | 6042 |
+| `#62666d` | text, border, background | 719 |
 | `#d0d6e0` | text, border | 368 |
 | `#e2e4e7` | background, border, text | 295 |
-| `#8a8f98` | text, border | 267 |
+| `#8a8f98` | text, border | 273 |
 | `#f79ce0` | text, border | 90 |
 | `#08090a` | background, text, border | 53 |
 | `#f7bf8b` | text, border | 44 |
@@ -131,8 +131,8 @@ background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 2
 
 ### Font Families
 
-- **Inter Variable** — used for all (3618 elements)
-- **Berkeley Mono** — used for body (315 elements)
+- **Inter Variable** — used for all (3627 elements)
+- **Berkeley Mono** — used for body (316 elements)
 
 ### Type Scale
 
@@ -145,7 +145,7 @@ background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 2
 | 20px | 1.25rem | 590 | 26.6px | -0.24px | h3, p |
 | 18px | 1.125rem | 400 | 28.8px | -0.165px | span |
 | 17px | 1.0625rem | 590 | 27.2px | normal | span |
-| 16px | 1rem | 400 | normal | normal | html, head, link, script |
+| 16px | 1rem | 400 | normal | normal | html, head, meta, link |
 | 15px | 0.9375rem | 400 | 24px | -0.165px | p, span, div, strong |
 | 14px | 0.875rem | 510 | 21px | normal | a, span, p, br |
 | 13.3333px | 0.8333rem | 400 | normal | normal | button, span, svg, path |
@@ -172,7 +172,7 @@ body { font-size: 14px; font-weight: 510; line-height: 21px; }
 
 ### Font Weights in Use
 
-`400` (3680x), `510` (231x), `590` (18x), `300` (4x)
+`400` (3688x), `510` (233x), `590` (18x), `300` (4x)
 
 ## Spacing
 
@@ -217,7 +217,7 @@ body { font-size: 14px; font-weight: 510; line-height: 21px; }
 
 **sm** — blur: 0px
 ```css
-box-shadow: rgba(94, 106, 210, 0.008) 0px 0px 0px 9.22975px;
+box-shadow: rgba(94, 106, 210, 0.1) 0px 0px 0px 0.125074px;
 ```
 
 **sm** — blur: 0px
@@ -303,18 +303,21 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --dp-control-primary: initial;
 --btn-highlight-color: inherit;
 --color-border-primary: #23252a;
+--diff-view-comment-button-removed-bg-hover: ;
 --color-link-primary: #828fff;
 --color-line-tint: #141516;
 --color-green: #27a644;
 --color-text-primary: #f7f8f8;
+--diff-view-removed-inline-bg: ;
 --color-brand-bg: #5e6ad2;
 --color-bg-marketing: #010102;
 --color-bg-panel: #0f1011;
 --color-linear-security: #7a7fad;
 --modal-dp-control-primary-hover: initial;
---color-bg-tint: #141516;
 --scrollbar-color-active: rgba(255,255,255,0.4);
+--color-bg-tint: #141516;
 --header-border: rgba(255,255,255,0.08);
+--diff-view-focus-bg: ;
 --focus-ring-width: 1px;
 --border-hairline: 1px;
 --color-bg-level-2: #141516;
@@ -324,6 +327,7 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --color-overlay-dim-rgb: 255,255,255;
 --modal-dp-bg-selected: initial;
 --color-text-secondary: #d0d6e0;
+--diff-view-removed-bg: ;
 --icon-replacement-color: ;
 --color-line-tertiary: #18191a;
 --color-accent: #7170ff;
@@ -336,6 +340,8 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --color-alpha: 255;
 --action-menu-control-primary: initial;
 --layer-popover: 600;
+--diff-view-blank-bg: ;
+--diff-view-editor-foreground: ;
 --color-accent-tint: #18182f;
 --header-bg: rgba(11,11,11,0.8);
 --color-line-quaternary: #141515;
@@ -347,16 +353,21 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --color-bg-level-1: #0f1011;
 --color-brand-text: #fff;
 --action-menu-bg-border-solid: initial;
+--diff-view-comment-button-removed-bg: ;
 --color-teal: #00b8cc;
 --color-linear-plan: #68cc58;
 --color-orange: #fc7840;
 --color-selection-text: #fff;
 --color-fg-secondary: #d0d6e0;
 --color-bg-translucent: rgba(255,255,255,0.05);
+--diff-view-inserted-inline-bg: ;
 --color-red: #eb5757;
+--diff-view-comment-button-added-bg: ;
 --color-blue: #4ea7fc;
 --color-selection-dim: color-mix(in lch,#5e6ad2,transparent 80%);
 --color-bg-tertiary: #232326;
+--diff-view-inserted-bg: ;
+--diff-view-comment-button-added-bg-hover: ;
 --dp-highlighted-color: initial;
 --focus-ring-outline: 1px solid #5e69d1;
 --color-bg-quaternary: #28282c;
@@ -367,7 +378,9 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --color-bg-level-0: #08090a;
 --scrollbar-color: rgba(255,255,255,0.1);
 --icon-color: initial;
+--diff-view-comment-button-default-bg: ;
 --color-linear-build: #d4b144;
+--diff-view-comment-button-default-bg-hover: ;
 --dp-control-primary-hover: initial;
 --color-bg-secondary: #1c1c1f;
 ```
@@ -375,10 +388,11 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 ### Spacing
 
 ```css
---text-micro-size: 0.75rem;
 --font-size-title1: 2.25rem;
+--text-micro-size: 0.75rem;
 --title-3-letter-spacing: -0.012em;
 --editor-block-menu-size: 20px;
+--diff-view-editor-font-size: ;
 --scrollbar-size-active: 10px;
 --text-regular-size: 0.9375rem;
 --text-regular-letter-spacing: -0.011em;
@@ -428,8 +442,8 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --min-tap-size: 44px;
 --text-large-size: 1.0625rem;
 --page-padding-inline: 24px;
---title-8-letter-spacing: -0.022em;
 --text-large-letter-spacing: 0;
+--title-8-letter-spacing: -0.022em;
 --text-small-letter-spacing: -0.013em;
 --title-9-size: 4.5rem;
 --title-3-size: 1.5rem;
@@ -456,6 +470,7 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --title-8-line-height: 1.06;
 --text-regular-line-height: 1.6;
 --text-small: 0.875rem /calc(21 / 14) "Inter Variable","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Open Sans","Helvetica Neue",sans-serif;
+--diff-view-editor-line-height: ;
 --title-7-line-height: 1.1;
 --title-5-line-height: 1.1;
 --layer-context-menu: 1200;
@@ -523,8 +538,8 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --sx-138kmyo: #424449;
 --xaxo4ug: ;
 --sx-1mc3c6y: #1e2022;
---xq9soxx: inherit;
 --cursor-disabled: not-allowed;
+--xq9soxx: inherit;
 --x1fphd1n: ;
 --layer-tooltip: 1100;
 --ease-in-out-quart: cubic-bezier(0.77,0,0.175,1);
@@ -555,15 +570,15 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --x1urpf9d: ;
 --transparent: rgba(255,255,255,0);
 --layer-2: 2;
---sx-6zt3z6: 1px solid #323439;
 --editor-bullet-disc-offset: 0.5em;
+--sx-6zt3z6: 1px solid #323439;
 --xcx2ark: ;
 --sx-1fh23cp: #9c9da1;
 --xohseg1: ;
 --xtw6awd: ;
 --xx7veac: transparent;
---xickszr: ;
 --sx-1vyp3gc: #ffeac6;
+--xickszr: ;
 --x1yxqotz: ;
 --x1m4y240: ;
 --x7jk47a: ;
@@ -584,16 +599,16 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --sx-1n1r1h9: #ffffff0d;
 --title-5: 590 2.5rem /1.1 "Inter Variable","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Open Sans","Helvetica Neue",sans-serif;
 --sx-1cxqmhc: #00e8ff;
---1fr: minmax(0,1fr);
 --sx-5t1vcl: #00ceff;
+--1fr: minmax(0,1fr);
 --xirmyh9: ;
 --sx-2icmlu: #08080826;
 --sx-cx2ark: #37393e;
 --title-6: 590 3rem /1 "Inter Variable","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Open Sans","Helvetica Neue",sans-serif;
 --x1qdowq0: ;
 --dvh: 1dvh;
---xn8xqcl: ;
 --xykavoc: 5px;
+--xn8xqcl: ;
 --sx-1h56kua: #f0bf00;
 --sx-1rsaf4u: #2a2d48;
 --xkwfvdu: var(--x1o1lnwn);
@@ -609,9 +624,9 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --xciqj87: ;
 --cursor-none: none;
 --sx-ykavoc: 8px;
---scrollbar-width: 12px;
---x1edn6di: ;
 --sx-v3o8qy: #636467;
+--x1edn6di: ;
+--scrollbar-width: 12px;
 --mask-visible: black;
 --sx-d29rh7: #28292e;
 --xx8afrf: 6px;
@@ -621,8 +636,8 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --xumgfby: ;
 --x105wzx7: ;
 --sx-13kjjc4: #38393d;
---sx-1q6smeb: #ff6565;
 --svh: 1svh;
+--sx-1q6smeb: #ff6565;
 --xnihqbq: ;
 --ease-in-quint: cubic-bezier(0.755,0.05,0.855,0.06);
 --sx-c3gk8m: 0 0 0 1px #5e69d1;
@@ -630,8 +645,8 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --x129bhjt: ;
 --speed-highlightFadeIn: 0s;
 --dp-label-title: initial;
---sx-1xaoi8i: #7a88ff;
 --x1crf4sx: ;
+--sx-1xaoi8i: #7a88ff;
 --sx-d1bcc1: #08080826;
 --homepage-max-width: calc(1344px + 10px * 2);
 --mask-off: transparent;
@@ -652,21 +667,21 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --x1gcjx5j: ;
 --x74qs5: ;
 --sx-ws85c5: #fcfaff;
---sx-15wwovl: #28292e;
---sx-6ayg1n: #2c2e34;
 --sx-1qdowq0: #00000066;
+--sx-6ayg1n: #2c2e34;
+--sx-15wwovl: #28292e;
 --sx-ikq9iy: #322122;
 --xas9fd0: ;
---layer-max: 10000;
---xnnhj77: ;
 --xk68kma: ;
+--xnnhj77: ;
+--layer-max: 10000;
 --dp-label-base: initial;
+--ease-out-expo: cubic-bezier(0.19,1,0.22,1);
 --xwsz0k3: ;
 --sx-g52i5g: #1c1f24;
 --x19k7np8: 1;
 --_number-flow-d-width: 0;
 --sx-9o00jb: #00c6d9;
---ease-out-expo: cubic-bezier(0.19,1,0.22,1);
 --mask-invisible: transparent;
 --xi20l48: ;
 --layer-dialog: 700;
@@ -683,12 +698,13 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --sx-142jeir: #323439;
 --cursor-pointer: pointer;
 --editor-safe-area: 16px;
---x1q6smeb: ;
 --ease-in-out-quad: cubic-bezier(0.455,0.03,0.515,0.955);
+--x1q6smeb: ;
 --icon-grayscale-image-filter: grayscale(100%) brightness(400%);
 --x1a798ef: 6px;
 --sx-1yxqotz: #5e6ad2;
 --xb9djef: transparent;
+--diff-view-git-deleted-fg: ;
 --xfeitbp: ;
 --x1vqca58: ;
 --ease-in-expo: cubic-bezier(0.95,0.05,0.795,0.035);
@@ -697,15 +713,17 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --x1em7oyp: ;
 --title-4: 590 2rem /1.125 "Inter Variable","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Open Sans","Helvetica Neue",sans-serif;
 --sx-17ckey5: #ff5d5e;
---xc3gk8m: ;
+--diff-view-editor-background: ;
 --x1ospiv4: ;
 --sx-74qs5: #00000001;
+--xc3gk8m: ;
 --mask-ease: rgba(0,0,0,0.2);
 --sx-14ggo8w: #1e2823;
 --title-3: 590 1.5rem /1.33 "Inter Variable","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Open Sans","Helvetica Neue",sans-serif;
 --x1ddj3ws: ;
---sx-7jk47a: #2b2c2f;
+--sx-7jk47a: #2c2d32;
 --sx-1m4y240: #19191b;
+--diff-view-editor-background-opaque: ;
 --sx-ljw4h1: #303236;
 --x629164: ;
 --header-height: 72px;
@@ -714,8 +732,8 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --editor-todolist-checkbox-width: 14px;
 --x1g0wh59: transparent;
 --sx-1urpf9d: #ffffff0d;
---sx-1stx5uy: #74e3ff;
 --xor1tl7: ;
+--sx-1stx5uy: #74e3ff;
 --sx-7ide1: #747ee9;
 --x142jeir: ;
 --x1uoekal: ;
@@ -733,11 +751,12 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --sx-1gm0lru: #282a30;
 --sx-34xdpc: #d9343f;
 --sx-1gxylln: #242629;
+--diff-view-git-modified-fg: ;
 --ease-out-quart: cubic-bezier(0.165,0.84,0.44,1);
 --sx-1ccqs4f: #3f4145;
 --xugsh4: ;
---sx-feitbp: #ffffff;
 --x3zwjav: ;
+--sx-feitbp: #ffffff;
 --layer-debug: 5100;
 --sx-fwc8so: #cf4608;
 --ease-in-circ: cubic-bezier(0.6,0.04,0.98,0.335);
@@ -761,8 +780,8 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --x19hxmp1: ;
 --sx-1glqxor: #232535;
 --sx-n8xqcl: #5e69d1;
---sx-w1p5jj: #37393e;
 --layer-command-menu: 650;
+--sx-w1p5jj: #37393e;
 --ease-in-out-expo: cubic-bezier(1,0,0,1);
 --sx-1ospiv4: #ffffff22;
 --command-menu-item-details-max-width: 100%;
@@ -774,9 +793,9 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --xpqiwo2: ;
 --x1jpq86z: transparent;
 --modal-dp-label-base: ;
+--layer-footer: 50;
 --sx-1jffjrl: #6a76e3;
 --dp-label-faint: initial;
---layer-footer: 50;
 --sx-cb0zzs: #33353b;
 --sx-ch85qk: #5e69d1;
 --sx-1ubxoo9: #1e2022;
@@ -785,6 +804,7 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --sx-wsz0k3: #26a544;
 --sx-1qlh175: #00889c;
 --xch85qk: ;
+--diff-view-line-number-fg: ;
 --sx-193njt9: #ffffff22;
 --x1dd5bcf: ;
 --layer-scrollbar: 75;
@@ -823,7 +843,6 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --xj1ai0m: ;
 --sx-irmyh9: #ffffff13;
 --sx-11lpf43: 0.8125rem;
---sx-1bu05id: #ff8583;
 --layer-header: 100;
 --grid-columns: 12;
 --x138kmyo: ;
@@ -831,6 +850,7 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --x1dcvabv: ;
 --x180qi0f: ;
 --sx-19hxmp1: #adbaff;
+--sx-1bu05id: #ff8583;
 --sx-1o1lnwn: #323439;
 --layer-toasts: 800;
 --sx-1gcjx5j: #2d2f37;
@@ -849,6 +869,7 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --x1rzu7x2: ;
 --xfwc8so: ;
 --ximi5ey: ;
+--diff-view-git-added-fg: ;
 --dp-control-label: initial;
 --xljw4h1: ;
 --sx-ickszr: #fefeff;
@@ -858,11 +879,11 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --title-8: 590 4rem /1.06 "Inter Variable","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Open Sans","Helvetica Neue",sans-serif;
 --dp-thin-pixel: 1px;
 --x18pfyxa: 6px 12px;
---x1ipkkxf: "Inter Variable","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue","Linear Thai",sans-serif;
---sx-axo4ug: 0 0 0 0.5px #323439;
 --sx-10845vo: #c9ffff;
+--sx-axo4ug: 0 0 0 0.5px #323439;
 --xay0skx: ;
 --sx-10o0rs5: #e4e5e9;
+--x1ipkkxf: "Inter Variable","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue","Linear Thai",sans-serif;
 --sx-1ps2i54: #1b282d;
 --layer-skip-nav: 5000;
 --x1ubxoo9: ;
@@ -871,9 +892,10 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --x1n1r1h9: ;
 --sx-1jmjcvw: #ffffff1b;
 --x1xaoi8i: ;
---sx-105wzx7: #edbf0a;
 --x1bu05id: ;
+--sx-105wzx7: #edbf0a;
 --x1dhg814: ;
+--line-number-width: 50px;
 --sx-1uu732i: 12px;
 --sx-msgncm: #292521;
 --sx-hfmm6c: #2d2e31;
@@ -885,12 +907,12 @@ box-shadow: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
 --xjrz3l0: transparent;
 --editor-list-inset: 1.5rem;
 --xsfnrch: ;
---x6od1kq: ;
 --sx-1ele6il: 1px;
+--x6od1kq: ;
 --xws85c5: ;
 --100dvh: calc(100 * 1dvh);
---x5t1vcl: ;
 --sx-x8afrf: 6px;
+--x5t1vcl: ;
 --x11vg3qk: ;
 --radix-select-trigger-width: 0px;
 --sx-ciqj87: #3de261;
@@ -996,44 +1018,6 @@ transition: transform 0.16s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 ```
 
-**grid-dot-0-0-agent**
-```css
-@keyframes grid-dot-0-0-agent {
-  0% { opacity: 1; }
-  6.25% { opacity: 1; }
-  6.25% { opacity: 1; }
-  12.5% { opacity: 1; }
-  12.5% { opacity: 1; }
-  18.75% { opacity: 1; }
-  18.75% { opacity: 1; }
-  25% { opacity: 1; }
-  25% { opacity: 1; }
-  31.25% { opacity: 1; }
-  31.25% { opacity: 1; }
-  37.5% { opacity: 1; }
-  37.5% { opacity: 1; }
-  43.75% { opacity: 1; }
-  43.75% { opacity: 1; }
-  50% { opacity: 1; }
-  50% { opacity: 1; }
-  56.25% { opacity: 1; }
-  56.25% { opacity: 1; }
-  62.5% { opacity: 1; }
-  62.5% { opacity: 1; }
-  68.75% { opacity: 1; }
-  68.75% { opacity: 1; }
-  75% { opacity: 1; }
-  75% { opacity: 1; }
-  81.25% { opacity: 1; }
-  81.25% { opacity: 1; }
-  87.5% { opacity: 1; }
-  87.5% { opacity: 1; }
-  93.75% { opacity: 1; }
-  93.75% { opacity: 1; }
-  100% { opacity: 1; }
-}
-```
-
 **grid-dot-0-1-agent**
 ```css
 @keyframes grid-dot-0-1-agent {
@@ -1041,82 +1025,6 @@ transition: transform 0.16s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   6.25% { opacity: 0.3; }
   6.25% { opacity: 1; }
   12.5% { opacity: 1; }
-  12.5% { opacity: 1; }
-  18.75% { opacity: 1; }
-  18.75% { opacity: 1; }
-  25% { opacity: 1; }
-  25% { opacity: 1; }
-  31.25% { opacity: 1; }
-  31.25% { opacity: 1; }
-  37.5% { opacity: 1; }
-  37.5% { opacity: 1; }
-  43.75% { opacity: 1; }
-  43.75% { opacity: 1; }
-  50% { opacity: 1; }
-  50% { opacity: 1; }
-  56.25% { opacity: 1; }
-  56.25% { opacity: 1; }
-  62.5% { opacity: 1; }
-  62.5% { opacity: 1; }
-  68.75% { opacity: 1; }
-  68.75% { opacity: 1; }
-  75% { opacity: 1; }
-  75% { opacity: 1; }
-  81.25% { opacity: 1; }
-  81.25% { opacity: 1; }
-  87.5% { opacity: 1; }
-  87.5% { opacity: 1; }
-  93.75% { opacity: 1; }
-  93.75% { opacity: 1; }
-  100% { opacity: 1; }
-}
-```
-
-**grid-dot-0-1-agent**
-```css
-@keyframes grid-dot-0-1-agent {
-  0% { opacity: 0.3; }
-  6.25% { opacity: 0.3; }
-  6.25% { opacity: 1; }
-  12.5% { opacity: 1; }
-  12.5% { opacity: 1; }
-  18.75% { opacity: 1; }
-  18.75% { opacity: 1; }
-  25% { opacity: 1; }
-  25% { opacity: 1; }
-  31.25% { opacity: 1; }
-  31.25% { opacity: 1; }
-  37.5% { opacity: 1; }
-  37.5% { opacity: 1; }
-  43.75% { opacity: 1; }
-  43.75% { opacity: 1; }
-  50% { opacity: 1; }
-  50% { opacity: 1; }
-  56.25% { opacity: 1; }
-  56.25% { opacity: 1; }
-  62.5% { opacity: 1; }
-  62.5% { opacity: 1; }
-  68.75% { opacity: 1; }
-  68.75% { opacity: 1; }
-  75% { opacity: 1; }
-  75% { opacity: 1; }
-  81.25% { opacity: 1; }
-  81.25% { opacity: 1; }
-  87.5% { opacity: 1; }
-  87.5% { opacity: 1; }
-  93.75% { opacity: 1; }
-  93.75% { opacity: 1; }
-  100% { opacity: 1; }
-}
-```
-
-**grid-dot-0-2-agent**
-```css
-@keyframes grid-dot-0-2-agent {
-  0% { opacity: 0.3; }
-  6.25% { opacity: 0.3; }
-  6.25% { opacity: 0.3; }
-  12.5% { opacity: 0.3; }
   12.5% { opacity: 1; }
   18.75% { opacity: 1; }
   18.75% { opacity: 1; }
@@ -1224,44 +1132,6 @@ transition: transform 0.16s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 ```
 
-**grid-dot-0-3-agent**
-```css
-@keyframes grid-dot-0-3-agent {
-  0% { opacity: 0.3; }
-  6.25% { opacity: 0.3; }
-  6.25% { opacity: 0.3; }
-  12.5% { opacity: 0.3; }
-  12.5% { opacity: 0.3; }
-  18.75% { opacity: 0.3; }
-  18.75% { opacity: 0.3; }
-  25% { opacity: 0.3; }
-  25% { opacity: 0.3; }
-  31.25% { opacity: 0.3; }
-  31.25% { opacity: 0.3; }
-  37.5% { opacity: 0.3; }
-  37.5% { opacity: 0.3; }
-  43.75% { opacity: 0.3; }
-  43.75% { opacity: 0.3; }
-  50% { opacity: 0.3; }
-  50% { opacity: 0.3; }
-  56.25% { opacity: 0.3; }
-  56.25% { opacity: 0.3; }
-  62.5% { opacity: 0.3; }
-  62.5% { opacity: 0.3; }
-  68.75% { opacity: 0.3; }
-  68.75% { opacity: 0.3; }
-  75% { opacity: 0.3; }
-  75% { opacity: 0.3; }
-  81.25% { opacity: 0.3; }
-  81.25% { opacity: 0.3; }
-  87.5% { opacity: 0.3; }
-  87.5% { opacity: 0.3; }
-  93.75% { opacity: 0.3; }
-  93.75% { opacity: 0.3; }
-  100% { opacity: 0.3; }
-}
-```
-
 **grid-dot-0-4-agent**
 ```css
 @keyframes grid-dot-0-4-agent {
@@ -1300,9 +1170,161 @@ transition: transform 0.16s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 ```
 
-**grid-dot-0-4-agent**
+**grid-dot-1-0-agent**
 ```css
-@keyframes grid-dot-0-4-agent {
+@keyframes grid-dot-1-0-agent {
+  0% { opacity: 0.3; }
+  6.25% { opacity: 0.3; }
+  6.25% { opacity: 0.3; }
+  12.5% { opacity: 0.3; }
+  12.5% { opacity: 0.3; }
+  18.75% { opacity: 0.3; }
+  18.75% { opacity: 1; }
+  25% { opacity: 1; }
+  25% { opacity: 1; }
+  31.25% { opacity: 1; }
+  31.25% { opacity: 1; }
+  37.5% { opacity: 1; }
+  37.5% { opacity: 1; }
+  43.75% { opacity: 1; }
+  43.75% { opacity: 1; }
+  50% { opacity: 1; }
+  50% { opacity: 1; }
+  56.25% { opacity: 1; }
+  56.25% { opacity: 1; }
+  62.5% { opacity: 1; }
+  62.5% { opacity: 1; }
+  68.75% { opacity: 1; }
+  68.75% { opacity: 1; }
+  75% { opacity: 1; }
+  75% { opacity: 1; }
+  81.25% { opacity: 1; }
+  81.25% { opacity: 1; }
+  87.5% { opacity: 1; }
+  87.5% { opacity: 1; }
+  93.75% { opacity: 1; }
+  93.75% { opacity: 1; }
+  100% { opacity: 1; }
+}
+```
+
+**grid-dot-1-1-agent**
+```css
+@keyframes grid-dot-1-1-agent {
+  0% { opacity: 0.3; }
+  6.25% { opacity: 0.3; }
+  6.25% { opacity: 0.3; }
+  12.5% { opacity: 0.3; }
+  12.5% { opacity: 0.3; }
+  18.75% { opacity: 0.3; }
+  18.75% { opacity: 0.3; }
+  25% { opacity: 0.3; }
+  25% { opacity: 1; }
+  31.25% { opacity: 1; }
+  31.25% { opacity: 1; }
+  37.5% { opacity: 1; }
+  37.5% { opacity: 1; }
+  43.75% { opacity: 1; }
+  43.75% { opacity: 1; }
+  50% { opacity: 1; }
+  50% { opacity: 1; }
+  56.25% { opacity: 1; }
+  56.25% { opacity: 1; }
+  62.5% { opacity: 1; }
+  62.5% { opacity: 1; }
+  68.75% { opacity: 1; }
+  68.75% { opacity: 1; }
+  75% { opacity: 1; }
+  75% { opacity: 1; }
+  81.25% { opacity: 1; }
+  81.25% { opacity: 1; }
+  87.5% { opacity: 1; }
+  87.5% { opacity: 1; }
+  93.75% { opacity: 1; }
+  93.75% { opacity: 1; }
+  100% { opacity: 1; }
+}
+```
+
+**grid-dot-1-2-agent**
+```css
+@keyframes grid-dot-1-2-agent {
+  0% { opacity: 0.3; }
+  6.25% { opacity: 0.3; }
+  6.25% { opacity: 0.3; }
+  12.5% { opacity: 0.3; }
+  12.5% { opacity: 0.3; }
+  18.75% { opacity: 0.3; }
+  18.75% { opacity: 0.3; }
+  25% { opacity: 0.3; }
+  25% { opacity: 0.3; }
+  31.25% { opacity: 0.3; }
+  31.25% { opacity: 1; }
+  37.5% { opacity: 1; }
+  37.5% { opacity: 1; }
+  43.75% { opacity: 1; }
+  43.75% { opacity: 1; }
+  50% { opacity: 1; }
+  50% { opacity: 1; }
+  56.25% { opacity: 1; }
+  56.25% { opacity: 1; }
+  62.5% { opacity: 1; }
+  62.5% { opacity: 1; }
+  68.75% { opacity: 1; }
+  68.75% { opacity: 1; }
+  75% { opacity: 1; }
+  75% { opacity: 1; }
+  81.25% { opacity: 1; }
+  81.25% { opacity: 1; }
+  87.5% { opacity: 1; }
+  87.5% { opacity: 1; }
+  93.75% { opacity: 1; }
+  93.75% { opacity: 1; }
+  100% { opacity: 1; }
+}
+```
+
+**grid-dot-1-3-agent**
+```css
+@keyframes grid-dot-1-3-agent {
+  0% { opacity: 0.3; }
+  6.25% { opacity: 0.3; }
+  6.25% { opacity: 0.3; }
+  12.5% { opacity: 0.3; }
+  12.5% { opacity: 0.3; }
+  18.75% { opacity: 0.3; }
+  18.75% { opacity: 0.3; }
+  25% { opacity: 0.3; }
+  25% { opacity: 0.3; }
+  31.25% { opacity: 0.3; }
+  31.25% { opacity: 0.3; }
+  37.5% { opacity: 0.3; }
+  37.5% { opacity: 1; }
+  43.75% { opacity: 1; }
+  43.75% { opacity: 1; }
+  50% { opacity: 1; }
+  50% { opacity: 1; }
+  56.25% { opacity: 1; }
+  56.25% { opacity: 1; }
+  62.5% { opacity: 1; }
+  62.5% { opacity: 1; }
+  68.75% { opacity: 1; }
+  68.75% { opacity: 1; }
+  75% { opacity: 1; }
+  75% { opacity: 1; }
+  81.25% { opacity: 1; }
+  81.25% { opacity: 1; }
+  87.5% { opacity: 1; }
+  87.5% { opacity: 1; }
+  93.75% { opacity: 1; }
+  93.75% { opacity: 1; }
+  100% { opacity: 1; }
+}
+```
+
+**grid-dot-1-4-agent**
+```css
+@keyframes grid-dot-1-4-agent {
   0% { opacity: 0.3; }
   6.25% { opacity: 0.3; }
   6.25% { opacity: 0.3; }
@@ -1706,7 +1728,7 @@ Reusable component instances grouped by DOM structure and style similarity:
 
 ## Layout System
 
-**98 grid containers** and **492 flex containers** detected.
+**98 grid containers** and **495 flex containers** detected.
 
 ### Container Widths
 
@@ -1746,8 +1768,8 @@ grid-template-columns: 621px 621px;
 
 | Direction/Wrap | Count |
 |----------------|-------|
-| row/nowrap | 388x |
-| column/nowrap | 104x |
+| row/nowrap | 390x |
+| column/nowrap | 105x |
 
 **Gap values:** `12px`, `15px`, `16px`, `20px`, `24px`, `2px`, `32px`, `3px`, `40px`, `4px`, `5px`, `64px`, `6px`, `8px`
 
@@ -1786,9 +1808,9 @@ grid-template-columns: 621px 621px;
 
 **Issues:**
 - 1 WCAG contrast failures
-- 80 !important rules — prefer specificity over overrides
-- 83% of CSS is unused — consider purging
-- 5918 duplicate CSS declarations
+- 81 !important rules — prefer specificity over overrides
+- 90% of CSS is unused — consider purging
+- 16723 duplicate CSS declarations
 
 ## Gradients
 
@@ -1886,25 +1908,25 @@ background: radial-gradient(50% 50%, rgba(255, 255, 255, 0.04) 0px, rgba(255, 25
 | name | kind | properties | uses |
 |---|---|---|---|
 | `grid-dot-0-0-agent` | fade | opacity | 4 |
-| `grid-dot-0-0-agent` | fade | opacity | 4 |
-| `grid-dot-0-1-agent` | fade | opacity | 4 |
 | `grid-dot-0-1-agent` | fade | opacity | 4 |
 | `grid-dot-0-2-agent` | fade | opacity | 4 |
-| `grid-dot-0-2-agent` | fade | opacity | 4 |
-| `grid-dot-0-3-agent` | fade | opacity | 4 |
 | `grid-dot-0-3-agent` | fade | opacity | 4 |
 | `grid-dot-0-4-agent` | fade | opacity | 4 |
-| `grid-dot-0-4-agent` | fade | opacity | 4 |
-| `grid-dot-1-0-agent` | fade | opacity | 4 |
 | `grid-dot-1-0-agent` | fade | opacity | 4 |
 | `grid-dot-1-1-agent` | fade | opacity | 4 |
-| `grid-dot-1-1-agent` | fade | opacity | 4 |
-| `grid-dot-1-2-agent` | fade | opacity | 4 |
 | `grid-dot-1-2-agent` | fade | opacity | 4 |
 | `grid-dot-1-3-agent` | fade | opacity | 4 |
-| `grid-dot-1-3-agent` | fade | opacity | 4 |
 | `grid-dot-1-4-agent` | fade | opacity | 4 |
-| `grid-dot-1-4-agent` | fade | opacity | 4 |
+| `grid-dot-2-0-agent` | fade | opacity | 4 |
+| `grid-dot-2-1-agent` | fade | opacity | 4 |
+| `grid-dot-2-2-agent` | fade | opacity | 4 |
+| `grid-dot-2-3-agent` | fade | opacity | 4 |
+| `grid-dot-2-4-agent` | fade | opacity | 4 |
+| `grid-dot-3-0-agent` | fade | opacity | 4 |
+| `grid-dot-3-1-agent` | fade | opacity | 4 |
+| `grid-dot-3-2-agent` | fade | opacity | 4 |
+| `grid-dot-3-3-agent` | fade | opacity | 4 |
+| `grid-dot-3-4-agent` | fade | opacity | 4 |
 
 ## Component Anatomy
 
@@ -1968,16 +1990,16 @@ Alternates: blog-post (0.35)
 
 ## Section Roles
 
-Reading order (top→bottom): content → logo-wall → nav → testimonials → nav → nav → nav → content → testimonials → nav → testimonials → nav → hero → nav → testimonial → hero → nav → nav → nav → testimonial → cta → footer
+Reading order (top→bottom): content → logo-wall → nav → steps → nav → nav → nav → content → testimonials → nav → testimonials → nav → hero → nav → testimonial → hero → nav → nav → nav → testimonial → cta → footer
 
 | # | Role | Heading | Confidence |
 |---|------|---------|------------|
 | 0 | content | — | 0.3 |
 | 1 | logo-wall | — | 0.85 |
 | 2 | nav | — | 0.9 |
-| 3 | testimonials | The product development
+| 3 | steps | The product development
 system for teams and agents
-The product development syst | 0.4 |
+The product development syst | 0.75 |
 | 4 | nav | — | 0.9 |
 | 5 | nav | — | 0.4 |
 | 6 | nav | — | 0.4 |

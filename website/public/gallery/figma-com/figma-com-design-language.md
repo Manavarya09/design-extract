@@ -1,7 +1,7 @@
 # Design Language: Figma: The Collaborative Interface Design Tool
 
-> Extracted from `https://figma.com` on May 18, 2026
-> 1517 elements analyzed
+> Extracted from `https://figma.com` on May 21, 2026
+> 1512 elements analyzed
 
 This document describes the complete design language of the website. It is structured for AI/LLM consumption — use it to faithfully recreate the visual design in any framework.
 
@@ -19,7 +19,7 @@ This document describes the complete design language of the website. It is struc
 
 | Hex | HSL | Usage Count |
 |-----|-----|-------------|
-| `#000000` | hsl(0, 0%, 0%) | 2355 |
+| `#000000` | hsl(0, 0%, 0%) | 2344 |
 | `#ffffff` | hsl(0, 0%, 100%) | 667 |
 | `#697485` | hsl(216, 12%, 47%) | 44 |
 | `#e6e6e6` | hsl(0, 0%, 90%) | 2 |
@@ -47,7 +47,7 @@ background-image: repeating-conic-gradient(rgb(185, 142, 1) 0deg, rgb(185, 142, 
 
 | Hex | Contexts | Count |
 |-----|----------|-------|
-| `#000000` | text, border, background | 2355 |
+| `#000000` | text, border, background | 2344 |
 | `#ffffff` | background, text, border | 667 |
 | `#697485` | text, border | 44 |
 | `#33dfdf` | text, border | 6 |
@@ -70,8 +70,8 @@ background-image: repeating-conic-gradient(rgb(185, 142, 1) 0deg, rgb(185, 142, 
 
 ### Font Families
 
-- **figmaSans** — used for all (1498 elements)
-- **figmaMono** — used for all (19 elements)
+- **figmaSans** — used for all (1494 elements)
+- **figmaMono** — used for all (18 elements)
 
 ### Type Scale
 
@@ -103,7 +103,7 @@ body { font-size: 18px; font-weight: 330; line-height: 25.2px; }
 
 ### Font Weights in Use
 
-`400` (659x), `330` (627x), `320` (172x), `480` (19x), `540` (16x), `340` (15x), `450` (8x), `700` (1x)
+`400` (654x), `330` (627x), `320` (172x), `480` (19x), `540` (16x), `340` (15x), `450` (8x), `700` (1x)
 
 ## Spacing
 
@@ -614,9 +614,9 @@ gap: 106.667px;
 
 **Issues:**
 - 8 font weights in use — consider standardizing to 3 (regular, medium, bold)
-- 200 !important rules — prefer specificity over overrides
-- 93% of CSS is unused — consider purging
-- 36128 duplicate CSS declarations
+- 216 !important rules — prefer specificity over overrides
+- 94% of CSS is unused — consider purging
+- 41308 duplicate CSS declarations
 
 ## Gradients
 
@@ -668,7 +668,7 @@ background: repeating-conic-gradient(rgb(185, 142, 1) 0deg, rgb(185, 142, 1) 18d
 |---------|-------|------------|
 | thumbnail | 79 | objectFit: fill, borderRadius: 0px, shape: square |
 | avatar | 19 | objectFit: fill, borderRadius: 50%, shape: circular |
-| general | 10 | objectFit: cover, borderRadius: 0px, shape: square |
+| general | 9 | objectFit: fill, borderRadius: 0px, shape: square |
 | gallery | 3 | objectFit: fill, borderRadius: 0px, shape: square |
 
 **Aspect ratios:** 1:1 (37x), 4:3 (13x), 16:9 (9x), 3.72:1 (5x), 3.23:1 (4x), 8.11:1 (4x), 5.11:1 (4x), 3.89:1 (4x)
@@ -702,8 +702,6 @@ background: repeating-conic-gradient(rgb(185, 142, 1) 0deg, rgb(185, 142, 1) 18d
 
 | name | kind | properties | uses |
 |---|---|---|---|
-| `animation-6j0toc` | custom | border-left-color | 1 |
-| `animation-6j0toc` | custom | border-left-color | 1 |
 | `animation-jpvf7s` | custom | stroke-dashoffset | 1 |
 | `animation-jpvf7s` | custom | stroke-dashoffset | 1 |
 | `animation-zsk7zs` | slide-x | transform | 4 |
@@ -808,7 +806,7 @@ Reading order (top→bottom): cta → nav → nav → nav → nav → nav → na
 ## Imagery Style
 
 **Label:** `mixed` (confidence 0)
-**Counts:** total 111, svg 0, icon 35, screenshot-like 0, photo-like 0
+**Counts:** total 110, svg 0, icon 35, screenshot-like 0, photo-like 0
 **Dominant aspect:** square-ish
 **Radius profile on images:** soft
 

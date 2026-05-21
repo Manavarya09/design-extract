@@ -9,11 +9,11 @@
     --primary-foreground: 0 0% 0%;
     --secondary: 210 100% 45%;
     --secondary-foreground: 0 0% 100%;
-    --accent: 240 25% 98%;
-    --accent-foreground: 0 0% 0%;
-    --muted: 42 24% 22%;
-    --muted-foreground: 0 0% 0%;
-    --border: 240 12% 92%;
+    --accent: 314 81% 56%;
+    --accent-foreground: 0 0% 100%;
+    --muted: 192 24% 34%;
+    --muted-foreground: 240 3% 12%;
+    --border: 240 2% 54%;
     --radius: 8px;
   }
 }

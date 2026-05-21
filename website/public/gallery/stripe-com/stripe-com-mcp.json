@@ -73,7 +73,7 @@
           "s": 78,
           "l": 11
         },
-        "count": 283,
+        "count": 312,
         "contexts": [
           "text",
           "border",
@@ -93,7 +93,7 @@
           "s": 0,
           "l": 100
         },
-        "count": 210,
+        "count": 181,
         "contexts": [
           "background",
           "text",
@@ -291,17 +291,17 @@
         ]
       },
       {
-        "hex": "#6480b2",
+        "hex": "#7d8ba4",
         "rgb": {
-          "r": 100,
-          "g": 128,
-          "b": 178,
+          "r": 125,
+          "g": 139,
+          "b": 164,
           "a": 1
         },
         "hsl": {
           "h": 218,
-          "s": 34,
-          "l": 55
+          "s": 18,
+          "l": 57
         },
         "count": 14,
         "contexts": [
@@ -676,7 +676,7 @@
       "heading": "The backbone of global commerce",
       "buttonCount": 4,
       "cardCount": 0,
-      "className": "hds-color-mode stats-section stats-section--dark stats-section--time-night section hds-mode--dark"
+      "className": "hds-color-mode stats-section stats-section--time-daytime section section--white hds-mode--light"
     },
     {
       "role": "testimonials",
@@ -1028,7 +1028,7 @@
           "css": {
             "background": "rgb(83, 58, 253)",
             "color": "rgb(255, 255, 255)",
-            "padding": "11.5px 20px 14.5px 20px",
+            "padding": "15.5px 20px 16.5px 20px",
             "borderRadius": "4px",
             "border": "0px none rgb(255, 255, 255)",
             "fontSize": "14px",
@@ -2052,25 +2052,25 @@
         "unusedPercent": 10
       },
       {
-        "url": "https://b.stripecdn.com/mkt-ssr-statics/assets/_next/static/css/be854b4b1486c254.css",
-        "totalBytes": 40041,
-        "usedBytes": 30793,
+        "url": "https://b.stripecdn.com/mkt-ssr-statics/assets/_next/static/css/1af56c9f60dfbb03.css",
+        "totalBytes": 39920,
+        "usedBytes": 30672,
         "unusedBytes": 9248,
         "unusedPercent": 23
       },
       {
-        "url": "https://b.stripecdn.com/mkt-ssr-statics/assets/_next/static/css/f4882a34561e5dbb.css",
-        "totalBytes": 2115,
-        "usedBytes": 924,
-        "unusedBytes": 1191,
-        "unusedPercent": 56
+        "url": "https://b.stripecdn.com/mkt-ssr-statics/assets/_next/static/css/f577e6782212f424.css",
+        "totalBytes": 66555,
+        "usedBytes": 43551,
+        "unusedBytes": 23004,
+        "unusedPercent": 35
       },
       {
-        "url": "https://b.stripecdn.com/mkt-ssr-statics/assets/_next/static/css/365d7a897b2c9bce.css",
-        "totalBytes": 63994,
-        "usedBytes": 45227,
-        "unusedBytes": 18767,
-        "unusedPercent": 29
+        "url": "https://b.stripecdn.com/mkt-ssr-statics/assets/_next/static/css/6d71d1064c88ecf1.css",
+        "totalBytes": 259064,
+        "usedBytes": 75757,
+        "unusedBytes": 183307,
+        "unusedPercent": 71
       },
       {
         "url": "https://b.stripecdn.com/mkt-ssr-statics/assets/_next/static/css/57f8c646aef0b9c7.css",
@@ -2080,11 +2080,11 @@
         "unusedPercent": 52
       },
       {
-        "url": "https://b.stripecdn.com/mkt-ssr-statics/assets/_next/static/css/2c489de4f61cf4ae.css",
-        "totalBytes": 258819,
-        "usedBytes": 75512,
-        "unusedBytes": 183307,
-        "unusedPercent": 71
+        "url": "https://b.stripecdn.com/mkt-ssr-statics/assets/_next/static/css/f4882a34561e5dbb.css",
+        "totalBytes": 2115,
+        "usedBytes": 924,
+        "unusedBytes": 1191,
+        "unusedPercent": 56
       },
       {
         "url": "https://b.stripecdn.com/mkt-ssr-statics/assets/_next/static/css/f73a927287a9f564.css",
@@ -2094,14 +2094,14 @@
         "unusedPercent": 24
       }
     ],
-    "totalBytes": 441020,
-    "usedBytes": 212532,
-    "unusedBytes": 228488,
+    "totalBytes": 443705,
+    "usedBytes": 210980,
+    "unusedBytes": 232725,
     "unusedPercent": 52,
     "importantCount": 0,
-    "duplicates": 6098,
+    "duplicates": 6133,
     "vendorPrefixes": {
-      "webkit": 68,
+      "webkit": 69,
       "moz": 16,
       "ms": 1,
       "o": 1
@@ -2115,13 +2115,13 @@
       ],
       "average": [
         0,
-        1.36,
+        1.37,
         0.09
       ],
-      "count": 2401
+      "count": 2426
     },
     "issues": [
-      "6098 duplicate declarations",
+      "6133 duplicate declarations",
       "52% unused CSS"
     ]
   }

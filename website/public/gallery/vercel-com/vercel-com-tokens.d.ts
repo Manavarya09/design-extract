@@ -7,14 +7,14 @@
 //   import tokens from './<host>-design-tokens.json';
 //
 // Source: https://vercel.com
-// Generated: 2026-05-17T21:16:17.783Z
+// Generated: 2026-05-21T11:46:57.588Z
 
 export type Hex = `#${string}`;
 export type Px  = `${number}px`;
 export type Ms  = `${number}ms`;
 
 export type ColorRole = 'primary' | 'secondary' | 'accent';
-export type ColorHex  = '#171717' | '#ebebeb' | '#4d4d4d' | '#ffffff' | '#666666' | '#000000' | '#7d7d7d' | '#a8a8a8' | '#8f8f8f' | '#0068d6' | '#52aeff' | '#0070f3' | '#e5484d' | '#45dec5' | '#bd2864' | '#ebf5ff' | '#ffb224' | '#297a3a' | '#7820bc' | '#cce6ff' | '#ea3e83' | '#067a6e' | '#bf89ec' | '#398e4a' | '#ff990a' | '#6cda75' | '#ffc96b';
+export type ColorHex  = '#171717' | '#ebebeb' | '#4d4d4d' | '#ffffff' | '#666666' | '#000000' | '#7d7d7d' | '#a8a8a8' | '#8f8f8f' | '#0068d6' | '#52aeff' | '#0070f3' | '#e5484d' | '#45dec5' | '#bd2864' | '#ebf5ff' | '#ffb224' | '#297a3a' | '#7820bc' | '#cce6ff' | '#ea3e83' | '#067a6e' | '#ff990a' | '#bf89ec' | '#398e4a' | '#6cda75' | '#ffc96b';
 export type ColorToken = ColorRole | ColorHex;
 
 export type FontFamilyToken = 'Geist' | 'Geist Mono';

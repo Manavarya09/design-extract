@@ -4,7 +4,7 @@
     "version": "7.0.0",
     "spec": "https://design-tokens.github.io/community-group/format/",
     "source": "https://apple.com",
-    "generatedAt": "2026-05-17T21:15:57.762Z"
+    "generatedAt": "2026-05-21T11:46:59.305Z"
   },
   "primitive": {
     "color": {
@@ -20,31 +20,39 @@
       },
       "neutral": {
         "n100": {
-          "$value": "#000000",
-          "$type": "color"
-        },
-        "n200": {
           "$value": "#1d1d1f",
           "$type": "color"
         },
+        "n200": {
+          "$value": "#000000",
+          "$type": "color"
+        },
         "n300": {
-          "$value": "#333336",
-          "$type": "color"
-        },
-        "n400": {
-          "$value": "#6e6e73",
-          "$type": "color"
-        },
-        "n500": {
           "$value": "#e8e8ed",
           "$type": "color"
         },
+        "n400": {
+          "$value": "#ffffff",
+          "$type": "color"
+        },
+        "n500": {
+          "$value": "#86868b",
+          "$type": "color"
+        },
         "n600": {
-          "$value": "#d2d2d7",
+          "$value": "#6e6e73",
           "$type": "color"
         },
         "n700": {
-          "$value": "#443c2a",
+          "$value": "#333336",
+          "$type": "color"
+        },
+        "n800": {
+          "$value": "#d2d2d7",
+          "$type": "color"
+        },
+        "n900": {
+          "$value": "#41626a",
           "$type": "color"
         }
       },
@@ -54,19 +62,19 @@
           "$type": "color"
         },
         "bg1": {
-          "$value": "#fafafc",
+          "$value": "#161617",
           "$type": "color"
         },
         "bg2": {
-          "$value": "#e8e8ed",
+          "$value": "#1d1d1f",
           "$type": "color"
         },
         "bg3": {
-          "$value": "#f5f5f7",
+          "$value": "#000000",
           "$type": "color"
         },
         "bg4": {
-          "$value": "#000000",
+          "$value": "#f5f5f7",
           "$type": "color"
         },
         "bg5": {
@@ -74,31 +82,31 @@
           "$type": "color"
         },
         "bg6": {
-          "$value": "#140a12",
+          "$value": "#271a11",
           "$type": "color"
         },
         "bg7": {
-          "$value": "#9fc6f4",
-          "$type": "color"
-        },
-        "bg8": {
           "$value": "#ea33c0",
           "$type": "color"
         },
+        "bg8": {
+          "$value": "#9fc6f4",
+          "$type": "color"
+        },
         "bg9": {
-          "$value": "#443c2a",
+          "$value": "#2b3a37",
           "$type": "color"
         },
         "bg10": {
-          "$value": "#3397d4",
+          "$value": "#41626a",
           "$type": "color"
         },
         "bg11": {
-          "$value": "#450a54",
+          "$value": "#3397d4",
           "$type": "color"
         },
         "bg12": {
-          "$value": "#5d4a32",
+          "$value": "#371410",
           "$type": "color"
         }
       },
@@ -116,23 +124,27 @@
           "$type": "color"
         },
         "text3": {
-          "$value": "#6e6e73",
+          "$value": "#86868b",
           "$type": "color"
         },
         "text4": {
-          "$value": "#333336",
+          "$value": "#e8e8ed",
           "$type": "color"
         },
         "text5": {
-          "$value": "#0066cc",
-          "$type": "color"
-        },
-        "text6": {
           "$value": "#2997ff",
           "$type": "color"
         },
-        "text7": {
+        "text6": {
           "$value": "#f5f5f7",
+          "$type": "color"
+        },
+        "text7": {
+          "$value": "#0066cc",
+          "$type": "color"
+        },
+        "text8": {
+          "$value": "#6e6e73",
           "$type": "color"
         }
       }

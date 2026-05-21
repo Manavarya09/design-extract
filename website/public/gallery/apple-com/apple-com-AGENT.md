@@ -1,7 +1,7 @@
 # You are building UI in the apple.com design system.
 
 Source: https://apple.com
-Extracted by designlang on 2026-05-17.
+Extracted by designlang on 2026-05-21.
 
 ## Brand at a glance
 
@@ -14,8 +14,8 @@ Extracted by designlang on 2026-05-17.
 
 - primary     #f5f5f7
 - secondary   #0071e3
-- accent      #fafafc
-- neutrals    #000000 · #1d1d1f · #333336 · #6e6e73 · #e8e8ed · #d2d2d7
+- accent      #ea33c0
+- neutrals    #1d1d1f · #000000 · #e8e8ed · #ffffff · #86868b · #6e6e73
 
 ## Typography
 
@@ -40,12 +40,11 @@ Extracted by designlang on 2026-05-17.
 - tone       friendly
 - pronoun    you-only
 - headings   Title Case
-- CTA verbs  learn · buy · stream · play · listen · watch
+- CTA verbs  learn · stream · buy · listen · play · watch
 
 ## Component anatomy
 
 - button     variants: [object Object] · [object Object] · [object Object]  ·  slots: true · false · false
-- card       variants: [object Object]  ·  slots: false · false · false · false
 
 ## Accessibility
 

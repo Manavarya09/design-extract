@@ -4,7 +4,7 @@
     "version": "7.0.0",
     "spec": "https://design-tokens.github.io/community-group/format/",
     "source": "https://spotify.com",
-    "generatedAt": "2026-05-17T21:15:59.194Z"
+    "generatedAt": "2026-05-21T11:46:57.110Z"
   },
   "primitive": {
     "color": {
@@ -40,11 +40,11 @@
           "$type": "color"
         },
         "n600": {
-          "$value": "#7c7c7c",
+          "$value": "#121212",
           "$type": "color"
         },
         "n700": {
-          "$value": "#121212",
+          "$value": "#7c7c7c",
           "$type": "color"
         },
         "n800": {
@@ -64,43 +64,31 @@
           "$type": "color"
         },
         "n1200": {
-          "$value": "#402830",
-          "$type": "color"
-        },
-        "n1300": {
-          "$value": "#667a7a",
-          "$type": "color"
-        },
-        "n1400": {
-          "$value": "#6e7598",
-          "$type": "color"
-        },
-        "n1500": {
-          "$value": "#404040",
-          "$type": "color"
-        },
-        "n1600": {
-          "$value": "#a16387",
-          "$type": "color"
-        },
-        "n1700": {
           "$value": "#eeeeee",
           "$type": "color"
         },
-        "n1800": {
+        "n1300": {
           "$value": "#d8d8d8",
           "$type": "color"
         },
-        "n1900": {
-          "$value": "#587888",
+        "n1400": {
+          "$value": "#402830",
           "$type": "color"
         },
-        "n2000": {
+        "n1500": {
+          "$value": "#384040",
+          "$type": "color"
+        },
+        "n1600": {
+          "$value": "#687088",
+          "$type": "color"
+        },
+        "n1700": {
+          "$value": "#7f7757",
+          "$type": "color"
+        },
+        "n1800": {
           "$value": "#284038",
-          "$type": "color"
-        },
-        "n2100": {
-          "$value": "#4f7f77",
           "$type": "color"
         }
       },

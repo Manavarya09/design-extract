@@ -147,7 +147,7 @@
       {
         "index": 5,
         "tag": "main",
-        "role": "testimonials",
+        "role": "pricing",
         "subrole": null,
         "confidence": 0.4,
         "heading": "Home",
@@ -157,17 +157,16 @@
           "w": 962,
           "h": 654
         },
-        "buttonCount": 222,
-        "cardCount": 284,
+        "buttonCount": 166,
+        "cardCount": 200,
         "slots": {
           "heading": "Home",
           "subheadings": [
             "Trending songs",
             "Popular artists",
-            "Popular albums and singles",
-            "Popular radio"
+            "Popular albums and singles"
           ],
-          "ctaCount": 222,
+          "ctaCount": 166,
           "lede": "Home\nTrending songs\nShow all"
         },
         "needsSmart": true
@@ -183,19 +182,18 @@
           "x": 310,
           "y": 64,
           "w": 962,
-          "h": 1621.65625
+          "h": 1018.21875
         },
-        "buttonCount": 216,
-        "cardCount": 284,
+        "buttonCount": 160,
+        "cardCount": 200,
         "slots": {
           "heading": "Home",
           "subheadings": [
             "Trending songs",
             "Popular artists",
-            "Popular albums and singles",
-            "Popular radio"
+            "Popular albums and singles"
           ],
-          "ctaCount": 216,
+          "ctaCount": 160,
           "lede": "Home\nTrending songs\nShow all"
         },
         "needsSmart": true
@@ -268,50 +266,6 @@
       },
       {
         "index": 10,
-        "tag": "section",
-        "role": "content",
-        "subrole": null,
-        "confidence": 0.3,
-        "heading": "Popular radio",
-        "bounds": {
-          "x": 350,
-          "y": 1066.21875,
-          "w": 882,
-          "h": 285.71875
-        },
-        "buttonCount": 40,
-        "cardCount": 60,
-        "slots": {
-          "heading": "Popular radio",
-          "ctaCount": 40,
-          "lede": "Popular radio\nShow all"
-        },
-        "needsSmart": true
-      },
-      {
-        "index": 11,
-        "tag": "section",
-        "role": "feature-grid",
-        "subrole": null,
-        "confidence": 0.8,
-        "heading": "Featured Charts",
-        "bounds": {
-          "x": 350,
-          "y": 1367.9375,
-          "w": 882,
-          "h": 285.71875
-        },
-        "buttonCount": 16,
-        "cardCount": 24,
-        "slots": {
-          "heading": "Featured Charts",
-          "ctaCount": 16,
-          "lede": "Featured Charts\nShow all"
-        },
-        "needsSmart": false
-      },
-      {
-        "index": 12,
         "tag": "nav",
         "role": "nav",
         "subrole": null,
@@ -319,7 +273,7 @@
         "heading": null,
         "bounds": {
           "x": 310,
-          "y": 1774.65625,
+          "y": 1171.21875,
           "w": 962,
           "h": 355
         },
@@ -332,7 +286,7 @@
         "needsSmart": false
       },
       {
-        "index": 13,
+        "index": 11,
         "tag": "section",
         "role": "content",
         "subrole": null,
@@ -353,7 +307,7 @@
         "needsSmart": true
       },
       {
-        "index": 14,
+        "index": 12,
         "tag": "section",
         "role": "content",
         "subrole": null,
@@ -374,7 +328,7 @@
         "needsSmart": true
       },
       {
-        "index": 15,
+        "index": 13,
         "tag": "section",
         "role": "content",
         "subrole": null,
@@ -396,7 +350,7 @@
         "needsSmart": true
       },
       {
-        "index": 16,
+        "index": 14,
         "tag": "section",
         "role": "content",
         "subrole": null,
@@ -417,7 +371,7 @@
         "needsSmart": true
       },
       {
-        "index": 17,
+        "index": 15,
         "tag": "section",
         "role": "content",
         "subrole": null,
@@ -439,11 +393,11 @@
     ],
     "counts": {
       "nav": 3,
-      "content": 9,
+      "content": 8,
       "cta": 1,
-      "testimonials": 2,
-      "hero": 2,
-      "feature-grid": 1
+      "pricing": 1,
+      "testimonials": 1,
+      "hero": 2
     },
     "readingOrder": [
       "content",
@@ -453,7 +407,7 @@
       "content",
       "nav",
       "nav",
-      "testimonials",
+      "pricing",
       "testimonials",
       "hero",
       "content",
@@ -461,8 +415,6 @@
       "content",
       "hero",
       "cta",
-      "content",
-      "feature-grid",
       "nav"
     ]
   }

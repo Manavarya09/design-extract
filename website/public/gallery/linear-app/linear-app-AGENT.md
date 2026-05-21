@@ -1,7 +1,7 @@
 # You are building UI in the linear.app design system.
 
 Source: https://linear.app
-Extracted by designlang on 2026-05-17.
+Extracted by designlang on 2026-05-21.
 
 ## Brand at a glance
 

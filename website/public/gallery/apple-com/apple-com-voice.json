@@ -9,19 +9,19 @@
       "count": 8
     },
     {
-      "value": "buy",
-      "count": 5
-    },
-    {
       "value": "stream",
       "count": 5
     },
     {
-      "value": "play",
+      "value": "buy",
       "count": 3
     },
     {
       "value": "listen",
+      "count": 3
+    },
+    {
+      "value": "play",
       "count": 3
     },
     {
@@ -41,7 +41,7 @@
       "count": 1
     },
     {
-      "value": "apply",
+      "value": "f",
       "count": 1
     }
   ],
@@ -51,19 +51,19 @@
       "count": 8
     },
     {
-      "value": "buy",
-      "count": 5
-    },
-    {
       "value": "stream now",
       "count": 5
     },
     {
-      "value": "play now",
+      "value": "buy",
       "count": 3
     },
     {
       "value": "listen now",
+      "count": 3
+    },
+    {
+      "value": "play now",
       "count": 3
     },
     {
@@ -87,10 +87,6 @@
       "count": 1
     },
     {
-      "value": "apply now",
-      "count": 1
-    },
-    {
       "value": "f1 on apple tv",
       "count": 1
     },
@@ -108,19 +104,19 @@
     }
   ],
   "sampleHeadings": [
+    "Accessibility",
     "iPhone",
-    "MacBook Air",
-    "iPad Air",
-    "Apple for College",
-    "Apple Watch Series 11",
+    "MacBook Neo",
+    "WWDC 26",
+    "Apple Card",
+    "Accessibility",
     "iPhone",
-    "MacBook Air",
-    "iPad Air",
-    "Apple for College",
-    "Apple Watch Series 11"
+    "MacBook Neo",
+    "WWDC 26",
+    "Apple Card"
   ],
   "stats": {
-    "buttons": 36,
+    "buttons": 33,
     "headings": 24
   }
 }

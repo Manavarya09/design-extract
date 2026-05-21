@@ -1,6 +1,6 @@
 # Design Language: Stripe | Financial Infrastructure to Grow Your Revenue
 
-> Extracted from `https://stripe.com` on May 18, 2026
+> Extracted from `https://stripe.com` on May 21, 2026
 > 2408 elements analyzed
 
 This document describes the complete design language of the website. It is structured for AI/LLM consumption — use it to faithfully recreate the visual design in any framework.
@@ -21,8 +21,9 @@ This document describes the complete design language of the website. It is struc
 |-----|-----|-------------|
 | `#000000` | hsl(0, 0%, 0%) | 2620 |
 | `#50617a` | hsl(216, 21%, 40%) | 330 |
-| `#ffffff` | hsl(0, 0%, 100%) | 210 |
+| `#ffffff` | hsl(0, 0%, 100%) | 181 |
 | `#64748d` | hsl(217, 17%, 47%) | 172 |
+| `#7d8ba4` | hsl(218, 18%, 57%) | 14 |
 | `#101010` | hsl(0, 0%, 6%) | 6 |
 | `#f2f7fe` | hsl(215, 86%, 97%) | 1 |
 
@@ -65,7 +66,7 @@ background-image: linear-gradient(90deg, rgb(114, 50, 241) 3.13%, rgb(251, 118, 
 ```
 
 ```css
-background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0px, rgb(252, 253, 254) 50%, rgba(0, 0, 0, 0) 100%);
+background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0px, rgb(8, 16, 191) 50%, rgba(0, 0, 0, 0) 100%);
 ```
 
 ```css
@@ -119,8 +120,8 @@ background-image: linear-gradient(74.71deg, rgba(83, 58, 253, 0.08) -215.1%, rgb
 | `#000000` | text, border, background | 2620 |
 | `#533afd` | text, border, background | 899 |
 | `#50617a` | text, border | 330 |
-| `#061b31` | text, border, background | 283 |
-| `#ffffff` | background, text, border | 210 |
+| `#061b31` | text, border, background | 312 |
+| `#ffffff` | background, text, border | 181 |
 | `#64748d` | text, border | 172 |
 | `#0000ee` | text, border | 90 |
 | `#e5edf5` | background, border | 57 |
@@ -131,7 +132,7 @@ background-image: linear-gradient(74.71deg, rgba(83, 58, 253, 0.08) -215.1%, rgb
 | `#1a2c44` | text, border | 28 |
 | `#ff6118` | text, border | 28 |
 | `#b9b9f9` | border | 22 |
-| `#6480b2` | text, border | 14 |
+| `#7d8ba4` | text, border | 14 |
 | `#d6d9fc` | border | 10 |
 | `#839bc8` | text, border | 8 |
 | `#101010` | text, border | 6 |
@@ -259,8 +260,8 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 30px 60px -50px, rgba(50, 50, 93, 0.25) 0px 3
 --hds-color-accentColorMode-ruby-icon-solid: #ea2261;
 --hds-color-util-brand-900: #1c1e54;
 --hds-color-action-bg-subduedHover: #b9b9f9;
---hds-color-accentColorMode-magenta-surface-subduedAlt: #ffe6f5;
 --hds-color-input-text-label: #273951;
+--hds-color-accentColorMode-magenta-surface-subduedAlt: #ffe6f5;
 --hds-color-input-text-selected: #273951;
 --hds-color-input-text-popover: #273951;
 --hds-color-shadow-sm-top: #00377014;
@@ -272,9 +273,9 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 30px 60px -50px, rgba(50, 50, 93, 0.25) 0px 3
 --hds-color-util-bg-min: #fff;
 --hds-color-core-neutral-50A: #a8c3de4d;
 --hds-color-util-neutral-50: #e5edf5;
---hds-color-accentColorMode-lemon-surface-subdued: #fff2d8;
 --hds-color-accentColorMode-magenta-icon-gradientMiddle: #f96bee;
 --hds-color-input-selector-text-range: #665efd;
+--hds-color-accentColorMode-lemon-surface-subdued: #fff2d8;
 --hds-color-core-neutralDark-25: #f2f7fe;
 --hds-color-action-bg-translucent: #ffffffa6;
 --hds-color-util-accent-magenta-100: #ffd7ef;
@@ -295,13 +296,13 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 30px 60px -50px, rgba(50, 50, 93, 0.25) 0px 3
 --hds-color-util-action-icon-soft: #665efd;
 --hds-color-accentColorMode-ruby-icon-gradientEnd: #b51145;
 --hds-color-input-bg-default: #ffffff40;
---hds-color-util-brand-25: #f5f5ff;
---hds-color-button-primary-bg: #533afd;
 --hds-color-accentColorMode-magenta-icon-gradientStart: #f98bf9;
---hds-color-util-text-soft: #50617a;
+--hds-color-button-primary-bg: #533afd;
+--hds-color-util-brand-25: #f5f5ff;
+--hds-color-action-bg-subdued: #e2e4ff;
 --hds-color-util-brand-800: #2e2b8c;
 --hds-color-input-selector-icon-disabledOnSolid: #95a4ba;
---hds-color-action-bg-subdued: #e2e4ff;
+--hds-color-util-text-soft: #50617a;
 --hds-color-input-text-disabled: #95a4ba;
 --hds-color-util-neutral-950: #11273e;
 --hds-color-core-neutral-0: #fff;
@@ -332,23 +333,23 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 30px 60px -50px, rgba(50, 50, 93, 0.25) 0px 3
 --hds-color-util-neutral-990: #061b31;
 --hds-color-util-action-border-max: #2e2b8c;
 --hds-color-util-accent-ruby-400: #ea2261;
---hds-color-util-action-icon-solid: #533afd;
 --hds-color-input-popover-border: #ffffff00;
+--hds-color-util-action-icon-solid: #533afd;
 --hds-color-util-action-icon-subdued: #b9b9f9;
 --hds-color-icon-surface: #bac8da;
 --hds-color-shadow-xl-bottom: #003b890f;
 --hds-color-accent-icon-solidAlt: #533afd;
 --hds-color-action-text-onTransparent: #533afd;
 --hds-color-accentColorMode-lemon-icon-gradientStart: #ffd552;
---hds-color-core-brandDark-925: #1c1b5a;
 --hds-color-util-action-bg-soft: #665efd;
+--hds-color-core-brandDark-925: #1c1b5a;
 --hds-color-input-bg-accent: #533afd;
 --hds-color-util-brand-975: #0f1137;
 --hds-color-core-orange-100: #ffd8c6;
---hds-color-input-text-error: #d8351e;
 --hds-color-util-accent-orange-100: #ffd8c6;
---hds-space-core-border-lg: 2px;
+--hds-color-input-text-error: #d8351e;
 --hds-color-input-tile-border-pressed: #2e2b8c;
+--hds-space-core-border-lg: 2px;
 --hds-color-button-secondary-bg: #ffffff00;
 --hds-color-input-border-error: #d8351e;
 --hds-color-input-selector-bg-selected: #533afd;
@@ -357,15 +358,15 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 30px 60px -50px, rgba(50, 50, 93, 0.25) 0px 3
 --hds-color-button-secondary-bgHover: #ffffff00;
 --hds-color-core-neutralDark-900A: #23357a80;
 --hds-color-core-neutral-700: #3c4f69;
---hds-color-accentColorMode-ruby-icon-solidAlt: #ea2261;
 --hds-color-accentColorMode-ruby-surface-subduedAlt: #fed9de;
---hds-color-button-ui-bgOnSubdued: #e2e4ff;
+--hds-color-accentColorMode-ruby-icon-solidAlt: #ea2261;
 --hds-color-action-icon-navigation-soft: #50617a;
 --hds-color-action-bg-transparent: #ffffff00;
 --hds-color-action-border-disabled: #d4dee9;
+--hds-color-button-ui-bgOnSubdued: #e2e4ff;
 --hds-color-util-accent-lemon-500: #9b6829;
---hds-color-util-action-border-solid: #533afd;
 --hds-color-accent-charm-gradientMiddle: #533afd;
+--hds-color-util-action-border-solid: #533afd;
 --hds-color-action-text-solidHover: #2e2b8c;
 --hds-color-util-text-solid: #061b31;
 --hds-color-shadow-md-top: #0037701a;
@@ -399,14 +400,14 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 30px 60px -50px, rgba(50, 50, 93, 0.25) 0px 3
 --hds-color-input-bg-quiet: #d4dee9;
 --hds-color-button-primary-text: #fff;
 --hds-color-util-text-inactive: #95a4ba;
---hds-color-action-text-solid: #533afd;
 --hds-color-core-success-600: #006f3a;
 --hds-color-text-quiet: #7d8ba4;
+--hds-color-action-text-solid: #533afd;
 --hds-color-shadow-popoverBottom: #061b311f;
 --hds-color-util-action-text-max: #2e2b8c;
 --hds-color-util-border-subdued: #d4dee9;
---hds-color-core-brand-25: #f5f5ff;
 --hds-color-util-action-fg-solidAlternateHover: #2e2b8c;
+--hds-color-core-brand-25: #f5f5ff;
 --hds-color-core-success-400: #00b261;
 --hds-color-core-neutral-50: #e5edf5;
 --hds-color-core-lemon-100: #ffe1a3;
@@ -415,8 +416,8 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 30px 60px -50px, rgba(50, 50, 93, 0.25) 0px 3
 --hds-color-core-brandDark-50: #e4eaff;
 --hds-color-shadow-sm-bottom: #003b890d;
 --hds-color-util-success-100: #b6f2c7;
---hds-color-core-neutral-300: #95a4ba;
 --hds-color-util-brand-500: #665efd;
+--hds-color-core-neutral-300: #95a4ba;
 --hds-color-core-brand-500: #665efd;
 --hds-color-action-icon-onTranslucent: #533afd;
 --hds-color-action-icon-solid: #533afd;
@@ -450,25 +451,25 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 30px 60px -50px, rgba(50, 50, 93, 0.25) 0px 3
 --hds-color-button-primary-icon: #fff;
 --hds-color-action-focus-surface: #ffffff00;
 --hds-color-util-action-fg-solidHover: #2e2b8c;
---hds-color-util-accent-ruby-50: #fee8eb;
 --hds-color-core-neutral-600: #50617a;
---hds-color-util-action-icon-max: #2e2b8c;
+--hds-color-util-accent-magenta-500: #cf2cab;
+--hds-color-util-accent-ruby-50: #fee8eb;
 --hds-color-util-action-bg-subdued: #b9b9f999;
 --hds-color-button-ui-bgOnSubduedHover: #b9b9f9;
---hds-color-input-bg-focus: #ffffff80;
+--hds-color-util-action-icon-max: #2e2b8c;
 --hds-color-util-action-fg-solid: #533afd;
+--hds-color-input-bg-focus: #ffffff80;
 --hds-color-input-icon-solid: #533afd;
---hds-color-util-accent-magenta-500: #cf2cab;
 --hds-color-core-brand-50A: #a3a7ff40;
 --hds-color-util-accent-magenta-50: #ffe6f5;
---hds-color-core-neutralDark-800A: #2f458ba6;
 --hds-color-action-text-onTranslucent: #533afd;
 --hds-color-core-brand-300: #9a9afe;
 --hds-color-core-magenta-350: #f44bcc;
+--hds-color-core-neutralDark-800A: #2f458ba6;
 --hds-color-util-action-bg-solid: #533afd;
 --hds-color-accentColorMode-default-surface-subduedAlt: #e2e4ff;
---hds-color-core-orange-600: #ab3500;
 --hds-color-core-brandDark-300: #92adff;
+--hds-color-core-orange-600: #ab3500;
 --hds-color-input-selector-bg-availableHover: #d6d9fc;
 --hds-color-button-ui-borderDisabled: #d4dee9;
 --hds-color-accentColorMode-orange-icon-gradientEnd: #fd5d7c;
@@ -482,17 +483,17 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 30px 60px -50px, rgba(50, 50, 93, 0.25) 0px 3
 --hds-color-accentColorMode-default-icon-gradientEnd: #4032c8;
 --hds-color-action-bg-solidHover: #4032c8;
 --hds-color-core-neutral-100: #d4dee9;
---hds-color-util-brand-700: #4032c8;
 --hds-color-accentColorMode-ruby-surface-subdued: #fed9de;
+--hds-color-util-brand-700: #4032c8;
 --hds-color-core-error-100: #feb9ac;
 --hds-color-core-neutralDark-900: #182659;
 --hds-color-input-bg-solid: #fff;
 --hds-color-util-accent-lemon-300: #e8a30b;
 --hds-color-util-border-solid: #273951;
 --hds-color-util-action-fg-onSolid: #fff;
---hds-color-input-bg-popoverTransparent: #ffffff00;
 --hds-color-util-neutral-400: #7d8ba4;
 --hds-color-action-text-solidAlternate: #533afd;
+--hds-color-input-bg-popoverTransparent: #ffffff00;
 --hds-color-action-text-onQuiet: #533afd;
 --hds-color-accentColorMode-lemon-icon-solid: #e8a30b;
 --hds-color-util-action-fg-onAlpha: #533afd;
@@ -530,8 +531,8 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 30px 60px -50px, rgba(50, 50, 93, 0.25) 0px 3
 --hds-color-core-ruby-50: #fee8eb;
 --hds-color-util-action-border-emphasized: #4032c8;
 --hds-color-util-accent-ruby-800: #5d1c3c;
---hds-color-core-neutralDark-600: #45639d;
 --hds-color-action-bg-quiet: #e8e9ff;
+--hds-color-core-neutralDark-600: #45639d;
 --hds-color-util-brand-75: #e2e4ff;
 --hds-color-util-success-400: #00b261;
 --hds-color-button-primary-bgDisabled: #e5edf5;
@@ -565,8 +566,8 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 30px 60px -50px, rgba(50, 50, 93, 0.25) 0px 3
 --hds-color-icon-solid: #273951;
 --hds-color-action-focus-inner-subdued: #f8fafd;
 --hds-color-button-secondary-borderOnSubdued: #b9b9f9;
---hds-color-accent-charm-gradientStart: #7f7dfc;
 --hds-color-accent-border-quiet: #d6d9fc;
+--hds-color-accent-charm-gradientStart: #7f7dfc;
 --hds-color-util-border-emphasized: #061b31;
 --hds-color-util-error-500: #d8351e;
 --hds-color-core-neutral-200: #bac8da;
@@ -579,13 +580,13 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 30px 60px -50px, rgba(50, 50, 93, 0.25) 0px 3
 --hds-color-input-icon-disabled: #d4dee9;
 --hds-color-action-icon-solidAlternate: #533afd;
 --hds-color-util-action-bg-min: #9a9afe1f;
---hds-color-util-bg-subdued: #e5edf5;
 --hds-color-input-selector-bg-selectedHover: #4032c8;
+--hds-color-util-bg-subdued: #e5edf5;
 --hds-color-core-neutral-900: #1a2c44;
 --hds-color-button-secondary-text: #533afd;
 --hds-color-core-neutral-990: #061b31;
---hds-color-icon-subdued: #64748d;
 --hds-color-text-soft: #50617a;
+--hds-color-icon-subdued: #64748d;
 --hds-color-util-bg-soft: #d4dee9;
 --hds-canary-layout-content-maxWidth-borders: calc(1264px + 2px);
 --hds-color-core-magenta-600: #a51d85;
@@ -598,10 +599,10 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 30px 60px -50px, rgba(50, 50, 93, 0.25) 0px 3
 --hds-color-action-icon-onSolid: #fff;
 --hds-color-util-text-subdued: #64748d;
 --hds-color-accentColorMode-orange-icon-gradientStart: #fe8c2d;
---hds-color-core-error-500: #d8351e;
---hds-color-button-ui-iconDisabled: #95a4ba;
---hds-color-util-action-text-soft: #665efd;
 --hds-color-core-orange-500: #d04900;
+--hds-color-button-ui-iconDisabled: #95a4ba;
+--hds-color-core-error-500: #d8351e;
+--hds-color-util-action-text-soft: #665efd;
 --hds-color-core-brandDark-925A: #582be233;
 --hds-color-accent-charm-gradientEnd: #4032c8;
 --hds-color-core-error-400: #f3432a;
@@ -615,12 +616,12 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 30px 60px -50px, rgba(50, 50, 93, 0.25) 0px 3
 --hds-color-input-tile-border-selected: #7f7dfc;
 --hds-color-util-neutral-900: #1a2c44;
 --hds-color-core-brandDark-500: #5d64fe;
---hds-color-core-brand-100: #d6d9fc;
 --hds-color-input-tile-text-hover: #533afd;
+--hds-color-core-brand-100: #d6d9fc;
 --hds-color-util-neutral-500: #64748d;
 --hds-color-action-border-subdued: #b9b9f9;
---hds-color-util-action-border-subdued: #7f7dfc;
 --hds-color-input-tile-text-pressed: #2e2b8c;
+--hds-color-util-action-border-subdued: #7f7dfc;
 --hds-color-input-selector-text-availableHover: #4032c8;
 --hds-color-input-border-disabled: #d4dee9;
 --accent-gradient-color-stop-2: #643afd;
@@ -636,8 +637,8 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 30px 60px -50px, rgba(50, 50, 93, 0.25) 0px 3
 --hds-color-core-neutralDark-300: #a3b5d6;
 --hds-color-button-primary-bgHover: #4032c8;
 --hds-color-button-secondary-iconHover: #2e2b8c;
---hds-color-core-neutralDark-100: #d4deef;
 --hds-color-core-neutralDark-975: #101d4e;
+--hds-color-core-neutralDark-100: #d4deef;
 --hds-color-util-success-600: #006f3a;
 --hds-color-core-neutralDark-950A: #17297080;
 --hds-color-accentColorMode-ruby-border-quiet: #fed9de;
@@ -673,12 +674,12 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 30px 60px -50px, rgba(50, 50, 93, 0.25) 0px 3
 --hds-color-core-orange-350: #ff6118;
 --hds-color-core-brand-975: #0f1137;
 --hds-color-action-icon-navigation-solid: #061b31;
---hds-color-util-accent-ruby-600: #b51145;
 --hds-color-accentColorMode-default-icon-gradientStart: #7f7dfc;
---hds-color-util-border-soft: #50617a;
---hds-color-input-bg-disabled: #e5edf5;
+--hds-color-util-accent-ruby-600: #b51145;
 --hds-color-action-icon-navigation-subdued: #64748d;
+--hds-color-input-bg-disabled: #e5edf5;
 --hds-color-accentColorMode-lemon-surface-subduedAlt: #fff2d8;
+--hds-color-util-border-soft: #50617a;
 --hds-color-util-accent-lemon-50: #fff2d8;
 --hds-color-accent-icon-solid: #533afd;
 --hds-color-button-primary-textHover: #fff;
@@ -690,9 +691,9 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 30px 60px -50px, rgba(50, 50, 93, 0.25) 0px 3
 --navigation-padding-outer: 8px;
 --hds-space-core-1900: 152px;
 --hds-space-core-300: 24px;
+--hds-space-core-250: 20px;
 --hds-space-core-2000: 160px;
 --hds-font-heading-md-letterSpacing: -0.01em;
---hds-space-core-250: 20px;
 --hds-font-text-lg-letterSpacing: 0em;
 --hds-space-input-text-paddingX-lg: 16px;
 --hds-space-input-text-paddingY-sm: 8px;
@@ -720,8 +721,8 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 30px 60px -50px, rgba(50, 50, 93, 0.25) 0px 3
 --hds-space-core-400: 32px;
 --hds-font-heading-lg-size: 2rem;
 --hds-space-input-focus-shadowOuter: 4px;
---hds-space-input-gap-errorMessage: 4px;
 --hds-space-block-stack-gap-lg: 48px;
+--hds-space-input-gap-errorMessage: 4px;
 --hds-space-layout-columns: 12;
 --hds-space-core-1500: 120px;
 --hds-space-input-layered-label-minWidth: 120px;
@@ -743,12 +744,12 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 30px 60px -50px, rgba(50, 50, 93, 0.25) 0px 3
 --hds-font-input-label-sm-size: 0.75rem;
 --hds-font-heading-md-size: 1.625rem;
 --hds-space-layout-page-margin: 16px;
---hds-space-core-700: 56px;
 --hds-space-core-25: 2px;
+--hds-space-core-700: 56px;
 --hds-font-text-md-size: 1rem;
 --hds-font-input-text-md-letterSpacing: 0px;
---hds-space-core-1100: 88px;
 --hds-font-input-label-md-letterSpacing: 0px;
+--hds-space-core-1100: 88px;
 --hds-space-block-stack-gap-xl: 64px;
 --hds-space-button-radius-sm: 2px;
 --hds-space-core-1200: 96px;
@@ -756,15 +757,15 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 30px 60px -50px, rgba(50, 50, 93, 0.25) 0px 3
 --hds-font-heading-hero-lg-size: 2.5rem;
 --hds-space-core-radius-xs: 2px;
 --hds-space-core-600: 48px;
---hds-font-text-xs-letterSpacing: 0em;
 --hds-space-input-text-paddingX-md: 13px;
+--hds-font-text-xs-letterSpacing: 0em;
 --hds-font-quoteAttribution-md-size: 1.125rem;
 --hds-font-heading-xs-letterSpacing: 0em;
 --hds-space-core-450: 36px;
 --hds-font-text-xs-size: 0.875rem;
---hds-font-text-xxs-size: 0.75rem;
---hds-space-core-50: 4px;
 --hds-space-core-500: 40px;
+--hds-space-core-50: 4px;
+--hds-font-text-xxs-size: 0.75rem;
 --hds-space-input-text-paddingX-sm: 10px;
 --hds-font-text-md-letterSpacing: 0em;
 --hds-font-input-text-lgTextarea-size: 1rem;
@@ -772,8 +773,8 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 30px 60px -50px, rgba(50, 50, 93, 0.25) 0px 3
 --hds-font-input-groupHeading-size: 0.75rem;
 --hds-space-core-2500: 200px;
 --hds-font-text-xl-letterSpacing: -0.01em;
---hds-space-core-radius-xl: 32px;
 --hds-space-stat-content-padding-y: 36px;
+--hds-space-core-radius-xl: 32px;
 --hds-space-core-75: 6px;
 --hds-space-input-text-paddingX-listbox: 10px;
 --hds-font-heading-hero-lg-letterSpacing: -0.02em;
@@ -793,21 +794,21 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 30px 60px -50px, rgba(50, 50, 93, 0.25) 0px 3
 --hds-font-input-label-lg-letterSpacing: 0px;
 --hds-space-core-200: 16px;
 --hds-space-core-900: 72px;
---hds-space-button-height: 48px;
 --hds-space-input-layered-input-maxWidth: 360px;
+--hds-space-button-height: 48px;
 --hds-space-core-100: 8px;
 --hds-space-section-gap-top: 96px;
 --hds-font-heading-sm-letterSpacing: -0.01em;
---hds-font-text-xxl-size: 3rem;
---hds-space-input-focus-outline-offset: 1px;
 --hds-space-layout-content-margin: 16px;
+--hds-space-input-focus-outline-offset: 1px;
+--hds-font-text-xxl-size: 3rem;
 --hds-font-input-text-lg-size: 1rem;
 --hds-font-quote-md-size: 1.625rem;
 --hds-font-text-lg-size: 1.125rem;
 --hds-font-input-text-sm-letterSpacing: 0px;
 --hds-space-core-radius-md: 6px;
---hds-space-core-0: 0px;
 --hds-space-core-800: 64px;
+--hds-space-core-0: 0px;
 --hds-space-layout-content-maxWidth: 1264px;
 --hds-space-core-radius-sm: 4px;
 --hds-space-core-2300: 184px;
@@ -848,8 +849,8 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 30px 60px -50px, rgba(50, 50, 93, 0.25) 0px 3
 --hds-font-text-md-weight: 300;
 --hds-font-text-lg-weight: 300;
 --hero-font-lang-medium: 2.75rem;
---hds-font-input-text-sm-weight: 300;
 --hds-font-heading-hero-lg-weight: 300;
+--hds-font-input-text-sm-weight: 300;
 --hds-font-input-text-lgTextarea-weight: 300;
 --hds-font-text-xl-lineHeight: 1.4;
 --hds-font-heading-xxl-lineHeight: 1.03;
@@ -968,28 +969,6 @@ warning: [object Object];
 error: [object Object];
 info: [object Object];
 ```
-
-## Breakpoints
-
-| Name | Value | Type |
-|------|-------|------|
-| 400px | 400px | min-width |
-| sm | 480px | min-width |
-| sm | 599px | max-width |
-| sm | 600px | min-width |
-| sm | 639px | max-width |
-| sm | 640px | min-width |
-| md | 706px | max-width |
-| 840px | 840px | min-width |
-| 939px | 939px | max-width |
-| 940px | 940px | min-width |
-| lg | 1051px | min-width |
-| 1115px | 1115px | min-width |
-| xl | 1264px | min-width |
-| xl | 1295px | max-width |
-| xl | 1299px | max-width |
-| xl | 1300px | min-width |
-| 1609px | 1609px | max-width |
 
 ## Transitions & Animations
 
@@ -1262,7 +1241,7 @@ Reusable component instances grouped by DOM structure and style similarity:
 ```css
   background: rgb(83, 58, 253);
   color: rgb(255, 255, 255);
-  padding: 11.5px 20px 14.5px 20px;
+  padding: 15.5px 20px 16.5px 20px;
   border-radius: 4px;
   border: 0px none rgb(255, 255, 255);
   font-size: 14px;
@@ -2147,7 +2126,7 @@ gap: 32px 16px;
 **Issues:**
 - 3 WCAG contrast failures
 - 52% of CSS is unused — consider purging
-- 6098 duplicate CSS declarations
+- 6133 duplicate CSS declarations
 
 ## Gradients
 
@@ -2201,13 +2180,6 @@ background: radial-gradient(50% 50%, rgb(255, 207, 94) 41.35%, rgba(255, 207, 94
 | xl | 45 |
 
 **Icon colors:** `#031323`, `var(--hds-color-text-solid)`, `currentColor`, `white`, `black`, `var(--hds-color-surface-bg-quiet)`, `rgb(0, 0, 0)`, `#4285f4`, `#34a853`, `#fbbc04`
-
-## Font Files
-
-| Family | Source | Weights | Styles |
-|--------|--------|---------|--------|
-| sohne-var | self-hosted | 1 1000 | normal |
-| SourceCodePro | self-hosted | 500 | normal |
 
 ## Image Style Patterns
 
@@ -2356,7 +2328,7 @@ Reading order (top→bottom): cta → nav → nav → nav → pricing-table → 
 
 | Metric | Value |
 |--------|-------|
-| Avg saturation | 0.488 |
+| Avg saturation | 0.481 |
 | Shadow profile | soft |
 | Avg shadow blur | 0px |
 | Max radius | 100px |

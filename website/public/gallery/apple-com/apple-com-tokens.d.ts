@@ -7,14 +7,14 @@
 //   import tokens from './<host>-design-tokens.json';
 //
 // Source: https://apple.com
-// Generated: 2026-05-17T21:15:57.930Z
+// Generated: 2026-05-21T11:46:59.380Z
 
 export type Hex = `#${string}`;
 export type Px  = `${number}px`;
 export type Ms  = `${number}ms`;
 
 export type ColorRole = 'primary' | 'secondary' | 'accent';
-export type ColorHex  = '#000000' | '#1d1d1f' | '#2997ff' | '#333336' | '#f5f5f7' | '#0066cc' | '#6e6e73' | '#fafafc' | '#0071e3' | '#e8e8ed' | '#d2d2d7' | '#140a12' | '#9fc6f4' | '#ea33c0' | '#443c2a' | '#3397d4' | '#450a54' | '#5d4a32';
+export type ColorHex  = '#1d1d1f' | '#000000' | '#2997ff' | '#e8e8ed' | '#ffffff' | '#f5f5f7' | '#86868b' | '#0066cc' | '#0071e3' | '#6e6e73' | '#333336' | '#d2d2d7' | '#271a11' | '#ea33c0' | '#9fc6f4' | '#41626a' | '#3397d4' | '#371410';
 export type ColorToken = ColorRole | ColorHex;
 
 export type FontFamilyToken = 'SF Pro Text' | 'SF Pro Display' | 'Arial';

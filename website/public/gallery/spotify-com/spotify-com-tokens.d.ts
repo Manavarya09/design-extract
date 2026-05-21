@@ -7,14 +7,14 @@
 //   import tokens from './<host>-design-tokens.json';
 //
 // Source: https://spotify.com
-// Generated: 2026-05-17T21:15:59.522Z
+// Generated: 2026-05-21T11:46:57.242Z
 
 export type Hex = `#${string}`;
 export type Px  = `${number}px`;
 export type Ms  = `${number}ms`;
 
 export type ColorRole = 'primary' | 'secondary' | 'accent';
-export type ColorHex  = '#ffffff' | '#b3b3b3' | '#000000' | '#696969' | '#1ed760' | '#555555' | '#7c7c7c' | '#121212' | '#1f1f1f' | '#333333' | '#468254' | '#3860be' | '#346e4a' | '#292929' | '#0000ee' | '#c1c1c1' | '#402830' | '#667a7a' | '#6e7598' | '#7a7a11' | '#404040' | '#401800' | '#002038' | '#517aa3' | '#a16387' | '#c0574a' | '#006050' | '#eeeeee' | '#d8d8d8' | '#1db954' | '#701818' | '#c03830' | '#186090' | '#177ace' | '#a01010' | '#b03830' | '#501810' | '#d02028' | '#a03840' | '#b04808' | '#ba3cd1' | '#587888' | '#067eb6' | '#418369' | '#284038' | '#c00808' | '#204090' | '#a3694f' | '#4f7f77' | '#703090' | '#183860' | '#32ae88';
+export type ColorHex  = '#ffffff' | '#b3b3b3' | '#000000' | '#696969' | '#555555' | '#1ed760' | '#121212' | '#7c7c7c' | '#1f1f1f' | '#333333' | '#468254' | '#3860be' | '#346e4a' | '#292929' | '#0000ee' | '#c1c1c1' | '#002038' | '#eeeeee' | '#d8d8d8' | '#1db954' | '#b03830' | '#402830' | '#c03830' | '#701818' | '#817915' | '#384040' | '#186090' | '#93712d' | '#ba3cd1' | '#177ace' | '#687088' | '#318099' | '#cf4c1c' | '#7f7757' | '#e10096' | '#b02828' | '#883028' | '#067eb6' | '#517aa3' | '#418369' | '#284038' | '#381800' | '#c00808' | '#204090' | '#32ae88';
 export type ColorToken = ColorRole | ColorHex;
 
 export type FontFamilyToken = 'SpotifyMixUI' | 'Times' | 'SpotifyMixUITitle';

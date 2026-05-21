@@ -1,16 +1,16 @@
 {
   "pageIntent": {
     "type": "landing",
-    "confidence": 0.61,
+    "confidence": 0.51,
     "path": "/",
     "title": "Apple",
     "description": "Discover the innovative world of Apple and shop everything iPhone, iPad, Apple Watch, Mac, and Apple TV, plus explore accessories, entertainment, and expert device support.",
     "signals": [
       {
         "kind": "dom",
-        "type": "blog-post",
-        "weight": 0.35,
-        "detail": "byline|min-read"
+        "type": "pricing",
+        "weight": 0.6,
+        "detail": "currency+card-grid"
       },
       {
         "kind": "url",
@@ -27,11 +27,11 @@
     ],
     "alternates": [
       {
-        "type": "blog-post",
-        "score": 0.35
+        "type": "pricing",
+        "score": 0.6
       }
     ],
-    "needsSmart": false
+    "needsSmart": true
   },
   "sectionRoles": {
     "sections": [
@@ -108,24 +108,24 @@
         "role": "steps",
         "subrole": null,
         "confidence": 0.75,
-        "heading": "iPhone",
+        "heading": "Accessibility",
         "bounds": {
           "x": 0,
           "y": 0,
           "w": 1280,
           "h": 4959
         },
-        "buttonCount": 35,
+        "buttonCount": 32,
         "cardCount": 30,
         "slots": {
-          "heading": "iPhone",
+          "heading": "Accessibility",
           "subheadings": [
-            "MacBook Air",
-            "iPad Air",
-            "Apple for College",
-            "Apple Watch Series 11"
+            "iPhone",
+            "MacBook Neo",
+            "WWDC 26",
+            "Apple Card"
           ],
-          "ctaCount": 35
+          "ctaCount": 32
         },
         "needsSmart": false
       },
@@ -135,22 +135,22 @@
         "role": "hero",
         "subrole": null,
         "confidence": 0.85,
-        "heading": "iPhone",
+        "heading": "Accessibility",
         "bounds": {
           "x": 0,
           "y": 114,
           "w": 1280,
           "h": 2100
         },
-        "buttonCount": 6,
+        "buttonCount": 5,
         "cardCount": 0,
         "slots": {
-          "heading": "iPhone",
+          "heading": "Accessibility",
           "subheadings": [
-            "MacBook Air",
-            "iPad Air"
+            "iPhone",
+            "MacBook Neo"
           ],
-          "ctaCount": 6
+          "ctaCount": 5
         },
         "needsSmart": false
       },
@@ -160,24 +160,24 @@
         "role": "cta",
         "subrole": null,
         "confidence": 0.75,
-        "heading": "Apple for College",
+        "heading": "WWDC 26",
         "bounds": {
           "x": 0,
           "y": 2226,
           "w": 1280,
           "h": 1764
         },
-        "buttonCount": 10,
+        "buttonCount": 8,
         "cardCount": 0,
         "slots": {
-          "heading": "Apple for College",
+          "heading": "WWDC 26",
           "subheadings": [
-            "Apple Watch Series 11",
-            "Apple Watch Ultra 3",
-            "AirPods Pro 3",
-            "Apple Trade In"
+            "Apple Card",
+            "Apple for College",
+            "iPad Air",
+            "Apple Watch Series 11"
           ],
-          "ctaCount": 10
+          "ctaCount": 8
         },
         "needsSmart": false
       },
@@ -214,10 +214,10 @@
           "x": 0,
           "y": 4959,
           "w": 1280,
-          "h": 970.0625
+          "h": 1395.65625
         },
         "buttonCount": 11,
-        "cardCount": 75,
+        "cardCount": 72,
         "slots": {
           "heading": "Apple Footer",
           "subheadings": [
@@ -233,18 +233,18 @@
       {
         "index": 8,
         "tag": "section",
-        "role": "feature-grid",
+        "role": "pricing-table",
         "subrole": null,
-        "confidence": 0.8,
+        "confidence": 0.9,
         "heading": null,
         "bounds": {
           "x": 150,
           "y": 4959,
           "w": 980,
-          "h": 384.15625
+          "h": 809.75
         },
         "buttonCount": 0,
-        "cardCount": 7,
+        "cardCount": 4,
         "slots": {},
         "needsSmart": false
       },
@@ -257,7 +257,7 @@
         "heading": "Shop and Learn",
         "bounds": {
           "x": 150,
-          "y": 5343.15625,
+          "y": 5768.75,
           "w": 980,
           "h": 459.90625
         },
@@ -284,7 +284,7 @@
         "heading": null,
         "bounds": {
           "x": 150,
-          "y": 5803.0625,
+          "y": 6228.65625,
           "w": 980,
           "h": 126
         },
@@ -304,7 +304,7 @@
       "cta": 1,
       "gallery": 1,
       "footer": 1,
-      "feature-grid": 1,
+      "pricing-table": 1,
       "content": 1
     },
     "readingOrder": [
@@ -316,7 +316,7 @@
       "cta",
       "gallery",
       "footer",
-      "feature-grid",
+      "pricing-table",
       "nav",
       "content"
     ]

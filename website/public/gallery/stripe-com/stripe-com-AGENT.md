@@ -1,7 +1,7 @@
 # You are building UI in the stripe.com design system.
 
 Source: https://stripe.com
-Extracted by designlang on 2026-05-17.
+Extracted by designlang on 2026-05-21.
 
 ## Brand at a glance
 
@@ -15,7 +15,7 @@ Extracted by designlang on 2026-05-17.
 - primary     #533afd
 - secondary   #e5edf5
 - accent      #ffe0d1
-- neutrals    #000000 · #50617a · #ffffff · #64748d · #101010 · #f2f7fe
+- neutrals    #000000 · #50617a · #ffffff · #64748d · #7d8ba4 · #101010
 
 ## Typography
 

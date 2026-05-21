@@ -1,13 +1,12 @@
 Clone the design language of this landing page and build a fresh equivalent.
 Visual feel: material-you. Tone: friendly · Headings: Sentence case · CTA verbs: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
-Primary palette: #ffffff, #b3b3b3, #000000, #696969, #1ed760.
+Primary palette: #ffffff, #b3b3b3, #000000, #696969, #555555.
 Typography: [object Object], [object Object], [object Object].
 Corner radius vocabulary: 2, 6, 10, 16, 20, 32.
 Shadow vocabulary: rgb(124, 124, 124) 0px 0px 0px 1px inset | rgb(18, 18, 18) 0px 1px 0px 0px, rgb(124, 124, 124) 0px 0px 0px 1px inset | rgb(128, 128, 128) 0px 0px 5px 0px.
 Page structure:
 - cta
-- testimonials — heading: "Home"
+- pricing — heading: "Home"
 - testimonials — heading: "Home"
 - hero — heading: "Trending songs"
 - hero — heading: "Popular albums and singles"
-- feature-grid — heading: "Featured Charts"

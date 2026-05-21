@@ -7,7 +7,7 @@
 //   import tokens from './<host>-design-tokens.json';
 //
 // Source: https://notion.so
-// Generated: 2026-05-17T21:15:57.936Z
+// Generated: 2026-05-21T11:47:01.486Z
 
 export type Hex = `#${string}`;
 export type Px  = `${number}px`;

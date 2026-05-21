@@ -1,7 +1,7 @@
 # You are building UI in the spotify.com design system.
 
 Source: https://spotify.com
-Extracted by designlang on 2026-05-17.
+Extracted by designlang on 2026-05-21.
 
 ## Brand at a glance
 
@@ -15,7 +15,7 @@ Extracted by designlang on 2026-05-17.
 - primary     #1ed760
 - secondary   #346e4a
 - accent      #1db954
-- neutrals    #ffffff · #b3b3b3 · #000000 · #696969 · #555555 · #7c7c7c
+- neutrals    #ffffff · #b3b3b3 · #000000 · #696969 · #555555 · #121212
 
 ## Typography
 

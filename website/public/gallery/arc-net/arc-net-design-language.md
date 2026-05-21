@@ -1,6 +1,6 @@
 # Design Language: Arc from The Browser Company
 
-> Extracted from `https://arc.net` on May 18, 2026
+> Extracted from `https://arc.net` on May 21, 2026
 > 450 elements analyzed
 
 This document describes the complete design language of the website. It is structured for AI/LLM consumption — use it to faithfully recreate the visual design in any framework.
@@ -135,15 +135,15 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 0px;
 ### Colors
 
 ```css
---colors-focusOutline: #96C4FF;
 --colors-primary7: rgb(207, 56, 40);
+--colors-focusOutline: #96C4FF;
 --colors-highContrast: #000;
 --colors-primary6: rgb(250, 69, 49);
 --colors-students-light_grey-hover: rgb(215, 214, 196);
 --colors-brandOffwhite: #FFFCEC;
 --colors-secondary4: rgb(0, 130, 121);
---colors-secondary2: rgb(0, 201, 195);
 --colors-brandDeepBlue: #2404AA;
+--colors-secondary2: rgb(0, 201, 195);
 --colors-lowContrast: #FFF;
 --colors-students-light_green: rgb(211, 224, 129);
 --colors-primary4: rgb(252, 130, 121);
@@ -203,9 +203,9 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 0px;
 --space-64: 64px;
 --sizes-40: 40px;
 --sizes-48: 48px;
---sizes-16: 16px;
 --sizes-56: 56px;
 --sizes-8: 8px;
+--sizes-16: 16px;
 --fontSizes-10: 10px;
 --space-56: 56px;
 --fontSizes-36: 36px;
@@ -213,8 +213,8 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 0px;
 --sizes-4: 4px;
 --space-12: 12px;
 --fontSizes-40: 40px;
---sizes-72: 72px;
 --fontSizes-12: 12px;
+--sizes-72: 72px;
 --fontSizes-16: 16px;
 --fontSizes-32: 32px;
 --sizes-32: 32px;
@@ -231,16 +231,16 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 0px;
 --fonts-boostSans: -apple-system, BlinkMacSystemFont, sans-serif;
 --fonts-sans: Marlin, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 --fonts-exposure: "Exposure VAR", "Helvetica", sans-serif;
+--fontWeights-500: 500;
 --fonts-referralSans: -apple-system, BlinkMacSystemFont, sans-serif;
 --fontWeights-800: 800;
---fontWeights-500: 500;
 --fonts-oracle: "ABC Oracle", "Helvetica", sans-serif;
 --fontWeights-400: 400;
 --fonts-boostsSoft: Marlin Soft Basic, -apple-system, BlinkMacSystemFont, sans-serif;
 --fonts-cta: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 --fonts-mono: ABC Favorit Mono, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
---fonts-softSans: Marlin Soft SQ, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 --fonts-referralCode: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+--fonts-softSans: Marlin Soft SQ, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 --fontWeights-600: 600;
 ```
 
@@ -266,8 +266,8 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 0px;
 --radii-32: 32px;
 --lineHeights-32: 32px;
 --lineHeights-56: 56px;
---lineHeights-24: 24px;
 --lineHeights-12: 12px;
+--lineHeights-24: 24px;
 --radii-4: 4px;
 --radii-round: 9999px;
 --radii-16: 16px;

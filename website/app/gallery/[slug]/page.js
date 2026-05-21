@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { notFound } from 'next/navigation';
 import GalleryTabs from './GalleryTabs';
 import CopyAgentPrompt from './CopyAgentPrompt';
+import MotionLab from './MotionLab';
 
 export const revalidate = 86400;
 export const dynamic = 'force-static';
@@ -254,9 +255,19 @@ export default async function GalleryBrandPage({ params }) {
   const ctaVerbs = (voice?.ctaVerbs || []).slice(0, 8);
   const headings = (voice?.headlines || voice?.headings || []).slice(0, 6);
 
-  // Motion durations / easings as flat lists
-  const motionDurations = motion?.duration ? Object.entries(motion.duration).slice(0, 6) : [];
-  const motionEasings   = motion?.easing   ? Object.entries(motion.easing).slice(0, 6)   : [];
+  // Motion durations / easings as flat lists for the interactive Motion Lab.
+  const motionDurations = motion?.duration
+    ? Object.entries(motion.duration).map(([name, v]) => ({
+        name,
+        ms: v?.ms || parseInt(String(v?.$value || v || '0'), 10) || 0,
+      })).filter((d) => d.ms > 0).slice(0, 8)
+    : [];
+  const motionEasings = motion?.easing
+    ? Object.entries(motion.easing).map(([, v]) => ({
+        value: v?.$value || v,
+        family: v?.family || null,
+      })).filter((e) => typeof e.value === 'string').slice(0, 9)
+    : [];
 
   return (
     <main>
@@ -481,46 +492,25 @@ export default async function GalleryBrandPage({ params }) {
         </section>
       )}
 
-      {/* Motion */}
+      {/* Motion Lab — motionlang */}
       {(motionDurations.length > 0 || motionEasings.length > 0) && (
         <section className="section" style={{ paddingTop: 32 }} id="motion">
           <div className="wrap">
             <header style={{ marginBottom: 22 }}>
-              <h2 className="h2" style={{ fontSize: 28, marginBottom: 8 }}>Motion</h2>
-              <p className="lede" style={{ margin: 0 }}>Durations and easing curves captured from real CSS transitions.</p>
+              <p className="eyebrow" style={{ marginBottom: 8 }}>motionlang</p>
+              <h2 className="h2" style={{ fontSize: 28, marginBottom: 8 }}>Motion Lab</h2>
+              <p className="lede" style={{ margin: 0 }}>
+                Every easing curve and duration {host} ships, drawn and replayed live.
+                Export them as Framer Motion presets from the <code className="kbd" style={{ fontSize: 12 }}>motion.framer.js</code> tab above.
+              </p>
             </header>
-            <div className="grid-2">
-              {motionDurations.length > 0 && (
-                <div className="card" style={{ padding: '20px 24px' }}>
-                  <p className="mono faint" style={{ fontSize: 11, letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 14px' }}>durations</p>
-                  <div className="gb-spacing">
-                    {motionDurations.map(([k, v]) => {
-                      const ms = parseInt(String(v?.$value || v || '0'), 10) || 0;
-                      return (
-                        <div key={k} className="gb-spacing-row">
-                          <span className="mono" style={{ width: 80, color: 'var(--fg-3)' }}>{k}</span>
-                          <span className="gb-spacing-bar" style={{ width: Math.min(ms / 3, 220), background: primary }} />
-                          <span className="mono faint" style={{ width: 60, textAlign: 'right' }}>{v?.$value || v}</span>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-              {motionEasings.length > 0 && (
-                <div className="card" style={{ padding: '20px 24px' }}>
-                  <p className="mono faint" style={{ fontSize: 11, letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 14px' }}>easings</p>
-                  <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: 8 }}>
-                    {motionEasings.map(([k, v]) => (
-                      <li key={k} style={{ display: 'flex', justifyContent: 'space-between', gap: 12, fontSize: 12 }}>
-                        <span className="mono" style={{ color: '#fff' }}>{k}</span>
-                        <span className="mono faint">{v?.$value || v}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
+            <MotionLab
+              durations={motionDurations}
+              easings={motionEasings}
+              primary={primary}
+              host={host}
+              slug={slug}
+            />
           </div>
         </section>
       )}

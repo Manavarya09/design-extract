@@ -13,13 +13,3 @@ export interface ButtonProps {
 export function Button({ variant = 'link', size = 'md', ...rest }: ButtonProps) {
   return React.createElement('button', { 'data-variant': variant, 'data-size': size, ...rest });
 }
-
-export interface CardProps {
-  variant?: 'default';
-  size?: 'md';
-  children?: React.ReactNode;
-}
-
-export function Card({ variant = 'default', size = 'md', ...rest }: CardProps) {
-  return React.createElement('div', { 'data-variant': variant, 'data-size': size, ...rest });
-}

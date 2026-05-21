@@ -2,38 +2,40 @@
   /* Colors — Primary */
   --color-primary: #f5f5f7;
   --color-secondary: #0071e3;
-  --color-accent: #fafafc;
+  --color-accent: #ea33c0;
 
   /* Colors — Neutrals */
-  --color-neutral-50: #000000;
-  --color-neutral-100: #1d1d1f;
-  --color-neutral-200: #333336;
-  --color-neutral-300: #6e6e73;
-  --color-neutral-400: #e8e8ed;
-  --color-neutral-500: #d2d2d7;
-  --color-neutral-600: #443c2a;
+  --color-neutral-50: #1d1d1f;
+  --color-neutral-100: #000000;
+  --color-neutral-200: #e8e8ed;
+  --color-neutral-300: #ffffff;
+  --color-neutral-400: #86868b;
+  --color-neutral-500: #6e6e73;
+  --color-neutral-600: #333336;
+  --color-neutral-700: #d2d2d7;
+  --color-neutral-800: #41626a;
 
   /* Colors — Backgrounds */
   --color-bg: #ffffff;
-  --color-bg-1: #fafafc;
-  --color-bg-2: #e8e8ed;
-  --color-bg-3: #f5f5f7;
-  --color-bg-4: #000000;
+  --color-bg-1: #161617;
+  --color-bg-2: #1d1d1f;
+  --color-bg-3: #000000;
+  --color-bg-4: #f5f5f7;
   --color-bg-5: #f4f8fb;
-  --color-bg-6: #140a12;
-  --color-bg-7: #9fc6f4;
-  --color-bg-8: #ea33c0;
-  --color-bg-9: #443c2a;
-  --color-bg-10: #3397d4;
-  --color-bg-11: #450a54;
-  --color-bg-12: #5d4a32;
+  --color-bg-6: #271a11;
+  --color-bg-7: #ea33c0;
+  --color-bg-8: #9fc6f4;
+  --color-bg-9: #2b3a37;
+  --color-bg-10: #41626a;
+  --color-bg-11: #3397d4;
+  --color-bg-12: #371410;
 
   /* Colors — Text */
   --color-text: #000000;
   --color-text-1: #1d1d1f;
   --color-text-2: #ffffff;
-  --color-text-3: #6e6e73;
-  --color-text-4: #333336;
+  --color-text-3: #86868b;
+  --color-text-4: #e8e8ed;
 
   /* Typography — Families */
   --font-sans: 'SF Pro Text', sans-serif;
@@ -46,13 +48,13 @@
   --font-size-40: 40px;
   --font-size-34: 34px;
   --font-size-28: 28px;
-  --font-size-25.5: 25.5px;
   --font-size-24: 24px;
   --font-size-21: 21px;
   --font-size-18: 18px;
   --font-size-17: 17px;
   --font-size-14: 14px;
   --font-size-13.3333: 13.3333px;
+  --font-size-12: 12px;
 
   /* Spacing */
   --spacing-1: 1px;

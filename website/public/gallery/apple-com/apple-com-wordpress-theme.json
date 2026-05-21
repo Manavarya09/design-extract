@@ -16,32 +16,32 @@
         },
         {
           "slug": "accent",
-          "color": "#fafafc",
+          "color": "#ea33c0",
           "name": "Accent"
         },
         {
           "slug": "neutral-1",
-          "color": "#000000",
+          "color": "#1d1d1f",
           "name": "Neutral 1"
         },
         {
           "slug": "neutral-2",
-          "color": "#1d1d1f",
+          "color": "#000000",
           "name": "Neutral 2"
         },
         {
           "slug": "neutral-3",
-          "color": "#333336",
+          "color": "#e8e8ed",
           "name": "Neutral 3"
         },
         {
           "slug": "neutral-4",
-          "color": "#6e6e73",
+          "color": "#ffffff",
           "name": "Neutral 4"
         },
         {
           "slug": "neutral-5",
-          "color": "#e8e8ed",
+          "color": "#86868b",
           "name": "Neutral 5"
         },
         {
@@ -50,14 +50,14 @@
           "name": "Background #ffffff"
         },
         {
-          "slug": "bg-fafafc",
-          "color": "#fafafc",
-          "name": "Background #fafafc"
+          "slug": "bg-161617",
+          "color": "#161617",
+          "name": "Background #161617"
         },
         {
-          "slug": "bg-e8e8ed",
-          "color": "#e8e8ed",
-          "name": "Background #e8e8ed"
+          "slug": "bg-1d1d1f",
+          "color": "#1d1d1f",
+          "name": "Background #1d1d1f"
         }
       ],
       "gradients": [
@@ -118,11 +118,6 @@
           "name": "28px"
         },
         {
-          "size": "25.5px",
-          "slug": "size-25.5",
-          "name": "25.5px"
-        },
-        {
           "size": "24px",
           "slug": "size-24",
           "name": "24px"
@@ -131,6 +126,11 @@
           "size": "21px",
           "slug": "size-21",
           "name": "21px"
+        },
+        {
+          "size": "18px",
+          "slug": "size-18",
+          "name": "18px"
         }
       ]
     },

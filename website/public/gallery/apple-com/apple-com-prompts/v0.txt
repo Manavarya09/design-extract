@@ -1,18 +1,18 @@
 Build a landing page with this exact visual language.
 COLORS:
-  #000000
   #1d1d1f
+  #000000
   #2997ff
-  #333336
-  #f5f5f7
-  #0066cc
-  #6e6e73
-  #fafafc
-  #0071e3
   #e8e8ed
+  #ffffff
+  #f5f5f7
+  #86868b
+  #0066cc
+  #0071e3
+  #6e6e73
+  #333336
   #d2d2d7
-  #140a12
-  #9fc6f4
+  #271a11
   #ea33c0
 FONTS: [object Object], [object Object], [object Object]
 SPACING: 1, 4, 24, 26, 29, 32, 34, 37
@@ -23,10 +23,10 @@ VOICE: Tone: friendly · Headings: Title Case · CTA verbs: [object Object], [ob
 SECTIONS (in order):
 - sidebar
 - sidebar
-- steps — heading: "iPhone"
-- hero — heading: "iPhone"
-- cta — heading: "Apple for College"
+- steps — heading: "Accessibility"
+- hero — heading: "Accessibility"
+- cta — heading: "WWDC 26"
 - gallery — heading: "Endless entertainment."
 - footer — heading: "Apple Footer"
-- feature-grid
+- pricing-table
 Use Tailwind. Match these tokens exactly. Keep the material language consistent.

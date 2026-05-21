@@ -17,6 +17,7 @@
     neutral300: string;
     neutral400: string;
     neutral500: string;
+    neutral600: string;
  *   };
  *   fonts: {
     body: string;
@@ -82,8 +83,9 @@ export const theme = {
     "neutral100": "#50617a",
     "neutral200": "#ffffff",
     "neutral300": "#64748d",
-    "neutral400": "#101010",
-    "neutral500": "#f2f7fe"
+    "neutral400": "#7d8ba4",
+    "neutral500": "#101010",
+    "neutral600": "#f2f7fe"
   },
   "fonts": {
     "body": "'sohne-var', sans-serif"

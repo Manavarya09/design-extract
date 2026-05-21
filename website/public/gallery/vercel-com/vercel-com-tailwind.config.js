@@ -193,7 +193,7 @@ export default {
     screens: {
         '401px': '401px',
         sm: '650px',
-        md: '800px',
+        md: '769px',
         lg: '1036px',
         '1151px': '1151px',
         '1200px': '1200px',
@@ -211,7 +211,7 @@ export default {
     },
     transitionTimingFunction: {
         default: 'ease',
-        custom: 'cubic-bezier(0.33, 0.12, 0.15, 1)'
+        custom: 'cubic-bezier(0.3, 0.57, 0.07, 0.95)'
     },
     container: {
         center: true,

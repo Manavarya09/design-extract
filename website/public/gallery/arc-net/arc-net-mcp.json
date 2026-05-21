@@ -323,17 +323,10 @@
     "sheets": [
       {
         "url": "https://arc.net/",
-        "totalBytes": 40,
-        "usedBytes": 40,
-        "unusedBytes": 0,
-        "unusedPercent": 0
-      },
-      {
-        "url": "https://arc.net/",
-        "totalBytes": 213963,
-        "usedBytes": 176165,
-        "unusedBytes": 37798,
-        "unusedPercent": 18
+        "totalBytes": 437,
+        "usedBytes": 419,
+        "unusedBytes": 18,
+        "unusedPercent": 4
       },
       {
         "url": "https://arc.net/",
@@ -341,6 +334,13 @@
         "usedBytes": 0,
         "unusedBytes": 1301,
         "unusedPercent": 100
+      },
+      {
+        "url": "https://arc.net/",
+        "totalBytes": 213963,
+        "usedBytes": 176165,
+        "unusedBytes": 37798,
+        "unusedPercent": 18
       },
       {
         "url": "https://arc.net/_next/static/css/df28c1bc1b1a6c7d.css",
@@ -351,10 +351,10 @@
       },
       {
         "url": "https://arc.net/",
-        "totalBytes": 437,
-        "usedBytes": 419,
-        "unusedBytes": 18,
-        "unusedPercent": 4
+        "totalBytes": 40,
+        "usedBytes": 40,
+        "unusedBytes": 0,
+        "unusedPercent": 0
       }
     ],
     "totalBytes": 222050,

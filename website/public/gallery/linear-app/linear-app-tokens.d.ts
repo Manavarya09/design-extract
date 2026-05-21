@@ -7,7 +7,7 @@
 //   import tokens from './<host>-design-tokens.json';
 //
 // Source: https://linear.app
-// Generated: 2026-05-17T21:16:00.308Z
+// Generated: 2026-05-21T11:46:56.718Z
 
 export type Hex = `#${string}`;
 export type Px  = `${number}px`;

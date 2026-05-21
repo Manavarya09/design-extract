@@ -5,14 +5,14 @@
   "stats": {
     "count": 108,
     "strokeOnly": 0,
-    "fillOnly": 92,
+    "fillOnly": 93,
     "mixed": 0,
     "avgStrokeWidth": 2.05,
     "gridDistribution": {
       "16": 85,
       "32": 1
     },
-    "roundedCapsFraction": 0.78
+    "roundedCapsFraction": 0.79
   },
   "signals": [
     "fillDominant",
@@ -83,7 +83,7 @@
       "class": "",
       "grid": 16,
       "strokeWidth": null,
-      "style": "mixed"
+      "style": "fill"
     },
     {
       "class": "",

@@ -49,8 +49,9 @@ export default {
         'neutral-100': '#50617a',
         'neutral-200': '#ffffff',
         'neutral-300': '#64748d',
-        'neutral-400': '#101010',
-        'neutral-500': '#f2f7fe',
+        'neutral-400': '#7d8ba4',
+        'neutral-500': '#101010',
+        'neutral-600': '#f2f7fe',
         background: '#ffffff',
         foreground: '#000000'
     },
@@ -178,15 +179,6 @@ export default {
         md: 'rgba(23, 23, 23, 0.06) 0px 3px 6px 0px',
         lg: 'rgba(0, 0, 0, 0.06) 0px 4px 24px 0px, rgba(0, 0, 0, 0.03) 0px 1px 2px 0px',
         xl: 'rgba(0, 0, 0, 0.1) 0px 30px 60px -50px, rgba(50, 50, 93, 0.25) 0px 30px 60px -10px'
-    },
-    screens: {
-        '400px': '400px',
-        sm: '640px',
-        '840px': '840px',
-        '940px': '940px',
-        lg: '1051px',
-        '1115px': '1115px',
-        xl: '1300px'
     },
     transitionDuration: {
         '0': '0s',

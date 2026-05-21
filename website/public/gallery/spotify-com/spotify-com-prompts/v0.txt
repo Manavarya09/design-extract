@@ -4,10 +4,10 @@ COLORS:
   #b3b3b3
   #000000
   #696969
-  #1ed760
   #555555
-  #7c7c7c
+  #1ed760
   #121212
+  #7c7c7c
   #1f1f1f
   #333333
   #468254
@@ -22,9 +22,8 @@ MATERIAL LANGUAGE: material-you
 VOICE: Tone: friendly · Headings: Sentence case · CTA verbs: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
 SECTIONS (in order):
 - cta
-- testimonials — heading: "Home"
+- pricing — heading: "Home"
 - testimonials — heading: "Home"
 - hero — heading: "Trending songs"
 - hero — heading: "Popular albums and singles"
-- feature-grid — heading: "Featured Charts"
 Use Tailwind. Match these tokens exactly. Keep the material language consistent.

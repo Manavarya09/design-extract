@@ -8,14 +8,14 @@
     }
   ],
   "stats": {
-    "count": 81,
+    "count": 63,
     "strokeOnly": 0,
-    "fillOnly": 80,
+    "fillOnly": 62,
     "mixed": 1,
     "avgStrokeWidth": 0,
     "gridDistribution": {
-      "16": 23,
-      "24": 58
+      "16": 19,
+      "24": 44
     },
     "roundedCapsFraction": 0
   },

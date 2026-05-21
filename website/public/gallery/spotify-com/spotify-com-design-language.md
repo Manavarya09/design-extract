@@ -1,7 +1,7 @@
 # Design Language: Spotify - Web Player: Music for everyone
 
-> Extracted from `https://spotify.com` on May 18, 2026
-> 2974 elements analyzed
+> Extracted from `https://spotify.com` on May 21, 2026
+> 2525 elements analyzed
 
 This document describes the complete design language of the website. It is structured for AI/LLM consumption — use it to faithfully recreate the visual design in any framework.
 
@@ -11,7 +11,7 @@ This document describes the complete design language of the website. It is struc
 
 | Role | Hex | RGB | HSL | Usage Count |
 |------|-----|-----|-----|-------------|
-| Primary | `#1ed760` | rgb(30, 215, 96) | hsl(141, 76%, 48%) | 54 |
+| Primary | `#1ed760` | rgb(30, 215, 96) | hsl(141, 76%, 48%) | 40 |
 | Secondary | `#346e4a` | rgb(52, 110, 74) | hsl(143, 36%, 32%) | 6 |
 | Accent | `#1db954` | rgb(29, 185, 84) | hsl(141, 73%, 42%) | 2 |
 
@@ -19,18 +19,18 @@ This document describes the complete design language of the website. It is struc
 
 | Hex | HSL | Usage Count |
 |-----|-----|-------------|
-| `#ffffff` | hsl(0, 0%, 100%) | 2847 |
-| `#b3b3b3` | hsl(0, 0%, 70%) | 2199 |
-| `#000000` | hsl(0, 0%, 0%) | 722 |
+| `#ffffff` | hsl(0, 0%, 100%) | 2367 |
+| `#b3b3b3` | hsl(0, 0%, 70%) | 1887 |
+| `#000000` | hsl(0, 0%, 0%) | 610 |
 | `#696969` | hsl(0, 0%, 41%) | 129 |
 | `#555555` | hsl(0, 0%, 33%) | 44 |
-| `#7c7c7c` | hsl(0, 0%, 49%) | 24 |
-| `#121212` | hsl(0, 0%, 7%) | 20 |
-| `#1f1f1f` | hsl(0, 0%, 12%) | 15 |
-| `#333333` | hsl(0, 0%, 20%) | 9 |
+| `#121212` | hsl(0, 0%, 7%) | 28 |
+| `#7c7c7c` | hsl(0, 0%, 49%) | 25 |
+| `#1f1f1f` | hsl(0, 0%, 12%) | 11 |
+| `#333333` | hsl(0, 0%, 20%) | 11 |
 | `#292929` | hsl(0, 0%, 16%) | 5 |
 | `#c1c1c1` | hsl(0, 0%, 76%) | 2 |
-| `#402830` | hsl(340, 23%, 20%) | 2 |
+| `#eeeeee` | hsl(0, 0%, 93%) | 2 |
 
 ### Background Colors
 
@@ -58,44 +58,44 @@ background-image: linear-gradient(rgba(0, 0, 0, 0.6) 0%, rgb(18, 18, 18) 100%), 
 
 | Hex | Contexts | Count |
 |-----|----------|-------|
-| `#ffffff` | background, text, border | 2847 |
-| `#b3b3b3` | text, border, background | 2199 |
-| `#000000` | text, border, background | 722 |
+| `#ffffff` | background, text, border | 2367 |
+| `#b3b3b3` | text, border, background | 1887 |
+| `#000000` | text, border, background | 610 |
 | `#696969` | text, border | 129 |
-| `#1ed760` | background | 54 |
 | `#555555` | background, text, border | 44 |
-| `#7c7c7c` | text, border, background | 24 |
-| `#121212` | background, text, border | 20 |
-| `#1f1f1f` | background | 15 |
-| `#333333` | background | 9 |
+| `#1ed760` | background | 40 |
+| `#121212` | background, text, border | 28 |
+| `#7c7c7c` | text, border, background | 25 |
+| `#1f1f1f` | background | 11 |
+| `#333333` | background | 11 |
 | `#468254` | background | 9 |
 | `#3860be` | text, border, background | 6 |
 | `#346e4a` | background, border | 6 |
 | `#292929` | border, background | 5 |
 | `#0000ee` | text, border | 4 |
 | `#c1c1c1` | border, text | 2 |
-| `#402830` | background | 2 |
-| `#667a7a` | background | 2 |
-| `#6e7598` | background | 2 |
-| `#7a7a11` | background | 2 |
-| `#404040` | background | 2 |
-| `#401800` | background | 2 |
 | `#002038` | background | 2 |
-| `#517aa3` | background | 2 |
-| `#a16387` | background | 2 |
-| `#c0574a` | background | 2 |
-| `#006050` | background | 2 |
 | `#eeeeee` | background | 2 |
 | `#d8d8d8` | border | 2 |
 | `#1db954` | background, border | 2 |
+| `#b03830` | background | 1 |
+| `#402830` | background | 1 |
+| `#c03830` | background | 1 |
+| `#701818` | background | 1 |
+| `#817915` | background | 1 |
+| `#384040` | background | 1 |
+| `#186090` | background | 1 |
+| `#93712d` | background | 1 |
+| `#ba3cd1` | background | 1 |
+| `#177ace` | background | 1 |
 
 ## Typography
 
 ### Font Families
 
-- **SpotifyMixUI** — used for all (2843 elements)
+- **SpotifyMixUI** — used for all (2400 elements)
 - **Times** — used for body (115 elements)
-- **SpotifyMixUITitle** — used for all (16 elements)
+- **SpotifyMixUITitle** — used for all (10 elements)
 
 ### Type Scale
 
@@ -129,7 +129,7 @@ body { font-size: 16px; font-weight: 400; line-height: normal; }
 
 ### Font Weights in Use
 
-`400` (2854x), `700` (94x), `600` (22x), `500` (4x)
+`400` (2409x), `700` (86x), `600` (26x), `500` (4x)
 
 ## Spacing
 
@@ -152,15 +152,15 @@ body { font-size: 16px; font-weight: 400; line-height: normal; }
 
 | Label | Value | Count |
 |-------|-------|-------|
-| xs | 2px | 41 |
-| md | 6px | 147 |
+| xs | 2px | 43 |
+| md | 6px | 103 |
 | md | 10px | 4 |
 | lg | 16px | 1 |
 | xl | 20px | 9 |
 | full | 32px | 1 |
-| full | 50px | 38 |
-| full | 500px | 55 |
-| full | 9999px | 134 |
+| full | 50px | 34 |
+| full | 500px | 41 |
+| full | 9999px | 106 |
 
 ## Box Shadows
 
@@ -229,8 +229,8 @@ box-shadow: rgba(0, 0, 0, 0.5) 0px 8px 24px 0px;
 --end-gradient-color: rgb(0, 0, 0);
 --gradient-color-bottom: rgb(24, 24, 24);
 --text-bright-accent: #1ed760;
---encore-border-width-thicker: 8px;
 --essential-bright-accent: #1ed760;
+--encore-border-width-thicker: 8px;
 ```
 
 ### Spacing
@@ -239,9 +239,9 @@ box-shadow: rgba(0, 0, 0, 0.5) 0px 8px 24px 0px;
 --encore-control-size-larger: 56px;
 --encore-layout-margin-tighter: 24px;
 --encore-text-size-smaller-2: .75rem;
+--encore-graphic-size-informative-smaller: 1rem;
 --content-spacing: 16px;
 --encore-text-size-larger-3: 3rem;
---encore-graphic-size-informative-smaller: 1rem;
 --encore-text-size-larger-5: 6rem;
 --encore-spacing-looser-4: 64px;
 --encore-layout-margin-looser: 64px;
@@ -268,14 +268,14 @@ box-shadow: rgba(0, 0, 0, 0.5) 0px 8px 24px 0px;
 --encore-control-size-smaller: 32px;
 --encore-graphic-size-informative-larger: 2rem;
 --encore-text-size-larger-2: 2rem;
---encore-graphic-size-decorative-base: 24px;
---encore-spacing-looser-3: 48px;
 --encore-graphic-size-decorative-smaller: 16px;
 --encore-spacing-looser: 24px;
+--encore-spacing-looser-3: 48px;
+--encore-text-size-larger: 1.5rem;
+--encore-graphic-size-decorative-base: 24px;
 --encore-graphic-size-informative-base: 1.5rem;
 --encore-graphic-size-decorative-larger-4: 64px;
 --encore-spacing-tighter: 12px;
---encore-text-size-larger: 1.5rem;
 --encore-spacing-base: 16px;
 --encore-graphic-size-informative-larger-5: 5.5rem;
 --encore-spacing-tighter-3: 6px;
@@ -320,8 +320,8 @@ box-shadow: rgba(0, 0, 0, 0.5) 0px 8px 24px 0px;
 ### Other
 
 ```css
---right-sidebar-width: 0;
 --essential-announcement: #1278f2;
+--right-sidebar-width: 0;
 --background-base: #121212;
 --background-elevated-press: #191919;
 --scrollAnimationRangeStart: 0px;
@@ -339,9 +339,9 @@ box-shadow: rgba(0, 0, 0, 0.5) 0px 8px 24px 0px;
 --essential-positive: #1ed760;
 --essential-subdued: #7c7c7c;
 --encore-opacity-disabled: .3;
+--encore-productive-exit-duration: .2s;
 --background-highlight: #1f1f1f;
 --encore-opacity-active: .7;
---encore-productive-exit-duration: .2s;
 --essential-warning: #ffa42b;
 --encore-z-index-dialog: 1050;
 --encore-short-1: .25s;
@@ -362,12 +362,12 @@ box-shadow: rgba(0, 0, 0, 0.5) 0px 8px 24px 0px;
 --cinema-canvas-height: 0px;
 --marquee-width: 0px;
 --cinema-media-distance-from-top: 0px;
+--background-tinted-base: #ffffff1a;
 --encore-productive: cubic-bezier(.3,0,0,1);
 --essential-negative: #ed2c3f;
 --encore-shortest-2: .1s;
 --top-bar-z-index: 1;
 --content-max-width: 1955px;
---background-tinted-base: #ffffff1a;
 --encore-productive-enter: .25s/**/cubic-bezier(0,0,.2,1);
 --onboarding-circle-percentage: 0%;
 ```
@@ -453,7 +453,7 @@ transition: opacity 0.1s ease-in;
 
 Detected UI component patterns and their most common styles:
 
-### Buttons (211 instances)
+### Buttons (183 instances)
 
 ```css
 .button {
@@ -467,7 +467,7 @@ Detected UI component patterns and their most common styles:
 }
 ```
 
-### Cards (342 instances)
+### Cards (244 instances)
 
 ```css
 .card {
@@ -493,7 +493,7 @@ Detected UI component patterns and their most common styles:
 }
 ```
 
-### Links (355 instances)
+### Links (326 instances)
 
 ```css
 .link {
@@ -503,7 +503,7 @@ Detected UI component patterns and their most common styles:
 }
 ```
 
-### Navigation (19 instances)
+### Navigation (17 instances)
 
 ```css
 .navigatio {
@@ -826,7 +826,7 @@ Reusable component instances grouped by DOM structure and style similarity:
 
 ## Layout System
 
-**17 grid containers** and **765 flex containers** detected.
+**13 grid containers** and **651 flex containers** detected.
 
 ### Container Widths
 
@@ -839,11 +839,10 @@ Reusable component instances grouped by DOM structure and style similarity:
 
 | Columns | Usage Count |
 |---------|-------------|
-| 1-column | 7x |
-| 10-column | 3x |
+| 1-column | 5x |
+| 10-column | 2x |
 | 3-column | 1x |
 | 20-column | 1x |
-| 4-column | 1x |
 | 2-column | 1x |
 
 ### Grid Templates
@@ -861,8 +860,8 @@ grid-template-columns: none;
 
 | Direction/Wrap | Count |
 |----------------|-------|
-| column/nowrap | 278x |
-| row/nowrap | 484x |
+| column/nowrap | 218x |
+| row/nowrap | 430x |
 | row/wrap | 3x |
 
 **Gap values:** `12px`, `16px`, `16px 32px`, `20px`, `24px`, `2px`, `4px`, `8px`, `8px 12px`, `8px normal`, `normal 12px`
@@ -964,10 +963,10 @@ background: linear-gradient(rgba(0, 0, 0, 0.6) 0%, rgb(18, 18, 18) 100%);
 
 | Pattern | Count | Key Styles |
 |---------|-------|------------|
-| thumbnail | 124 | objectFit: fill, borderRadius: 0px, shape: square |
+| thumbnail | 92 | objectFit: fill, borderRadius: 0px, shape: square |
 | general | 10 | objectFit: cover, borderRadius: 50%, shape: circular |
 
-**Aspect ratios:** 1:1 (134x)
+**Aspect ratios:** 1:1 (102x)
 
 ## Motion Language
 
@@ -985,8 +984,8 @@ background: linear-gradient(rgba(0, 0, 0, 0.6) 0%, rgb(18, 18, 18) 100%);
 
 ### Easing Families
 
-- **custom** (160 uses) — `cubic-bezier(0.3, 0, 0.4, 1)`, `cubic-bezier(0.3, 0, 0, 1)`
-- **ease-in-out** (110 uses) — `ease`
+- **custom** (132 uses) — `cubic-bezier(0.3, 0, 0.4, 1)`, `cubic-bezier(0.3, 0, 0, 1)`
+- **ease-in-out** (90 uses) — `ease`
 
 ### Keyframes In Use
 
@@ -1050,10 +1049,10 @@ background: linear-gradient(rgba(0, 0, 0, 0.6) 0%, rgb(18, 18, 18) 100%);
 > Trending songs
 > Popular artists
 > Popular albums and singles
-> Popular radio
 > Home
 > Trending songs
 > Popular artists
+> Popular albums and singles
 
 ## Page Intent
 
@@ -1064,7 +1063,7 @@ Alternates: legal (0.4), blog-post (0.35)
 
 ## Section Roles
 
-Reading order (top→bottom): content → content → content → content → content → nav → nav → testimonials → testimonials → hero → content → content → content → hero → cta → content → feature-grid → nav
+Reading order (top→bottom): content → content → content → content → content → nav → nav → pricing → testimonials → hero → content → content → content → hero → cta → nav
 
 | # | Role | Heading | Confidence |
 |---|------|---------|------------|
@@ -1073,19 +1072,17 @@ Reading order (top→bottom): content → content → content → content → co
 | 2 | content | — | 0.3 |
 | 3 | content | — | 0.3 |
 | 4 | cta | — | 0.75 |
-| 5 | testimonials | Home | 0.4 |
+| 5 | pricing | Home | 0.4 |
 | 6 | testimonials | Home | 0.4 |
 | 7 | hero | Trending songs | 0.85 |
 | 8 | content | Popular artists | 0.3 |
 | 9 | hero | Popular albums and singles | 0.4 |
-| 10 | content | Popular radio | 0.3 |
-| 11 | feature-grid | Featured Charts | 0.8 |
-| 12 | nav | — | 0.9 |
-| 13 | content | Location | 0.3 |
-| 14 | content |  Manage Consent Preferences | 0.3 |
-| 15 | content | Cookie List | 0.3 |
-| 16 | content | — | 0.3 |
-| 17 | content | — | 0.3 |
+| 10 | nav | — | 0.9 |
+| 11 | content | Location | 0.3 |
+| 12 | content |  Manage Consent Preferences | 0.3 |
+| 13 | content | Cookie List | 0.3 |
+| 14 | content | — | 0.3 |
+| 15 | content | — | 0.3 |
 
 ## Material Language
 
@@ -1093,7 +1090,7 @@ Reading order (top→bottom): content → content → content → content → co
 
 | Metric | Value |
 |--------|-------|
-| Avg saturation | 0.507 |
+| Avg saturation | 0.5 |
 | Shadow profile | soft |
 | Avg shadow blur | 0px |
 | Max radius | 9999px |
@@ -1102,8 +1099,8 @@ Reading order (top→bottom): content → content → content → content → co
 
 ## Imagery Style
 
-**Label:** `mixed` (confidence 0)
-**Counts:** total 134, svg 80, icon 80, screenshot-like 0, photo-like 0
+**Label:** `flat-illustration` (confidence 0.013)
+**Counts:** total 102, svg 62, icon 62, screenshot-like 0, photo-like 0
 **Dominant aspect:** square-ish
 **Radius profile on images:** soft
 

@@ -14,7 +14,7 @@
           "s": 0,
           "l": 100
         },
-        "count": 2847,
+        "count": 2367,
         "contexts": [
           "background",
           "text",
@@ -34,7 +34,7 @@
           "s": 0,
           "l": 70
         },
-        "count": 2199,
+        "count": 1887,
         "contexts": [
           "text",
           "border",
@@ -54,7 +54,7 @@
           "s": 0,
           "l": 0
         },
-        "count": 722,
+        "count": 610,
         "contexts": [
           "text",
           "border",
@@ -81,24 +81,6 @@
         ]
       },
       {
-        "hex": "#1ed760",
-        "rgb": {
-          "r": 30,
-          "g": 215,
-          "b": 96,
-          "a": 1
-        },
-        "hsl": {
-          "h": 141,
-          "s": 76,
-          "l": 48
-        },
-        "count": 54,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
         "hex": "#555555",
         "rgb": {
           "r": 85,
@@ -119,22 +101,20 @@
         ]
       },
       {
-        "hex": "#7c7c7c",
+        "hex": "#1ed760",
         "rgb": {
-          "r": 124,
-          "g": 124,
-          "b": 124,
+          "r": 30,
+          "g": 215,
+          "b": 96,
           "a": 1
         },
         "hsl": {
-          "h": 0,
-          "s": 0,
-          "l": 49
+          "h": 141,
+          "s": 76,
+          "l": 48
         },
-        "count": 24,
+        "count": 40,
         "contexts": [
-          "text",
-          "border",
           "background"
         ]
       },
@@ -151,11 +131,31 @@
           "s": 0,
           "l": 7
         },
-        "count": 20,
+        "count": 28,
         "contexts": [
           "background",
           "text",
           "border"
+        ]
+      },
+      {
+        "hex": "#7c7c7c",
+        "rgb": {
+          "r": 124,
+          "g": 124,
+          "b": 124,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 49
+        },
+        "count": 25,
+        "contexts": [
+          "text",
+          "border",
+          "background"
         ]
       },
       {
@@ -171,7 +171,7 @@
           "s": 0,
           "l": 12
         },
-        "count": 15,
+        "count": 11,
         "contexts": [
           "background"
         ]
@@ -189,7 +189,7 @@
           "s": 0,
           "l": 20
         },
-        "count": 9,
+        "count": 11,
         "contexts": [
           "background"
         ]
@@ -309,114 +309,6 @@
         ]
       },
       {
-        "hex": "#402830",
-        "rgb": {
-          "r": 64,
-          "g": 40,
-          "b": 48,
-          "a": 1
-        },
-        "hsl": {
-          "h": 340,
-          "s": 23,
-          "l": 20
-        },
-        "count": 2,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#667a7a",
-        "rgb": {
-          "r": 102,
-          "g": 122,
-          "b": 122,
-          "a": 1
-        },
-        "hsl": {
-          "h": 180,
-          "s": 9,
-          "l": 44
-        },
-        "count": 2,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#6e7598",
-        "rgb": {
-          "r": 110,
-          "g": 117,
-          "b": 152,
-          "a": 1
-        },
-        "hsl": {
-          "h": 230,
-          "s": 17,
-          "l": 51
-        },
-        "count": 2,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#7a7a11",
-        "rgb": {
-          "r": 122,
-          "g": 122,
-          "b": 17,
-          "a": 1
-        },
-        "hsl": {
-          "h": 60,
-          "s": 76,
-          "l": 27
-        },
-        "count": 2,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#404040",
-        "rgb": {
-          "r": 64,
-          "g": 64,
-          "b": 64,
-          "a": 1
-        },
-        "hsl": {
-          "h": 0,
-          "s": 0,
-          "l": 25
-        },
-        "count": 2,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#401800",
-        "rgb": {
-          "r": 64,
-          "g": 24,
-          "b": 0,
-          "a": 1
-        },
-        "hsl": {
-          "h": 23,
-          "s": 100,
-          "l": 13
-        },
-        "count": 2,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
         "hex": "#002038",
         "rgb": {
           "r": 0,
@@ -428,78 +320,6 @@
           "h": 206,
           "s": 100,
           "l": 11
-        },
-        "count": 2,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#517aa3",
-        "rgb": {
-          "r": 81,
-          "g": 122,
-          "b": 163,
-          "a": 1
-        },
-        "hsl": {
-          "h": 210,
-          "s": 34,
-          "l": 48
-        },
-        "count": 2,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#a16387",
-        "rgb": {
-          "r": 161,
-          "g": 99,
-          "b": 135,
-          "a": 1
-        },
-        "hsl": {
-          "h": 325,
-          "s": 25,
-          "l": 51
-        },
-        "count": 2,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#c0574a",
-        "rgb": {
-          "r": 192,
-          "g": 87,
-          "b": 74,
-          "a": 1
-        },
-        "hsl": {
-          "h": 7,
-          "s": 48,
-          "l": 52
-        },
-        "count": 2,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#006050",
-        "rgb": {
-          "r": 0,
-          "g": 96,
-          "b": 80,
-          "a": 1
-        },
-        "hsl": {
-          "h": 170,
-          "s": 100,
-          "l": 19
         },
         "count": 2,
         "contexts": [
@@ -562,17 +382,35 @@
         ]
       },
       {
-        "hex": "#701818",
+        "hex": "#b03830",
         "rgb": {
-          "r": 112,
-          "g": 24,
-          "b": 24,
+          "r": 176,
+          "g": 56,
+          "b": 48,
           "a": 1
         },
         "hsl": {
-          "h": 0,
-          "s": 65,
-          "l": 27
+          "h": 4,
+          "s": 57,
+          "l": 44
+        },
+        "count": 1,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#402830",
+        "rgb": {
+          "r": 64,
+          "g": 40,
+          "b": 48,
+          "a": 1
+        },
+        "hsl": {
+          "h": 340,
+          "s": 23,
+          "l": 20
         },
         "count": 1,
         "contexts": [
@@ -598,6 +436,60 @@
         ]
       },
       {
+        "hex": "#701818",
+        "rgb": {
+          "r": 112,
+          "g": 24,
+          "b": 24,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 65,
+          "l": 27
+        },
+        "count": 1,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#817915",
+        "rgb": {
+          "r": 129,
+          "g": 121,
+          "b": 21,
+          "a": 1
+        },
+        "hsl": {
+          "h": 56,
+          "s": 72,
+          "l": 29
+        },
+        "count": 1,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#384040",
+        "rgb": {
+          "r": 56,
+          "g": 64,
+          "b": 64,
+          "a": 1
+        },
+        "hsl": {
+          "h": 180,
+          "s": 7,
+          "l": 24
+        },
+        "count": 1,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
         "hex": "#186090",
         "rgb": {
           "r": 24,
@@ -616,125 +508,17 @@
         ]
       },
       {
-        "hex": "#177ace",
+        "hex": "#93712d",
         "rgb": {
-          "r": 23,
-          "g": 122,
-          "b": 206,
+          "r": 147,
+          "g": 113,
+          "b": 45,
           "a": 1
         },
         "hsl": {
-          "h": 208,
-          "s": 80,
-          "l": 45
-        },
-        "count": 1,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#a01010",
-        "rgb": {
-          "r": 160,
-          "g": 16,
-          "b": 16,
-          "a": 1
-        },
-        "hsl": {
-          "h": 0,
-          "s": 82,
-          "l": 35
-        },
-        "count": 1,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#b03830",
-        "rgb": {
-          "r": 176,
-          "g": 56,
-          "b": 48,
-          "a": 1
-        },
-        "hsl": {
-          "h": 4,
-          "s": 57,
-          "l": 44
-        },
-        "count": 1,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#501810",
-        "rgb": {
-          "r": 80,
-          "g": 24,
-          "b": 16,
-          "a": 1
-        },
-        "hsl": {
-          "h": 8,
-          "s": 67,
-          "l": 19
-        },
-        "count": 1,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#d02028",
-        "rgb": {
-          "r": 208,
-          "g": 32,
-          "b": 40,
-          "a": 1
-        },
-        "hsl": {
-          "h": 357,
-          "s": 73,
-          "l": 47
-        },
-        "count": 1,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#a03840",
-        "rgb": {
-          "r": 160,
-          "g": 56,
-          "b": 64,
-          "a": 1
-        },
-        "hsl": {
-          "h": 355,
-          "s": 48,
-          "l": 42
-        },
-        "count": 1,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#b04808",
-        "rgb": {
-          "r": 176,
-          "g": 72,
-          "b": 8,
-          "a": 1
-        },
-        "hsl": {
-          "h": 23,
-          "s": 91,
-          "l": 36
+          "h": 40,
+          "s": 53,
+          "l": 38
         },
         "count": 1,
         "contexts": [
@@ -760,17 +544,143 @@
         ]
       },
       {
-        "hex": "#587888",
+        "hex": "#177ace",
         "rgb": {
-          "r": 88,
-          "g": 120,
+          "r": 23,
+          "g": 122,
+          "b": 206,
+          "a": 1
+        },
+        "hsl": {
+          "h": 208,
+          "s": 80,
+          "l": 45
+        },
+        "count": 1,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#687088",
+        "rgb": {
+          "r": 104,
+          "g": 112,
           "b": 136,
           "a": 1
         },
         "hsl": {
-          "h": 200,
-          "s": 21,
+          "h": 225,
+          "s": 13,
+          "l": 47
+        },
+        "count": 1,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#318099",
+        "rgb": {
+          "r": 49,
+          "g": 128,
+          "b": 153,
+          "a": 1
+        },
+        "hsl": {
+          "h": 194,
+          "s": 51,
+          "l": 40
+        },
+        "count": 1,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#cf4c1c",
+        "rgb": {
+          "r": 207,
+          "g": 76,
+          "b": 28,
+          "a": 1
+        },
+        "hsl": {
+          "h": 16,
+          "s": 76,
+          "l": 46
+        },
+        "count": 1,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#7f7757",
+        "rgb": {
+          "r": 127,
+          "g": 119,
+          "b": 87,
+          "a": 1
+        },
+        "hsl": {
+          "h": 48,
+          "s": 19,
+          "l": 42
+        },
+        "count": 1,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#e10096",
+        "rgb": {
+          "r": 225,
+          "g": 0,
+          "b": 150,
+          "a": 1
+        },
+        "hsl": {
+          "h": 320,
+          "s": 100,
           "l": 44
+        },
+        "count": 1,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#b02828",
+        "rgb": {
+          "r": 176,
+          "g": 40,
+          "b": 40,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 63,
+          "l": 42
+        },
+        "count": 1,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#883028",
+        "rgb": {
+          "r": 136,
+          "g": 48,
+          "b": 40,
+          "a": 1
+        },
+        "hsl": {
+          "h": 5,
+          "s": 55,
+          "l": 35
         },
         "count": 1,
         "contexts": [
@@ -789,6 +699,24 @@
           "h": 199,
           "s": 94,
           "l": 37
+        },
+        "count": 1,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#517aa3",
+        "rgb": {
+          "r": 81,
+          "g": 122,
+          "b": 163,
+          "a": 1
+        },
+        "hsl": {
+          "h": 210,
+          "s": 34,
+          "l": 48
         },
         "count": 1,
         "contexts": [
@@ -832,6 +760,24 @@
         ]
       },
       {
+        "hex": "#381800",
+        "rgb": {
+          "r": 56,
+          "g": 24,
+          "b": 0,
+          "a": 1
+        },
+        "hsl": {
+          "h": 26,
+          "s": 100,
+          "l": 11
+        },
+        "count": 1,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
         "hex": "#c00808",
         "rgb": {
           "r": 192,
@@ -861,78 +807,6 @@
           "h": 223,
           "s": 64,
           "l": 35
-        },
-        "count": 1,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#a3694f",
-        "rgb": {
-          "r": 163,
-          "g": 105,
-          "b": 79,
-          "a": 1
-        },
-        "hsl": {
-          "h": 19,
-          "s": 35,
-          "l": 47
-        },
-        "count": 1,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#4f7f77",
-        "rgb": {
-          "r": 79,
-          "g": 127,
-          "b": 119,
-          "a": 1
-        },
-        "hsl": {
-          "h": 170,
-          "s": 23,
-          "l": 40
-        },
-        "count": 1,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#703090",
-        "rgb": {
-          "r": 112,
-          "g": 48,
-          "b": 144,
-          "a": 1
-        },
-        "hsl": {
-          "h": 280,
-          "s": 50,
-          "l": 38
-        },
-        "count": 1,
-        "contexts": [
-          "background"
-        ]
-      },
-      {
-        "hex": "#183860",
-        "rgb": {
-          "r": 24,
-          "g": 56,
-          "b": 96,
-          "a": 1
-        },
-        "hsl": {
-          "h": 213,
-          "s": 60,
-          "l": 24
         },
         "count": 1,
         "contexts": [
@@ -1031,7 +905,7 @@
       "className": "Q2n2bdBXy28oQWoC nRWw2cACzspvO3GF"
     },
     {
-      "role": "testimonials",
+      "role": "pricing",
       "tag": "main",
       "bounds": {
         "x": 310,
@@ -1040,8 +914,8 @@
         "h": 654
       },
       "heading": "Home",
-      "buttonCount": 222,
-      "cardCount": 284,
+      "buttonCount": 166,
+      "cardCount": 200,
       "className": "J6wP3V0xzh0Hj_MS"
     },
     {
@@ -1051,11 +925,11 @@
         "x": 310,
         "y": 64,
         "w": 962,
-        "h": 1621.65625
+        "h": 1018.21875
       },
       "heading": "Home",
-      "buttonCount": 216,
-      "cardCount": 284,
+      "buttonCount": 160,
+      "cardCount": 200,
       "className": "JlQyoTD6puMgqY_y CDyHWsKVsLAC4HFx"
     },
     {
@@ -1101,39 +975,11 @@
       "className": "l3tPikCftuELMOzz e4IK04uNVRsB6jbO yTHNsGSMiG01kxo3"
     },
     {
-      "role": "content",
-      "tag": "section",
-      "bounds": {
-        "x": 350,
-        "y": 1066.21875,
-        "w": 882,
-        "h": 285.71875
-      },
-      "heading": "Popular radio",
-      "buttonCount": 40,
-      "cardCount": 60,
-      "className": "l3tPikCftuELMOzz e4IK04uNVRsB6jbO yTHNsGSMiG01kxo3"
-    },
-    {
-      "role": "features",
-      "tag": "section",
-      "bounds": {
-        "x": 350,
-        "y": 1367.9375,
-        "w": 882,
-        "h": 285.71875
-      },
-      "heading": "Featured Charts",
-      "buttonCount": 16,
-      "cardCount": 24,
-      "className": "l3tPikCftuELMOzz e4IK04uNVRsB6jbO yTHNsGSMiG01kxo3"
-    },
-    {
       "role": "nav",
       "tag": "nav",
       "bounds": {
         "x": 310,
-        "y": 1774.65625,
+        "y": 1171.21875,
         "w": 962,
         "h": 355
       },
@@ -1548,13 +1394,6 @@
     "sheets": [
       {
         "url": "https://open.spotify.com/",
-        "totalBytes": 0,
-        "usedBytes": 0,
-        "unusedBytes": 0,
-        "unusedPercent": 0
-      },
-      {
-        "url": "https://open.spotify.com/",
         "totalBytes": 46,
         "usedBytes": 46,
         "unusedBytes": 0,
@@ -1563,22 +1402,36 @@
       {
         "url": "https://open.spotifycdn.com/cdn/build/web-player/web-player.abb93a44.css",
         "totalBytes": 454293,
-        "usedBytes": 202021,
-        "unusedBytes": 252272,
+        "usedBytes": 201932,
+        "unusedBytes": 252361,
         "unusedPercent": 56
       },
       {
-        "url": "https://www.gstatic.com/recaptcha/releases/U5VsmTDhJM1iOJUyw4DEUTYv/styles__ltr.css",
+        "url": "https://open.spotify.com/",
+        "totalBytes": 0,
+        "usedBytes": 0,
+        "unusedBytes": 0,
+        "unusedPercent": 0
+      },
+      {
+        "url": "https://www.gstatic.com/recaptcha/releases/Br0hYqpfWeFzYCAXLD4UuCIV/styles__ltr.css",
         "totalBytes": 83358,
         "usedBytes": 3029,
         "unusedBytes": 80329,
         "unusedPercent": 96
       },
       {
-        "url": "https://www.google.com/recaptcha/enterprise/anchor?ar=1&k=6LfCVLAUAAAAALFwwRnnCJ12DalriUGbj8FW_J39&co=aHR0cHM6Ly9vcGVuLnNwb3RpZnkuY29tOjQ0Mw..&hl=en&v=U5VsmTDhJM1iOJUyw4DEUTYv&size=invisible&anchor-ms=20000&execute-ms=30000&cb=r4cke6ofs6uc",
+        "url": "https://www.google.com/recaptcha/enterprise/anchor?ar=1&k=6LfCVLAUAAAAALFwwRnnCJ12DalriUGbj8FW_J39&co=aHR0cHM6Ly9vcGVuLnNwb3RpZnkuY29tOjQ0Mw..&hl=en&v=Br0hYqpfWeFzYCAXLD4UuCIV&size=invisible&anchor-ms=20000&execute-ms=30000&cb=a1pg67b619ua",
         "totalBytes": 16160,
         "usedBytes": 0,
         "unusedBytes": 16160,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://open.spotifycdn.com/cdn/build/web-player/dwp-feedback-bar.931ea758.css",
+        "totalBytes": 1081,
+        "usedBytes": 0,
+        "unusedBytes": 1081,
         "unusedPercent": 100
       },
       {
@@ -1596,13 +1449,6 @@
         "unusedPercent": 27
       },
       {
-        "url": "https://open.spotifycdn.com/cdn/build/web-player/dwp-home-header.0ec3bbd9.css",
-        "totalBytes": 360,
-        "usedBytes": 264,
-        "unusedBytes": 96,
-        "unusedPercent": 27
-      },
-      {
         "url": "https://open.spotifycdn.com/cdn/build/web-player/dwp-now-playing-bar.dd8a2e76.css",
         "totalBytes": 17057,
         "usedBytes": 4020,
@@ -1610,18 +1456,11 @@
         "unusedPercent": 76
       },
       {
-        "url": "https://open.spotifycdn.com/cdn/build/web-player/dwp-feedback-bar.931ea758.css",
-        "totalBytes": 1081,
-        "usedBytes": 0,
-        "unusedBytes": 1081,
-        "unusedPercent": 100
-      },
-      {
-        "url": "https://open.spotifycdn.com/cdn/build/web-player/dwp-home-chips-row.fb404ad3.css",
-        "totalBytes": 7345,
-        "usedBytes": 530,
-        "unusedBytes": 6815,
-        "unusedPercent": 93
+        "url": "https://open.spotifycdn.com/cdn/build/web-player/dwp-home-header.0ec3bbd9.css",
+        "totalBytes": 360,
+        "usedBytes": 264,
+        "unusedBytes": 96,
+        "unusedPercent": 27
       },
       {
         "url": "https://open.spotifycdn.com/cdn/build/web-player/2642.a902f130.css",
@@ -1631,11 +1470,11 @@
         "unusedPercent": 92
       },
       {
-        "url": "https://open.spotifycdn.com/cdn/build/web-player/dwp-panel-section.d500d742.css",
-        "totalBytes": 48145,
-        "usedBytes": 0,
-        "unusedBytes": 48145,
-        "unusedPercent": 100
+        "url": "https://open.spotifycdn.com/cdn/build/web-player/dwp-home-chips-row.fb404ad3.css",
+        "totalBytes": 7345,
+        "usedBytes": 530,
+        "unusedBytes": 6815,
+        "unusedPercent": 93
       },
       {
         "url": "https://open.spotifycdn.com/cdn/build/web-player/dwp-video-player.e7563948.css",
@@ -1645,10 +1484,10 @@
         "unusedPercent": 86
       },
       {
-        "url": "https://open.spotifycdn.com/cdn/build/web-player/dwp-watch-feed-view-container.c7fc0b7b.css",
-        "totalBytes": 10006,
+        "url": "https://open.spotifycdn.com/cdn/build/web-player/dwp-panel-section.d500d742.css",
+        "totalBytes": 48145,
         "usedBytes": 0,
-        "unusedBytes": 10006,
+        "unusedBytes": 48145,
         "unusedPercent": 100
       },
       {
@@ -1659,6 +1498,13 @@
         "unusedPercent": 98
       },
       {
+        "url": "https://open.spotifycdn.com/cdn/build/web-player/dwp-watch-feed-view-container.c7fc0b7b.css",
+        "totalBytes": 10006,
+        "usedBytes": 0,
+        "unusedBytes": 10006,
+        "unusedPercent": 100
+      },
+      {
         "url": "https://open.spotifycdn.com/cdn/build/web-player/listening-stats-modal.e46fcd5c.css",
         "totalBytes": 118,
         "usedBytes": 0,
@@ -1667,8 +1513,8 @@
       }
     ],
     "totalBytes": 758270,
-    "usedBytes": 218839,
-    "unusedBytes": 539431,
+    "usedBytes": 218750,
+    "unusedBytes": 539520,
     "unusedPercent": 71,
     "importantCount": 175,
     "duplicates": 12418,

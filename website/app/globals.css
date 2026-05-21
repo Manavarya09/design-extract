@@ -946,6 +946,60 @@ code, pre, kbd { font-family: var(--ff-mono); font-size: 13px; }
   .copycmd-hint { display: none; }
 }
 
+/* ── Motion Lab (motionlang) ────────────────────────────────── */
+
+.mlab-bar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+.mlab-label {
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--fg-3); margin: 0 0 12px;
+}
+.mlab-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px;
+}
+.mlab-card {
+  border: 1px solid var(--hairline); border-radius: 14px;
+  padding: 16px; background: var(--surface-2);
+}
+.mlab-card-head { margin-bottom: 10px; }
+.mlab-card-head .mono { font-size: 12px; color: #fff; }
+.mlab-curve { display: block; margin: 0 auto 10px; }
+.mlab-guide { stroke: var(--hairline); stroke-width: 1; stroke-dasharray: 3 3; }
+.mlab-path  { fill: none; stroke-width: 2.5; stroke-linecap: round; }
+.mlab-none  {
+  height: 132px; display: flex; align-items: center; justify-content: center;
+  color: var(--fg-3); font-family: var(--ff-mono); font-size: 11px;
+}
+.mlab-raw {
+  display: block; font-family: var(--ff-mono); font-size: 10px;
+  color: var(--fg-3); word-break: break-all; margin-bottom: 12px;
+}
+.mlab-track {
+  height: 8px; border-radius: 999px; background: rgba(255,255,255,0.05);
+  position: relative;
+}
+.mlab-dot {
+  position: absolute; top: 50%; left: 0;
+  width: 13px; height: 13px; border-radius: 50%;
+  transform: translateY(-50%);
+  animation: mlab-ride 1.6s infinite alternate;
+}
+@keyframes mlab-ride { from { left: 0; } to { left: calc(100% - 13px); } }
+
+.mlab-durs { display: flex; flex-direction: column; gap: 10px; }
+.mlab-dur { display: grid; grid-template-columns: 84px 1fr 60px; gap: 14px; align-items: center; }
+.mlab-dur-name { font-size: 12px; color: var(--fg-2); }
+.mlab-dur-track { height: 8px; border-radius: 999px; background: rgba(255,255,255,0.05); overflow: hidden; }
+.mlab-dur-fill {
+  display: block; height: 100%; border-radius: 999px;
+  animation: mlab-pulse ease-in-out infinite alternate;
+}
+@keyframes mlab-pulse { from { opacity: 0.35; } to { opacity: 1; } }
+.mlab-dur-ms { font-size: 12px; color: var(--fg-3); text-align: right; }
+
+@media (prefers-reduced-motion: reduce) {
+  .mlab-dot, .mlab-dur-fill { animation: none !important; }
+}
+
 /* ── Agent prompt card (paste-into-Claude/GPT/Cursor) ──────── */
 
 .ap-card {

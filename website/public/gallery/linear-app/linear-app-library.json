@@ -6,7 +6,7 @@
   "signals": {
     "tailwindLike": 0,
     "radixAttrCount": 0,
-    "classSampleSize": 312
+    "classSampleSize": 322
   },
   "needsSmart": true
 }

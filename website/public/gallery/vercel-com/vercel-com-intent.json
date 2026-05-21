@@ -48,10 +48,10 @@
           "w": 1280,
           "h": 64
         },
-        "buttonCount": 13,
-        "cardCount": 99,
+        "buttonCount": 15,
+        "cardCount": 100,
         "slots": {
-          "ctaCount": 13,
+          "ctaCount": 15,
           "lede": "Products\nAI Cloud\nAI Gateway"
         },
         "needsSmart": false
@@ -463,7 +463,7 @@
           "x": 0,
           "y": 5723.046875,
           "w": 1280,
-          "h": 678
+          "h": 610
         },
         "buttonCount": 0,
         "cardCount": 119,
@@ -489,7 +489,7 @@
           "x": 24,
           "y": 5763.046875,
           "w": 1232,
-          "h": 598
+          "h": 530
         },
         "buttonCount": 0,
         "cardCount": 119,

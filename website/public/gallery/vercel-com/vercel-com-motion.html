@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>vercel.com — motion lab · designlang</title>
+<style>
+  :root {
+    --bg: #0a0a0c; --fg: #f4f4f5; --fg-2: rgba(244,244,245,.62); --fg-3: rgba(244,244,245,.4);
+    --line: rgba(255,255,255,.08); --accent: #ef4444;
+    --mono: ui-monospace, 'SF Mono', Menlo, monospace;
+    --sans: -apple-system, 'Segoe UI', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--sans); }
+  .ml-wrap { max-width: 1080px; margin: 0 auto; padding: 56px 24px 96px; }
+  header.ml-h { margin-bottom: 48px; }
+  .ml-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--fg-3); margin: 0 0 12px; }
+  h1.ml-title { font-size: clamp(34px, 6vw, 60px); letter-spacing: -.03em; margin: 0 0 12px; font-weight: 600; }
+  .ml-sub { color: var(--fg-2); font-size: 16px; max-width: 60ch; margin: 0; }
+  h2.ml-section { font-size: 22px; letter-spacing: -.01em; margin: 56px 0 20px; font-weight: 600; }
+  .ml-section-meta { font-family: var(--mono); font-size: 12px; color: var(--fg-3); margin-left: 8px; font-weight: 400; }
+
+  .ml-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+  .ml-card { border: 1px solid var(--line); border-radius: 14px; padding: 18px; background: rgba(255,255,255,.02); }
+  .ml-card-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+  .ml-name { font-family: var(--mono); font-size: 13px; color: var(--fg); }
+  .ml-count { font-family: var(--mono); font-size: 11px; color: var(--fg-3); }
+  .ml-curve { display: block; margin: 0 auto 12px; }
+  .ml-curve-guide { stroke: var(--line); stroke-width: 1; stroke-dasharray: 3 3; }
+  .ml-curve-path { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linecap: round; }
+  .ml-curve-none { height: 160px; display: flex; align-items: center; justify-content: center;
+    color: var(--fg-3); font-family: var(--mono); font-size: 12px; }
+  .ml-raw { display: block; font-family: var(--mono); font-size: 10.5px; color: var(--fg-3);
+    word-break: break-all; margin-bottom: 14px; }
+  .ml-demo { height: 8px; border-radius: 999px; background: rgba(255,255,255,.05); position: relative; }
+  .ml-dot { position: absolute; top: 50%; left: 0; width: 14px; height: 14px; border-radius: 50%;
+    background: var(--accent); transform: translate(0,-50%);
+    animation: ml-ride 1.6s infinite alternate; box-shadow: 0 0 12px rgba(239,68,68,.6); }
+  @keyframes ml-ride { from { left: 0; } to { left: calc(100% - 14px); } }
+
+  .ml-durs { display: flex; flex-direction: column; gap: 10px; }
+  .ml-dur { display: grid; grid-template-columns: 90px 1fr 64px; gap: 14px; align-items: center; }
+  .ml-dur-name { font-family: var(--mono); font-size: 12px; color: var(--fg-2); }
+  .ml-dur-track { height: 8px; border-radius: 999px; background: rgba(255,255,255,.05); overflow: hidden; }
+  .ml-dur-fill { display: block; height: 100%; background: var(--accent); border-radius: 999px;
+    transform-origin: left; animation: ml-pulse var(--ms) ease-in-out infinite alternate; }
+  @keyframes ml-pulse { from { opacity: .35; } to { opacity: 1; } }
+  .ml-dur-ms { font-family: var(--mono); font-size: 12px; color: var(--fg-3); text-align: right; }
+
+  .ml-kf { border: 1px solid var(--line); border-radius: 14px; padding: 18px; background: rgba(255,255,255,.02); margin-bottom: 14px; }
+  .ml-kf-css { font-family: var(--mono); font-size: 11px; color: var(--fg-2); overflow-x: auto; margin: 0; }
+
+  .ml-empty { color: var(--fg-3); font-family: var(--mono); font-size: 13px;
+    border: 1px dashed var(--line); border-radius: 12px; padding: 28px; text-align: center; }
+  footer.ml-f { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line);
+    font-family: var(--mono); font-size: 11px; color: var(--fg-3); }
+  footer.ml-f a { color: var(--accent); }
+  @media (prefers-reduced-motion: reduce) { .ml-dot, .ml-dur-fill { animation: none; } }
+</style>
+</head>
+<body>
+<div class="ml-wrap">
+  <header class="ml-h">
+    <p class="ml-eyebrow">motionlang · motion lab</p>
+    <h1 class="ml-title">vercel.com in motion</h1>
+    <p class="ml-sub">Every easing curve, duration and keyframe animation designlang read off the live vercel.com page — drawn, timed and replayed. Generated 2026-05-21.</p>
+  </header>
+
+  <h2 class="ml-section">Easing curves <span class="ml-section-meta">7</span></h2>
+  <div class="ml-grid">
+    <article class="ml-card">
+      <div class="ml-card-head">
+        <span class="ml-name">ease-in-out</span>
+        <span class="ml-count">38×</span>
+      </div>
+      
+      <svg class="ml-curve" viewBox="0 0 160 160" width="160" height="160">
+        <line x1="0" y1="160" x2="160" y2="0" class="ml-curve-guide"/>
+        <path d="M 0.00 160.00 C 40.00 144.00, 40.00 0.00, 160.00 0.00" class="ml-curve-path"/>
+      </svg>
+      <code class="ml-raw">ease</code>
+      <div class="ml-demo">
+        <span class="ml-dot" style="animation-timing-function: ease;"></span>
+      </div>
+    </article>
+    <article class="ml-card">
+      <div class="ml-card-head">
+        <span class="ml-name">easing-2</span>
+        <span class="ml-count">3×</span>
+      </div>
+      
+      <svg class="ml-curve" viewBox="0 0 160 160" width="160" height="160">
+        <line x1="0" y1="160" x2="160" y2="0" class="ml-curve-guide"/>
+        <path d="M 0.00 160.00 C 64.00 160.00, 32.00 0.00, 160.00 0.00" class="ml-curve-path"/>
+      </svg>
+      <code class="ml-raw">cubic-bezier(0.4, 0, 0.2, 1)</code>
+      <div class="ml-demo">
+        <span class="ml-dot" style="animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);"></span>
+      </div>
+    </article>
+    <article class="ml-card">
+      <div class="ml-card-head">
+        <span class="ml-name">easing-3</span>
+        <span class="ml-count">1×</span>
+      </div>
+      
+      <svg class="ml-curve" viewBox="0 0 160 160" width="160" height="160">
+        <line x1="0" y1="160" x2="160" y2="0" class="ml-curve-guide"/>
+        <path d="M 0.00 160.00 C 62.40 131.20, 27.20 1.60, 160.00 0.00" class="ml-curve-path"/>
+      </svg>
+      <code class="ml-raw">cubic-bezier(0.39, 0.18, 0.17, 0.99)</code>
+      <div class="ml-demo">
+        <span class="ml-dot" style="animation-timing-function: cubic-bezier(0.39, 0.18, 0.17, 0.99);"></span>
+      </div>
+    </article>
+    <article class="ml-card">
+      <div class="ml-card-head">
+        <span class="ml-name">ease-out</span>
+        <span class="ml-count">1×</span>
+      </div>
+      
+      <svg class="ml-curve" viewBox="0 0 160 160" width="160" height="160">
+        <line x1="0" y1="160" x2="160" y2="0" class="ml-curve-guide"/>
+        <path d="M 0.00 160.00 C 22.40 72.00, 48.00 12.80, 160.00 0.00" class="ml-curve-path"/>
+      </svg>
+      <code class="ml-raw">cubic-bezier(0.14, 0.55, 0.3, 0.92)</code>
+      <div class="ml-demo">
+        <span class="ml-dot" style="animation-timing-function: cubic-bezier(0.14, 0.55, 0.3, 0.92);"></span>
+      </div>
+    </article>
+    <article class="ml-card">
+      <div class="ml-card-head">
+        <span class="ml-name">spring</span>
+        <span class="ml-count">2×</span>
+      </div>
+      
+      <svg class="ml-curve" viewBox="0 0 160 160" width="160" height="160">
+        <line x1="0" y1="160" x2="160" y2="0" class="ml-curve-guide"/>
+        <path d="M 0.00 160.00 C 49.60 152.00, 68.80 -3.20, 160.00 0.00" class="ml-curve-path"/>
+      </svg>
+      <code class="ml-raw">cubic-bezier(0.31, 0.05, 0.43, 1.02)</code>
+      <div class="ml-demo">
+        <span class="ml-dot" style="animation-timing-function: cubic-bezier(0.31, 0.05, 0.43, 1.02);"></span>
+      </div>
+    </article>
+    <article class="ml-card">
+      <div class="ml-card-head">
+        <span class="ml-name">easing-6</span>
+        <span class="ml-count">10×</span>
+      </div>
+      
+      <svg class="ml-curve" viewBox="0 0 160 160" width="160" height="160">
+        <line x1="0" y1="160" x2="160" y2="0" class="ml-curve-guide"/>
+        <path d="M 0.00 160.00 C 52.80 140.80, 24.00 0.00, 160.00 0.00" class="ml-curve-path"/>
+      </svg>
+      <code class="ml-raw">cubic-bezier(0.33, 0.12, 0.15, 1)</code>
+      <div class="ml-demo">
+        <span class="ml-dot" style="animation-timing-function: cubic-bezier(0.33, 0.12, 0.15, 1);"></span>
+      </div>
+    </article>
+    <article class="ml-card">
+      <div class="ml-card-head">
+        <span class="ml-name">ease-out</span>
+        <span class="ml-count">1×</span>
+      </div>
+      
+      <svg class="ml-curve" viewBox="0 0 160 160" width="160" height="160">
+        <line x1="0" y1="160" x2="160" y2="0" class="ml-curve-guide"/>
+        <path d="M 0.00 160.00 C 48.00 68.80, 11.20 8.00, 160.00 0.00" class="ml-curve-path"/>
+      </svg>
+      <code class="ml-raw">cubic-bezier(0.3, 0.57, 0.07, 0.95)</code>
+      <div class="ml-demo">
+        <span class="ml-dot" style="animation-timing-function: cubic-bezier(0.3, 0.57, 0.07, 0.95);"></span>
+      </div>
+    </article></div>
+
+  <h2 class="ml-section">Durations <span class="ml-section-meta">3</span></h2>
+  <div class="ml-durs">
+    <div class="ml-dur">
+      <span class="ml-dur-name">xs</span>
+      <span class="ml-dur-track"><span class="ml-dur-fill" style="--ms:90ms; width:9%"></span></span>
+      <span class="ml-dur-ms">90ms</span>
+    </div>
+    <div class="ml-dur">
+      <span class="ml-dur-name">sm</span>
+      <span class="ml-dur-track"><span class="ml-dur-fill" style="--ms:160ms; width:16%"></span></span>
+      <span class="ml-dur-ms">160ms</span>
+    </div>
+    <div class="ml-dur">
+      <span class="ml-dur-name">md</span>
+      <span class="ml-dur-track"><span class="ml-dur-fill" style="--ms:300ms; width:30%"></span></span>
+      <span class="ml-dur-ms">300ms</span>
+    </div></div>
+
+  <h2 class="ml-section">Keyframe animations <span class="ml-section-meta">124</span></h2>
+  
+    <article class="ml-kf">
+      <div class="ml-card-head"><span class="ml-name">@keyframes soft-fade-in</span></div>
+      <pre class="ml-kf-css"></pre>
+    </article>
+    <article class="ml-kf">
+      <div class="ml-card-head"><span class="ml-name">@keyframes show</span></div>
+      <pre class="ml-kf-css"></pre>
+    </article>
+    <article class="ml-kf">
+      <div class="ml-card-head"><span class="ml-name">@keyframes hide</span></div>
+      <pre class="ml-kf-css"></pre>
+    </article>
+    <article class="ml-kf">
+      <div class="ml-card-head"><span class="ml-name">@keyframes fade-in</span></div>
+      <pre class="ml-kf-css"></pre>
+    </article>
+    <article class="ml-kf">
+      <div class="ml-card-head"><span class="ml-name">@keyframes fade-out</span></div>
+      <pre class="ml-kf-css"></pre>
+    </article>
+    <article class="ml-kf">
+      <div class="ml-card-head"><span class="ml-name">@keyframes spinner-opacity</span></div>
+      <pre class="ml-kf-css"></pre>
+    </article>
+    <article class="ml-kf">
+      <div class="ml-card-head"><span class="ml-name">@keyframes slide-in</span></div>
+      <pre class="ml-kf-css"></pre>
+    </article>
+    <article class="ml-kf">
+      <div class="ml-card-head"><span class="ml-name">@keyframes blue-glow</span></div>
+      <pre class="ml-kf-css"></pre>
+    </article>
+    <article class="ml-kf">
+      <div class="ml-card-head"><span class="ml-name">@keyframes thinking-loader</span></div>
+      <pre class="ml-kf-css"></pre>
+    </article>
+    <article class="ml-kf">
+      <div class="ml-card-head"><span class="ml-name">@keyframes logo-carousel</span></div>
+      <pre class="ml-kf-css"></pre>
+    </article>
+    <article class="ml-kf">
+      <div class="ml-card-head"><span class="ml-name">@keyframes sandbox-left</span></div>
+      <pre class="ml-kf-css"></pre>
+    </article>
+    <article class="ml-kf">
+      <div class="ml-card-head"><span class="ml-name">@keyframes sandbox-right</span></div>
+      <pre class="ml-kf-css"></pre>
+    </article>
+
+  <footer class="ml-f">
+    Generated by designlang · motionlang · <a href="https://designlang.app">designlang.app</a> · re-extract with <code>npx designlang vercel.com --motion</code>
+  </footer>
+</div>
+</body>
+</html>

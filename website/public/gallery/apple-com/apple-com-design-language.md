@@ -1,6 +1,6 @@
 # Design Language: Apple
 
-> Extracted from `https://apple.com` on May 18, 2026
+> Extracted from `https://apple.com` on May 21, 2026
 > 1906 elements analyzed
 
 This document describes the complete design language of the website. It is structured for AI/LLM consumption — use it to faithfully recreate the visual design in any framework.
@@ -11,29 +11,31 @@ This document describes the complete design language of the website. It is struc
 
 | Role | Hex | RGB | HSL | Usage Count |
 |------|-----|-----|-----|-------------|
-| Primary | `#f5f5f7` | rgb(245, 245, 247) | hsl(240, 11%, 96%) | 98 |
+| Primary | `#f5f5f7` | rgb(245, 245, 247) | hsl(240, 11%, 96%) | 96 |
 | Secondary | `#0071e3` | rgb(0, 113, 227) | hsl(210, 100%, 45%) | 9 |
-| Accent | `#fafafc` | rgb(250, 250, 252) | hsl(240, 25%, 98%) | 41 |
+| Accent | `#ea33c0` | rgb(234, 51, 192) | hsl(314, 81%, 56%) | 1 |
 
 ### Neutral Colors
 
 | Hex | HSL | Usage Count |
 |-----|-----|-------------|
-| `#000000` | hsl(0, 0%, 0%) | 1444 |
-| `#1d1d1f` | hsl(240, 3%, 12%) | 1134 |
-| `#333336` | hsl(240, 3%, 21%) | 479 |
-| `#6e6e73` | hsl(240, 2%, 44%) | 64 |
-| `#e8e8ed` | hsl(240, 12%, 92%) | 1 |
+| `#1d1d1f` | hsl(240, 3%, 12%) | 1153 |
+| `#000000` | hsl(0, 0%, 0%) | 999 |
+| `#e8e8ed` | hsl(240, 12%, 92%) | 478 |
+| `#ffffff` | hsl(0, 0%, 100%) | 472 |
+| `#86868b` | hsl(240, 2%, 54%) | 64 |
+| `#6e6e73` | hsl(240, 2%, 44%) | 4 |
+| `#333336` | hsl(240, 3%, 21%) | 2 |
 | `#d2d2d7` | hsl(240, 6%, 83%) | 1 |
-| `#443c2a` | hsl(42, 24%, 22%) | 1 |
+| `#41626a` | hsl(192, 24%, 34%) | 1 |
 
 ### Background Colors
 
-Used on large-area elements: `#ffffff`, `#fafafc`, `#e8e8ed`, `#f5f5f7`, `#000000`, `#f4f8fb`, `#140a12`, `#9fc6f4`, `#ea33c0`, `#443c2a`, `#3397d4`, `#450a54`, `#5d4a32`
+Used on large-area elements: `#ffffff`, `#161617`, `#1d1d1f`, `#000000`, `#f5f5f7`, `#f4f8fb`, `#271a11`, `#ea33c0`, `#9fc6f4`, `#2b3a37`, `#41626a`, `#3397d4`, `#371410`
 
 ### Text Colors
 
-Text color palette: `#000000`, `#1d1d1f`, `#ffffff`, `#6e6e73`, `#333336`, `#0066cc`, `#2997ff`, `#f5f5f7`
+Text color palette: `#000000`, `#1d1d1f`, `#ffffff`, `#86868b`, `#e8e8ed`, `#2997ff`, `#f5f5f7`, `#0066cc`, `#6e6e73`
 
 ### Gradients
 
@@ -49,31 +51,31 @@ background-image: linear-gradient(rgba(29, 29, 31, 0.4) 0%, rgba(29, 29, 31, 0) 
 
 | Hex | Contexts | Count |
 |-----|----------|-------|
-| `#000000` | text, border, background | 1444 |
-| `#1d1d1f` | text, border, background | 1134 |
+| `#1d1d1f` | text, border, background | 1153 |
+| `#000000` | text, border, background | 999 |
 | `#2997ff` | text, border | 526 |
-| `#333336` | background, text, border | 479 |
-| `#f5f5f7` | background, text, border | 98 |
-| `#0066cc` | text, border | 70 |
-| `#6e6e73` | text, border | 64 |
-| `#fafafc` | background, text, border | 41 |
+| `#e8e8ed` | text, border | 478 |
+| `#ffffff` | background, text, border | 472 |
+| `#f5f5f7` | background, text, border | 96 |
+| `#86868b` | text, border | 64 |
+| `#0066cc` | text, border | 64 |
 | `#0071e3` | background | 9 |
-| `#e8e8ed` | background | 1 |
+| `#6e6e73` | text, border | 4 |
+| `#333336` | background | 2 |
 | `#d2d2d7` | background | 1 |
-| `#140a12` | background | 1 |
-| `#9fc6f4` | background | 1 |
+| `#271a11` | background | 1 |
 | `#ea33c0` | background | 1 |
-| `#443c2a` | background | 1 |
+| `#9fc6f4` | background | 1 |
+| `#41626a` | background | 1 |
 | `#3397d4` | background | 1 |
-| `#450a54` | background | 1 |
-| `#5d4a32` | background | 1 |
+| `#371410` | background | 1 |
 
 ## Typography
 
 ### Font Families
 
-- **SF Pro Text** — used for all (1710 elements)
-- **SF Pro Display** — used for all (195 elements)
+- **SF Pro Text** — used for all (1708 elements)
+- **SF Pro Display** — used for all (197 elements)
 - **Arial** — used for all (1 elements)
 
 ### Type Scale
@@ -82,15 +84,14 @@ background-image: linear-gradient(rgba(29, 29, 31, 0.4) 0%, rgba(29, 29, 31, 0) 
 |-----------|------------|--------|-------------|----------------|---------|
 | 56px | 3.5rem | 600 | 60px | -0.28px | h2 |
 | 44px | 2.75rem | 400 | 44px | -0.12px | svg, path |
-| 40px | 2.5rem | 600 | 44px | normal | h3, picture, source, img |
+| 40px | 2.5rem | 600 | 44px | normal | h3, span, picture, source |
 | 34px | 2.125rem | 600 | 50px | -0.374px | h1 |
 | 28px | 1.75rem | 400 | 32px | 0.196px | p |
-| 25.5px | 1.5938rem | 600 | 37.5px | -0.374px | h2, picture, source, img |
 | 24px | 1.5rem | 300 | 36px | normal | span, li, a, input |
 | 21px | 1.3125rem | 400 | 25px | 0.231px | p, sup, span |
 | 18px | 1.125rem | 300 | 18px | normal | button, svg, polyline |
 | 17px | 1.0625rem | 400 | normal | normal | html, head, meta, link |
-| 14px | 0.875rem | 400 | 18.0008px | -0.224px | a, div, p |
+| 14px | 0.875rem | 400 | 18.0008px | -0.224px | a, p, sup, div |
 | 13.3333px | 0.8333rem | 400 | normal | normal | input |
 | 12px | 0.75rem | 400 | 16.0005px | -0.12px | div, aside, ul, a |
 | 10px | 0.625rem | 400 | 13px | -0.08px | span |
@@ -101,7 +102,6 @@ background-image: linear-gradient(rgba(29, 29, 31, 0.4) 0%, rgba(29, 29, 31, 0) 
 h2 { font-size: 56px; font-weight: 600; line-height: 60px; }
 h3 { font-size: 40px; font-weight: 600; line-height: 44px; }
 h1 { font-size: 34px; font-weight: 600; line-height: 50px; }
-h2 { font-size: 25.5px; font-weight: 600; line-height: 37.5px; }
 h2 { font-size: 12px; font-weight: 400; line-height: 16.0005px; }
 ```
 
@@ -113,7 +113,7 @@ body { font-size: 12px; font-weight: 400; line-height: 16.0005px; }
 
 ### Font Weights in Use
 
-`400` (1310x), `600` (582x), `300` (8x), `700` (6x)
+`400` (1311x), `600` (581x), `300` (8x), `700` (6x)
 
 ## Spacing
 
@@ -149,7 +149,7 @@ body { font-size: 12px; font-weight: 400; line-height: 16.0005px; }
 | md | 8px | 6 |
 | lg | 11px | 2 |
 | full | 50px | 1 |
-| full | 980px | 34 |
+| full | 980px | 31 |
 | full | 999px | 1 |
 
 ## Box Shadows
@@ -427,12 +427,12 @@ transition: opacity 0.22s, transform 0.22s;
 
 Detected UI component patterns and their most common styles:
 
-### Buttons (48 instances)
+### Buttons (45 instances)
 
 ```css
 .button {
   background-color: rgb(0, 113, 227);
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.8);
   font-size: 17px;
   font-weight: 400;
   padding-top: 0px;
@@ -441,22 +441,12 @@ Detected UI component patterns and their most common styles:
 }
 ```
 
-### Cards (2 instances)
-
-```css
-.card {
-  border-radius: 0px;
-  padding-top: 0px;
-  padding-right: 0px;
-}
-```
-
 ### Inputs (2 instances)
 
 ```css
 .input {
-  color: rgb(51, 51, 54);
-  border-color: rgb(51, 51, 54);
+  color: rgb(232, 232, 237);
+  border-color: rgb(232, 232, 237);
   border-radius: 0px;
   font-size: 24px;
   padding-top: 1px;
@@ -464,11 +454,11 @@ Detected UI component patterns and their most common styles:
 }
 ```
 
-### Links (339 instances)
+### Links (338 instances)
 
 ```css
 .link {
-  color: rgb(51, 51, 54);
+  color: rgb(232, 232, 237);
   font-size: 12px;
   font-weight: 600;
 }
@@ -478,7 +468,7 @@ Detected UI component patterns and their most common styles:
 
 ```css
 .navigatio {
-  background-color: rgba(250, 250, 252, 0.8);
+  background-color: rgba(29, 29, 31, 0.8);
   color: rgb(29, 29, 31);
   padding-top: 0px;
   padding-bottom: 0px;
@@ -504,7 +494,7 @@ Detected UI component patterns and their most common styles:
 
 ```css
 .dropdown {
-  background-color: rgba(250, 250, 252, 0.8);
+  background-color: rgba(29, 29, 31, 0.8);
   border-radius: 0px;
   border-color: rgb(29, 29, 31);
   padding-top: 0px;
@@ -539,13 +529,13 @@ Detected UI component patterns and their most common styles:
 
 Reusable component instances grouped by DOM structure and style similarity:
 
-### Button — 17 instances, 3 variants
+### Button — 14 instances, 3 variants
 
 **Variant 1** (1 instance)
 
 ```css
-  background: rgb(29, 29, 31);
-  color: rgb(255, 255, 255);
+  background: rgb(245, 245, 247);
+  color: rgb(0, 0, 0);
   padding: 8px 15px 8px 15px;
   border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 0);
@@ -565,7 +555,7 @@ Reusable component instances grouped by DOM structure and style similarity:
   font-weight: 400;
 ```
 
-**Variant 3** (7 instances)
+**Variant 3** (4 instances)
 
 ```css
   background: rgba(0, 0, 0, 0);
@@ -583,24 +573,36 @@ Reusable component instances grouped by DOM structure and style similarity:
 
 ```css
   background: rgba(0, 0, 0, 0);
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.8);
   padding: 0px 0px 0px 0px;
   border-radius: 0px;
-  border: 0px none rgba(0, 0, 0, 0.8);
+  border: 0px none rgba(255, 255, 255, 0.8);
   font-size: 18px;
   font-weight: 300;
 ```
 
-### Button — 13 instances, 1 variant
+### Button — 13 instances, 2 variants
 
-**Variant 1** (13 instances)
+**Variant 1** (11 instances)
 
 ```css
   background: rgba(0, 0, 0, 0);
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.8);
   padding: 0px 0px 0px 0px;
   border-radius: 0px;
-  border: 0px none rgba(0, 0, 0, 0.8);
+  border: 0px none rgba(255, 255, 255, 0.8);
+  font-size: 17px;
+  font-weight: 400;
+```
+
+**Variant 2** (2 instances)
+
+```css
+  background: rgba(0, 0, 0, 0);
+  color: rgb(29, 29, 31);
+  padding: 2px 0px 2px 0px;
+  border-radius: 0px;
+  border: 0px none rgb(29, 29, 31);
   font-size: 17px;
   font-weight: 400;
 ```
@@ -611,10 +613,10 @@ Reusable component instances grouped by DOM structure and style similarity:
 
 ```css
   background: rgba(0, 0, 0, 0);
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.8);
   padding: 0px 0px 0px 0px;
   border-radius: 0px;
-  border: 0px none rgba(0, 0, 0, 0.8);
+  border: 0px none rgba(255, 255, 255, 0.8);
   font-size: 17px;
   font-weight: 400;
 ```
@@ -625,10 +627,10 @@ Reusable component instances grouped by DOM structure and style similarity:
 
 ```css
   background: rgba(0, 0, 0, 0);
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.8);
   padding: 0px 8px 0px 8px;
   border-radius: 0px;
-  border: 0px none rgba(0, 0, 0, 0.8);
+  border: 0px none rgba(255, 255, 255, 0.8);
   font-size: 12px;
   font-weight: 400;
 ```
@@ -639,10 +641,10 @@ Reusable component instances grouped by DOM structure and style similarity:
 
 ```css
   background: rgba(0, 0, 0, 0);
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.8);
   padding: 0px 8px 0px 8px;
   border-radius: 0px;
-  border: 0px none rgba(0, 0, 0, 0.8);
+  border: 0px none rgba(255, 255, 255, 0.8);
   font-size: 12px;
   font-weight: 400;
 ```
@@ -675,34 +677,6 @@ Reusable component instances grouped by DOM structure and style similarity:
   font-weight: 400;
 ```
 
-### Card — 1 instance, 1 variant
-
-**Variant 1** (1 instance)
-
-```css
-  background: rgba(0, 0, 0, 0);
-  color: rgba(0, 0, 0, 0.56);
-  padding: 0px 0px 0px 0px;
-  border-radius: 0px;
-  border: 0px none rgba(0, 0, 0, 0.56);
-  font-size: 12px;
-  font-weight: 400;
-```
-
-### Card — 1 instance, 1 variant
-
-**Variant 1** (1 instance)
-
-```css
-  background: rgba(0, 0, 0, 0);
-  color: rgba(0, 0, 0, 0.56);
-  padding: 0px 0px 0px 0px;
-  border-radius: 0px;
-  border: 0px none rgba(0, 0, 0, 0.56);
-  font-size: 12px;
-  font-weight: 400;
-```
-
 ## Layout System
 
 **29 grid containers** and **208 flex containers** detected.
@@ -720,8 +694,8 @@ Reusable component instances grouped by DOM structure and style similarity:
 
 | Columns | Usage Count |
 |---------|-------------|
-| 1-column | 21x |
-| 2-column | 8x |
+| 1-column | 24x |
+| 2-column | 5x |
 
 ### Grid Templates
 
@@ -755,7 +729,7 @@ grid-template-columns: 930px;
 | Foreground | Background | Ratio | Level |
 |------------|------------|-------|-------|
 | `#ffffff` | `#0071e3` | 4.7:1 | AA |
-| `#ffffff` | `#1d1d1f` | 16.83:1 | AAA |
+| `#000000` | `#f5f5f7` | 19.29:1 | AAA |
 
 ## Design System Score
 
@@ -774,9 +748,9 @@ grid-template-columns: 930px;
 **Strengths:** Tight, disciplined color palette, Well-defined spacing scale, Clean elevation system, Consistent border radii, Strong accessibility compliance, Good CSS variable tokenization
 
 **Issues:**
-- 25 !important rules — prefer specificity over overrides
-- 88% of CSS is unused — consider purging
-- 7465 duplicate CSS declarations
+- 26 !important rules — prefer specificity over overrides
+- 87% of CSS is unused — consider purging
+- 7458 duplicate CSS declarations
 
 ## Gradients
 
@@ -816,7 +790,7 @@ background: linear-gradient(rgba(29, 29, 31, 0.4) 0%, rgba(29, 29, 31, 0) 70px, 
 | lg | 1 |
 | xl | 17 |
 
-**Icon colors:** `currentColor`, `rgb(0, 0, 0)`, `rgba(0, 0, 0, 0.8)`, `rgb(110, 110, 115)`, `rgba(0, 0, 0, 0.48)`, `rgb(255, 255, 255)`
+**Icon colors:** `currentColor`, `rgb(0, 0, 0)`, `rgba(255, 255, 255, 0.8)`, `rgb(134, 134, 139)`, `rgba(0, 0, 0, 0.48)`, `rgb(255, 255, 255)`
 
 ## Font Files
 
@@ -866,9 +840,8 @@ background: linear-gradient(rgba(29, 29, 31, 0.4) 0%, rgba(29, 29, 31, 0) 70px, 
 |---------|-------|------------|
 | gallery | 15 | objectFit: fill, borderRadius: 0px, shape: square |
 | hero | 9 | objectFit: cover, borderRadius: 0px, shape: square |
-| thumbnail | 1 | objectFit: fill, borderRadius: 0px, shape: square |
 
-**Aspect ratios:** 1:1 (21x), 4.35:1 (3x), 3.05:1 (1x)
+**Aspect ratios:** 1:1 (21x), 4.35:1 (3x)
 
 ## Motion Language
 
@@ -899,7 +872,7 @@ background: linear-gradient(rgba(29, 29, 31, 0.4) 0%, rgba(29, 29, 31, 0) 70px, 
 
 ## Component Anatomy
 
-### button — 63 instances
+### button — 60 instances
 
 **Slots:** label
 **Variants:** link · secondary
@@ -907,12 +880,9 @@ background: linear-gradient(rgba(29, 29, 31, 0.4) 0%, rgba(29, 29, 31, 0) 70px, 
 | variant | count | sample label |
 |---|---|---|
 | default | 54 | Continue |
-| secondary | 7 | Shop iPhone |
+| secondary | 4 | Shop iPhone |
 | link | 2 | 0
 + |
-
-### card — 2 instances
-
 
 ## Brand Voice
 
@@ -921,10 +891,10 @@ background: linear-gradient(rgba(29, 29, 31, 0.4) 0%, rgba(29, 29, 31, 0) 70px, 
 ### Top CTA Verbs
 
 - **learn** (8)
-- **buy** (5)
 - **stream** (5)
-- **play** (3)
+- **buy** (3)
 - **listen** (3)
+- **play** (3)
 - **watch** (3)
 - **continue** (1)
 - **shop** (1)
@@ -932,10 +902,10 @@ background: linear-gradient(rgba(29, 29, 31, 0.4) 0%, rgba(29, 29, 31, 0) 70px, 
 ### Button Copy Patterns
 
 - "learn more" (8×)
-- "buy" (5×)
 - "stream now" (5×)
-- "play now" (3×)
+- "buy" (3×)
 - "listen now" (3×)
+- "play now" (3×)
 - "watch now" (3×)
 - "continue" (1×)
 - "0
@@ -945,39 +915,39 @@ background: linear-gradient(rgba(29, 29, 31, 0.4) 0%, rgba(29, 29, 31, 0) 70px, 
 
 ### Sample Headings
 
+> Accessibility
 > iPhone
-> MacBook Air
-> iPad Air
-> Apple for College
-> Apple Watch Series 11
+> MacBook Neo
+> WWDC 26
+> Apple Card
+> Accessibility
 > iPhone
-> MacBook Air
-> iPad Air
-> Apple for College
-> Apple Watch Series 11
+> MacBook Neo
+> WWDC 26
+> Apple Card
 
 ## Page Intent
 
-**Type:** `landing` (confidence 0.61)
+**Type:** `landing` (confidence 0.51)
 **Description:** Discover the innovative world of Apple and shop everything iPhone, iPad, Apple Watch, Mac, and Apple TV, plus explore accessories, entertainment, and expert device support.
 
-Alternates: blog-post (0.35)
+Alternates: pricing (0.6)
 
 ## Section Roles
 
-Reading order (top→bottom): sidebar → sidebar → steps → nav → hero → cta → gallery → footer → feature-grid → nav → content
+Reading order (top→bottom): sidebar → sidebar → steps → nav → hero → cta → gallery → footer → pricing-table → nav → content
 
 | # | Role | Heading | Confidence |
 |---|------|---------|------------|
 | 0 | sidebar | — | 0.4 |
 | 1 | sidebar | — | 0.4 |
 | 2 | nav | — | 0.9 |
-| 3 | steps | iPhone | 0.75 |
-| 4 | hero | iPhone | 0.85 |
-| 5 | cta | Apple for College | 0.75 |
+| 3 | steps | Accessibility | 0.75 |
+| 4 | hero | Accessibility | 0.85 |
+| 5 | cta | WWDC 26 | 0.75 |
 | 6 | gallery | Endless entertainment. | 0.7 |
 | 7 | footer | Apple Footer | 0.95 |
-| 8 | feature-grid | — | 0.8 |
+| 8 | pricing-table | — | 0.9 |
 | 9 | nav | Shop and Learn | 0.9 |
 | 10 | content | — | 0.3 |
 
@@ -987,7 +957,7 @@ Reading order (top→bottom): sidebar → sidebar → steps → nav → hero →
 
 | Metric | Value |
 |--------|-------|
-| Avg saturation | 0.399 |
+| Avg saturation | 0.369 |
 | Shadow profile | soft |
 | Avg shadow blur | 0px |
 | Max radius | 999px |
@@ -996,8 +966,8 @@ Reading order (top→bottom): sidebar → sidebar → steps → nav → hero →
 
 ## Imagery Style
 
-**Label:** `photography` (confidence 0.527)
-**Counts:** total 25, svg 0, icon 0, screenshot-like 0, photo-like 24
+**Label:** `photography` (confidence 0.542)
+**Counts:** total 24, svg 0, icon 0, screenshot-like 0, photo-like 24
 **Dominant aspect:** square-ish
 **Radius profile on images:** square
 

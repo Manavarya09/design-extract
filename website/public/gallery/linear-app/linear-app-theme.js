@@ -214,7 +214,7 @@ export const muiTheme = {
     "borderRadius": 7
   },
   "shadows": [
-    "rgba(94, 106, 210, 0.008) 0px 0px 0px 9.22975px",
+    "rgba(94, 106, 210, 0.1) 0px 0px 0px 0.125074px",
     "rgba(0, 0, 0, 0.1) 0px 0px 0px 2px",
     "rgba(0, 0, 0, 0.2) 0px 0px 0px 1px",
     "rgb(35, 37, 42) 0px 0px 0px 1px inset",

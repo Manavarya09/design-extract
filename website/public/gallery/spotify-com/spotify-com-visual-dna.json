@@ -10,7 +10,7 @@
       }
     ],
     "metrics": {
-      "saturation": 0.507,
+      "saturation": 0.5,
       "shadowProfile": "soft",
       "avgShadowBlur": 0,
       "maxShadowBlur": 0,
@@ -24,12 +24,12 @@
     "alternates": []
   },
   "imageryStyle": {
-    "label": "mixed",
-    "confidence": 0,
+    "label": "flat-illustration",
+    "confidence": 0.013,
     "counts": {
-      "total": 134,
-      "svg": 80,
-      "icon": 80,
+      "total": 102,
+      "svg": 62,
+      "icon": 62,
       "hero": 0,
       "screenshot": 0,
       "photoLike": 0
@@ -37,7 +37,9 @@
     "dominantAspect": "square-ish",
     "radiusProfile": "soft",
     "alternates": [],
-    "signals": []
+    "signals": [
+      "svg-heavy"
+    ]
   },
   "backgroundPatterns": {
     "labels": [

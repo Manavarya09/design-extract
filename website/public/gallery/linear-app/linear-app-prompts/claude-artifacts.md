@@ -7,7 +7,7 @@ Fonts: [object Object], [object Object].
 Radius vocabulary: 1, 4, 7, 12, 16, 20.
 Sections:
 - logo-wall
-- testimonials — heading: "The product development
+- steps — heading: "The product development
 system for teams and agents
 The product development syst"
 - testimonials — heading: "Make product operations self-driving"

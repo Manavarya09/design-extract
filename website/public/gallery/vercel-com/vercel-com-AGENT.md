@@ -1,7 +1,7 @@
 # You are building UI in the vercel.com design system.
 
 Source: https://vercel.com
-Extracted by designlang on 2026-05-17.
+Extracted by designlang on 2026-05-21.
 
 ## Brand at a glance
 

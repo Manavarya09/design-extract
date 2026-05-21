@@ -7,14 +7,14 @@
 //   import tokens from './<host>-design-tokens.json';
 //
 // Source: https://stripe.com
-// Generated: 2026-05-17T21:15:59.521Z
+// Generated: 2026-05-21T11:46:59.892Z
 
 export type Hex = `#${string}`;
 export type Px  = `${number}px`;
 export type Ms  = `${number}ms`;
 
 export type ColorRole = 'primary' | 'secondary' | 'accent';
-export type ColorHex  = '#000000' | '#533afd' | '#50617a' | '#061b31' | '#ffffff' | '#64748d' | '#0000ee' | '#e5edf5' | '#7f7dfc' | '#3c4f69' | '#273951' | '#7389ff' | '#1a2c44' | '#ff6118' | '#b9b9f9' | '#6480b2' | '#d6d9fc' | '#839bc8' | '#101010' | '#a3b5d6' | '#81b81a' | '#000eff' | '#2d2564' | '#ffe0d1' | '#635bff' | '#00d66f' | '#4834db' | '#182659' | '#f2f7fe';
+export type ColorHex  = '#000000' | '#533afd' | '#50617a' | '#061b31' | '#ffffff' | '#64748d' | '#0000ee' | '#e5edf5' | '#7f7dfc' | '#3c4f69' | '#273951' | '#7389ff' | '#1a2c44' | '#ff6118' | '#b9b9f9' | '#7d8ba4' | '#d6d9fc' | '#839bc8' | '#101010' | '#a3b5d6' | '#81b81a' | '#000eff' | '#2d2564' | '#ffe0d1' | '#635bff' | '#00d66f' | '#4834db' | '#182659' | '#f2f7fe';
 export type ColorToken = ColorRole | ColorHex;
 
 export type FontFamilyToken = 'sohne-var';

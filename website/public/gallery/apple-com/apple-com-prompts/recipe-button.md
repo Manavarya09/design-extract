@@ -1,6 +1,6 @@
 # Recipe: button
 Build one button component that matches this brand.
-Palette: #000000, #1d1d1f, #2997ff, #333336, #f5f5f7, #0066cc
+Palette: #1d1d1f, #000000, #2997ff, #e8e8ed, #ffffff, #f5f5f7
 Typography: [object Object], [object Object], [object Object]
 Material: material-you
 Signals: Radius: 5, 8, 11, 50, 980, 999 · Shadows: rgba(0, 0, 0, 0.22) 3px 5px 30px 0px

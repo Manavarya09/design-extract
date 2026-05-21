@@ -10,8 +10,8 @@
   --color-neutral-200: #000000;
   --color-neutral-300: #696969;
   --color-neutral-400: #555555;
-  --color-neutral-500: #7c7c7c;
-  --color-neutral-600: #121212;
+  --color-neutral-500: #121212;
+  --color-neutral-600: #7c7c7c;
   --color-neutral-700: #1f1f1f;
   --color-neutral-800: #333333;
   --color-neutral-900: #292929;
@@ -96,15 +96,15 @@
   --end-gradient-color: rgb(0, 0, 0);
   --gradient-color-bottom: rgb(24, 24, 24);
   --text-bright-accent: #1ed760;
-  --encore-border-width-thicker: 8px;
   --essential-bright-accent: #1ed760;
+  --encore-border-width-thicker: 8px;
   /* — spacing — */
   --encore-control-size-larger: 56px;
   --encore-layout-margin-tighter: 24px;
   --encore-text-size-smaller-2: .75rem;
+  --encore-graphic-size-informative-smaller: 1rem;
   --content-spacing: 16px;
   --encore-text-size-larger-3: 3rem;
-  --encore-graphic-size-informative-smaller: 1rem;
   --encore-text-size-larger-5: 6rem;
   --encore-spacing-looser-4: 64px;
   --encore-layout-margin-looser: 64px;
@@ -131,14 +131,14 @@
   --encore-control-size-smaller: 32px;
   --encore-graphic-size-informative-larger: 2rem;
   --encore-text-size-larger-2: 2rem;
-  --encore-graphic-size-decorative-base: 24px;
-  --encore-spacing-looser-3: 48px;
   --encore-graphic-size-decorative-smaller: 16px;
   --encore-spacing-looser: 24px;
+  --encore-spacing-looser-3: 48px;
+  --encore-text-size-larger: 1.5rem;
+  --encore-graphic-size-decorative-base: 24px;
   --encore-graphic-size-informative-base: 1.5rem;
   --encore-graphic-size-decorative-larger-4: 64px;
   --encore-spacing-tighter: 12px;
-  --encore-text-size-larger: 1.5rem;
   --encore-spacing-base: 16px;
   --encore-graphic-size-informative-larger-5: 5.5rem;
   --encore-spacing-tighter-3: 6px;
@@ -167,8 +167,8 @@
   --encore-corner-radius-smaller: 2px;
   --encore-corner-radius-larger-3: 16px;
   /* — other — */
-  --right-sidebar-width: 0;
   --essential-announcement: #1278f2;
+  --right-sidebar-width: 0;
   --background-base: #121212;
   --background-elevated-press: #191919;
   --scrollAnimationRangeStart: 0px;
@@ -186,9 +186,9 @@
   --essential-positive: #1ed760;
   --essential-subdued: #7c7c7c;
   --encore-opacity-disabled: .3;
+  --encore-productive-exit-duration: .2s;
   --background-highlight: #1f1f1f;
   --encore-opacity-active: .7;
-  --encore-productive-exit-duration: .2s;
   --essential-warning: #ffa42b;
   --encore-z-index-dialog: 1050;
   --encore-short-1: .25s;
@@ -209,12 +209,12 @@
   --cinema-canvas-height: 0px;
   --marquee-width: 0px;
   --cinema-media-distance-from-top: 0px;
+  --background-tinted-base: #ffffff1a;
   --encore-productive: cubic-bezier(.3,0,0,1);
   --essential-negative: #ed2c3f;
   --encore-shortest-2: .1s;
   --top-bar-z-index: 1;
   --content-max-width: 1955px;
-  --background-tinted-base: #ffffff1a;
   --encore-productive-enter: .25s/**/cubic-bezier(0,0,.2,1);
   --onboarding-circle-percentage: 0%;
   /* — semantic — */

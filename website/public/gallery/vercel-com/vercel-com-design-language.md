@@ -1,7 +1,7 @@
 # Design Language: Vercel: Build and deploy the best web experiences with the AI Cloud
 
-> Extracted from `https://vercel.com` on May 18, 2026
-> 3040 elements analyzed
+> Extracted from `https://vercel.com` on May 21, 2026
+> 3117 elements analyzed
 
 This document describes the complete design language of the website. It is structured for AI/LLM consumption — use it to faithfully recreate the visual design in any framework.
 
@@ -19,10 +19,10 @@ This document describes the complete design language of the website. It is struc
 
 | Hex | HSL | Usage Count |
 |-----|-----|-------------|
-| `#171717` | hsl(0, 0%, 9%) | 2951 |
-| `#ebebeb` | hsl(0, 0%, 92%) | 2339 |
-| `#4d4d4d` | hsl(0, 0%, 30%) | 567 |
-| `#ffffff` | hsl(0, 0%, 100%) | 123 |
+| `#171717` | hsl(0, 0%, 9%) | 3031 |
+| `#ebebeb` | hsl(0, 0%, 92%) | 2416 |
+| `#4d4d4d` | hsl(0, 0%, 30%) | 565 |
+| `#ffffff` | hsl(0, 0%, 100%) | 124 |
 | `#666666` | hsl(0, 0%, 40%) | 67 |
 | `#000000` | hsl(0, 0%, 0%) | 49 |
 | `#7d7d7d` | hsl(0, 0%, 49%) | 20 |
@@ -88,10 +88,10 @@ background-image: linear-gradient(rgb(247, 234, 212), rgb(247, 234, 212) 50%, rg
 
 | Hex | Contexts | Count |
 |-----|----------|-------|
-| `#171717` | text, border, background | 2951 |
-| `#ebebeb` | border, background | 2339 |
-| `#4d4d4d` | text, border | 567 |
-| `#ffffff` | background, text, border | 123 |
+| `#171717` | text, border, background | 3031 |
+| `#ebebeb` | border, background | 2416 |
+| `#4d4d4d` | text, border | 565 |
+| `#ffffff` | background, text, border | 124 |
 | `#666666` | text | 67 |
 | `#000000` | border | 49 |
 | `#7d7d7d` | text | 20 |
@@ -110,9 +110,9 @@ background-image: linear-gradient(rgb(247, 234, 212), rgb(247, 234, 212) 50%, rg
 | `#cce6ff` | background | 1 |
 | `#ea3e83` | background | 1 |
 | `#067a6e` | background | 1 |
+| `#ff990a` | background | 1 |
 | `#bf89ec` | background | 1 |
 | `#398e4a` | background | 1 |
-| `#ff990a` | background | 1 |
 | `#6cda75` | background | 1 |
 | `#ffc96b` | background | 1 |
 
@@ -120,8 +120,8 @@ background-image: linear-gradient(rgb(247, 234, 212), rgb(247, 234, 212) 50%, rg
 
 ### Font Families
 
-- **Geist** — used for all (2729 elements)
-- **Geist Mono** — used for all (311 elements)
+- **Geist** — used for all (2877 elements)
+- **Geist Mono** — used for all (240 elements)
 
 ### Type Scale
 
@@ -162,7 +162,7 @@ body { font-size: 16px; font-weight: 400; line-height: 24px; }
 
 ### Font Weights in Use
 
-`400` (2737x), `500` (243x), `600` (58x), `700` (2x)
+`400` (2812x), `500` (245x), `600` (58x), `700` (2x)
 
 ## Spacing
 
@@ -213,6 +213,11 @@ box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
 **sm** — blur: 0px
 ```css
 box-shadow: rgb(235, 235, 235) 0px 0px 0px 1px;
+```
+
+**sm (inset)** — blur: 0px
+```css
+box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px inset;
 ```
 
 **sm** — blur: 0px
@@ -269,13 +274,14 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --color-orange-600: lab(57.1026% 64.2584 89.8886);
 --geist-console-text-color-default: #000;
 --tw-inset-ring-shadow: 0 0 #0000;
+--color-gray-300: hsla(0, 0%, 90%, 1);
 --geist-secondary-lighter: #eaeaea;
 --header-border-bottom: 0 1px 0 0 #0000001a;
 --geist-secondary-dark: #333;
 --ds-focus-ring: 0 0 0 2px hsla(0, 0%, 100%, 1), 0 0 0 4px hsla(212, 100%, 48%, 1);
 --accents-3: #999;
---accents-8: #111;
 --geist-selection-text-color: hsla(0, 0%, 95%, 1);
+--accents-8: #111;
 --color-zinc-900: lab(8.30603% .618205 -2.16572);
 --accents-2: #eaeaea;
 --color-gray-950: lab(1.90334% .278696 -5.48866);
@@ -293,6 +299,7 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --tw-ring-offset-shadow: 0 0 #0000;
 --geist-secondary-light: #999;
 --ds-motion-popover-timing: cubic-bezier(.175, .885, .32, 1.1);
+--color-background-100: hsla(0, 0%, 100%, 1);
 --color-violet-100: lab(93.0838% 4.35197 -9.88284);
 --ds-motion-popover-duration: .2s;
 --ds-shadow-border-medium: 0 0 0 1px #00000014, 0px 2px 2px #0000000a, 0px 8px 8px -8px #0000000a, 0 0 0 1px hsla(0, 0%, 98%, 1);
@@ -305,6 +312,7 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --geist-violet-background-secondary: #291c3a;
 --ds-overlay-backdrop-color: hsla(0, 0%, 98%, 1);
 --ds-shadow-border-base: 0 0 0 1px #00000014;
+--color-gray-alpha-400: #00000014;
 --ds-shadow-border-inset: inset 0 0 0 1px #00000014;
 --color-zinc-600: lab(35.1166% 1.78212 -6.1173);
 --tw-border-style: solid;
@@ -318,6 +326,7 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --accents-1: #fafafa;
 --color-indigo-600: lab(38.4009% 52.6132 -92.3857);
 --geist-secondary: #666;
+--color-gray-800: hsla(0, 0%, 49%, 1);
 --ds-focus-border: 0 0 0 1px #00000057, 0px 0px 0px 4px #00000029;
 --accents-5: #666;
 --geist-foreground: #000;
@@ -394,6 +403,7 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --font-mono: "Geist Mono", Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
 --ship-text: #ff5b4f;
 --text-base--line-height: calc(1.5 / 1);
+--tracking-wider: .05em;
 --text-fluid-24-32: clamp(1.5rem, .6429rem + 1.4286vi, 2rem);
 --text-fluid-24-28: clamp(1.5rem, 1.0714rem + .7143vi, 1.75rem);
 --text-fluid-16-28: clamp(1rem, -.2857rem + 2.1429vi, 1.75rem);
@@ -438,6 +448,7 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --text-fluid-20-80: clamp(1.25rem, -5.1786rem + 10.7143vi, 5rem);
 --geist-form-large-line-height: 1.5rem;
 --text-fluid-14-16: clamp(.875rem, .6607rem + .3571vi, 1rem);
+--text-4xl--line-height: calc(2.5 / 2.25);
 --tracking-tight: -.025em;
 --text-2xl: 1.5rem;
 --text-fluid-16-20: clamp(1rem, .5714rem + .7143vi, 1.25rem);
@@ -448,6 +459,7 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --font-weight-light: 300;
 --font-weight-semibold: 600;
 --font-pixel-square: ;
+--text-4xl: 2.25rem;
 --tracking-normal: 0em;
 --text-5xl: 3rem;
 ```
@@ -520,24 +532,24 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --ds-blue-1000: hsla(211, 100%, 15%, 1);
 --tw-gradient-to-position: 100%;
 --ds-amber-600: hsla(36, 90%, 62%, 1);
---animate-sandbox-left-reverse: sandbox-left-reverse .5s ease-in-out forwards;
 --ds-white: lab(100% 0 0);
+--animate-sandbox-left-reverse: sandbox-left-reverse .5s ease-in-out forwards;
 --ds-background-200: hsla(0, 0%, 98%, 1);
 --ds-red-500-value: 0, 82%, 85%;
 --dropdown-triangle-stroke: #fff;
 --ds-blue-400: hsla(209, 100%, 90%, 1);
 --animate-flip-front: flip-front .5s cubic-bezier(.4, .04, .04, 1) forwards;
 --ds-teal-700: hsla(173, 80%, 36%, 1);
---geist-highlight-magenta: #eb367f;
 --ds-green-800: hsla(132, 43%, 39%, 1);
 --ds-red-200: hsla(0, 100%, 96%, 1);
+--geist-highlight-magenta: #eb367f;
 --ds-purple-1000: hsla(276, 100%, 15%, 1);
 --vh100-offset: calc(64px + 0px);
 --ds-green-100-value: 120, 60%, 96%;
 --ds-gray-500: hsla(0, 0%, 79%, 1);
 --scroller-start: #fff;
---ds-purple-800: hsla(272, 47%, 45%, 1);
 --vaul-overlay-background-end: #0006;
+--ds-purple-800: hsla(272, 47%, 45%, 1);
 --ds-purple-300: hsla(274, 78%, 95%, 1);
 --ds-amber-500: hsla(38, 100%, 71%, 1);
 --tw-scale-y: 1;
@@ -556,14 +568,14 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --ds-gray-700: hsla(0, 0%, 56%, 1);
 --ds-teal-800-value: 173, 83%, 30%;
 --animate-sandbox-left: sandbox-left .5s ease-in-out forwards;
+--ds-teal-200-value: 167, 70%, 94%;
 --ds-amber-700-value: 39, 100%, 57%;
 --animate-dialogFadeIn: ;
---ds-teal-200-value: 167, 70%, 94%;
 --ds-purple-400-value: 276, 71%, 92%;
 --ds-contrast-fg: #fff;
 --tw-enter-blur: 0;
---ds-amber-1000-value: 20, 79%, 17%;
 --animate-cmdkScaleOut: cmdkScaleOut .3s cubic-bezier(.175, .885, .32, 1.1);
+--ds-amber-1000-value: 20, 79%, 17%;
 --ds-red-700: hsla(358, 75%, 59%, 1);
 --container-xl: 1200px;
 --geist-highlight-purple: #f81ce5;
@@ -609,8 +621,8 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --tw-gradient-from-position: 0%;
 --ds-pink-700: hsla(336, 80%, 58%, 1);
 --ds-blue-300: hsla(210, 100%, 94%, 1);
---ds-gray-700-value: 0, 0%, 56%;
 --wv-green: #0cce6b;
+--ds-gray-700-value: 0, 0%, 56%;
 --ds-gray-alpha-700: #00000070;
 --ds-gray-300-value: 0, 0%, 90%;
 --ds-pink-1000: hsla(333, 74%, 15%, 1);
@@ -623,16 +635,16 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --tw-animation-fill-mode: none;
 --tw-exit-blur: 0;
 --animate-feedbackFadeOut: feedbackFadeOut .2s cubic-bezier(.16, 1, .3, 1) forwards;
---ds-red-900-value: 358, 66%, 48%;
 --ds-pink-500: hsla(340, 75%, 84%, 1);
+--ds-red-900-value: 358, 66%, 48%;
 --ds-pink-100-value: 330, 100%, 96%;
 --geist-highlight-pink: #ff0080;
 --geist-cyan-light: #79ffe1;
 --ds-green-600: hsla(125, 60%, 64%, 1);
 --ds-red-1000-value: 355, 49%, 15%;
 --vaul-overlay-background-start: #0000;
---ds-green-900: hsla(133, 50%, 32%, 1);
 --geist-cyan: #50e3c2;
+--ds-green-900: hsla(133, 50%, 32%, 1);
 --ds-pink-900: hsla(336, 65%, 45%, 1);
 --tw-enter-translate-x: 0;
 --container-4xl: 56rem;
@@ -640,8 +652,8 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --animate-fade-in: fade-in 1.25s cubic-bezier(.4, .04, .04, 1) forwards;
 --ds-amber-800: hsla(35, 100%, 52%, 1);
 --ds-green-700-value: 131, 41%, 46%;
---ds-amber-400-value: 42, 100%, 78%;
 --preview-line-end: #9a1fb8;
+--ds-amber-400-value: 42, 100%, 78%;
 --ds-gray-alpha-500: #00000036;
 --ds-green-300: hsla(120, 60%, 91%, 1);
 --animate-fadeInTooltipFaster: fadeInTooltip .1s ease-in .1s forwards;
@@ -649,12 +661,12 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --ds-blue-900: hsla(211, 100%, 42%, 1);
 --ds-gray-600: hsla(0, 0%, 66%, 1);
 --ds-purple-500: hsla(274, 70%, 82%, 1);
---ds-green-400: hsla(122, 60%, 86%, 1);
 --ds-pink-800: hsla(336, 74%, 51%, 1);
+--ds-green-400: hsla(122, 60%, 86%, 1);
 --ds-blue-500: hsla(209, 100%, 80%, 1);
 --ds-green-900-value: 133, 50%, 32%;
---animate-blink: blink 1s infinite;
 --ds-amber-300-value: 43, 96%, 90%;
+--animate-blink: blink 1s infinite;
 --ds-amber-400: hsla(42, 100%, 78%, 1);
 --tw-enter-opacity: 1;
 --ds-motion-overlay-scale: .96;
@@ -663,10 +675,10 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --header-height: 64px;
 --aspect-video: 16 / 9;
 --ds-teal-100: hsla(169, 70%, 96%, 1);
---develop-line-end: #019ae9;
 --ds-green-1000-value: 128, 29%, 15%;
---animate-loading: loading 8s ease-in-out infinite;
+--develop-line-end: #019ae9;
 --ds-blue-600: hsla(208, 100%, 66%, 1);
+--animate-loading: loading 8s ease-in-out infinite;
 --tw-animation-delay: 0s;
 --animate-marquee: marquee 40s linear infinite;
 --ds-green-800-value: 132, 43%, 39%;
@@ -750,6 +762,7 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --ds-blue-800: hsla(212, 100%, 41%, 1);
 --ds-amber-900-value: 30, 100%, 32%;
 --geist-form-large-height: 48px;
+--animate-ping: ping 1s cubic-bezier(0, 0, .2, 1) infinite;
 --geist-warning: #f5a623;
 --geist-error-dark: #c50000;
 --ds-motion-overlay-duration: .3s;
@@ -760,27 +773,28 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --geist-violet: #7928ca;
 --ship-line-end: #f9cb28;
 --geist-console-header: #efe7ed;
+--blur-xl: 24px;
 --geist-success-lighter: #d3e5ff;
 --ds-red-100-value: 0, 100%, 97%;
---ds-purple-100-value: 276, 100%, 97%;
---animate-accordion-down: accordion-down .2s ease-out;
 --geist-error-light: #ff1a1a;
+--animate-accordion-down: accordion-down .2s ease-out;
+--ds-purple-100-value: 276, 100%, 97%;
 --tw-scale-z: 1;
 --ds-red-800: hsla(358, 70%, 52%, 1);
 --ds-purple-700-value: 272, 51%, 54%;
 --ds-amber-300: hsla(43, 96%, 90%, 1);
 --tw-scroll-snap-strictness: proximity;
+--ds-green-500: hsla(124, 60%, 75%, 1);
 --ds-background-200-value: 0, 0%, 98%;
 --container-lg: 961px;
---ds-green-500: hsla(124, 60%, 75%, 1);
 --geist-highlight-yellow: #fff500;
 --ds-green-400-value: 122, 60%, 86%;
---ds-pink-100: hsla(330, 100%, 96%, 1);
 --ds-blue-700-value: 212, 100%, 48%;
---geist-success: #0070f3;
+--ds-pink-100: hsla(330, 100%, 96%, 1);
 --ds-teal-600: hsla(170, 70%, 57%, 1);
---ds-green-500-value: 124, 60%, 75%;
+--geist-success: #0070f3;
 --ds-gray-alpha-200: #00000014;
+--ds-green-500-value: 124, 60%, 75%;
 --ds-gray-400: hsla(0, 0%, 92%, 1);
 --ease-in-out: cubic-bezier(.4, 0, .2, 1);
 --animate-cmdkFadeOut: cmdkFadeOut .3s cubic-bezier(.175, .885, .32, 1.1);
@@ -795,8 +809,8 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --container-5xl: 64rem;
 --ds-amber-100: hsla(39, 100%, 95%, 1);
 --animate-sandbox-right-reverse: sandbox-right-reverse .5s ease-in-out forwards;
---footer-height: 79px;
 --ds-red-900: hsla(358, 66%, 48%, 1);
+--footer-height: 79px;
 --geist-background: #fff;
 --perspective-distant: 1200px;
 --ds-red-600-value: 359, 90%, 71%;
@@ -810,8 +824,8 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 2px 0px;
 --ds-blue-100-value: 212, 100%, 97%;
 --tw-divide-y-reverse: 0;
 --ds-teal-200: hsla(167, 70%, 94%, 1);
---tw-exit-scale: 1;
 --container-2xl: 1400px;
+--tw-exit-scale: 1;
 --ds-purple-200: hsla(277, 87%, 97%, 1);
 --ds-amber-200-value: 44, 100%, 92%;
 --tw-scale-x: 1;
@@ -853,7 +867,7 @@ info: [object Object];
 | sm | 480px | max-width |
 | sm | 500px | max-width |
 | sm | 600px | max-width |
-| sm | 601px | min-width |
+| sm | 601px | max-width |
 | sm | 610px | min-width |
 | sm | 640px | max-width |
 | sm | 650px | min-width |
@@ -862,7 +876,7 @@ info: [object Object];
 | md | 750px | max-width |
 | md | 768px | max-width |
 | md | 769px | min-width |
-| md | 800px | min-width |
+| md | 800px | max-width |
 | lg | 960px | max-width |
 | lg | 961px | min-width |
 | lg | 992px | min-width |
@@ -871,6 +885,8 @@ info: [object Object];
 | lg | 1024px | max-width |
 | lg | 1036px | min-width |
 | lg | 1050px | max-width |
+| lg | 1070px | max-width |
+| lg | 1080px | max-width |
 | 1100px | 1100px | max-width |
 | 1108px | 1108px | max-width |
 | 1120px | 1120px | max-width |
@@ -882,7 +898,7 @@ info: [object Object];
 
 ## Transitions & Animations
 
-**Easing functions:** `[object Object]`, `[object Object]`, `[object Object]`, `[object Object]`, `[object Object]`, `[object Object]`
+**Easing functions:** `[object Object]`, `[object Object]`, `[object Object]`, `[object Object]`, `[object Object]`, `[object Object]`, `[object Object]`
 
 **Durations:** `0.2s`, `0.09s`, `0.15s`, `0.3s`, `0.4s`, `0.16s`, `0.1s`, `0.25s`
 
@@ -895,10 +911,10 @@ transition: color 0.09s, background 0.09s;
 transition: rotate 0.2s;
 transition: color 0.15s ease-in-out;
 transition: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 transition: border-color 0.15s, background 0.15s, color 0.15s, transform 0.15s, box-shadow 0.15s;
 transition: border-color 0.3s cubic-bezier(0.39, 0.18, 0.17, 0.99), background 0.3s cubic-bezier(0.39, 0.18, 0.17, 0.99), color 0.3s cubic-bezier(0.39, 0.18, 0.17, 0.99), transform 0.3s cubic-bezier(0.39, 0.18, 0.17, 0.99), box-shadow 0.3s cubic-bezier(0.39, 0.18, 0.17, 0.99), width 0.4s cubic-bezier(0.39, 0.18, 0.17, 0.99);
+transition: cubic-bezier(0.14, 0.55, 0.3, 0.92);
+transition: box-shadow 0.2s;
 ```
 
 ### Keyframe Animations
@@ -990,7 +1006,7 @@ transition: border-color 0.3s cubic-bezier(0.39, 0.18, 0.17, 0.99), background 0
 
 Detected UI component patterns and their most common styles:
 
-### Buttons (36 instances)
+### Buttons (37 instances)
 
 ```css
 .button {
@@ -999,7 +1015,7 @@ Detected UI component patterns and their most common styles:
   font-size: 14px;
   font-weight: 500;
   padding-top: 0px;
-  padding-right: 0px;
+  padding-right: 6px;
   border-radius: 100px;
 }
 ```
@@ -1029,7 +1045,7 @@ Detected UI component patterns and their most common styles:
 }
 ```
 
-### Links (133 instances)
+### Links (134 instances)
 
 ```css
 .link {
@@ -1411,7 +1427,7 @@ Reusable component instances grouped by DOM structure and style similarity:
 
 ## Layout System
 
-**56 grid containers** and **498 flex containers** detected.
+**56 grid containers** and **500 flex containers** detected.
 
 ### Container Widths
 
@@ -1444,12 +1460,12 @@ grid-template-columns: 359.656px 359.656px 359.656px;
 
 | Direction/Wrap | Count |
 |----------------|-------|
-| row/nowrap | 345x |
+| row/nowrap | 347x |
 | column/nowrap | 147x |
 | row/wrap | 5x |
 | column-reverse/nowrap | 1x |
 
-**Gap values:** `10px`, `12px`, `14px`, `16px`, `20px`, `24px`, `2px`, `32px`, `40px`, `48px 24px`, `4px`, `6px`, `8px`, `96px`
+**Gap values:** `10px`, `12px`, `14px`, `16px`, `20px`, `24px`, `2px`, `32px`, `32px 8px`, `40px`, `4px`, `6px`, `8px`, `96px`
 
 ## Accessibility (WCAG 2.1)
 
@@ -1487,8 +1503,8 @@ grid-template-columns: 359.656px 359.656px 359.656px;
 
 **Issues:**
 - 2 WCAG contrast failures
-- 1194 !important rules — prefer specificity over overrides
-- 11530 duplicate CSS declarations
+- 1267 !important rules — prefer specificity over overrides
+- 12166 duplicate CSS declarations
 
 ## Gradients
 
@@ -1523,7 +1539,7 @@ background: linear-gradient(rgb(212, 238, 247), rgb(212, 238, 247) 50%, rgba(0, 
 | Layer | Range | Elements |
 |-------|-------|----------|
 | modal | 1000,999999999 | a.f.i.x.e.d. .-.m.-.p.x. .o.v.e.r.f.l.o.w.-.h.i.d.d.e.n. .w.h.i.t.e.s.p.a.c.e.-.n.o.w.r.a.p. .b.o.r.d.e.r.-.0. .t.o.p.-.1.6. .l.e.f.t.-.1.2. .z.-.[.1.0.0.0.]. .h.-.3.2. .f.l.e.x. .i.t.e.m.s.-.c.e.n.t.e.r. .o.u.t.l.i.n.e.-.n.o.n.e. .t.e.x.t.-.[.v.a.r.(.-.-.g.e.i.s.t.-.l.i.n.k.-.c.o.l.o.r.).]. .p.x.-.1.2. .p.y.-.0. .b.g.-.[.v.a.r.(.-.-.g.e.i.s.t.-.b.a.c.k.g.r.o.u.n.d.).]. .s.h.a.d.o.w.-.[.0._.0._.0._.2.p.x._.v.a.r.(.-.-.g.e.i.s.t.-.b.a.c.k.g.r.o.u.n.d.).,.0._.0._.0._.4.p.x._.v.a.r.(.-.-.g.e.i.s.t.-.l.i.n.k.-.c.o.l.o.r.).]. .r.o.u.n.d.e.d.-.[.v.a.r.(.-.-.g.e.i.s.t.-.r.a.d.i.u.s.).]. .o.p.a.c.i.t.y.-.0. .p.o.i.n.t.e.r.-.e.v.e.n.t.s.-.n.o.n.e. .f.o.c.u.s.:.o.p.a.c.i.t.y.-.1.0.0. .f.o.c.u.s.:.[.p.o.i.n.t.e.r.-.e.v.e.n.t.s.:._.a.l.l.], div.w.-.f.u.l.l. .h.-.f.u.l.l. .i.n.s.e.t.-.0. .f.i.x.e.d. .p.o.i.n.t.e.r.-.e.v.e.n.t.s.-.n.o.n.e. .z.-.[.1.0.0.0.0.0.], div.a.b.s.o.l.u.t.e. .b.g.-.b.a.c.k.g.r.o.u.n.d.-.1.0.0. .b.g.-.c.l.i.p.-.p.a.d.d.i.n.g. .r.o.u.n.d.e.d.-.[.6.p.x.]. .o.v.e.r.f.l.o.w.-.v.i.s.i.b.l.e. .p.o.i.n.t.e.r.-.e.v.e.n.t.s.-.n.o.n.e. .z.-.[.1.0.0.0.0.0.0.]. .s.h.a.d.o.w.-.[.v.a.r.(.-.-.d.s.-.s.h.a.d.o.w.-.t.o.o.l.t.i.p.).,.0._.0._.0._.1.p.x._.v.a.r.(.-.-.d.s.-.b.a.c.k.g.r.o.u.n.d.-.1.0.0.).]. .w.-.f.i.t. .[.-.-.c.o.n.t.e.x.t.-.c.a.r.d.-.t.i.p.-.s.t.r.o.k.e.:.#.D.B.D.B.D.B.]. .d.a.r.k.-.t.h.e.m.e.:.[.-.-.c.o.n.t.e.x.t.-.c.a.r.d.-.t.i.p.-.s.t.r.o.k.e.:.#.2.5.2.5.2.5.]. .!.t.r.a.n.s.i.t.i.o.n.-.n.o.n.e |
-| dropdown | 100,100 | aside.s.h.r.i.n.k.-.0. .z.-.1.0.0. .s.t.i.c.k.y. .h.-.s.c.r.e.e.n. .t.o.p.-.0. .r.i.g.h.t.-.0. .t.r.a.n.s.i.t.i.o.n.-.t.r.a.n.s.f.o.r.m.a.t.i.o.n. .e.a.s.e.-.i.n.-.o.u.t. .t.r.a.n.s.i.t.i.o.n.-.[.w.i.d.t.h.]. .d.u.r.a.t.i.o.n.-.2.5.0. .w.-.0. .o.v.e.r.f.l.o.w.-.h.i.d.d.e.n |
+| dropdown | 100,100 | aside.s.h.r.i.n.k.-.0. .z.-.[.1.0.0.]. .s.t.i.c.k.y. .h.-.s.c.r.e.e.n. .t.o.p.-.0. .r.i.g.h.t.-.0. .t.r.a.n.s.i.t.i.o.n.-.t.r.a.n.s.f.o.r.m.a.t.i.o.n. .e.a.s.e.-.i.n.-.o.u.t. .t.r.a.n.s.i.t.i.o.n.-.[.w.i.d.t.h.]. .d.u.r.a.t.i.o.n.-.2.5.0. .w.-.0. .o.v.e.r.f.l.o.w.-.h.i.d.d.e.n |
 | sticky | 10,80 | div.d.o.m.a.i.n.s.-.m.o.d.u.l.e._._.k.m.v.S.I.a._._.w.i.n.d.o.w, div.h.e.a.d.e.r.-.m.o.d.u.l.e._._.6.n.z.V.r.W._._.w.r.a.p.p.e.r. .h.e.a.d.e.r.-.m.o.d.u.l.e._._.6.n.z.V.r.W._._.s.t.i.c.k.y. .h.e.a.d.e.r.-.m.o.d.u.l.e._._.6.n.z.V.r.W._._.c.a.n.G.r.o.w. .h.e.a.d.e.r.-.m.o.d.u.l.e._._.6.n.z.V.r.W._._.t.r.a.n.s.p.a.r.e.n.t.U.n.t.i.l.S.c.r.o.l.l, div.m.o.b.i.l.e.-.m.e.n.u.-.m.o.d.u.l.e._._.A.r.r.J.Y.G._._.r.o.o.t |
 | base | 0,9 | div.g.r.i.d.-.m.o.d.u.l.e._._.A.M.T.I.x.G._._.b.l.o.c.k. .h.e.r.o.-.m.o.d.u.l.e._._.p.X.b.8.l.W._._.g.r.a.d.i.e.n.t, div.g.r.i.d.-.m.o.d.u.l.e._._.A.M.T.I.x.G._._.g.u.i.d.e.s, div.g.r.i.d.-.m.o.d.u.l.e._._.A.M.T.I.x.G._._.g.u.i.d.e.s |
 
@@ -1552,7 +1568,6 @@ background: linear-gradient(rgb(212, 238, 247), rgb(212, 238, 247) 50%, rgba(0, 
 | Roboto Mono | cdn | 400, 500, 700 | normal |
 | Geist Mono | self-hosted | 100 900 | normal |
 | Geist | self-hosted | 100 900 | normal |
-| DSEG7 Classic | self-hosted | 700 | normal |
 | KaTeX_AMS | self-hosted | 400 | normal |
 | KaTeX_Caligraphic | self-hosted | 400, 700 | normal |
 | KaTeX_Fraktur | self-hosted | 400, 700 | normal |
@@ -1565,6 +1580,7 @@ background: linear-gradient(rgb(212, 238, 247), rgb(212, 238, 247) 50%, rgba(0, 
 | KaTeX_Size3 | self-hosted | 400 | normal |
 | KaTeX_Size4 | self-hosted | 400 | normal |
 | KaTeX_Typewriter | self-hosted | 400 | normal |
+| DSEG7 Classic | self-hosted | 700 | normal |
 
 ## Image Style Patterns
 
@@ -1591,8 +1607,8 @@ background: linear-gradient(rgb(212, 238, 247), rgb(212, 238, 247) 50%, rgba(0, 
 ### Easing Families
 
 - **ease-in-out** (38 uses) — `ease`
-- **custom** (17 uses) — `cubic-bezier(0.4, 0, 0.2, 1)`, `cubic-bezier(0.39, 0.18, 0.17, 0.99)`, `cubic-bezier(0.33, 0.12, 0.15, 1)`
-- **ease-out** (1 uses) — `cubic-bezier(0.14, 0.55, 0.3, 0.92)`
+- **custom** (14 uses) — `cubic-bezier(0.4, 0, 0.2, 1)`, `cubic-bezier(0.39, 0.18, 0.17, 0.99)`, `cubic-bezier(0.33, 0.12, 0.15, 1)`
+- **ease-out** (2 uses) — `cubic-bezier(0.14, 0.55, 0.3, 0.92)`, `cubic-bezier(0.3, 0.57, 0.07, 0.95)`
 - **spring** (2 uses) — `cubic-bezier(0.31, 0.05, 0.43, 1.02)`
 
 ### Spring / Overshoot Easings
@@ -1710,7 +1726,7 @@ Reading order (top→bottom): feature-grid → hero → sidebar → nav → feat
 ## Imagery Style
 
 **Label:** `gradient-mesh` (confidence 0.667)
-**Counts:** total 10, svg 10, icon 2, screenshot-like 0, photo-like 0
+**Counts:** total 10, svg 7, icon 2, screenshot-like 0, photo-like 0
 **Dominant aspect:** ultra-wide
 **Radius profile on images:** square
 

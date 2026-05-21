@@ -1,7 +1,7 @@
 # Design Language: The AI workspace that works for you. | Notion
 
-> Extracted from `https://notion.so` on May 18, 2026
-> 1570 elements analyzed
+> Extracted from `https://notion.so` on May 21, 2026
+> 1572 elements analyzed
 
 This document describes the complete design language of the website. It is structured for AI/LLM consumption — use it to faithfully recreate the visual design in any framework.
 
@@ -19,7 +19,7 @@ This document describes the complete design language of the website. It is struc
 
 | Hex | HSL | Usage Count |
 |-----|-----|-------------|
-| `#000000` | hsl(0, 0%, 0%) | 2139 |
+| `#000000` | hsl(0, 0%, 0%) | 2143 |
 | `#f6f5f4` | hsl(30, 10%, 96%) | 388 |
 | `#a39e98` | hsl(33, 6%, 62%) | 202 |
 | `#ffffff` | hsl(0, 0%, 100%) | 171 |
@@ -47,7 +47,7 @@ background-image: linear-gradient(rgba(255, 255, 255, 0), rgb(255, 255, 255));
 
 | Hex | Contexts | Count |
 |-----|----------|-------|
-| `#000000` | text, border, background | 2139 |
+| `#000000` | text, border, background | 2143 |
 | `#f6f5f4` | text, border, background | 388 |
 | `#a39e98` | text, border | 202 |
 | `#ffffff` | background, text, border | 171 |
@@ -82,7 +82,7 @@ background-image: linear-gradient(rgba(255, 255, 255, 0), rgb(255, 255, 255));
 
 ### Font Families
 
-- **NotionInter** — used for all (1563 elements)
+- **NotionInter** — used for all (1565 elements)
 - **Times** — used for body (5 elements)
 - **Lyon Text** — used for body (2 elements)
 
@@ -126,7 +126,7 @@ body { font-size: 14px; font-weight: 400; line-height: 20px; }
 
 ### Font Weights in Use
 
-`400` (1260x), `500` (242x), `700` (43x), `600` (25x)
+`400` (1262x), `500` (242x), `700` (43x), `600` (25x)
 
 ## Spacing
 
@@ -329,7 +329,7 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 18px 0px, rgba(0, 0, 0, 0.027) 0px 2.025
 --color-alpha-black-500: #0000008a;
 --color-alpha-black-600: #00000096;
 --color-alpha-black-700: #000000bf;
---color-alpha-black-800: #000000e6;
+--color-alpha-black-800: #000000e5;
 --color-alpha-black-900: #000000f2;
 --color-alpha-white-100: #ffffff0d;
 --color-alpha-white-200: #ffffff1a;
@@ -371,14 +371,14 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 18px 0px, rgba(0, 0, 0, 0.027) 0px 2.025
 --font-family-primary-mono: "iA Writer Mono";
 --font-family-primary-emoji: "Apple Color Emoji";
 --color-card-accent: #097fe8;
---color-button-primary-background-active: #005bab;
 --color-button-tertiary-text: #000000f2;
+--color-button-primary-background-active: #005bab;
 --color-button-primary-border: #fff0;
 --color-action-button-primary-background-focus: #f6f5f4;
 --color-background-surface-neutral-focus: #dfdcd9;
 --spacing-card-padding-inline-block: 2rem;
---color-background-surface-accent-muted: #f2f9ff;
 --color-code-comment: #0000008a;
+--color-background-surface-accent-muted: #f2f9ff;
 --color-terminal-text: #000000f2;
 --color-icon-button-active: #615d59;
 --color-interaction-indicator-active: #0000004d;
@@ -457,15 +457,15 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 18px 0px, rgba(0, 0, 0, 0.027) 0px 2.025
 --color-card-body-block-text: #000000f2;
 --color-button-ghost-indicator: #78736f;
 --color-code-class: #f64932;
---dev-platform-nav-bg: rgba(0, 0, 0, 0);
 --color-background-surface-neutral-active: #dfdcd9;
---color-text-normal: #000000e6;
+--dev-platform-nav-bg: rgba(0, 0, 0, 0);
+--color-text-normal: #000000e5;
 --color-icon-button-focus: #615d59;
 --color-code-operator: #ff6d00;
 --border-popover-radius: 0.75rem;
 --color-button-secondary-border: #fff0;
---typography-card-quote-font: 400 1.25rem /1.75rem "Lyon Text",Georgia,YuMincho,"Yu Mincho","Hiragino Mincho ProN","Hiragino Mincho Pro","Songti TC","Songti SC",SimSun,"Nanum Myeongjo",NanumMyeongjo,Batang,serif;
 --color-icon-button-background-active: #0000000d;
+--typography-card-quote-font: 400 1.25rem /1.75rem "Lyon Text",Georgia,YuMincho,"Yu Mincho","Hiragino Mincho ProN","Hiragino Mincho Pro","Songti TC","Songti SC",SimSun,"Nanum Myeongjo",NanumMyeongjo,Batang,serif;
 --color-accent: #62aef0;
 --typography-card-title-feature-md-font: 700 2rem /2.5rem NotionInter,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";
 --color-action-button-alpha-icon-disabled: #0000004d;
@@ -486,8 +486,8 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 18px 0px, rgba(0, 0, 0, 0.027) 0px 2.025
 --color-card-title-text: #000;
 --color-link-primary-text-hover: #00396b;
 --color-button-primary-text: #fff;
---color-background-surface-accent: #62aef0;
 --color-badge-mono-background: #f6f5f4;
+--color-background-surface-accent: #62aef0;
 --typography-card-title-letter-spacing: -0.015625rem;
 --color-menu-button-background: #f9f9f8;
 --color-background-surface-neutral-hover: #dfdcd9;
@@ -504,10 +504,10 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 18px 0px, rgba(0, 0, 0, 0.027) 0px 2.025
 --border-badge-radius: 624.9375rem;
 --border-radius-base: 0.25rem;
 --color-badge-bold-background: #097fe8;
---color-code-foreground: #000000e6;
+--color-code-foreground: #000000e5;
 --typography-card-title-summary-font: 700 1rem /1.5rem NotionInter,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";
---color-code-selection-background: #e6f3fe;
 --color-button-ghost-border: #fff0;
+--color-code-selection-background: #e6f3fe;
 --color-icon-button-hover: #615d59;
 --color-badge-muted-text: #0000008a;
 --color-button-tertiary-background-active: #f6f5f4;
@@ -520,8 +520,8 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 18px 0px, rgba(0, 0, 0, 0.027) 0px 2.025
 --color-menu-button-background-active: #f6f5f4;
 --color-menu-button-border-selected-focus: #0003;
 --color-button-primary-background-hover: #005bab;
---color-menu-button-background-focus: #f6f5f4;
 --color-button-tertiary-background: #fff;
+--color-menu-button-background-focus: #f6f5f4;
 --typography-card-note-letter-spacing: 0;
 --color-text-strong: #000000f2;
 --spacing-card-padding-inline: 1rem;
@@ -542,7 +542,7 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 18px 0px, rgba(0, 0, 0, 0.027) 0px 2.025
 --color-button-secondary-background: #e6f3fe;
 --typography-card-quote-letter-spacing: 0;
 --dimension-interaction-focus-ring-outline-offset: 0.125rem;
---color-menu-button-text: #000000e6;
+--color-menu-button-text: #000000e5;
 --color-button-secondary-background-focus: #f2f9ff;
 --color-button-ghost-background-focus: #f6f5f4;
 --typography-card-body-summary-font: 400 0.875rem /1.25rem NotionInter,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";
@@ -703,8 +703,8 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 18px 0px, rgba(0, 0, 0, 0.027) 0px 2.025
 --typography-interaction-menu-list-item-label-letter-spacing: 0;
 --typography-interaction-button-medium-letter-spacing: 0;
 --typography-article-subheading-lg-letter-spacing: -0.015625rem;
---typography-interaction-menu-button-letter-spacing: 0;
 --typography-interaction-menu-list-item-label-emphasis-md-letter-spacing: -0.015625rem;
+--typography-interaction-menu-button-letter-spacing: 0;
 --typography-navigation-heading-letter-spacing: 0.0078125rem;
 --typography-article-caption-letter-spacing: 0.0078125rem;
 --typography-navigation-body-letter-spacing: 0;
@@ -738,11 +738,11 @@ box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 18px 0px, rgba(0, 0, 0, 0.027) 0px 2.025
 --typography-global-body-letter-spacing: 0;
 --typography-article-quote-letter-spacing: 0;
 --typography-article-title-subtle-letter-spacing: -0.046875rem;
---spacing-section: 10rem;
+--spacing-section: 5rem;
 --typography-article-subheading-letter-spacing: -0.0078125rem;
 --typography-global-title-emphasis-md-letter-spacing: -0.1328125rem;
---typography-navigation-link-emphasis-letter-spacing: 0;
 --typography-article-body-bold-letter-spacing: 0;
+--typography-navigation-link-emphasis-letter-spacing: 0;
 --typography-global-subheading-letter-spacing: -0.015625rem;
 --typography-global-deck-sm-letter-spacing: -0.0078125rem;
 --typography-global-title-letter-spacing: -0.09375rem;
@@ -1100,6 +1100,7 @@ info: [object Object];
 | xs | 375px | min-width |
 | 400px | 400px | min-width |
 | sm | 440px | min-width |
+| sm | 599px | max-width |
 | sm | 600px | max-width |
 | md | 712px | min-width |
 | md | 768px | min-width |
@@ -1257,8 +1258,8 @@ Detected UI component patterns and their most common styles:
 ```css
 .input {
   background-color: rgb(255, 255, 255);
-  color: rgba(0, 0, 0, 0.9);
-  border-color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.898);
+  border-color: rgba(0, 0, 0, 0.898);
   border-radius: 0px;
   font-size: 16px;
   padding-top: 0px;
@@ -1281,7 +1282,7 @@ Detected UI component patterns and their most common styles:
 ```css
 .navigatio {
   background-color: rgb(255, 255, 255);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.898);
   padding-top: 0px;
   padding-bottom: 0px;
   padding-left: 0px;
@@ -1296,7 +1297,7 @@ Detected UI component patterns and their most common styles:
 ```css
 .foote {
   background-color: rgb(255, 255, 255);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.898);
   padding-top: 0px;
   padding-bottom: 0px;
   font-size: 16px;
@@ -1323,7 +1324,7 @@ Detected UI component patterns and their most common styles:
   background-color: rgb(255, 255, 255);
   border-radius: 0px;
   box-shadow: rgba(0, 0, 0, 0.01) 0px 0.175px 1.041px 0px, rgba(0, 0, 0, 0.02) 0px 0.8px 2.925px 0px, rgba(0, 0, 0, 0.027) 0px 2.025px 7.847px 0px, rgba(0, 0, 0, 0.04) 0px 4px 18px 0px;
-  border-color: rgba(0, 0, 0, 0.9);
+  border-color: rgba(0, 0, 0, 0.898);
   padding-top: 0px;
 }
 ```
@@ -1333,7 +1334,7 @@ Detected UI component patterns and their most common styles:
 ```css
 .badge {
   background-color: rgb(9, 127, 232);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.898);
   font-size: 14px;
   font-weight: 400;
   padding-top: 0px;
@@ -1347,12 +1348,12 @@ Detected UI component patterns and their most common styles:
 ```css
 .tab {
   background-color: rgba(0, 0, 0, 0.1);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.898);
   font-size: 16px;
   font-weight: 400;
   padding-top: 12px;
   padding-right: 16px;
-  border-color: rgba(0, 0, 0, 0.9);
+  border-color: rgba(0, 0, 0, 0.898);
   border-radius: 8px;
 }
 ```
@@ -1362,11 +1363,11 @@ Detected UI component patterns and their most common styles:
 ```css
 .accordion {
   background-color: rgba(0, 0, 0, 0.1);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.898);
   font-size: 16px;
   padding-top: 0px;
   padding-right: 0px;
-  border-color: rgba(0, 0, 0, 0.9);
+  border-color: rgba(0, 0, 0, 0.898);
 }
 ```
 
@@ -1385,7 +1386,7 @@ Detected UI component patterns and their most common styles:
 ```css
 .switche {
   border-radius: 0px;
-  border-color: rgba(0, 0, 0, 0.9);
+  border-color: rgba(0, 0, 0, 0.898);
 }
 ```
 
@@ -1523,7 +1524,7 @@ Reusable component instances grouped by DOM structure and style similarity:
 
 ```css
   background: rgb(255, 255, 255);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.898);
   padding: 24px 24px 24px 24px;
   border-radius: 12px;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -1603,7 +1604,7 @@ Reusable component instances grouped by DOM structure and style similarity:
 
 ```css
   background: rgb(2, 9, 58);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.898);
   padding: 24px 24px 24px 24px;
   border-radius: 12px;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -1617,10 +1618,10 @@ Reusable component instances grouped by DOM structure and style similarity:
 
 ```css
   background: rgba(0, 0, 0, 0);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.898);
   padding: 0px 0px 0px 0px;
   border-radius: 12px;
-  border: 0px none rgba(0, 0, 0, 0.9);
+  border: 0px none rgba(0, 0, 0, 0.898);
   font-size: 16px;
   font-weight: 400;
 ```
@@ -1769,7 +1770,7 @@ gap: 28px;
 **Issues:**
 - 1 WCAG contrast failures
 - 9 !important rules — prefer specificity over overrides
-- 8236 duplicate CSS declarations
+- 7410 duplicate CSS declarations
 
 ## Gradients
 

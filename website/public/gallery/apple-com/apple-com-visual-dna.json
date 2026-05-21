@@ -10,7 +10,7 @@
       }
     ],
     "metrics": {
-      "saturation": 0.399,
+      "saturation": 0.369,
       "shadowProfile": "soft",
       "avgShadowBlur": 0,
       "maxShadowBlur": 0,
@@ -25,9 +25,9 @@
   },
   "imageryStyle": {
     "label": "photography",
-    "confidence": 0.527,
+    "confidence": 0.542,
     "counts": {
-      "total": 25,
+      "total": 24,
       "svg": 0,
       "icon": 0,
       "hero": 0,

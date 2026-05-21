@@ -5,7 +5,7 @@ Voice: Tone: friendly · Headings: Title Case · CTA verbs: [object Object], [ob
 ## Tokens
 ```ts
 export const tokens = {
-  colors: ['#000000', '#1d1d1f', '#2997ff', '#333336', '#f5f5f7', '#0066cc', '#6e6e73', '#fafafc', '#0071e3', '#e8e8ed', '#d2d2d7', '#140a12', '#9fc6f4', '#ea33c0'],
+  colors: ['#1d1d1f', '#000000', '#2997ff', '#e8e8ed', '#ffffff', '#f5f5f7', '#86868b', '#0066cc', '#0071e3', '#6e6e73', '#333336', '#d2d2d7', '#271a11', '#ea33c0'],
   fonts: ['[object Object]', '[object Object]', '[object Object]'],
   radii: ['5', '8', '11', '50', '980', '999'],
   shadows: ['rgba(0, 0, 0, 0.22) 3px 5px 30px 0px'],
@@ -14,9 +14,9 @@ export const tokens = {
 ## Sections
 - sidebar
 - sidebar
-- steps — heading: "iPhone"
-- hero — heading: "iPhone"
-- cta — heading: "Apple for College"
+- steps — heading: "Accessibility"
+- hero — heading: "Accessibility"
+- cta — heading: "WWDC 26"
 - gallery — heading: "Endless entertainment."
 - footer — heading: "Apple Footer"
-- feature-grid
+- pricing-table

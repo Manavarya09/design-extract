@@ -1,7 +1,7 @@
 {
   "$schema": "https://designlang.app/schemas/gradients.json",
   "source": "https://stripe.com",
-  "generated": "2026-05-17T21:15:59.521Z",
+  "generated": "2026-05-21T11:46:59.892Z",
   "count": 19,
   "gradients": [
     {
@@ -141,7 +141,7 @@
       "classification": "bold"
     },
     {
-      "raw": "linear-gradient(90deg, rgba(0, 0, 0, 0) 0px, rgb(252, 253, 254) 50%, rgba(0, 0, 0, 0) 100%)",
+      "raw": "linear-gradient(90deg, rgba(0, 0, 0, 0) 0px, rgb(8, 16, 191) 50%, rgba(0, 0, 0, 0) 100%)",
       "type": "linear",
       "direction": "90deg",
       "stops": [
@@ -150,7 +150,7 @@
           "position": "0px"
         },
         {
-          "color": "rgb(252, 253, 254)",
+          "color": "rgb(8, 16, 191)",
           "position": "50%"
         },
         {

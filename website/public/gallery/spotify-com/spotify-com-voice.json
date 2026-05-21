@@ -90,13 +90,13 @@
     "Trending songs",
     "Popular artists",
     "Popular albums and singles",
-    "Popular radio",
     "Home",
     "Trending songs",
-    "Popular artists"
+    "Popular artists",
+    "Popular albums and singles"
   ],
   "stats": {
     "buttons": 14,
-    "headings": 20
+    "headings": 16
   }
 }

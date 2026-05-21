@@ -7,7 +7,7 @@
 //   import tokens from './<host>-design-tokens.json';
 //
 // Source: https://figma.com
-// Generated: 2026-05-17T21:16:19.285Z
+// Generated: 2026-05-21T11:47:17.928Z
 
 export type Hex = `#${string}`;
 export type Px  = `${number}px`;

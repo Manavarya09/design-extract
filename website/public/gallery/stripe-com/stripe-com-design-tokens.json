@@ -4,7 +4,7 @@
     "version": "7.0.0",
     "spec": "https://design-tokens.github.io/community-group/format/",
     "source": "https://stripe.com",
-    "generatedAt": "2026-05-17T21:15:59.245Z"
+    "generatedAt": "2026-05-21T11:46:59.799Z"
   },
   "primitive": {
     "color": {
@@ -36,10 +36,14 @@
           "$type": "color"
         },
         "n500": {
-          "$value": "#101010",
+          "$value": "#7d8ba4",
           "$type": "color"
         },
         "n600": {
+          "$value": "#101010",
+          "$type": "color"
+        },
+        "n700": {
           "$value": "#f2f7fe",
           "$type": "color"
         }

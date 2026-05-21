@@ -92,9 +92,9 @@
       {
         "index": 3,
         "tag": "main",
-        "role": "testimonials",
+        "role": "steps",
         "subrole": null,
-        "confidence": 0.4,
+        "confidence": 0.75,
         "heading": "The product development\nsystem for teams and agents\nThe product development system for teams and agents",
         "bounds": {
           "x": 0,
@@ -114,7 +114,7 @@
           ],
           "ctaCount": 83
         },
-        "needsSmart": true
+        "needsSmart": false
       },
       {
         "index": 4,
@@ -175,7 +175,7 @@
         "cardCount": 0,
         "slots": {
           "ctaCount": 1,
-          "lede": "Codex"
+          "lede": "Cursor"
         },
         "needsSmart": true
       },
@@ -420,7 +420,7 @@
         "cardCount": 0,
         "slots": {
           "ctaCount": 2,
-          "lede": "Weekly Pulse for May 18\nListen\n1.0×"
+          "lede": "Weekly Pulse for May 21\nListen\n1.0×"
         },
         "needsSmart": true
       },
@@ -497,7 +497,8 @@
       "content": 2,
       "logo-wall": 1,
       "nav": 10,
-      "testimonials": 3,
+      "steps": 1,
+      "testimonials": 2,
       "hero": 2,
       "testimonial": 2,
       "cta": 1,
@@ -507,7 +508,7 @@
       "content",
       "logo-wall",
       "nav",
-      "testimonials",
+      "steps",
       "nav",
       "nav",
       "nav",

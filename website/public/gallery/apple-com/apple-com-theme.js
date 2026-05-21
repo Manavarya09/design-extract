@@ -18,11 +18,14 @@
     neutral400: string;
     neutral500: string;
     neutral600: string;
+    neutral700: string;
+    neutral800: string;
  *   };
  *   fonts: {
     body: string;
  *   };
  *   fontSizes: {
+    '12': string;
     '14': string;
     '17': string;
     '18': string;
@@ -33,7 +36,6 @@
     '40': string;
     '44': string;
     '56': string;
-    '25.5': string;
     '13.3333': string;
  *   };
  *   space: {
@@ -76,21 +78,24 @@ export const theme = {
   "colors": {
     "primary": "#f5f5f7",
     "secondary": "#0071e3",
-    "accent": "#fafafc",
+    "accent": "#ea33c0",
     "background": "#ffffff",
     "foreground": "#000000",
-    "neutral50": "#000000",
-    "neutral100": "#1d1d1f",
-    "neutral200": "#333336",
-    "neutral300": "#6e6e73",
-    "neutral400": "#e8e8ed",
-    "neutral500": "#d2d2d7",
-    "neutral600": "#443c2a"
+    "neutral50": "#1d1d1f",
+    "neutral100": "#000000",
+    "neutral200": "#e8e8ed",
+    "neutral300": "#ffffff",
+    "neutral400": "#86868b",
+    "neutral500": "#6e6e73",
+    "neutral600": "#333336",
+    "neutral700": "#d2d2d7",
+    "neutral800": "#41626a"
   },
   "fonts": {
     "body": "'Arial', sans-serif"
   },
   "fontSizes": {
+    "12": "12px",
     "14": "14px",
     "17": "17px",
     "18": "18px",
@@ -101,7 +106,6 @@ export const theme = {
     "40": "40px",
     "44": "44px",
     "56": "56px",
-    "25.5": "25.5px",
     "13.3333": "13.3333px"
   },
   "space": {
@@ -162,7 +166,7 @@ export const muiTheme = {
     },
     "background": {
       "default": "#ffffff",
-      "paper": "#fafafc"
+      "paper": "#161617"
     },
     "text": {
       "primary": "#000000",
@@ -176,9 +180,9 @@ export const muiTheme = {
       "lineHeight": "50px"
     },
     "h2": {
-      "fontSize": "25.5px",
-      "fontWeight": "600",
-      "lineHeight": "37.5px"
+      "fontSize": "24px",
+      "fontWeight": "300",
+      "lineHeight": "36px"
     }
   },
   "shape": {

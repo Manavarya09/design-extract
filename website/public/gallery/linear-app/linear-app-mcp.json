@@ -14,7 +14,7 @@
           "s": 7,
           "l": 97
         },
-        "count": 6030,
+        "count": 6042,
         "contexts": [
           "text",
           "border",
@@ -34,7 +34,7 @@
           "s": 5,
           "l": 41
         },
-        "count": 717,
+        "count": 719,
         "contexts": [
           "text",
           "border",
@@ -93,7 +93,7 @@
           "s": 6,
           "l": 57
         },
-        "count": 267,
+        "count": 273,
         "contexts": [
           "text",
           "border"
@@ -1195,60 +1195,18 @@
   "cssHealth": {
     "sheets": [
       {
-        "url": "https://static.linear.app/web/_next/static/css/58fab6e95113fa01.css",
-        "totalBytes": 1349,
-        "usedBytes": 254,
-        "unusedBytes": 1095,
-        "unusedPercent": 81
-      },
-      {
-        "url": "https://static.linear.app/web/_next/static/css/787659585760e2df.css",
-        "totalBytes": 1231,
-        "usedBytes": 0,
-        "unusedBytes": 1231,
-        "unusedPercent": 100
-      },
-      {
-        "url": "https://static.linear.app/web/_next/static/css/e33eebaa9bcca044.css",
-        "totalBytes": 2560,
-        "usedBytes": 0,
-        "unusedBytes": 2560,
-        "unusedPercent": 100
-      },
-      {
-        "url": "https://static.linear.app/web/_next/static/css/3815d844e4bc9875.css",
-        "totalBytes": 126422,
-        "usedBytes": 18508,
-        "unusedBytes": 107914,
-        "unusedPercent": 85
-      },
-      {
-        "url": "https://static.linear.app/web/_next/static/css/6cf5d455b441123f.css",
-        "totalBytes": 76675,
+        "url": "https://static.linear.app/web/_next/static/css/924fa960acaa4bea.css",
+        "totalBytes": 69936,
         "usedBytes": 7298,
-        "unusedBytes": 69377,
+        "unusedBytes": 62638,
         "unusedPercent": 90
       },
       {
-        "url": "https://static.linear.app/web/_next/static/css/ff244e1956f7c113.css",
-        "totalBytes": 82194,
-        "usedBytes": 39882,
-        "unusedBytes": 42312,
-        "unusedPercent": 51
-      },
-      {
-        "url": "https://static.linear.app/web/_next/static/css/5b94d1c96fae3e00.css",
-        "totalBytes": 29792,
-        "usedBytes": 4564,
-        "unusedBytes": 25228,
-        "unusedPercent": 85
-      },
-      {
-        "url": "https://static.linear.app/web/_next/static/css/a336c311589ca073.css",
-        "totalBytes": 74437,
-        "usedBytes": 1311,
-        "unusedBytes": 73126,
-        "unusedPercent": 98
+        "url": "https://static.linear.app/web/_next/static/css/f2cd8db85b99b93a.css",
+        "totalBytes": 9496,
+        "usedBytes": 6317,
+        "unusedBytes": 3179,
+        "unusedPercent": 33
       },
       {
         "url": "https://static.linear.app/web/_next/static/css/39f6486263b77907.css",
@@ -1272,18 +1230,25 @@
         "unusedPercent": 100
       },
       {
-        "url": "https://static.linear.app/web/_next/static/css/f8646e7726775adc.css",
-        "totalBytes": 5896,
+        "url": "https://static.linear.app/web/_next/static/css/e33eebaa9bcca044.css",
+        "totalBytes": 2560,
         "usedBytes": 0,
-        "unusedBytes": 5896,
+        "unusedBytes": 2560,
         "unusedPercent": 100
       },
       {
-        "url": "https://static.linear.app/web/_next/static/css/f2cd8db85b99b93a.css",
-        "totalBytes": 9496,
-        "usedBytes": 6317,
-        "unusedBytes": 3179,
-        "unusedPercent": 33
+        "url": "https://static.linear.app/web/_next/static/css/87552d8c1e6158ef.css",
+        "totalBytes": 30026,
+        "usedBytes": 4564,
+        "unusedBytes": 25462,
+        "unusedPercent": 85
+      },
+      {
+        "url": "https://static.linear.app/web/_next/static/css/4bfd6e740527e9ba.css",
+        "totalBytes": 82139,
+        "usedBytes": 39928,
+        "unusedBytes": 42211,
+        "unusedPercent": 51
       },
       {
         "url": "https://static.linear.app/web/_next/static/css/0db40ec3258822d5.css",
@@ -1293,43 +1258,85 @@
         "unusedPercent": 97
       },
       {
+        "url": "https://static.linear.app/web/_next/static/css/58fab6e95113fa01.css",
+        "totalBytes": 1349,
+        "usedBytes": 254,
+        "unusedBytes": 1095,
+        "unusedPercent": 81
+      },
+      {
+        "url": "https://static.linear.app/web/_next/static/css/05cc061d547f6f51.css",
+        "totalBytes": 78064,
+        "usedBytes": 1311,
+        "unusedBytes": 76753,
+        "unusedPercent": 98
+      },
+      {
+        "url": "https://linear.app/",
+        "totalBytes": 295910,
+        "usedBytes": 0,
+        "unusedBytes": 295910,
+        "unusedPercent": 100
+      },
+      {
         "url": "https://static.linear.app/web/_next/static/css/726d93e2b8cba4df.css",
         "totalBytes": 3850,
         "usedBytes": 1736,
         "unusedBytes": 2114,
         "unusedPercent": 55
+      },
+      {
+        "url": "https://static.linear.app/web/_next/static/css/f8646e7726775adc.css",
+        "totalBytes": 5896,
+        "usedBytes": 0,
+        "unusedBytes": 5896,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://static.linear.app/web/_next/static/css/787659585760e2df.css",
+        "totalBytes": 1231,
+        "usedBytes": 0,
+        "unusedBytes": 1231,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://static.linear.app/web/_next/static/css/945498bfd1d4a5a5.css",
+        "totalBytes": 138133,
+        "usedBytes": 19247,
+        "unusedBytes": 118886,
+        "unusedPercent": 86
       }
     ],
-    "totalBytes": 491130,
-    "usedBytes": 82009,
-    "unusedBytes": 409121,
-    "unusedPercent": 83,
-    "importantCount": 80,
-    "duplicates": 5918,
+    "totalBytes": 795818,
+    "usedBytes": 82794,
+    "unusedBytes": 713024,
+    "unusedPercent": 90,
+    "importantCount": 81,
+    "duplicates": 16723,
     "vendorPrefixes": {
-      "webkit": 200,
-      "moz": 132,
-      "ms": 3,
+      "webkit": 726,
+      "moz": 192,
+      "ms": 63,
       "o": 15
     },
     "keyframes": [],
     "specificity": {
       "max": [
         0,
-        11,
+        12,
         6
       ],
       "average": [
         0,
-        2.62,
-        0.13
+        1.36,
+        0.09
       ],
-      "count": 4382
+      "count": 14325
     },
     "issues": [
-      "80 !important rules",
-      "5918 duplicate declarations",
-      "83% unused CSS"
+      "81 !important rules",
+      "16723 duplicate declarations",
+      "90% unused CSS"
     ]
   }
 }

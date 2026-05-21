@@ -7,7 +7,7 @@
 //   import tokens from './<host>-design-tokens.json';
 //
 // Source: https://arc.net
-// Generated: 2026-05-17T21:15:56.873Z
+// Generated: 2026-05-21T11:46:53.833Z
 
 export type Hex = `#${string}`;
 export type Px  = `${number}px`;
