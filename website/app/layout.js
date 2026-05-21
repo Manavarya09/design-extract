@@ -1,5 +1,7 @@
 import { Geist, Geist_Mono } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import SponsorSlot from './components/SponsorSlot';
 import StructuredData from './components/StructuredData';
 import MobileMenu from './components/MobileMenu';
 import {
@@ -209,6 +211,11 @@ function Footer() {
 }
 
 export default function RootLayout({ children }) {
+  const adsenseClient =
+    process.env.NEXT_PUBLIC_SPONSOR_PROVIDER === 'adsense'
+      ? process.env.NEXT_PUBLIC_ADSENSE_CLIENT
+      : null;
+
   return (
     <html lang="en" className={`${sans.variable} ${mono.variable}`}>
       <head>
@@ -217,12 +224,22 @@ export default function RootLayout({ children }) {
         <link rel="author" href="https://manavaryasingh.com" />
         <link rel="me" href="https://github.com/Manavarya09" />
         <StructuredData />
+        {adsenseClient ? (
+          // eslint-disable-next-line @next/next/no-sync-scripts
+          <script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
+            crossOrigin="anonymous"
+          />
+        ) : null}
       </head>
       <body>
         <Nav />
         {children}
         <Footer />
+        <SponsorSlot />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
