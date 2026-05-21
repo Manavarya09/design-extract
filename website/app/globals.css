@@ -292,15 +292,25 @@ img, svg { display: block; max-width: 100%; }
   .nav-version { display: none; }
 }
 @media (max-width: 640px) {
-  .nav { padding: 0 6px 0 14px; gap: 8px; }
+  .nav { padding: 0 10px 0 14px; gap: 10px; }
+  .nav-brand { flex: 1 1 auto; min-width: 0; }
+  .nav-wordmark { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .nav-stars { display: none; }
+  .nav-right { margin-left: auto; gap: 8px; flex: 0 0 auto; }
   .nav-cta {
-    height: 32px; padding: 0 12px; font-size: 11px;
+    flex: 0 0 auto;
+    height: 34px; padding: 0 14px; font-size: 11px;
+    white-space: nowrap;
   }
   .nav-cta span:first-child { display: none; }
   .nav-cta::before { content: 'Install'; }
   .nav-cta-glyph { font-size: 12px; }
-  .nav-burger { display: inline-block; }
+  .nav-burger {
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    flex: 0 0 auto;
+    width: 34px; height: 34px;
+  }
 }
 
 /* ── Buttons ─────────────────────────────────────────────────── */
