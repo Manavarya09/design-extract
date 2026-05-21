@@ -1346,6 +1346,44 @@ code, pre, kbd { font-family: var(--ff-mono); font-size: 13px; }
 .seo-prose a { color: var(--red-3); border-bottom: 1px solid rgba(255,128,128,0.3); }
 .seo-prose a:hover { color: #fff; border-bottom-color: rgba(255,255,255,0.5); }
 
+/* ── Footer sponsor slot ─────────────────────────────────────── */
+
+.sponsor-wrap {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 0 24px;
+}
+.sponsor-rule {
+  width: 100%; max-width: var(--maxw); height: 1px;
+  background: linear-gradient(90deg, transparent, var(--hairline-2), transparent);
+}
+.sponsor-inner {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  padding: 28px 0 8px;
+  min-height: 1px;
+}
+.sponsor-tag {
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--fg-3);
+}
+.sponsor-ea, .sponsor-carbon, .sponsor-adsense {
+  max-width: 360px; width: 100%;
+}
+/* EthicalAds dark-theme nudge so it sits in the black footer */
+.sponsor-ea[data-ea-style] { color: var(--fg-2); }
+#carbonads {
+  font-family: var(--ff-sans); font-size: 12px;
+  background: var(--surface-2); border: 1px solid var(--hairline);
+  border-radius: 12px; overflow: hidden; max-width: 360px;
+}
+#carbonads a { color: var(--fg-2); }
+#carbonads a:hover { color: #fff; }
+.carbon-text { padding: 10px 12px; display: block; }
+.carbon-poweredby {
+  display: block; padding: 6px 12px; font-size: 9px;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-3);
+  border-top: 1px solid var(--hairline);
+}
+
 /* ── Footer ──────────────────────────────────────────────────── */
 
 footer.ftr {
