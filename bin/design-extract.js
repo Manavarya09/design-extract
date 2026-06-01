@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import { mkdirSync, writeFileSync, readFileSync } from 'fs';
+import { writeFileSync, mkdirSync, existsSync, readFileSync } from 'fs';
 import { resolve, join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -68,10 +68,22 @@ import { nameFromUrl } from '../src/utils.js';
 
 function validateUrl(url) {
   try { new URL(url); } catch {
-    console.error(chalk.red(`\n  Invalid URL: ${url}\n`));
-    console.error(chalk.gray('  Example: designlang https://example.com\n'));
+    console.error(chalk.red(`\\n  Invalid URL: ${url}\\n`));
+    console.error(chalk.gray('  Example: designlang https://example.com\\n'));
     process.exit(1);
   }
+}
+
+function shouldEmit(emitterId, opts) {
+  if (opts.only) {
+    const onlyList = opts.only.split(',').map(s => s.trim());
+    return onlyList.includes(emitterId);
+  }
+  if (opts.skip) {
+    const skipList = opts.skip.split(',').map(s => s.trim());
+    return !skipList.includes(emitterId);
+  }
+  return true;
 }
 
 const program = new Command();
@@ -125,6 +137,8 @@ program
   .option('--no-history', 'skip saving to history')
   .option('--verbose', 'show detailed progress')
   .option('-q, --quiet', 'suppress output except file paths')
+  .option('--only <emitters>', 'only write the named emitters (comma-separated)')
+  .option('--skip <emitters>', 'skip the named emitters (comma-separated)')
   .action(async (url, opts) => {
     if (!url.startsWith('http')) url = `https://${url}`;
 
@@ -166,6 +180,13 @@ program
     const spinner = jsonMode || opts.quiet
       ? { start() { return this; }, set text(v) {}, succeed() {}, fail() {}, info() {}, stop() {} }
       : ora('Launching browser...').start();
+
+    // Validate --only and --skip flags are not used together
+    if (opts.only && opts.skip) {
+      console.error(chalk.red('\n  Error: --only and --skip flags cannot be used together\n'));
+      console.error(chalk.gray('  Example: designlang https://example.com --only tailwind\n'));
+      process.exit(1);
+    }
 
     try {
       spinner.text = `Crawling${merged.depth > 0 ? ` (depth: ${merged.depth})` : ''}...`;
@@ -456,7 +477,13 @@ program
       }
 
       for (const file of files) {
-        writeFileSync(join(outDir, file.name), file.content, 'utf-8');
+        // Apply --only/--skip filters
+        const emitterId = file.label.toLowerCase()
+          .replace(/[^a-z0-9\/]+/g, '-')
+          .replace(/^-+|-+$/g, '');
+        if (shouldEmit(emitterId, opts)) {
+          writeFileSync(join(outDir, file.name), file.content, 'utf-8');
+        }
       }
 
       // Brand book — always emit the HTML (cheap, ~100KB). Optionally
@@ -465,7 +492,7 @@ program
         const brandHtml = formatBrandBook(design, { version: PKG_VERSION });
         const brandHtmlPath = join(outDir, `${prefix}.brand.html`);
         writeFileSync(brandHtmlPath, brandHtml, 'utf-8');
-        files.push({ name: `${prefix}.brand.html`, label: 'Brand book (HTML)' });
+        files.push({ name: `${prefix}.brand.html`, label: 'Brand book (HTML)', content: brandHtml });
 
         if (opts.pdf) {
           spinner.text = 'Rendering brand book PDF...';
@@ -479,7 +506,8 @@ program
               subject: `${prefix} brand guidelines`,
             },
           });
-          files.push({ name: `${prefix}.brand.pdf`, label: 'Brand book (PDF · print-ready)' });
+          const pdfContent = readFileSync(pdfPath);
+          files.push({ name: `${prefix}.brand.pdf`, label: 'Brand book (PDF · print-ready)', content: pdfContent });
         }
       } catch (e) {
         if (!merged.quiet) console.warn(`(brand book skipped: ${e.message})`);
@@ -591,7 +619,7 @@ program
         console.log('');
         console.log(chalk.bold('  Output files:'));
         for (const file of files) {
-          const size = Buffer.byteLength(file.content);
+          const size = file.content ? Buffer.byteLength(file.content) : 0;
           const sizeStr = size > 1024 ? `${(size / 1024).toFixed(1)}KB` : `${size}B`;
           console.log(`  ${chalk.green('✓')} ${chalk.cyan(file.name)} ${chalk.gray(`(${sizeStr})`)} — ${file.label}`);
         }
