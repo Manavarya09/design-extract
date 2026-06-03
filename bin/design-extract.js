@@ -76,6 +76,17 @@ function validateUrl(url) {
 
 const program = new Command();
 
+function normalizeEmitterList(input) {
+  if (!input) return [];
+  return input.split(',').map((s) => s.trim()).filter(Boolean);
+}
+
+function shouldEmit(id, opts) {
+  if (opts.only) return normalizeEmitterList(opts.only).includes(id);
+  if (opts.skip) return !normalizeEmitterList(opts.skip).includes(id);
+  return true;
+}
+
 program
   .name('designlang')
   .description('Extract the complete design language from any website')
@@ -125,6 +136,9 @@ program
   .option('--no-history', 'skip saving to history')
   .option('--verbose', 'show detailed progress')
   .option('-q, --quiet', 'suppress output except file paths')
+  .option('--only <list>', 'only write the named emitters (comma-separated)')
+  .option('--skip <list>', 'skip the named emitters (comma-separated)')
+  .option('-l, --list-emitters', 'print available emitter ids and exit')
   .action(async (url, opts) => {
     if (!url.startsWith('http')) url = `https://${url}`;
 
@@ -139,6 +153,21 @@ program
 
     // Validate URL
     validateUrl(url);
+
+    // Emitter filtering
+    if (opts.only && opts.skip) {
+      console.error(chalk.red('\n  Cannot use --only and --skip together\n'));
+      process.exit(1);
+    }
+
+    if (opts.listEmitters) {
+      console.log('Available emitters:');
+      console.log('  tailwind, tailwind-v4, tsdefs, css-reset, gradients, brand-book, prompt-pack');
+      console.log('  motion-lab, framer-motion, motion-one, css-vars, preview, figma');
+      console.log('  react-theme, shadcn-theme, wordpress-theme');
+      console.log('  agent-rules, design-md');
+      process.exit(0);
+    }
 
     // Validate numeric options
     if (isNaN(merged.width) || merged.width < 100) {
