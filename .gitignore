@@ -5,6 +5,7 @@ test-output/
 .DS_Store
 .vercel/
 .vercel
+.npmrc
 
 # Internal planning, never push
 STRATEGY.md

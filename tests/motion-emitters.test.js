@@ -5,6 +5,8 @@ import { formatFramerMotion } from '../src/formatters/framer-motion.js';
 import { formatMotionOne } from '../src/formatters/motion-one.js';
 import { formatMotionCss } from '../src/formatters/motion-css.js';
 import { formatMotionTailwind } from '../src/formatters/motion-tailwind.js';
+import { formatMotionGsap } from '../src/formatters/motion-gsap.js';
+import { formatMotionWaapi } from '../src/formatters/motion-waapi.js';
 
 const designWithSpringAndScroll = {
   meta: { url: 'https://example.com/' },
@@ -142,5 +144,53 @@ describe('motionlang emitters', () => {
     const mod = { exports: {} };
     new Function('module', out)(mod);
     assert.equal(mod.exports.extend.transitionTimingFunction.spring, 'cubic-bezier(0.34, 1.56, 0.64, 1)');
+  });
+
+  it('motion-waapi: reproduces extracted cubic-bezier curves verbatim (no approximation)', () => {
+    const out = formatMotionWaapi(designWithSpringAndScroll);
+    assert.match(out, /export const easings = \{/);
+    assert.match(out, /easeOut: 'cubic-bezier\(0\.16, 1, 0\.3, 1\)'/);
+    // detected overshoot bezier surfaces as a native `spring` easing string
+    assert.match(out, /spring: 'cubic-bezier\(0\.34, 1\.56, 0\.64, 1\)'/);
+    assert.match(out, /--?duration|md: 280/);
+  });
+
+  it('motion-waapi: emits zero-dependency animate() helpers honouring reduced-motion', () => {
+    const out = formatMotionWaapi(designWithSpringAndScroll);
+    assert.match(out, /export const prefersReducedMotion = \(\) =>/);
+    assert.match(out, /export const animations = \{/);
+    assert.match(out, /fadeIn: \(el, opts = \{\}\) => _animate\(el,/);
+    assert.match(out, /if \(prefersReducedMotion\(\)\) timing\.duration = 0;/);
+    // no library import — must run on the native Element.animate()
+    assert.doesNotMatch(out, /from 'motion'|from 'gsap'/);
+  });
+
+  it('motion-waapi: reconstructs used @keyframes as frame arrays', () => {
+    const out = formatMotionWaapi(designWithSpringAndScroll);
+    assert.match(out, /export const keyframes = \{/);
+    assert.match(out, /"opacity":"0"/);
+    assert.match(out, /"offset":1/);
+  });
+
+  it('motion-gsap: registers extracted curves as CustomEase path data', () => {
+    const out = formatMotionGsap(designWithSpringAndScroll);
+    assert.match(out, /export const eases = \{/);
+    assert.match(out, /easeOut: 'M0,0 C0\.16,1 0\.3,1 1,1'/);
+    assert.match(out, /export function registerEases\(gsap\) \{/);
+    assert.match(out, /CustomEase\.create\(name, path\)/);
+  });
+
+  it('motion-gsap: emits gsap.from reveals and a ScrollTrigger reveal when scroll-linked', () => {
+    const out = formatMotionGsap(designWithSpringAndScroll);
+    assert.match(out, /export const reveals = \{/);
+    assert.match(out, /slideUp: \(target, vars = \{\}\) => gsap\.from\(target,/);
+    assert.match(out, /export function revealOnScroll\(/);
+    assert.match(out, /scrollTrigger: \{ trigger: el/);
+  });
+
+  it('motion-gsap: omits ScrollTrigger helper and degrades cleanly with no motion', () => {
+    const out = formatMotionGsap(minimalDesign);
+    assert.doesNotMatch(out, /revealOnScroll/);
+    assert.match(out, /standard: 'M0,0 C0\.25,0\.1 0\.25,1 1,1'/);
   });
 });

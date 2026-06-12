@@ -1,5 +1,31 @@
 # Changelog
 
+## [12.17.0] — 2026-06-12
+
+**motionlang adds two more emitters — GSAP and the framework-free Web Animations API.**
+
+The motion language already shipped to Framer Motion, Motion One, plain CSS
+and Tailwind. This release covers the two most-requested remaining targets:
+GreenSock and the browser-native Web Animations API.
+
+- **GSAP preset (`<host>-motion.gsap.js`)** — registers the page's extracted
+  cubic-bezier curves as named `CustomEase`s (so the site's exact feel is
+  reproducible), exposes duration presets in seconds, and ships `gsap.from()`
+  reveal helpers (`fadeIn` / `slideUp` / `scaleIn` / `pop`). When the page
+  uses scroll-/view-timeline, a `revealOnScroll()` ScrollTrigger batch helper
+  is emitted too. `registerEases(gsap)` wires the CustomEases in one call.
+
+- **Web Animations API preset (`<host>-motion.waapi.js`)** — zero dependency,
+  runs on the browser-native `Element.animate()`. WAAPI accepts cubic-bezier
+  easing strings verbatim, so the extracted curves are reproduced *exactly*
+  (no spring approximation). Emits `easings`, `durations`, keyframe arrays
+  reconstructed from on-page `@keyframes`, and `fadeIn` / `slideUp` / `scaleIn`
+  helpers that return the live `Animation` and honour `prefers-reduced-motion`
+  automatically.
+
+  Both surface as live copy/download cards on the motionlang analyzer at
+  designlang.app/motion.
+
 ## [12.16.0] — 2026-06-06
 
 **motionlang grows two framework-agnostic emitters + the website PDF download is fixed.**

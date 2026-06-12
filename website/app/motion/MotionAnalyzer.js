@@ -351,6 +351,12 @@ export default function MotionAnalyzer() {
                 {data.exports.tailwind && (
                   <ExportCard label="Tailwind motion config" file={`${host || 'site'}-motion.tailwind.js`} text={data.exports.tailwind} copied={copied === 'tailwind'} onCopy={() => copy('tailwind', data.exports.tailwind)} onDownload={() => download(`${host || 'site'}-motion.tailwind.js`, data.exports.tailwind)} />
                 )}
+                {data.exports.gsap && (
+                  <ExportCard label="GSAP presets" file={`${host || 'site'}-motion.gsap.js`} text={data.exports.gsap} copied={copied === 'gsap'} onCopy={() => copy('gsap', data.exports.gsap)} onDownload={() => download(`${host || 'site'}-motion.gsap.js`, data.exports.gsap)} />
+                )}
+                {data.exports.waapi && (
+                  <ExportCard label="Web Animations API" file={`${host || 'site'}-motion.waapi.js`} text={data.exports.waapi} copied={copied === 'waapi'} onCopy={() => copy('waapi', data.exports.waapi)} onDownload={() => download(`${host || 'site'}-motion.waapi.js`, data.exports.waapi)} />
+                )}
               </div>
             </Block>
           )}

@@ -16,6 +16,8 @@ import { formatFramerMotion } from '../../../../src/formatters/framer-motion.js'
 import { formatMotionCss } from '../../../../src/formatters/motion-css.js';
 import { formatMotionOne } from '../../../../src/formatters/motion-one.js';
 import { formatMotionTailwind } from '../../../../src/formatters/motion-tailwind.js';
+import { formatMotionGsap } from '../../../../src/formatters/motion-gsap.js';
+import { formatMotionWaapi } from '../../../../src/formatters/motion-waapi.js';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -45,6 +47,8 @@ function present(design, cached) {
       css: formatMotionCss(design),
       motionone: formatMotionOne(design),
       tailwind: formatMotionTailwind(design),
+      gsap: formatMotionGsap(design),
+      waapi: formatMotionWaapi(design),
     },
   };
 }
