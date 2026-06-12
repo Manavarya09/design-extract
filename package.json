@@ -1,6 +1,6 @@
 {
   "name": "designlang",
-  "version": "12.17.0",
+  "version": "12.18.0",
   "description": "Extract the complete design language from any website and ship it — clone to a working Next.js starter, guard tokens with a CI drift bot, or browse everything in a local studio. Outputs W3C DTCG tokens, motion tokens, typed anatomy stubs, Tailwind config, and ready-to-paste v0 / Lovable / Cursor / Claude-Artifacts prompts.",
   "type": "module",
   "bin": {
@@ -24,7 +24,9 @@
     "commander": "^12.0.0",
     "ora": "^8.0.0",
     "pdf-lib": "^1.17.1",
-    "playwright": "^1.42.0"
+    "pixelmatch": "^7.2.0",
+    "playwright": "^1.42.0",
+    "pngjs": "^7.0.0"
   },
   "engines": {
     "node": ">=20"

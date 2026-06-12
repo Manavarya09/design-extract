@@ -35,6 +35,7 @@ It also goes where extractors don't: **layout patterns**, **responsive behavior 
 
 ```bash
 npx designlang https://stripe.com                      # extract everything
+npx designlang verify stripe.com                       # fidelity score: rebuild from tokens vs live ← v12.18
 npx designlang pair stripe.com linear.app              # fuse two designs (visuals A × voice B)    ← v12.8
 npx designlang brand stripe.com                        # full brand-guidelines book (13 chapters)  ← v12.7
 npx designlang theme-swap stripe.com --primary "#ff4800"  # recolour around your brand        ← v12.6

@@ -1920,6 +1920,51 @@ program
     }
   });
 
+// ── Verify — fidelity loop: rebuild from tokens, pixel-diff vs original ──
+program
+  .command('verify <url>')
+  .description('Rebuild components from the extracted tokens and pixel-diff them against the live page — a 0-100 fidelity score + loss heatmaps.')
+  .option('-o, --out <dir>', 'output directory', './design-extract-output')
+  .option('-c, --components <list>', 'comma-separated components to check (button,card,input,nav)', 'button,card')
+  .option('--min <score>', 'exit non-zero if site fidelity is below this (CI gate)', parseInt)
+  .option('--system-chrome', 'use the system Chrome install instead of bundled Chromium')
+  .action(async (url, opts) => {
+    if (!url.startsWith('http')) url = `https://${url}`;
+    validateUrl(url);
+    const spinner = ora('Extracting + rebuilding from tokens').start();
+    try {
+      const { verifyDesign } = await import('../src/verify/index.js');
+      const { formatVerifyHtml, formatVerifyJson } = await import('../src/formatters/verify.js');
+      const components = String(opts.components).split(',').map((s) => s.trim()).filter(Boolean);
+      const report = await verifyDesign(url, {
+        components,
+        out: resolve(opts.out),
+        channel: opts.systemChrome ? 'chrome' : undefined,
+      });
+      mkdirSync(resolve(opts.out), { recursive: true });
+      const htmlPath = join(resolve(opts.out), 'verify.html');
+      const jsonPath = join(resolve(opts.out), 'verify.json');
+      writeFileSync(htmlPath, formatVerifyHtml(report), 'utf8');
+      writeFileSync(jsonPath, formatVerifyJson(report), 'utf8');
+
+      const score = report.fidelity;
+      spinner.succeed(`Fidelity ${score == null ? 'n/a' : score + '/100'} → ${htmlPath}`);
+      for (const c of report.components) {
+        const line = c.status === 'ok'
+          ? `${chalk.bold(c.component.padEnd(8))} ${chalk.cyan(String(c.fidelity).padStart(3))}/100`
+          : `${chalk.bold(c.component.padEnd(8))} ${chalk.gray(c.status)} ${chalk.gray(c.reason || '')}`;
+        console.log('  ' + line);
+      }
+      if (opts.min != null && score != null && score < opts.min) {
+        console.error(chalk.red(`\n  Fidelity ${score} is below --min ${opts.min}\n`));
+        process.exit(1);
+      }
+    } catch (err) {
+      spinner.fail(err.message);
+      process.exit(1);
+    }
+  });
+
 // ── Chat — REPL over a live extraction (v12) ──────────────
 program
   .command('chat <target>')

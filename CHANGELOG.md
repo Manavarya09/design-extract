@@ -1,5 +1,30 @@
 # Changelog
 
+## [12.18.0] — 2026-06-12
+
+**`verify` closes the loop — designlang now *proves* its extraction with a fidelity score.**
+
+Every release so far *read* a design system and emitted artifacts. None proved
+the artifacts could rebuild the source. `verify` does exactly that.
+
+- **`designlang verify <url>`** — extracts the design, then for each detected
+  component (button + card in v1) rebuilds a clone styled **only** by the
+  extracted tokens (every visual property snapped to its nearest token; colours
+  matched in CIE-Lab ΔE space), renders it, and **pixel-diffs** it against the
+  live component. Emits a **0–100 fidelity score**, a per-token-family
+  attribution of where information was lost, and a `verify.html` triptych
+  (original │ rebuilt-from-tokens │ loss heatmap) per component, plus
+  `verify.json`. `--min <score>` exits non-zero for CI gating.
+
+  The score is honest by construction: a component not on the page is `n/a`
+  (excluded, never a silent 100), and a property with no matching token is
+  `unmapped` — counted as loss and surfaced in the attribution, so a weak
+  extractor *lowers* the score rather than hiding behind it. Size mismatches are
+  letterboxed, never stretched.
+
+  Adds `pixelmatch` + `pngjs` as dependencies. New modules under `src/verify/`
+  (`tokens`, `restyle`, `render`, `diff`, `index`) are isolated and unit-tested.
+
 ## [12.17.0] — 2026-06-12
 
 **motionlang adds two more emitters — GSAP and the framework-free Web Animations API.**
