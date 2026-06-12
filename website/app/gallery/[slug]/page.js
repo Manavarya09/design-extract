@@ -17,6 +17,11 @@ const FEATURED = {
   'apple-com':   { host: 'apple.com'   },
   'arc-net':     { host: 'arc.net'     },
   'spotify-com': { host: 'spotify.com' },
+  'github-com':      { host: 'github.com'      },
+  'airbnb-com':      { host: 'airbnb.com'      },
+  'openai-com':      { host: 'openai.com'      },
+  'tailwindcss-com': { host: 'tailwindcss.com' },
+  'anthropic-com':   { host: 'anthropic.com'   },
 };
 
 export function generateStaticParams() {

@@ -1,0 +1,12 @@
+Clone the design language of this landing page and build a fresh equivalent.
+Visual feel: flat. Tone: neutral · Headings: unknown
+Primary palette: #8e8ea0, #000000.
+Typography: [object Object], [object Object].
+Corner radius vocabulary: 5.
+Shadow vocabulary: (none).
+Page structure:
+- hero
+- features
+- social proof
+- cta
+- footer

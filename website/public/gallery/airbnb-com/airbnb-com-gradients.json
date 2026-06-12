@@ -1,0 +1,104 @@
+{
+  "$schema": "https://designlang.app/schemas/gradients.json",
+  "source": "https://airbnb.com",
+  "generated": "2026-06-12T12:48:51.821Z",
+  "count": 5,
+  "gradients": [
+    {
+      "raw": "linear-gradient(357.5deg, rgb(62, 86, 124) 1.59%, rgb(58, 84, 117) 21.23%, rgb(45, 60, 91) 58.6%, rgb(128, 157, 192) 97.4%)",
+      "type": "linear",
+      "direction": "357.5deg",
+      "stops": [
+        {
+          "color": "rgb(62, 86, 124)",
+          "position": "1.59%"
+        },
+        {
+          "color": "rgb(58, 84, 117)",
+          "position": "21.23%"
+        },
+        {
+          "color": "rgb(45, 60, 91)",
+          "position": "58.6%"
+        },
+        {
+          "color": "rgb(128, 157, 192)",
+          "position": "97.4%"
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "linear-gradient(173.86deg, rgba(255, 255, 255, 0.9) 90.56%, rgba(191, 205, 213, 0.9) 82.32%)",
+      "type": "linear",
+      "direction": "173.86deg",
+      "stops": [
+        {
+          "color": "rgba(255, 255, 255, 0.9)",
+          "position": "90.56%"
+        },
+        {
+          "color": "rgba(191, 205, 213, 0.9)",
+          "position": "82.32%"
+        }
+      ],
+      "classification": "brand"
+    },
+    {
+      "raw": "linear-gradient(to top, rgb(255, 255, 255), rgba(0, 0, 0, 0) 50%)",
+      "type": "linear",
+      "direction": "to top",
+      "stops": [
+        {
+          "color": "rgb(255, 255, 255)",
+          "position": null
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": "50%"
+        }
+      ],
+      "classification": "brand"
+    },
+    {
+      "raw": "radial-gradient(50% 50%, rgb(255, 248, 223) 0%, rgba(255, 254, 224, 0.2) 51.5%, rgba(255, 250, 225, 0) 100%)",
+      "type": "radial",
+      "direction": null,
+      "stops": [
+        {
+          "color": "",
+          "position": "50%"
+        },
+        {
+          "color": "rgb(255, 248, 223)",
+          "position": "0%"
+        },
+        {
+          "color": "rgba(255, 254, 224, 0.2)",
+          "position": "51.5%"
+        },
+        {
+          "color": "rgba(255, 250, 225, 0)",
+          "position": "100%"
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "linear-gradient(rgb(255, 255, 255) 39.9%, rgb(248, 248, 248) 100%)",
+      "type": "linear",
+      "direction": null,
+      "stops": [
+        {
+          "color": "rgb(255, 255, 255)",
+          "position": "39.9%"
+        },
+        {
+          "color": "rgb(248, 248, 248)",
+          "position": "100%"
+        }
+      ],
+      "classification": "brand"
+    }
+  ]
+}

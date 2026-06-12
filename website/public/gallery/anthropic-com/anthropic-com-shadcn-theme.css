@@ -1,0 +1,19 @@
+/* shadcn/ui Theme — extracted from https://anthropic.com */
+/* Paste into your globals.css */
+
+@layer base {
+  :root {
+    --background: 48 33% 97%;
+    --foreground: 0 0% 0%;
+    --primary: 15 63% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 48 33% 97%;
+    --secondary-foreground: 0 0% 0%;
+    --accent: 37 70% 87%;
+    --accent-foreground: 0 0% 0%;
+    --muted: 0 1% 63%;
+    --muted-foreground: 60 3% 8%;
+    --border: 48 25% 92%;
+    --radius: 8px;
+  }
+}

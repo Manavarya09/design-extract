@@ -87,7 +87,7 @@ export const FAQ = [
   },
   {
     q: 'Is designlang free and open source?',
-    a: 'Yes. designlang is MIT-licensed and fully open source on GitHub. The CLI is free with no signup. The hosted demo at designlang.app is rate-limited to one extraction per IP per day; the CLI is unlimited.',
+    a: 'Yes. designlang is MIT-licensed and fully open source on GitHub. The CLI is free with no signup. The hosted demo at designlang.app is rate-limited to two extractions per IP per day; the CLI is unlimited.',
   },
   {
     q: 'What output formats does designlang support?',

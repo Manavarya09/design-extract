@@ -1,0 +1,47 @@
+{
+  "openGraph": {
+    "image": "https://images.ctfassets.net/8aevphvgewt8/4pe4eOtUJ0ARpZRE4fNekf/f52b1f9c52f059a33170229883731ed0/GH-Homepage-Universe-img.png",
+    "image:alt": "Join the world's most widely adopted, AI-powered developer platform where millions of developers, businesses, and the largest open source community build software that advances humanity.",
+    "site_name": "GitHub",
+    "type": "object",
+    "title": "GitHub · Change is constant. GitHub keeps you ahead.",
+    "url": "https://github.com/",
+    "description": "Join the world's most widely adopted, AI-powered developer platform where millions of developers, businesses, and the largest open source community build software that advances humanity."
+  },
+  "twitter": {
+    "image": "https://images.ctfassets.net/8aevphvgewt8/4pe4eOtUJ0ARpZRE4fNekf/f52b1f9c52f059a33170229883731ed0/GH-Homepage-Universe-img.png",
+    "site": "@github",
+    "card": "summary_large_image",
+    "title": "GitHub · Change is constant. GitHub keeps you ahead.",
+    "description": "Join the world's most widely adopted, AI-powered developer platform where millions of developers, businesses, and the largest open source community build software that advances humanity."
+  },
+  "description": "Join the world's most widely adopted, AI-powered developer platform where millions of developers, businesses, and the largest open source community build software that advances humanity.",
+  "canonical": null,
+  "themeColor": "#1e2327",
+  "viewport": "width=device-width",
+  "favicons": [
+    {
+      "rel": "alternate icon",
+      "href": "https://github.githubassets.com/favicons/favicon.png",
+      "sizes": "",
+      "type": "image/png"
+    },
+    {
+      "rel": "icon",
+      "href": "https://github.githubassets.com/favicons/favicon.svg",
+      "sizes": "",
+      "type": "image/svg+xml"
+    }
+  ],
+  "manifest": "https://github.com/manifest.json",
+  "structuredData": [],
+  "score": {
+    "hasOg": true,
+    "hasTwitter": true,
+    "hasDescription": true,
+    "hasCanonical": false,
+    "hasStructuredData": false,
+    "hasFavicon": true,
+    "hasThemeColor": true
+  }
+}

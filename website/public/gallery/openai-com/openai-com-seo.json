@@ -1,0 +1,20 @@
+{
+  "openGraph": {},
+  "twitter": {},
+  "description": null,
+  "canonical": null,
+  "themeColor": null,
+  "viewport": null,
+  "favicons": [],
+  "manifest": null,
+  "structuredData": [],
+  "score": {
+    "hasOg": false,
+    "hasTwitter": false,
+    "hasDescription": false,
+    "hasCanonical": false,
+    "hasStructuredData": false,
+    "hasFavicon": false,
+    "hasThemeColor": false
+  }
+}

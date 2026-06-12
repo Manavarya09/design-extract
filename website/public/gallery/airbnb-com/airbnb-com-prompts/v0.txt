@@ -1,0 +1,20 @@
+Build a landing page with this exact visual language.
+COLORS:
+  #222222
+  #6a6a6a
+  #000000
+  #ffffff
+  #ff385c
+  #dddddd
+  #ebebeb
+  #e00b41
+FONTS: [object Object], [object Object]
+SPACING: 2, 15, 20, 32, 35, 48, 80, 131
+RADIUS: 2, 8, 20, 32, 50, 100
+SHADOWS: rgba(0, 0, 0, 0.02) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 8px 24px 0px | rgba(60, 77, 107, 0.25) 0px 0.953955px 1.90791px 0px, rgba(60, 77, 107, 0.25) 0px 3.81582px 5.72373px 0px, rgb(0, 28, 64) 0px 0px 2px 0.5px inset, rgb(215, 235, 255) 0px -1px 3px 0px inset
+MATERIAL LANGUAGE: flat
+VOICE: Tone: friendly · Headings: Sentence case · CTA verbs: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+SECTIONS (in order):
+- footer — heading: "Site Footer"
+- pricing — heading: "Hosting"
+Use Tailwind. Match these tokens exactly. Keep the material language consistent.

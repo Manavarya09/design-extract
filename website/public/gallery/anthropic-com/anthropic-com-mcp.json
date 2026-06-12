@@ -1,0 +1,710 @@
+{
+  "colors": {
+    "all": [
+      {
+        "hex": "#141413",
+        "rgb": {
+          "r": 20,
+          "g": 20,
+          "b": 19,
+          "a": 1
+        },
+        "hsl": {
+          "h": 60,
+          "s": 3,
+          "l": 8
+        },
+        "count": 1264,
+        "contexts": [
+          "text",
+          "border",
+          "background"
+        ]
+      },
+      {
+        "hex": "#faf9f5",
+        "rgb": {
+          "r": 250,
+          "g": 249,
+          "b": 245,
+          "a": 1
+        },
+        "hsl": {
+          "h": 48,
+          "s": 33,
+          "l": 97
+        },
+        "count": 444,
+        "contexts": [
+          "background",
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#b0aea5",
+        "rgb": {
+          "r": 176,
+          "g": 174,
+          "b": 165,
+          "a": 1
+        },
+        "hsl": {
+          "h": 49,
+          "s": 7,
+          "l": 67
+        },
+        "count": 395,
+        "contexts": [
+          "border",
+          "text"
+        ]
+      },
+      {
+        "hex": "#000000",
+        "rgb": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 0
+        },
+        "count": 132,
+        "contexts": [
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#87867f",
+        "rgb": {
+          "r": 135,
+          "g": 134,
+          "b": 127,
+          "a": 1
+        },
+        "hsl": {
+          "h": 53,
+          "s": 3,
+          "l": 51
+        },
+        "count": 100,
+        "contexts": [
+          "text",
+          "border",
+          "background"
+        ]
+      },
+      {
+        "hex": "#f0eee6",
+        "rgb": {
+          "r": 240,
+          "g": 238,
+          "b": 230,
+          "a": 1
+        },
+        "hsl": {
+          "h": 48,
+          "s": 25,
+          "l": 92
+        },
+        "count": 19,
+        "contexts": [
+          "background",
+          "border",
+          "text"
+        ]
+      },
+      {
+        "hex": "#e3dacc",
+        "rgb": {
+          "r": 227,
+          "g": 218,
+          "b": 204,
+          "a": 1
+        },
+        "hsl": {
+          "h": 37,
+          "s": 29,
+          "l": 85
+        },
+        "count": 3,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#d97757",
+        "rgb": {
+          "r": 217,
+          "g": 119,
+          "b": 87,
+          "a": 1
+        },
+        "hsl": {
+          "h": 15,
+          "s": 63,
+          "l": 60
+        },
+        "count": 3,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#3d3d3a",
+        "rgb": {
+          "r": 61,
+          "g": 61,
+          "b": 58,
+          "a": 1
+        },
+        "hsl": {
+          "h": 60,
+          "s": 3,
+          "l": 23
+        },
+        "count": 3,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#c6613f",
+        "rgb": {
+          "r": 198,
+          "g": 97,
+          "b": 63,
+          "a": 1
+        },
+        "hsl": {
+          "h": 15,
+          "s": 54,
+          "l": 51
+        },
+        "count": 2,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#e8e6dc",
+        "rgb": {
+          "r": 232,
+          "g": 230,
+          "b": 220,
+          "a": 1
+        },
+        "hsl": {
+          "h": 50,
+          "s": 21,
+          "l": 89
+        },
+        "count": 2,
+        "contexts": [
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#a1a0a0",
+        "rgb": {
+          "r": 161,
+          "g": 160,
+          "b": 160,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 1,
+          "l": 63
+        },
+        "count": 2,
+        "contexts": [
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#f5e3c7",
+        "rgb": {
+          "r": 245,
+          "g": 227,
+          "b": 199,
+          "a": 1
+        },
+        "hsl": {
+          "h": 37,
+          "s": 70,
+          "l": 87
+        },
+        "count": 1,
+        "contexts": [
+          "background"
+        ]
+      }
+    ]
+  },
+  "regions": [
+    {
+      "role": "pricing",
+      "tag": "main",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "w": 1280,
+        "h": 3222.734375
+      },
+      "heading": "AI research and products that put safety at the frontier\nAI research and products that put safety at the frontier",
+      "buttonCount": 19,
+      "cardCount": 184,
+      "className": "page_wrap u-bg-ivory-medium"
+    },
+    {
+      "role": "nav",
+      "tag": "div",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "w": 1280,
+        "h": 68
+      },
+      "heading": null,
+      "buttonCount": 4,
+      "cardCount": 40,
+      "className": "nav_wrap w-variant-bcaa6cc7-fd9c-df6e-98a1-ccc1b40d7604 is-desktop"
+    },
+    {
+      "role": "nav",
+      "tag": "nav",
+      "bounds": {
+        "x": 223.46875,
+        "y": 0,
+        "w": 989.0625,
+        "h": 68
+      },
+      "heading": null,
+      "buttonCount": 4,
+      "cardCount": 40,
+      "className": "nav_desktop_layout"
+    },
+    {
+      "role": "nav",
+      "tag": "nav",
+      "bounds": {
+        "x": 704.1312255859375,
+        "y": 56,
+        "w": 252,
+        "h": 18
+      },
+      "heading": null,
+      "buttonCount": 0,
+      "cardCount": 6,
+      "className": "nav_dropdown_main_wrap w-dropdown-list is-desktop"
+    },
+    {
+      "role": "nav",
+      "tag": "nav",
+      "bounds": {
+        "x": 848.4906005859375,
+        "y": 56,
+        "w": 252,
+        "h": 18
+      },
+      "heading": null,
+      "buttonCount": 0,
+      "cardCount": 8,
+      "className": "nav_dropdown_main_wrap w-dropdown-list is-desktop"
+    },
+    {
+      "role": "nav",
+      "tag": "nav",
+      "bounds": {
+        "x": 960.53125,
+        "y": 52,
+        "w": 252,
+        "h": 18
+      },
+      "heading": null,
+      "buttonCount": 0,
+      "cardCount": 14,
+      "className": "nav_dropdown_main_wrap is-combo w-dropdown-list is-desktop"
+    },
+    {
+      "role": "nav",
+      "tag": "nav",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      },
+      "heading": null,
+      "buttonCount": 0,
+      "cardCount": 2,
+      "className": "nav_dropdown_main_wrap w-dropdown-list"
+    },
+    {
+      "role": "nav",
+      "tag": "div",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      },
+      "heading": null,
+      "buttonCount": 5,
+      "cardCount": 40,
+      "className": "nav_wrap w-variant-bcaa6cc7-fd9c-df6e-98a1-ccc1b40d7604 is-mobile w-nav"
+    },
+    {
+      "role": "nav",
+      "tag": "nav",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      },
+      "heading": null,
+      "buttonCount": 4,
+      "cardCount": 40,
+      "className": "nav_menu_wrap w-nav-menu"
+    },
+    {
+      "role": "nav",
+      "tag": "nav",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      },
+      "heading": null,
+      "buttonCount": 0,
+      "cardCount": 6,
+      "className": "nav_dropdown_main_wrap w-dropdown-list is-mobile"
+    },
+    {
+      "role": "nav",
+      "tag": "nav",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      },
+      "heading": null,
+      "buttonCount": 0,
+      "cardCount": 8,
+      "className": "nav_dropdown_main_wrap w-dropdown-list is-mobile"
+    },
+    {
+      "role": "nav",
+      "tag": "nav",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      },
+      "heading": null,
+      "buttonCount": 0,
+      "cardCount": 14,
+      "className": "nav_dropdown_main_wrap is-combo w-dropdown-list is-mobile"
+    },
+    {
+      "role": "nav",
+      "tag": "nav",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      },
+      "heading": null,
+      "buttonCount": 0,
+      "cardCount": 2,
+      "className": "nav_dropdown_main_wrap w-dropdown-list"
+    },
+    {
+      "role": "nav",
+      "tag": "header",
+      "bounds": {
+        "x": 0,
+        "y": 68,
+        "w": 1280,
+        "h": 368.65625
+      },
+      "heading": "AI research and products that put safety at the frontier\nAI research and products that put safety at the frontier",
+      "buttonCount": 0,
+      "cardCount": 0,
+      "className": "hero_wrap"
+    },
+    {
+      "role": "hero",
+      "tag": "section",
+      "bounds": {
+        "x": 0,
+        "y": 436.65625,
+        "w": 1280,
+        "h": 859.59375
+      },
+      "heading": "Announcing Fable 5",
+      "buttonCount": 1,
+      "cardCount": 0,
+      "className": "duraldar-cta_section"
+    },
+    {
+      "role": "content",
+      "tag": "section",
+      "bounds": {
+        "x": 0,
+        "y": 1919.234375,
+        "w": 1280,
+        "h": 448.046875
+      },
+      "heading": "At Anthropic, we build AI to serve humanity’s long-term well-being.",
+      "buttonCount": 0,
+      "cardCount": 10,
+      "className": "g_section_wrap"
+    },
+    {
+      "role": "footer",
+      "tag": "footer",
+      "bounds": {
+        "x": 0,
+        "y": 2367.28125,
+        "w": 1280,
+        "h": 855.453125
+      },
+      "heading": "Footer",
+      "buttonCount": 5,
+      "cardCount": 88,
+      "className": "footer_wrap u-theme-dark"
+    },
+    {
+      "role": "nav",
+      "tag": "nav",
+      "bounds": {
+        "x": 67.46875,
+        "y": 2438.921875,
+        "w": 1145.0625,
+        "h": 712.171875
+      },
+      "heading": "Products",
+      "buttonCount": 5,
+      "cardCount": 88,
+      "className": "footer_grid"
+    },
+    {
+      "role": "pricing",
+      "tag": "section",
+      "bounds": {
+        "x": 361.46875,
+        "y": 2438.921875,
+        "w": 189.546875,
+        "h": 712.171875
+      },
+      "heading": "Products",
+      "buttonCount": 0,
+      "cardCount": 20,
+      "className": "footer_group_wrap"
+    },
+    {
+      "role": "pricing",
+      "tag": "section",
+      "bounds": {
+        "x": 581.96875,
+        "y": 2438.921875,
+        "w": 189.546875,
+        "h": 712.171875
+      },
+      "heading": "Solutions",
+      "buttonCount": 0,
+      "cardCount": 22,
+      "className": "footer_group_wrap"
+    },
+    {
+      "role": "testimonials",
+      "tag": "section",
+      "bounds": {
+        "x": 802.46875,
+        "y": 2438.921875,
+        "w": 189.546875,
+        "h": 712.171875
+      },
+      "heading": "Resources",
+      "buttonCount": 0,
+      "cardCount": 21,
+      "className": "footer_group_wrap"
+    },
+    {
+      "role": "content",
+      "tag": "section",
+      "bounds": {
+        "x": 1022.96875,
+        "y": 2438.921875,
+        "w": 189.5625,
+        "h": 712.171875
+      },
+      "heading": "Company",
+      "buttonCount": 5,
+      "cardCount": 19,
+      "className": "footer_group_wrap"
+    }
+  ],
+  "componentClusters": [
+    {
+      "kind": "button",
+      "structuralHash": "button>div",
+      "instanceCount": 1,
+      "variants": [
+        {
+          "css": {
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(176, 174, 165)",
+            "padding": "0px 0px 0px 0px",
+            "borderRadius": "0px",
+            "border": "0px none rgb(176, 174, 165)",
+            "fontSize": "12px",
+            "fontWeight": "400"
+          },
+          "instanceCount": 1
+        }
+      ]
+    }
+  ],
+  "accessibility": {
+    "remediation": [
+      {
+        "fg": "#ffffff",
+        "bg": "#d97757",
+        "ratio": 3.12,
+        "rule": "AA-normal",
+        "suggestion": {
+          "replace": "fg",
+          "color": "#000000",
+          "newRatio": 6.73
+        }
+      }
+    ]
+  },
+  "cssHealth": {
+    "sheets": [
+      {
+        "url": "https://www.anthropic.com/",
+        "totalBytes": 100,
+        "usedBytes": 0,
+        "unusedBytes": 100,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://www.anthropic.com/",
+        "totalBytes": 7267,
+        "usedBytes": 1705,
+        "unusedBytes": 5562,
+        "unusedPercent": 77
+      },
+      {
+        "url": "https://www.anthropic.com/",
+        "totalBytes": 629,
+        "usedBytes": 372,
+        "unusedBytes": 257,
+        "unusedPercent": 41
+      },
+      {
+        "url": "https://www.anthropic.com/",
+        "totalBytes": 7160,
+        "usedBytes": 5356,
+        "unusedBytes": 1804,
+        "unusedPercent": 25
+      },
+      {
+        "url": "https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/css/ant-brand.shared.99b3c3efd.min.css",
+        "totalBytes": 281008,
+        "usedBytes": 48128,
+        "unusedBytes": 232880,
+        "unusedPercent": 83
+      },
+      {
+        "url": "https://www.anthropic.com/",
+        "totalBytes": 1784,
+        "usedBytes": 176,
+        "unusedBytes": 1608,
+        "unusedPercent": 90
+      },
+      {
+        "url": "https://www.anthropic.com/",
+        "totalBytes": 2986,
+        "usedBytes": 2986,
+        "unusedBytes": 0,
+        "unusedPercent": 0
+      },
+      {
+        "url": "https://www.anthropic.com/",
+        "totalBytes": 46,
+        "usedBytes": 0,
+        "unusedBytes": 46,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://www.anthropic.com/",
+        "totalBytes": 5457,
+        "usedBytes": 99,
+        "unusedBytes": 5358,
+        "unusedPercent": 98
+      },
+      {
+        "url": "https://www.anthropic.com/",
+        "totalBytes": 132,
+        "usedBytes": 0,
+        "unusedBytes": 132,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://www.anthropic.com/",
+        "totalBytes": 86,
+        "usedBytes": 0,
+        "unusedBytes": 86,
+        "unusedPercent": 100
+      }
+    ],
+    "totalBytes": 306655,
+    "usedBytes": 58822,
+    "unusedBytes": 247833,
+    "unusedPercent": 81,
+    "importantCount": 91,
+    "duplicates": 5073,
+    "vendorPrefixes": {
+      "webkit": 54,
+      "moz": 9,
+      "ms": 1,
+      "o": 4
+    },
+    "keyframes": [],
+    "specificity": {
+      "max": [
+        1,
+        6,
+        13
+      ],
+      "average": [
+        0.01,
+        1.41,
+        0.29
+      ],
+      "count": 2164
+    },
+    "issues": [
+      "91 !important rules",
+      "5073 duplicate declarations",
+      "81% unused CSS"
+    ]
+  }
+}

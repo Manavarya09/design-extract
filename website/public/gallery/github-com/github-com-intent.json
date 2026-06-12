@@ -1,0 +1,638 @@
+{
+  "pageIntent": {
+    "type": "landing",
+    "confidence": 0.61,
+    "path": "/",
+    "title": "GitHub · Change is constant. GitHub keeps you ahead. · GitHub",
+    "description": "Join the world's most widely adopted, AI-powered developer platform where millions of developers, businesses, and the largest open source community build software that advances humanity.",
+    "signals": [
+      {
+        "kind": "dom",
+        "type": "blog-post",
+        "weight": 0.35,
+        "detail": "byline|min-read"
+      },
+      {
+        "kind": "url",
+        "type": "landing",
+        "weight": 0.45,
+        "detail": "root-path"
+      },
+      {
+        "kind": "shape",
+        "type": "landing",
+        "weight": 0.3,
+        "detail": "features+hero+cta+footer"
+      }
+    ],
+    "alternates": [
+      {
+        "type": "blog-post",
+        "score": 0.35
+      }
+    ],
+    "needsSmart": false
+  },
+  "sectionRoles": {
+    "sections": [
+      {
+        "index": 0,
+        "tag": "header",
+        "role": "cta",
+        "subrole": null,
+        "confidence": 0.75,
+        "heading": "Navigation Menu",
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "w": 1280,
+          "h": 72
+        },
+        "buttonCount": 24,
+        "cardCount": 95,
+        "slots": {
+          "heading": "Navigation Menu",
+          "subheadings": [
+            "Search code, repositories, users, issues, pull requests...",
+            "\n          Explore\n        ",
+            "\n        Provide feedback\n      ",
+            "\n        Saved searches\n      "
+          ],
+          "ctaCount": 24,
+          "lede": "Navigation Menu\nPlatform\nSolutions\nResources\nOpen Source\nEnterprise\nPricing\nSign in\nSign up"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 1,
+        "tag": "nav",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": null,
+        "bounds": {
+          "x": 80,
+          "y": 16,
+          "w": 635.34375,
+          "h": 40
+        },
+        "buttonCount": 10,
+        "cardCount": 83,
+        "slots": {
+          "ctaCount": 10,
+          "lede": "Platform\nSolutions\nResources\nOpen Source\nEnterprise\nPricing"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 2,
+        "tag": "main",
+        "role": "feature-grid",
+        "subrole": null,
+        "confidence": 0.8,
+        "heading": "The future of building happens together",
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "w": 1280,
+          "h": 10272.765625
+        },
+        "buttonCount": 26,
+        "cardCount": 7,
+        "slots": {
+          "heading": "The future of building happens together",
+          "subheadings": [
+            "GitHub features",
+            "GITHUB CUSTOMERS",
+            "Accelerate your entire workflow",
+            "Your AI partner everywhere. Copilot is ready to work with you at each step of the software development lifecycle."
+          ],
+          "ctaCount": 26,
+          "lede": "Mona the Octocat, Copilot, and Ducky float jubilantly upward from behind the GitHub product demo accompanied by a purple glow and a scattering of stars.\nThe future of building happens together"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 3,
+        "tag": "section",
+        "role": "hero",
+        "subrole": null,
+        "confidence": 0.85,
+        "heading": "The future of building happens together",
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "w": 1280,
+          "h": 1906.859375
+        },
+        "buttonCount": 9,
+        "cardCount": 6,
+        "slots": {
+          "heading": "The future of building happens together",
+          "subheadings": [
+            "GitHub features",
+            "GITHUB CUSTOMERS"
+          ],
+          "ctaCount": 9,
+          "lede": "Mona the Octocat, Copilot, and Ducky float jubilantly upward from behind the GitHub product demo accompanied by a purple glow and a scattering of stars.\nThe future of building happens together"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 4,
+        "tag": "section",
+        "role": "hero",
+        "subrole": null,
+        "confidence": 0.85,
+        "heading": "The future of building happens together",
+        "bounds": {
+          "x": 154,
+          "y": 164,
+          "w": 972,
+          "h": 212.21875
+        },
+        "buttonCount": 0,
+        "cardCount": 1,
+        "slots": {
+          "heading": "The future of building happens together"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 5,
+        "tag": "section",
+        "role": "cta",
+        "subrole": null,
+        "confidence": 0.75,
+        "heading": null,
+        "bounds": {
+          "x": 309.796875,
+          "y": 408.21875,
+          "w": 458.828125,
+          "h": 56
+        },
+        "buttonCount": 1,
+        "cardCount": 0,
+        "slots": {
+          "ctaCount": 1,
+          "lede": "Enter your email\nSign up for GitHub"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 6,
+        "tag": "section",
+        "role": "testimonials",
+        "subrole": null,
+        "confidence": 0.4,
+        "heading": "Accelerate your entire workflow",
+        "bounds": {
+          "x": 0,
+          "y": 1906.859375,
+          "w": 1280,
+          "h": 2315.890625
+        },
+        "buttonCount": 5,
+        "cardCount": 0,
+        "slots": {
+          "heading": "Accelerate your entire workflow",
+          "subheadings": [
+            "Your AI partner everywhere. Copilot is ready to work with you at each step of the software development lifecycle.",
+            "Automate your path to production",
+            "Code instantly from anywhere",
+            "Keep momentum on the go"
+          ],
+          "ctaCount": 5
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 7,
+        "tag": "header",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.4,
+        "heading": "Accelerate your entire workflow",
+        "bounds": {
+          "x": 0,
+          "y": 2153.859375,
+          "w": 1280,
+          "h": 154.390625
+        },
+        "buttonCount": 0,
+        "cardCount": 0,
+        "slots": {
+          "heading": "Accelerate your entire workflow"
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 8,
+        "tag": "section",
+        "role": "content",
+        "subrole": null,
+        "confidence": 0.3,
+        "heading": "Built-in application security where found means fixed",
+        "bounds": {
+          "x": 0,
+          "y": 4222.75,
+          "w": 1280,
+          "h": 1556.8125
+        },
+        "buttonCount": 0,
+        "cardCount": 0,
+        "slots": {
+          "heading": "Built-in application security where found means fixed",
+          "subheadings": [
+            "Apply fixes in seconds. Spend less time debugging and more time building features with Copilot Autofix."
+          ]
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 9,
+        "tag": "header",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.4,
+        "heading": "Built-in application security where found means fixed",
+        "bounds": {
+          "x": 0,
+          "y": 4469.75,
+          "w": 1280,
+          "h": 171.59375
+        },
+        "buttonCount": 0,
+        "cardCount": 0,
+        "slots": {
+          "heading": "Built-in application security where found means fixed"
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 10,
+        "tag": "section",
+        "role": "pricing",
+        "subrole": null,
+        "confidence": 0.4,
+        "heading": "Work together, achieve more",
+        "bounds": {
+          "x": 0,
+          "y": 5779.5625,
+          "w": 1280,
+          "h": 2067.140625
+        },
+        "buttonCount": 4,
+        "cardCount": 0,
+        "slots": {
+          "heading": "Work together, achieve more",
+          "subheadings": [
+            "Plan with clarity. Organize everything from high-level roadmaps to everyday tasks.",
+            "Keep track of your tasks",
+            "Share ideas and ask questions",
+            "Review code changes together"
+          ],
+          "ctaCount": 4
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 11,
+        "tag": "header",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.4,
+        "heading": "Work together, achieve more",
+        "bounds": {
+          "x": 0,
+          "y": 6026.5625,
+          "w": 1280,
+          "h": 123.59375
+        },
+        "buttonCount": 0,
+        "cardCount": 0,
+        "slots": {
+          "heading": "Work together, achieve more"
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 12,
+        "tag": "section",
+        "role": "testimonials",
+        "subrole": null,
+        "confidence": 0.4,
+        "heading": "From startups to enterprises, GitHub scales with teams of any size in any industry.",
+        "bounds": {
+          "x": 0,
+          "y": 7846.703125,
+          "w": 1280,
+          "h": 1148.390625
+        },
+        "buttonCount": 7,
+        "cardCount": 0,
+        "slots": {
+          "heading": "From startups to enterprises, GitHub scales with teams of any size in any industry.",
+          "ctaCount": 7,
+          "lede": "From startups to enterprises, GitHub scales with teams of any size in any industry.\nBy industryBy sizeBy use case\nTechnology"
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 13,
+        "tag": "header",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.4,
+        "heading": "From startups to enterprises, GitHub scales with teams of any size in any industry.",
+        "bounds": {
+          "x": 0,
+          "y": 8093.703125,
+          "w": 1280,
+          "h": 144
+        },
+        "buttonCount": 0,
+        "cardCount": 0,
+        "slots": {
+          "heading": "From startups to enterprises, GitHub scales with teams of any size in any industry."
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 14,
+        "tag": "section",
+        "role": "cta",
+        "subrole": null,
+        "confidence": 0.75,
+        "heading": "Millions of developers and businesses call GitHub home",
+        "bounds": {
+          "x": 0,
+          "y": 8995.09375,
+          "w": 1280,
+          "h": 1092.671875
+        },
+        "buttonCount": 1,
+        "cardCount": 0,
+        "slots": {
+          "heading": "Millions of developers and businesses call GitHub home",
+          "ctaCount": 1,
+          "lede": "A subtle purple glow fades in as Mona the Octocat, Copilot, and Ducky dramatically fall into place next to one another while gazing optimistically into the distance.\nMillions of developers and businesses call GitHub home"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 15,
+        "tag": "section",
+        "role": "cta",
+        "subrole": null,
+        "confidence": 0.75,
+        "heading": "Millions of developers and businesses call GitHub home",
+        "bounds": {
+          "x": 0,
+          "y": 9694.765625,
+          "w": 1280,
+          "h": 297
+        },
+        "buttonCount": 1,
+        "cardCount": 0,
+        "slots": {
+          "heading": "Millions of developers and businesses call GitHub home",
+          "ctaCount": 1
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 16,
+        "tag": "section",
+        "role": "cta",
+        "subrole": null,
+        "confidence": 0.75,
+        "heading": null,
+        "bounds": {
+          "x": 309.796875,
+          "y": 9959.765625,
+          "w": 458.828125,
+          "h": 56
+        },
+        "buttonCount": 1,
+        "cardCount": 0,
+        "slots": {
+          "ctaCount": 1,
+          "lede": "Enter your email\nSign up for GitHub"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 17,
+        "tag": "footer",
+        "role": "footer",
+        "subrole": null,
+        "confidence": 0.95,
+        "heading": "Site-wide Links",
+        "bounds": {
+          "x": 0,
+          "y": 10272.765625,
+          "w": 1280,
+          "h": 600
+        },
+        "buttonCount": 3,
+        "cardCount": 67,
+        "slots": {
+          "heading": "Site-wide Links",
+          "subheadings": [
+            "Subscribe to our developer newsletter",
+            "Platform",
+            "Ecosystem",
+            "Support"
+          ],
+          "ctaCount": 3,
+          "lede": "Site-wide Links\nSubscribe to our developer newsletter"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 18,
+        "tag": "section",
+        "role": "content",
+        "subrole": null,
+        "confidence": 0.3,
+        "heading": "Subscribe to our developer newsletter",
+        "bounds": {
+          "x": 16,
+          "y": 10344.765625,
+          "w": 415.984375,
+          "h": 348
+        },
+        "buttonCount": 0,
+        "cardCount": 0,
+        "slots": {
+          "heading": "Subscribe to our developer newsletter"
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 19,
+        "tag": "nav",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": "Platform",
+        "bounds": {
+          "x": 431.984375,
+          "y": 10344.765625,
+          "w": 208,
+          "h": 372
+        },
+        "buttonCount": 0,
+        "cardCount": 10,
+        "slots": {
+          "heading": "Platform",
+          "lede": "Platform\nFeatures\nEnterprise\nCopilot\nAI\nSecurity\nPricing\nTeam\nResources\nRoadmap\nCompare GitHub"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 20,
+        "tag": "nav",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": "Ecosystem",
+        "bounds": {
+          "x": 639.984375,
+          "y": 10344.765625,
+          "w": 208,
+          "h": 372
+        },
+        "buttonCount": 0,
+        "cardCount": 8,
+        "slots": {
+          "heading": "Ecosystem",
+          "lede": "Ecosystem\nDeveloper API\nPartners\nEducation\nGitHub CLI\nGitHub Desktop\nGitHub Mobile\nGitHub Marketplace\nMCP Registry"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 21,
+        "tag": "nav",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": "Support",
+        "bounds": {
+          "x": 847.984375,
+          "y": 10344.765625,
+          "w": 208,
+          "h": 372
+        },
+        "buttonCount": 0,
+        "cardCount": 7,
+        "slots": {
+          "heading": "Support",
+          "lede": "Support\nDocs\nCommunity Forum\nProfessional Services\nPremium Support\nSkills\nStatus\nContact GitHub"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 22,
+        "tag": "nav",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": "Company",
+        "bounds": {
+          "x": 1055.984375,
+          "y": 10344.765625,
+          "w": 208,
+          "h": 372
+        },
+        "buttonCount": 0,
+        "cardCount": 10,
+        "slots": {
+          "heading": "Company",
+          "lede": "Company\nAbout\nWhy GitHub\nCustomer stories\nBlog\nThe ReadME Project\nCareers\nNewsroom\nInclusion\nSocial Impact\nShop"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 23,
+        "tag": "nav",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": null,
+        "bounds": {
+          "x": 16,
+          "y": 10812.765625,
+          "w": 772,
+          "h": 36
+        },
+        "buttonCount": 2,
+        "cardCount": 7,
+        "slots": {
+          "ctaCount": 2,
+          "lede": "© 2026 GitHub, Inc.\nTerms\nPrivacy (Updated 02/2024)\n02/2024\nSitemap\nWhat is Git?\nManage cookies\nDo not share my personal information"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 24,
+        "tag": "nav",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": null,
+        "bounds": {
+          "x": 804,
+          "y": 10814.765625,
+          "w": 460,
+          "h": 32
+        },
+        "buttonCount": 1,
+        "cardCount": 23,
+        "slots": {
+          "ctaCount": 1,
+          "lede": "GitHub on LinkedIn\nGitHub on Instagram\nGitHub on YouTube\nGitHub on X\nGitHub on TikTok\nGitHub on Twitch\nGitHub’s organization on GitHub\n English \nSelect language"
+        },
+        "needsSmart": false
+      }
+    ],
+    "counts": {
+      "cta": 5,
+      "nav": 11,
+      "feature-grid": 1,
+      "hero": 2,
+      "testimonials": 2,
+      "content": 2,
+      "pricing": 1,
+      "footer": 1
+    },
+    "readingOrder": [
+      "cta",
+      "feature-grid",
+      "hero",
+      "nav",
+      "hero",
+      "cta",
+      "testimonials",
+      "nav",
+      "content",
+      "nav",
+      "pricing",
+      "nav",
+      "testimonials",
+      "nav",
+      "cta",
+      "cta",
+      "cta",
+      "footer",
+      "content",
+      "nav",
+      "nav",
+      "nav",
+      "nav",
+      "nav",
+      "nav"
+    ]
+  }
+}

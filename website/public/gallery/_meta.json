@@ -70,5 +70,50 @@
       "#1ed760",
       "#346e4a"
     ]
+  },
+  "github-com": {
+    "primary": "#08872b",
+    "bg": "#0d1117",
+    "fg": "#f0f6fc",
+    "palette": [
+      "#08872b",
+      "#f0f6fc"
+    ]
+  },
+  "airbnb-com": {
+    "primary": "#ff385c",
+    "bg": "#ffffff",
+    "fg": "#222222",
+    "palette": [
+      "#ff385c",
+      "#e00b41"
+    ]
+  },
+  "openai-com": {
+    "primary": "#000000",
+    "bg": "#ffffff",
+    "fg": "#000000",
+    "palette": [
+      "#000000",
+      "#8e8ea0"
+    ]
+  },
+  "tailwindcss-com": {
+    "primary": "#0080ff",
+    "bg": "#ffffff",
+    "fg": "#000000",
+    "palette": [
+      "#0080ff",
+      "#ec0853"
+    ]
+  },
+  "anthropic-com": {
+    "primary": "#d97757",
+    "bg": "#faf9f5",
+    "fg": "#141413",
+    "palette": [
+      "#d97757",
+      "#141413"
+    ]
   }
 }

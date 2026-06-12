@@ -1,0 +1,10 @@
+{
+  "$description": "Motion tokens extracted by designlang",
+  "duration": {},
+  "easing": {},
+  "spring": {},
+  "$meta": {
+    "feel": "mixed",
+    "scrollLinked": true
+  }
+}

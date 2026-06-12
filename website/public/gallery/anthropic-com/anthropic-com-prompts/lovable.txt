@@ -1,0 +1,16 @@
+Clone the design language of this landing page and build a fresh equivalent.
+Visual feel: flat. Tone: friendly · Headings: Sentence case · CTA verbs: [object Object]
+Primary palette: #141413, #faf9f5, #b0aea5, #000000, #87867f.
+Typography: [object Object], [object Object], [object Object], [object Object].
+Corner radius vocabulary: 8, 12, 16, 24, 1600.
+Shadow vocabulary: rgba(0, 0, 0, 0.01) 0px 2px 2px 0px, rgba(0, 0, 0, 0.02) 0px 4px 4px 0px, rgba(0, 0, 0, 0.04) 0px 16px 24px 0px.
+Page structure:
+- feature-grid — heading: "AI research and products that put safety at the frontier
+AI research and product"
+- hero — heading: "AI research and products that put safety at the frontier
+AI research and product"
+- hero — heading: "Announcing Fable 5"
+- footer — heading: "Footer"
+- pricing — heading: "Products"
+- pricing — heading: "Solutions"
+- testimonials — heading: "Resources"

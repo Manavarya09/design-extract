@@ -1,0 +1,126 @@
+{
+  "tone": "neutral",
+  "pronoun": "you-only",
+  "headingStyle": "Sentence case",
+  "headingLengthClass": "balanced",
+  "ctaVerbs": [
+    {
+      "value": "sign",
+      "count": 4
+    },
+    {
+      "value": "by",
+      "count": 3
+    },
+    {
+      "value": "read",
+      "count": 3
+    },
+    {
+      "value": "code",
+      "count": 2
+    },
+    {
+      "value": "automate",
+      "count": 2
+    },
+    {
+      "value": "keep",
+      "count": 2
+    },
+    {
+      "value": "platform",
+      "count": 1
+    },
+    {
+      "value": "solutions",
+      "count": 1
+    },
+    {
+      "value": "resources",
+      "count": 1
+    },
+    {
+      "value": "open",
+      "count": 1
+    }
+  ],
+  "buttonPatterns": [
+    {
+      "value": "sign up for github",
+      "count": 2
+    },
+    {
+      "value": "platform",
+      "count": 1
+    },
+    {
+      "value": "solutions",
+      "count": 1
+    },
+    {
+      "value": "resources",
+      "count": 1
+    },
+    {
+      "value": "open source",
+      "count": 1
+    },
+    {
+      "value": "enterprise",
+      "count": 1
+    },
+    {
+      "value": "search or jump to...",
+      "count": 1
+    },
+    {
+      "value": "sign in",
+      "count": 1
+    },
+    {
+      "value": "sign up",
+      "count": 1
+    },
+    {
+      "value": "code",
+      "count": 1
+    },
+    {
+      "value": "plan",
+      "count": 1
+    },
+    {
+      "value": "collaborate",
+      "count": 1
+    },
+    {
+      "value": "automate",
+      "count": 1
+    },
+    {
+      "value": "secure",
+      "count": 1
+    },
+    {
+      "value": "automate your path to production",
+      "count": 1
+    }
+  ],
+  "sampleHeadings": [
+    "Navigation Menu",
+    "Search code, repositories, users, issues, pull requests...",
+    "\n          Explore\n        ",
+    "\n        Provide feedback\n      ",
+    "\n        Saved searches\n      ",
+    "The future of building happens together",
+    "GitHub features",
+    "GITHUB CUSTOMERS",
+    "Accelerate your entire workflow",
+    "Your AI partner everywhere. Copilot is ready to work with you at each step of the software development lifecycle."
+  ],
+  "stats": {
+    "buttons": 32,
+    "headings": 43
+  }
+}

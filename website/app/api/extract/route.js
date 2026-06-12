@@ -137,11 +137,11 @@ export async function POST(request) {
 
   if (!cached) {
     // First-line per-instance memory guard (cheap, blunts hammering within an instance).
-    const memRate = checkRate(`extract:${ip}`, { limit: 1 });
+    const memRate = checkRate(`extract:${ip}`, { limit: 2 });
     if (!memRate.allowed) {
       return Response.json(
         {
-          error: 'Free demo: 1 extraction per day. Use the CLI for unlimited: npx designlang ' + new URL(targetUrl).hostname,
+          error: 'Free demo: 2 extractions per day. Use the CLI for unlimited: npx designlang ' + new URL(targetUrl).hostname,
           resetAt: memRate.resetAt,
           cli: 'npx designlang ' + new URL(targetUrl).hostname,
         },
@@ -149,11 +149,11 @@ export async function POST(request) {
       );
     }
     // Persistent Blob-backed limit (survives cold starts, real cross-instance enforcement).
-    const blobRate = await checkRateBlob(`extract:${ip}`, { limit: 1 });
+    const blobRate = await checkRateBlob(`extract:${ip}`, { limit: 2 });
     if (!blobRate.allowed) {
       return Response.json(
         {
-          error: 'Free demo: 1 extraction per day. Use the CLI for unlimited: npx designlang ' + new URL(targetUrl).hostname,
+          error: 'Free demo: 2 extractions per day. Use the CLI for unlimited: npx designlang ' + new URL(targetUrl).hostname,
           resetAt: blobRate.resetAt,
           cli: 'npx designlang ' + new URL(targetUrl).hostname,
         },

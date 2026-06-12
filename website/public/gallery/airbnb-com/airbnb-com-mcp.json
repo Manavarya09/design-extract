@@ -1,0 +1,463 @@
+{
+  "colors": {
+    "all": [
+      {
+        "hex": "#222222",
+        "rgb": {
+          "r": 34,
+          "g": 34,
+          "b": 34,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 13
+        },
+        "count": 1262,
+        "contexts": [
+          "text",
+          "border",
+          "background"
+        ]
+      },
+      {
+        "hex": "#6a6a6a",
+        "rgb": {
+          "r": 106,
+          "g": 106,
+          "b": 106,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 42
+        },
+        "count": 416,
+        "contexts": [
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#000000",
+        "rgb": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 0
+        },
+        "count": 335,
+        "contexts": [
+          "text",
+          "border",
+          "background"
+        ]
+      },
+      {
+        "hex": "#ffffff",
+        "rgb": {
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 100
+        },
+        "count": 26,
+        "contexts": [
+          "background",
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#ff385c",
+        "rgb": {
+          "r": 255,
+          "g": 56,
+          "b": 92,
+          "a": 1
+        },
+        "hsl": {
+          "h": 349,
+          "s": 100,
+          "l": 61
+        },
+        "count": 14,
+        "contexts": [
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#dddddd",
+        "rgb": {
+          "r": 221,
+          "g": 221,
+          "b": 221,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 87
+        },
+        "count": 6,
+        "contexts": [
+          "border",
+          "background"
+        ]
+      },
+      {
+        "hex": "#ebebeb",
+        "rgb": {
+          "r": 235,
+          "g": 235,
+          "b": 235,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 92
+        },
+        "count": 4,
+        "contexts": [
+          "background",
+          "border"
+        ]
+      },
+      {
+        "hex": "#e00b41",
+        "rgb": {
+          "r": 224,
+          "g": 11,
+          "b": 65,
+          "a": 1
+        },
+        "hsl": {
+          "h": 345,
+          "s": 91,
+          "l": 46
+        },
+        "count": 1,
+        "contexts": [
+          "background"
+        ]
+      }
+    ]
+  },
+  "regions": [
+    {
+      "role": "nav",
+      "tag": "header",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "w": 1280,
+        "h": 80
+      },
+      "heading": null,
+      "buttonCount": 4,
+      "cardCount": 0,
+      "className": "c2zxfaj atm_9s_1txwivl atm_fc_1yb4nlp atm_h_1h6ojuz atm_gi_xjk4d9 atm_j3_1vvhni0 atm_lk_1tcgj5g atm_ll_1tcgj5g atm_e2_u29brm atm_lk_1vi7ecw__1v156lz atm_lk_fyhuej__jx8car atm_ll_1vi7ecw__1v156lz atm_ll_fyhuej__jx8car atm_e2_rw9lz9__jx8car dir dir-ltr"
+    },
+    {
+      "role": "nav",
+      "tag": "nav",
+      "bounds": {
+        "x": 1022.734375,
+        "y": 0,
+        "w": 225.265625,
+        "h": 80
+      },
+      "heading": null,
+      "buttonCount": 3,
+      "cardCount": 0,
+      "className": "cg7l307 atm_mk_h2mmj6 atm_9s_1txwivl atm_h_1h6ojuz atm_fc_esu3gu atm_e2_u29brm dir dir-ltr"
+    },
+    {
+      "role": "content",
+      "tag": "main",
+      "bounds": {
+        "x": 0,
+        "y": 249,
+        "w": 1280,
+        "h": 0
+      },
+      "heading": null,
+      "buttonCount": 0,
+      "cardCount": 0,
+      "className": "m1460ofs atm_gq_189ypq0 atm_gz_1fgafaw__2ygr2h atm_h0_i3vgjb__2ygr2h atm_lk_3ladnm__2ygr2h atm_ll_fk2qd9__2ygr2h dir dir-ltr"
+    },
+    {
+      "role": "footer",
+      "tag": "footer",
+      "bounds": {
+        "x": 0,
+        "y": 618,
+        "w": 1280,
+        "h": 601.15625
+      },
+      "heading": "Site Footer",
+      "buttonCount": 6,
+      "cardCount": 37,
+      "className": "f12ytkur atm_mk_h2mmj6 atm_26_1qgma6g atm_gz_1fgafaw atm_h0_i3vgjb atm_lk_3ladnm atm_ll_fk2qd9 atm_le_u29brm dir dir-ltr"
+    },
+    {
+      "role": "content",
+      "tag": "section",
+      "bounds": {
+        "x": 32,
+        "y": 650,
+        "w": 394.65625,
+        "h": 378.15625
+      },
+      "heading": "Support",
+      "buttonCount": 0,
+      "cardCount": 7,
+      "className": "se5ui3x atm_67_iod1ro atm_lb_1tcgj5g atm_da_cbdd7d atm_67_idpfg4_13mkcot atm_67_idpfg4__oggzyc atm_lb_idpfg4__oggzyc atm_da_g31la2__oggzyc atm_da_x71zqm__1v156lz atm_da_1oo4mti__1z0u2lb dir dir-ltr"
+    },
+    {
+      "role": "pricing",
+      "tag": "section",
+      "bounds": {
+        "x": 442.65625,
+        "y": 650,
+        "w": 394.671875,
+        "h": 378.15625
+      },
+      "heading": "Hosting",
+      "buttonCount": 0,
+      "cardCount": 10,
+      "className": "se5ui3x atm_67_iod1ro atm_lb_1tcgj5g atm_da_cbdd7d atm_67_idpfg4_13mkcot atm_67_idpfg4__oggzyc atm_lb_idpfg4__oggzyc atm_da_g31la2__oggzyc atm_da_x71zqm__1v156lz atm_da_1oo4mti__1z0u2lb dir dir-ltr"
+    },
+    {
+      "role": "content",
+      "tag": "section",
+      "bounds": {
+        "x": 853.328125,
+        "y": 650,
+        "w": 394.65625,
+        "h": 378.15625
+      },
+      "heading": "Airbnb",
+      "buttonCount": 0,
+      "cardCount": 5,
+      "className": "se5ui3x atm_67_iod1ro atm_lb_1tcgj5g atm_da_cbdd7d atm_67_idpfg4_13mkcot atm_67_idpfg4__oggzyc atm_lb_idpfg4__oggzyc atm_da_g31la2__oggzyc atm_da_x71zqm__1v156lz atm_da_1oo4mti__1z0u2lb dir dir-ltr"
+    },
+    {
+      "role": "content",
+      "tag": "section",
+      "bounds": {
+        "x": 32,
+        "y": 1085.15625,
+        "w": 1216,
+        "h": 30
+      },
+      "heading": null,
+      "buttonCount": 6,
+      "cardCount": 15,
+      "className": null
+    }
+  ],
+  "componentClusters": [
+    {
+      "kind": "input",
+      "structuralHash": "input",
+      "instanceCount": 1,
+      "variants": [
+        {
+          "css": {
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(34, 34, 34)",
+            "padding": "0px 0px 0px 0px",
+            "borderRadius": "0px",
+            "border": "0px none rgb(34, 34, 34)",
+            "fontSize": "14px",
+            "fontWeight": "500"
+          },
+          "instanceCount": 1
+        }
+      ]
+    },
+    {
+      "kind": "button",
+      "structuralHash": "button>div",
+      "instanceCount": 1,
+      "variants": [
+        {
+          "css": {
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(34, 34, 34)",
+            "padding": "0px 0px 0px 0px",
+            "borderRadius": "50px",
+            "border": "0px none rgb(34, 34, 34)",
+            "fontSize": "14px",
+            "fontWeight": "400"
+          },
+          "instanceCount": 1
+        }
+      ]
+    },
+    {
+      "kind": "button",
+      "structuralHash": "button>span",
+      "instanceCount": 5,
+      "variants": [
+        {
+          "css": {
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(34, 34, 34)",
+            "padding": "11px 12px 11px 12px",
+            "borderRadius": "20px",
+            "border": "0px solid rgb(34, 34, 34)",
+            "fontSize": "14px",
+            "fontWeight": "500"
+          },
+          "instanceCount": 3
+        },
+        {
+          "css": {
+            "background": "rgb(242, 242, 242)",
+            "color": "rgb(34, 34, 34)",
+            "padding": "0px 0px 0px 0px",
+            "borderRadius": "50%",
+            "border": "0px none rgb(34, 34, 34)",
+            "fontSize": "14px",
+            "fontWeight": "400"
+          },
+          "instanceCount": 2
+        }
+      ]
+    },
+    {
+      "kind": "button",
+      "structuralHash": "button",
+      "instanceCount": 7,
+      "variants": [
+        {
+          "css": {
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(34, 34, 34)",
+            "padding": "10px 10px 10px 10px",
+            "borderRadius": "8px",
+            "border": "0px none rgb(34, 34, 34)",
+            "fontSize": "14px",
+            "fontWeight": "500"
+          },
+          "instanceCount": 7
+        }
+      ]
+    },
+    {
+      "kind": "button",
+      "structuralHash": "button>span>svg",
+      "instanceCount": 1,
+      "variants": [
+        {
+          "css": {
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(34, 34, 34)",
+            "padding": "0px 0px 0px 0px",
+            "borderRadius": "8px",
+            "border": "0px none rgb(34, 34, 34)",
+            "fontSize": "14px",
+            "fontWeight": "500"
+          },
+          "instanceCount": 1
+        }
+      ]
+    }
+  ],
+  "accessibility": {
+    "remediation": []
+  },
+  "cssHealth": {
+    "sheets": [
+      {
+        "url": "https://www.airbnb.ae/?_set_bev_on_new_domain=1781268498_EANmNjNDExMzQ4Mz&set_everest_cookie_on_new_domain=1781268498.EAYmYxMmQ5ZmJiMzM3Yj.1QLHOR_f4uE3l2Fx6COptqJhz25eP8feuofNs_VdVS0",
+        "totalBytes": 66620,
+        "usedBytes": 0,
+        "unusedBytes": 66620,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://www.airbnb.ae/?_set_bev_on_new_domain=1781268498_EANmNjNDExMzQ4Mz&set_everest_cookie_on_new_domain=1781268498.EAYmYxMmQ5ZmJiMzM3Yj.1QLHOR_f4uE3l2Fx6COptqJhz25eP8feuofNs_VdVS0",
+        "totalBytes": 6820,
+        "usedBytes": 1070,
+        "unusedBytes": 5750,
+        "unusedPercent": 84
+      },
+      {
+        "url": "https://a0.muscache.com/airbnb/static/packages/web/common/frontend/core-guest-loop/apps/core-guest-spa/client.31464ce27d.css",
+        "totalBytes": 1645271,
+        "usedBytes": 0,
+        "unusedBytes": 1645271,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://www.airbnb.ae/?_set_bev_on_new_domain=1781268498_EANmNjNDExMzQ4Mz&set_everest_cookie_on_new_domain=1781268498.EAYmYxMmQ5ZmJiMzM3Yj.1QLHOR_f4uE3l2Fx6COptqJhz25eP8feuofNs_VdVS0",
+        "totalBytes": 38,
+        "usedBytes": 0,
+        "unusedBytes": 38,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://a0.muscache.com/airbnb/static/packages/web/common/frontend/core-guest-loop/apps/core-guest-spa/client.31464ce27d.css",
+        "totalBytes": 1645271,
+        "usedBytes": 62343,
+        "unusedBytes": 1582928,
+        "unusedPercent": 96
+      },
+      {
+        "url": "https://www.airbnb.ae/?_set_bev_on_new_domain=1781268498_EANmNjNDExMzQ4Mz&set_everest_cookie_on_new_domain=1781268498.EAYmYxMmQ5ZmJiMzM3Yj.1QLHOR_f4uE3l2Fx6COptqJhz25eP8feuofNs_VdVS0",
+        "totalBytes": 0,
+        "usedBytes": 0,
+        "unusedBytes": 0,
+        "unusedPercent": 0
+      }
+    ],
+    "totalBytes": 3364020,
+    "usedBytes": 63413,
+    "unusedBytes": 3300607,
+    "unusedPercent": 98,
+    "importantCount": 271,
+    "duplicates": 21818,
+    "vendorPrefixes": {
+      "webkit": 517,
+      "moz": 238,
+      "ms": 8,
+      "o": 0
+    },
+    "keyframes": [],
+    "specificity": {
+      "max": [
+        1,
+        13,
+        5
+      ],
+      "average": [
+        0,
+        2.41,
+        0.04
+      ],
+      "count": 39459
+    },
+    "issues": [
+      "271 !important rules",
+      "21818 duplicate declarations",
+      "98% unused CSS"
+    ]
+  }
+}

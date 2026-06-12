@@ -1,0 +1,107 @@
+{
+  "tone": "friendly",
+  "pronoun": "third-person",
+  "headingStyle": "Sentence case",
+  "headingLengthClass": "tight",
+  "ctaVerbs": [
+    {
+      "value": "become",
+      "count": 1
+    },
+    {
+      "value": "popular",
+      "count": 1
+    },
+    {
+      "value": "arts",
+      "count": 1
+    },
+    {
+      "value": "beach",
+      "count": 1
+    },
+    {
+      "value": "mountains",
+      "count": 1
+    },
+    {
+      "value": "outdoors",
+      "count": 1
+    },
+    {
+      "value": "things",
+      "count": 1
+    },
+    {
+      "value": "airbnb",
+      "count": 1
+    },
+    {
+      "value": "show",
+      "count": 1
+    },
+    {
+      "value": "english",
+      "count": 1
+    }
+  ],
+  "buttonPatterns": [
+    {
+      "value": "become a host",
+      "count": 1
+    },
+    {
+      "value": "popular",
+      "count": 1
+    },
+    {
+      "value": "arts & culture",
+      "count": 1
+    },
+    {
+      "value": "beach",
+      "count": 1
+    },
+    {
+      "value": "mountains",
+      "count": 1
+    },
+    {
+      "value": "outdoors",
+      "count": 1
+    },
+    {
+      "value": "things to do",
+      "count": 1
+    },
+    {
+      "value": "airbnb-friendly apartments",
+      "count": 1
+    },
+    {
+      "value": "show more",
+      "count": 1
+    },
+    {
+      "value": "english (ae)",
+      "count": 1
+    },
+    {
+      "value": "ﺩ.ﺇ\naed",
+      "count": 1
+    }
+  ],
+  "sampleHeadings": [
+    "Site Footer",
+    "Support",
+    "Hosting",
+    "Airbnb",
+    "Support",
+    "Hosting",
+    "Airbnb"
+  ],
+  "stats": {
+    "buttons": 11,
+    "headings": 7
+  }
+}

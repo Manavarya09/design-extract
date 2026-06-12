@@ -1,0 +1,17 @@
+/* shadcn/ui Theme — extracted from https://airbnb.com */
+/* Paste into your globals.css */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --primary: 349 100% 61%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 345 91% 46%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 13%;
+    --border: 0 0% 87%;
+    --radius: 8px;
+  }
+}

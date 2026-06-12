@@ -271,7 +271,7 @@ export default function HeroExtractor() {
             {status === 'done' && 'extraction complete'}
             {status === 'error' && 'try another URL'}
           </span>
-          <span className="dx-status-meta mono">free demo · 1 / day · unlimited via CLI</span>
+          <span className="dx-status-meta mono">free demo · 2 / day · unlimited via CLI</span>
         </div>
 
         {errorMsg && (

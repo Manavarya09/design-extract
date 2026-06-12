@@ -1,0 +1,116 @@
+{
+  "$schema": "https://designlang.app/schemas/gradients.json",
+  "source": "https://tailwindcss.com",
+  "generated": "2026-06-12T12:49:38.951Z",
+  "count": 6,
+  "gradients": [
+    {
+      "raw": "repeating-linear-gradient(315deg, oklab(0 0 0 / 0.05) 0px, oklab(0 0 0 / 0.05) 1px, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 50%)",
+      "type": "repeating-linear",
+      "direction": "315deg",
+      "stops": [
+        {
+          "color": "oklab(0 0 0 / 0.05)",
+          "position": "0px"
+        },
+        {
+          "color": "oklab(0 0 0 / 0.05)",
+          "position": "1px"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": "0px"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": "50%"
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "radial-gradient(oklab(0.129999 -0.00404751 -0.027702 / 0.05) 1px, rgba(0, 0, 0, 0) 0px)",
+      "type": "radial",
+      "direction": null,
+      "stops": [
+        {
+          "color": "oklab(0.129999 -0.00404751 -0.027702 / 0.05)",
+          "position": "1px"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": "0px"
+        }
+      ],
+      "classification": "brand"
+    },
+    {
+      "raw": "linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, lab(1.90334 0.278696 -5.48866) 100%)",
+      "type": "linear",
+      "direction": null,
+      "stops": [
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": "0%"
+        },
+        {
+          "color": "rgba(0, 0, 0, 0)",
+          "position": "50%"
+        },
+        {
+          "color": "lab(1.90334 0.278696 -5.48866)",
+          "position": "100%"
+        }
+      ],
+      "classification": "bold"
+    },
+    {
+      "raw": "linear-gradient(to right, lab(66.9756 -58.27 19.5419) 0%, lab(70.687 -23.6078 -45.9483) 100%)",
+      "type": "linear",
+      "direction": "to right",
+      "stops": [
+        {
+          "color": "lab(66.9756 -58.27 19.5419)",
+          "position": "0%"
+        },
+        {
+          "color": "lab(70.687 -23.6078 -45.9483)",
+          "position": "100%"
+        }
+      ],
+      "classification": "brand"
+    },
+    {
+      "raw": "linear-gradient(to right, lab(49.5493 79.8381 2.31768) 0%, lab(86.4156 6.13147 78.3961) 100%)",
+      "type": "linear",
+      "direction": "to right",
+      "stops": [
+        {
+          "color": "lab(49.5493 79.8381 2.31768)",
+          "position": "0%"
+        },
+        {
+          "color": "lab(86.4156 6.13147 78.3961)",
+          "position": "100%"
+        }
+      ],
+      "classification": "brand"
+    },
+    {
+      "raw": "linear-gradient(to right, lab(43.0295 75.21 -86.5669) 0%, lab(76.6045 -40.9406 -29.6231) 100%)",
+      "type": "linear",
+      "direction": "to right",
+      "stops": [
+        {
+          "color": "lab(43.0295 75.21 -86.5669)",
+          "position": "0%"
+        },
+        {
+          "color": "lab(76.6045 -40.9406 -29.6231)",
+          "position": "100%"
+        }
+      ],
+      "classification": "brand"
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "pageIntent": {
+    "type": "landing",
+    "confidence": 0.45,
+    "path": "/",
+    "title": "Airbnb | Vacation rentals, cabins, beach houses, & more",
+    "description": "Get an Airbnb for every kind of trip → 8 million vacation rentals → 2 million Guest Favorites → 220+ countries and regions worldwide",
+    "signals": [
+      {
+        "kind": "url",
+        "type": "landing",
+        "weight": 0.45,
+        "detail": "root-path"
+      }
+    ],
+    "alternates": [],
+    "needsSmart": true
+  },
+  "sectionRoles": {
+    "sections": [
+      {
+        "index": 0,
+        "tag": "header",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.4,
+        "heading": null,
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "w": 1280,
+          "h": 80
+        },
+        "buttonCount": 4,
+        "cardCount": 0,
+        "slots": {
+          "ctaCount": 4,
+          "lede": "Homes\nHomes\nNEW\nNEW\nExperiences\nExperiences, new\nNEW\nNEW\nServices\nServices, new\nWhere\nWhen\nAdd dates\nWho\nAdd guests\nBecome a host"
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 1,
+        "tag": "nav",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": null,
+        "bounds": {
+          "x": 1022.734375,
+          "y": 0,
+          "w": 225.265625,
+          "h": 80
+        },
+        "buttonCount": 3,
+        "cardCount": 0,
+        "slots": {
+          "ctaCount": 3,
+          "lede": "Become a host"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 2,
+        "tag": "main",
+        "role": "content",
+        "subrole": null,
+        "confidence": 0.3,
+        "heading": null,
+        "bounds": {
+          "x": 0,
+          "y": 249,
+          "w": 1280,
+          "h": 0
+        },
+        "buttonCount": 0,
+        "cardCount": 0,
+        "slots": {},
+        "needsSmart": true
+      },
+      {
+        "index": 3,
+        "tag": "footer",
+        "role": "footer",
+        "subrole": null,
+        "confidence": 0.95,
+        "heading": "Site Footer",
+        "bounds": {
+          "x": 0,
+          "y": 618,
+          "w": 1280,
+          "h": 601.15625
+        },
+        "buttonCount": 6,
+        "cardCount": 37,
+        "slots": {
+          "heading": "Site Footer",
+          "subheadings": [
+            "Support",
+            "Hosting",
+            "Airbnb"
+          ],
+          "ctaCount": 6
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 4,
+        "tag": "section",
+        "role": "content",
+        "subrole": null,
+        "confidence": 0.3,
+        "heading": "Support",
+        "bounds": {
+          "x": 32,
+          "y": 650,
+          "w": 394.65625,
+          "h": 378.15625
+        },
+        "buttonCount": 0,
+        "cardCount": 7,
+        "slots": {
+          "heading": "Support",
+          "lede": "Support\nHelp Center\nGet help with a safety issue\nAirCover\nAnti-discrimination\nDisability support\nCancellation options\nReport neighborhood concern"
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 5,
+        "tag": "section",
+        "role": "pricing",
+        "subrole": null,
+        "confidence": 0.4,
+        "heading": "Hosting",
+        "bounds": {
+          "x": 442.65625,
+          "y": 650,
+          "w": 394.671875,
+          "h": 378.15625
+        },
+        "buttonCount": 0,
+        "cardCount": 10,
+        "slots": {
+          "heading": "Hosting",
+          "lede": "Hosting\nAirbnb your home\nAirbnb your experience\nAirbnb your service\nAirCover for Hosts\nHosting resources\nCommunity forum\nHosting responsibly\nJoin a free hosting class\nFind a co‑host\nRefer a host"
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 6,
+        "tag": "section",
+        "role": "content",
+        "subrole": null,
+        "confidence": 0.3,
+        "heading": "Airbnb",
+        "bounds": {
+          "x": 853.328125,
+          "y": 650,
+          "w": 394.65625,
+          "h": 378.15625
+        },
+        "buttonCount": 0,
+        "cardCount": 5,
+        "slots": {
+          "heading": "Airbnb",
+          "lede": "Airbnb\n2026 Summer Release\nNewsroom\nCareers\nInvestors\nAirbnb.org emergency stays"
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 7,
+        "tag": "section",
+        "role": "content",
+        "subrole": null,
+        "confidence": 0.3,
+        "heading": null,
+        "bounds": {
+          "x": 32,
+          "y": 1085.15625,
+          "w": 1216,
+          "h": 30
+        },
+        "buttonCount": 6,
+        "cardCount": 15,
+        "slots": {
+          "ctaCount": 6,
+          "lede": "© 2026 Airbnb, Inc.·Privacy·Terms\nEnglish (AE)\nﺩ.ﺇ\nAED"
+        },
+        "needsSmart": true
+      }
+    ],
+    "counts": {
+      "nav": 2,
+      "content": 4,
+      "footer": 1,
+      "pricing": 1
+    },
+    "readingOrder": [
+      "nav",
+      "nav",
+      "content",
+      "footer",
+      "content",
+      "pricing",
+      "content",
+      "content"
+    ]
+  }
+}

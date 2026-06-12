@@ -1,0 +1,89 @@
+{
+  "colors": {
+    "all": [
+      {
+        "hex": "#8e8ea0",
+        "rgb": {
+          "r": 142,
+          "g": 142,
+          "b": 160,
+          "a": 1
+        },
+        "hsl": {
+          "h": 240,
+          "s": 9,
+          "l": 59
+        },
+        "count": 42,
+        "contexts": [
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#000000",
+        "rgb": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 0
+        },
+        "count": 24,
+        "contexts": [
+          "text",
+          "border"
+        ]
+      }
+    ]
+  },
+  "regions": [],
+  "componentClusters": [],
+  "accessibility": {
+    "remediation": []
+  },
+  "cssHealth": {
+    "sheets": [
+      {
+        "url": "https://openai.com/",
+        "totalBytes": 590,
+        "usedBytes": 347,
+        "unusedBytes": 243,
+        "unusedPercent": 41
+      }
+    ],
+    "totalBytes": 590,
+    "usedBytes": 347,
+    "unusedBytes": 243,
+    "unusedPercent": 41,
+    "importantCount": 0,
+    "duplicates": 1,
+    "vendorPrefixes": {
+      "webkit": 0,
+      "moz": 0,
+      "ms": 0,
+      "o": 0
+    },
+    "keyframes": [],
+    "specificity": {
+      "max": [
+        0,
+        2,
+        1
+      ],
+      "average": [
+        0,
+        0.88,
+        0.25
+      ],
+      "count": 8
+    },
+    "issues": [
+      "1 duplicate declaration"
+    ]
+  }
+}

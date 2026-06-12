@@ -1,0 +1,12 @@
+/* shadcn/ui Theme — extracted from https://openai.com */
+/* Paste into your globals.css */
+
+@layer base {
+  :root {
+    --foreground: 0 0% 0%;
+    --muted: 0 0% 0%;
+    --muted-foreground: 240 9% 59%;
+    --border: 0 0% 0%;
+    --radius: 5px;
+  }
+}

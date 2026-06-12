@@ -1,0 +1,12 @@
+{
+  "library": "unknown",
+  "confidence": 0,
+  "evidence": [],
+  "alternates": [],
+  "signals": {
+    "tailwindLike": 0.193,
+    "radixAttrCount": 0,
+    "classSampleSize": 474
+  },
+  "needsSmart": true
+}

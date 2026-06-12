@@ -14,6 +14,8 @@ import { getBrowserOptions, getLocalBrowserOptions, isBrowserlessFailure } from 
 import { formatMotionTokens } from '../../../../src/formatters/motion-tokens.js';
 import { formatFramerMotion } from '../../../../src/formatters/framer-motion.js';
 import { formatMotionCss } from '../../../../src/formatters/motion-css.js';
+import { formatMotionOne } from '../../../../src/formatters/motion-one.js';
+import { formatMotionTailwind } from '../../../../src/formatters/motion-tailwind.js';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -41,6 +43,8 @@ function present(design, cached) {
       tokens: formatMotionTokens(design.motion),
       framer: formatFramerMotion(design),
       css: formatMotionCss(design),
+      motionone: formatMotionOne(design),
+      tailwind: formatMotionTailwind(design),
     },
   };
 }
@@ -62,11 +66,11 @@ export async function POST(request) {
   const ip = extractIp(request);
   const host = new URL(targetUrl).hostname;
   const limited = () => err(429,
-    `Free demo: 1 extraction per day. Use the CLI for unlimited: npx designlang ${host}`,
+    `Free demo: 2 extractions per day. Use the CLI for unlimited: npx designlang ${host}`,
     { cli: `npx designlang ${host}` },
   );
-  if (!checkRate(`extract:${ip}`, { limit: 1 }).allowed) return limited();
-  if (!(await checkRateBlob(`extract:${ip}`, { limit: 1 })).allowed) return limited();
+  if (!checkRate(`extract:${ip}`, { limit: 2 }).allowed) return limited();
+  if (!(await checkRateBlob(`extract:${ip}`, { limit: 2 })).allowed) return limited();
 
   const browserOpts = await getBrowserOptions();
   let design;

@@ -1,0 +1,13 @@
+{
+  "tone": "neutral",
+  "pronoun": "third-person",
+  "headingStyle": "unknown",
+  "headingLengthClass": "tight",
+  "ctaVerbs": [],
+  "buttonPatterns": [],
+  "sampleHeadings": [],
+  "stats": {
+    "buttons": 0,
+    "headings": 0
+  }
+}

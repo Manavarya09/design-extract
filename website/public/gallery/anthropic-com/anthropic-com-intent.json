@@ -1,0 +1,568 @@
+{
+  "pageIntent": {
+    "type": "landing",
+    "confidence": 0.59,
+    "path": "/",
+    "title": "Home \\ Anthropic",
+    "description": "Anthropic is an AI safety and research company that's working to build reliable, interpretable, and steerable AI systems.",
+    "signals": [
+      {
+        "kind": "dom",
+        "type": "blog-post",
+        "weight": 0.35,
+        "detail": "byline|min-read"
+      },
+      {
+        "kind": "dom",
+        "type": "legal",
+        "weight": 0.4
+      },
+      {
+        "kind": "url",
+        "type": "landing",
+        "weight": 0.45,
+        "detail": "root-path"
+      },
+      {
+        "kind": "shape",
+        "type": "landing",
+        "weight": 0.3,
+        "detail": "features+hero+cta+footer"
+      }
+    ],
+    "alternates": [
+      {
+        "type": "legal",
+        "score": 0.4
+      },
+      {
+        "type": "blog-post",
+        "score": 0.35
+      }
+    ],
+    "needsSmart": true
+  },
+  "sectionRoles": {
+    "sections": [
+      {
+        "index": 0,
+        "tag": "main",
+        "role": "feature-grid",
+        "subrole": null,
+        "confidence": 0.8,
+        "heading": "AI research and products that put safety at the frontier\nAI research and products that put safety at the frontier",
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "w": 1280,
+          "h": 3222.734375
+        },
+        "buttonCount": 19,
+        "cardCount": 184,
+        "slots": {
+          "heading": "AI research and products that put safety at the frontier\nAI research and products that put safety at the frontier",
+          "subheadings": [
+            "Announcing Fable 5",
+            "Latest releases",
+            "Expanding Project Glasswing",
+            "Claude Opus 4.8"
+          ],
+          "ctaCount": 19,
+          "lede": "Skip to main content\nSkip to footer\nResearch\nPolicy\nCommitments\nLearn\nNews\nTry Claude\nTry Claude\nLearn more about Claude\nAI research and products that put safety at the frontier\nAI research and products that put safety at the frontier"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 1,
+        "tag": "div",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": null,
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "w": 1280,
+          "h": 68
+        },
+        "buttonCount": 4,
+        "cardCount": 40,
+        "slots": {
+          "ctaCount": 4,
+          "lede": "Research\nPolicy\nCommitments\nLearn\nNews\nTry Claude\nTry Claude\nLearn more about Claude"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 2,
+        "tag": "nav",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": null,
+        "bounds": {
+          "x": 223.46875,
+          "y": 0,
+          "w": 989.0625,
+          "h": 68
+        },
+        "buttonCount": 4,
+        "cardCount": 40,
+        "slots": {
+          "ctaCount": 4,
+          "lede": "Research\nPolicy\nCommitments\nLearn\nNews\nTry Claude\nTry Claude\nLearn more about Claude"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 3,
+        "tag": "nav",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": null,
+        "bounds": {
+          "x": 704.1312255859375,
+          "y": 56,
+          "w": 252,
+          "h": 18
+        },
+        "buttonCount": 0,
+        "cardCount": 6,
+        "slots": {},
+        "needsSmart": false
+      },
+      {
+        "index": 4,
+        "tag": "nav",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": null,
+        "bounds": {
+          "x": 848.4906005859375,
+          "y": 56,
+          "w": 252,
+          "h": 18
+        },
+        "buttonCount": 0,
+        "cardCount": 8,
+        "slots": {},
+        "needsSmart": false
+      },
+      {
+        "index": 5,
+        "tag": "nav",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": null,
+        "bounds": {
+          "x": 960.53125,
+          "y": 52,
+          "w": 252,
+          "h": 18
+        },
+        "buttonCount": 0,
+        "cardCount": 14,
+        "slots": {},
+        "needsSmart": false
+      },
+      {
+        "index": 6,
+        "tag": "nav",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": null,
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        },
+        "buttonCount": 0,
+        "cardCount": 2,
+        "slots": {
+          "lede": "This is some text inside of a div block."
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 7,
+        "tag": "div",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": null,
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        },
+        "buttonCount": 5,
+        "cardCount": 40,
+        "slots": {
+          "ctaCount": 5,
+          "lede": "ResearchPolicyCommitments"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 8,
+        "tag": "nav",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": null,
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        },
+        "buttonCount": 4,
+        "cardCount": 40,
+        "slots": {
+          "ctaCount": 4,
+          "lede": "ResearchPolicyCommitments"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 9,
+        "tag": "nav",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": null,
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        },
+        "buttonCount": 0,
+        "cardCount": 6,
+        "slots": {
+          "lede": "InitiativesClaude's ConstitutionClaude CorpsPolicy on the AI ExponentialTransparencyResponsible Scaling PolicyTrust centerSecurity and compliance"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 10,
+        "tag": "nav",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": null,
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        },
+        "buttonCount": 0,
+        "cardCount": 8,
+        "slots": {
+          "lede": "LearnAnthropic AcademyTutorialsUse casesEngineering at AnthropicDeveloper docsCompanyAboutCareersEvents"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 11,
+        "tag": "nav",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": null,
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        },
+        "buttonCount": 0,
+        "cardCount": 14,
+        "slots": {
+          "lede": "ProductsClaudeClaude CodeClaude CoworkClaude SecurityClaude PlatformPricingContact salesModelsMythosFableOpusSonnetHaikuLog inClaude.aiClaude Console"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 12,
+        "tag": "nav",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": null,
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        },
+        "buttonCount": 0,
+        "cardCount": 2,
+        "slots": {
+          "lede": "This is some text inside of a div block."
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 13,
+        "tag": "header",
+        "role": "hero",
+        "subrole": null,
+        "confidence": 0.85,
+        "heading": "AI research and products that put safety at the frontier\nAI research and products that put safety at the frontier",
+        "bounds": {
+          "x": 0,
+          "y": 68,
+          "w": 1280,
+          "h": 368.65625
+        },
+        "buttonCount": 0,
+        "cardCount": 0,
+        "slots": {
+          "heading": "AI research and products that put safety at the frontier\nAI research and products that put safety at the frontier"
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 14,
+        "tag": "section",
+        "role": "hero",
+        "subrole": null,
+        "confidence": 0.4,
+        "heading": "Announcing Fable 5",
+        "bounds": {
+          "x": 0,
+          "y": 436.65625,
+          "w": 1280,
+          "h": 859.59375
+        },
+        "buttonCount": 1,
+        "cardCount": 0,
+        "slots": {
+          "heading": "Announcing Fable 5",
+          "ctaCount": 1
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 15,
+        "tag": "section",
+        "role": "content",
+        "subrole": null,
+        "confidence": 0.3,
+        "heading": "At Anthropic, we build AI to serve humanity’s long-term well-being.",
+        "bounds": {
+          "x": 0,
+          "y": 1919.234375,
+          "w": 1280,
+          "h": 448.046875
+        },
+        "buttonCount": 0,
+        "cardCount": 10,
+        "slots": {
+          "heading": "At Anthropic, we build AI to serve humanity’s long-term well-being.",
+          "subheadings": [
+            "‍",
+            "Core views on AI safety",
+            "Anthropic’s Responsible Scaling Policy",
+            "Anthropic Academy: Build and Learn with Claude"
+          ],
+          "lede": "At Anthropic, we build AI to serve humanity’s long-term well-being.\n‍\nCore views on AI safety\nAnnouncements\nAnthropic’s Responsible Scaling Policy\nAlignment Science\nAnthropic Academy: Build and Learn with Claude\nEducation\nAnthropic’s Economic Index\nEconomic Research\nClaude’s Constitution\nAnnouncements"
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 16,
+        "tag": "footer",
+        "role": "footer",
+        "subrole": null,
+        "confidence": 0.95,
+        "heading": "Footer",
+        "bounds": {
+          "x": 0,
+          "y": 2367.28125,
+          "w": 1280,
+          "h": 855.453125
+        },
+        "buttonCount": 5,
+        "cardCount": 88,
+        "slots": {
+          "heading": "Footer",
+          "subheadings": [
+            "Products",
+            "Models",
+            "Solutions",
+            "Claude Platform"
+          ],
+          "ctaCount": 5
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 17,
+        "tag": "nav",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": "Products",
+        "bounds": {
+          "x": 67.46875,
+          "y": 2438.921875,
+          "w": 1145.0625,
+          "h": 712.171875
+        },
+        "buttonCount": 5,
+        "cardCount": 88,
+        "slots": {
+          "heading": "Products",
+          "subheadings": [
+            "Models",
+            "Solutions",
+            "Claude Platform",
+            "Resources"
+          ],
+          "ctaCount": 5
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 18,
+        "tag": "section",
+        "role": "pricing",
+        "subrole": null,
+        "confidence": 0.4,
+        "heading": "Products",
+        "bounds": {
+          "x": 361.46875,
+          "y": 2438.921875,
+          "w": 189.546875,
+          "h": 712.171875
+        },
+        "buttonCount": 0,
+        "cardCount": 20,
+        "slots": {
+          "heading": "Products",
+          "subheadings": [
+            "Models"
+          ],
+          "lede": "Products\nClaude\nClaude Code\nClaude Code for Enterprise\nClaude Cowork\nClaude Security\nClaude for Chrome\nClaude for Slack\nClaude for Microsoft 365\nSkills\nMax plan\nTeam plan\nEnterprise plan\nDownload app\nPricing\nLog in to Claude\nModels\nMythos\nFable\nOpus\nSonnet\nHaiku"
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 19,
+        "tag": "section",
+        "role": "pricing",
+        "subrole": null,
+        "confidence": 0.4,
+        "heading": "Solutions",
+        "bounds": {
+          "x": 581.96875,
+          "y": 2438.921875,
+          "w": 189.546875,
+          "h": 712.171875
+        },
+        "buttonCount": 0,
+        "cardCount": 22,
+        "slots": {
+          "heading": "Solutions",
+          "subheadings": [
+            "Claude Platform"
+          ],
+          "lede": "Solutions\nAI agents\nCode modernization\nCoding\nCustomer support\nEducation\nFinancial services\nGovernment\nHealthcare\nLegal\nLife sciences\nNonprofits\nSecurity\nSmall business\nClaude Platform\nOverview\nDeveloper docs\nPricing\nMarketplace\nRegional compliance\nClaude on AWS\nGoogle Cloud\nMicrosoft Foundry\nConsole login"
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 20,
+        "tag": "section",
+        "role": "testimonials",
+        "subrole": null,
+        "confidence": 0.4,
+        "heading": "Resources",
+        "bounds": {
+          "x": 802.46875,
+          "y": 2438.921875,
+          "w": 189.546875,
+          "h": 712.171875
+        },
+        "buttonCount": 0,
+        "cardCount": 21,
+        "slots": {
+          "heading": "Resources",
+          "subheadings": [
+            "Help and security"
+          ],
+          "lede": "Resources\nBlog\nClaude partner network\nCommunity\nConnectors\nCourses\nCustomer stories\nEngineering at Anthropic\nEvents\nInside Claude Code\nInside Claude Cowork\nInside Claude Enterprise\nInside Claude Security\nPlugins\nPowered by Claude\nService partners\nStartups program\nTutorials\nUse cases\nHelp and security\nAvailability\nStatus\nSupport center"
+        },
+        "needsSmart": true
+      },
+      {
+        "index": 21,
+        "tag": "section",
+        "role": "content",
+        "subrole": null,
+        "confidence": 0.3,
+        "heading": "Company",
+        "bounds": {
+          "x": 1022.96875,
+          "y": 2438.921875,
+          "w": 189.5625,
+          "h": 712.171875
+        },
+        "buttonCount": 5,
+        "cardCount": 19,
+        "slots": {
+          "heading": "Company",
+          "subheadings": [
+            "Terms and policies",
+            "Cookie Settings"
+          ],
+          "ctaCount": 5,
+          "lede": "Company\nAnthropic\nCareers\nPolicy\nEconomic Futures\nResearch\nNews\nClaude's Constitution\nClaude Corps\nPolicy on the AI Exponential\nResponsible Scaling Policy\nSecurity and compliance\nTransparency\nTerms and policies\nPrivacy choices\nPrivacy policy\nConsumer health data privacy policy\nResponsible disclosure policy\nTerms of service: Commercial\nTerms of service: Consumer\nUsage policy"
+        },
+        "needsSmart": true
+      }
+    ],
+    "counts": {
+      "feature-grid": 1,
+      "nav": 13,
+      "hero": 2,
+      "content": 2,
+      "footer": 1,
+      "pricing": 2,
+      "testimonials": 1
+    },
+    "readingOrder": [
+      "feature-grid",
+      "nav",
+      "nav",
+      "nav",
+      "nav",
+      "nav",
+      "nav",
+      "nav",
+      "nav",
+      "nav",
+      "nav",
+      "nav",
+      "nav",
+      "hero",
+      "hero",
+      "content",
+      "footer",
+      "nav",
+      "pricing",
+      "pricing",
+      "testimonials",
+      "content"
+    ]
+  }
+}

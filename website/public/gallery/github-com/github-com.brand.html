@@ -1,0 +1,930 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>github.com · brand guidelines</title>
+<meta name="description" content="Design-system documentation for github.com: colour, type, spacing, motion, voice, accessibility, components, and drop-in tokens.">
+<meta property="og:title" content="github.com · brand guidelines">
+<meta property="og:description" content="Design-system documentation for github.com: colour, type, spacing, motion, voice, accessibility, components, and drop-in tokens.">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument%20Serif&family=Inter:wght@400;500;600&family=JetBrains%20Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f6f3ec;
+    --paper-2: #efebe1;
+    --ink: #131313;
+    --ink-soft: #555048;
+    --ink-faint: #8a8579;
+    --rule: #e0dccf;
+    --accent: #08872b;
+    --display: 'Instrument Serif', 'Times New Roman', serif;
+    --body: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+  }
+  [data-theme="dark"] {
+    --paper: #0d0c0a;
+    --paper-2: #15140f;
+    --ink: #ece8de;
+    --ink-soft: #9d978a;
+    --ink-faint: #5b574e;
+    --rule: #292621;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background .25s, color .25s;
+  }
+  a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: 1px; }
+  a:hover { border-color: var(--ink); }
+  code { font-family: var(--mono); font-size: 0.92em; }
+  .muted { color: var(--ink-soft); }
+  .summary { font-family: var(--mono); font-size: 12px; letter-spacing: .04em; color: var(--ink-faint); margin: 0 0 32px; padding-bottom: 14px; border-bottom: 1px solid var(--rule); }
+
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 0 96px; }
+
+  /* — Top bar — */
+  .topbar { display: flex; justify-content: space-between; align-items: center; padding: 24px 40px; font-size: 13px; border-bottom: 1px solid var(--rule); }
+  .brand { font-family: var(--display); font-size: 22px; }
+  .brand a { color: var(--ink); text-decoration: none; border-bottom: 0; }
+  .topbar nav { display: flex; gap: 18px; align-items: center; color: var(--ink-soft); }
+  .theme-btn { background: transparent; border: 1px solid var(--rule); color: var(--ink-soft); font-size: 11px; padding: 6px 12px; border-radius: 999px; cursor: pointer; letter-spacing: .12em; text-transform: uppercase; font-family: var(--body); }
+  .theme-btn:hover { color: var(--ink); border-color: var(--ink); }
+
+  /* — Cover — */
+  .cover { padding: 0; border-bottom: 1px solid var(--rule); }
+  .cover-band {
+    height: clamp(180px, 28vw, 320px);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 32px 40px;
+  }
+  .cover-band-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    opacity: 0.78;
+  }
+  .cover-band-hex code { font-family: var(--mono); font-size: 13px; opacity: 0.9; }
+  .cover-body { padding: 56px 40px 64px; }
+  .kicker { font-family: var(--mono); text-transform: uppercase; letter-spacing: .18em; font-size: 11px; color: var(--ink-soft); margin: 0 0 18px; }
+  .cover-title {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(56px, 11vw, 132px);
+    line-height: .94;
+    letter-spacing: -.02em;
+    margin: 0 0 24px;
+  }
+  .cover-sub { font-size: 19px; line-height: 1.5; color: var(--ink-soft); max-width: 60ch; margin: 0 0 36px; }
+  .cover-meta { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 22px 32px; padding: 28px 0 0; border-top: 1px solid var(--rule); margin: 0; }
+  .cover-meta dt { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .14em; color: var(--ink-faint); margin-bottom: 4px; }
+  .cover-meta dd { margin: 0; font-size: 15px; }
+
+  /* — TOC — */
+  .toc { padding: 56px 40px; border-bottom: 1px solid var(--rule); background: var(--paper-2); }
+  .toc-title { font-family: var(--display); font-weight: 400; font-size: 28px; margin: 0 0 24px; }
+  .toc ol { list-style: none; padding: 0; margin: 0; columns: 2; column-gap: 48px; }
+  @media (max-width: 640px) { .toc ol { columns: 1; } .toc, .topbar, .cover-band, .cover-body { padding-left: 22px; padding-right: 22px; } }
+  .toc li { padding: 10px 0; border-top: 1px solid var(--rule); break-inside: avoid; }
+  .toc li:last-child { border-bottom: 1px solid var(--rule); }
+  .toc a { display: flex; gap: 14px; align-items: baseline; border: 0; }
+  .toc-num { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); width: 26px; }
+  .toc-label { font-family: var(--display); font-size: 18px; }
+
+  /* — Sections — */
+  section { padding: 72px 40px; border-bottom: 1px solid var(--rule); }
+  section:last-of-type { border-bottom: 0; }
+  @media (max-width: 640px) { section { padding: 48px 22px; } }
+  .chapter-header { padding-bottom: 18px; margin-bottom: 28px; border-bottom: 1px solid var(--rule); }
+  .sec-num { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; color: var(--ink-faint); text-transform: uppercase; display: block; margin-bottom: 10px; }
+  section h2 { font-family: var(--display); font-weight: 400; font-size: clamp(36px, 4.5vw, 56px); line-height: 1.04; letter-spacing: -.005em; margin: 0; }
+  .sub { font-family: var(--display); font-weight: 400; font-size: 22px; margin: 36px 0 14px; }
+
+  /* — Meta grid — */
+  .meta-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px 32px; padding: 0; margin: 0 0 24px; }
+  .meta-grid > div { padding: 0; }
+  .meta-grid dt { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: var(--ink-faint); margin-bottom: 4px; }
+  .meta-grid dd { margin: 0; font-size: 15px; }
+
+  /* — Color section — */
+  .brand-grid { display: grid; gap: 20px; margin: 0 0 28px; }
+  .brand-grid-pair { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 640px) { .brand-grid-pair { grid-template-columns: 1fr; } }
+  .brand-color { display: flex; flex-direction: column; gap: 14px; }
+  .big-swatch {
+    aspect-ratio: 1.9 / 1;
+    border-radius: 8px;
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.06);
+  }
+  .brand-color-primary .big-swatch { aspect-ratio: 2.6 / 1; }
+  .big-swatch-name { font-family: var(--display); font-size: 32px; line-height: 1; }
+  .big-swatch-hex { font-family: var(--mono); font-size: 14px; letter-spacing: .04em; opacity: 0.92; }
+  .color-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; padding: 0; margin: 0; }
+  .color-meta dt { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: var(--ink-faint); margin-bottom: 2px; }
+  .color-meta dd { margin: 0 0 10px; font-size: 14px; }
+
+  .neutral-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+  .neutral-cell { aspect-ratio: 1.8 / 1; display: flex; align-items: flex-end; padding: 10px 12px; }
+  .neutral-cell code { font-size: 11px; }
+
+  .palette-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 6px; }
+  .mini-swatch { aspect-ratio: 1.6 / 1; border-radius: 5px; padding: 9px 11px; display: flex; align-items: flex-end; box-shadow: inset 0 0 0 1px rgba(0,0,0,.06); }
+  .mini-swatch code { font-size: 10px; opacity: 0.92; }
+
+  .callout {
+    margin-top: 32px;
+    padding: 14px 18px;
+    background: rgba(0,0,0,.03);
+    border-left: 2px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+    font-size: 14px;
+  }
+  [data-theme="dark"] .callout { background: rgba(255,255,255,.04); }
+
+  /* — Logo — */
+  .logo-card { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; align-items: center; padding: 24px 0; }
+  @media (max-width: 640px) { .logo-card { grid-template-columns: 1fr; } }
+  .logo-canvas { aspect-ratio: 16 / 9; background: var(--paper-2); border-radius: 8px; display: flex; align-items: center; justify-content: center; padding: 32px; box-shadow: inset 0 0 0 1px var(--rule); }
+  .logo-canvas svg { max-width: 60%; max-height: 80%; }
+  .logo-placeholder { font-family: var(--display); font-size: 36px; color: var(--ink-soft); }
+  .logo-meta { grid-template-columns: 1fr; }
+
+  /* — Type — */
+  .specimen { padding: 18px 0 26px; }
+  .spec-line { line-height: 1.05; margin: 0 0 18px; letter-spacing: -.01em; }
+  .spec-display { font-weight: 400; }
+  .spec-body { color: var(--ink-soft); font-style: italic; }
+  .scale-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .scale-table th, .scale-table td { padding: 14px 8px; text-align: left; border-bottom: 1px solid var(--rule); vertical-align: middle; }
+  .scale-table th { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: var(--ink-faint); border-bottom: 1px solid var(--ink); }
+  .scale-table .t-step { width: 64px; }
+  .scale-table .t-size { width: 80px; }
+  .scale-table .t-sample { color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  /* — Spacing — */
+  .space-rhythm { display: flex; flex-direction: column; gap: 10px; padding: 8px 0; }
+  .space-step { display: flex; align-items: center; gap: 14px; }
+  .space-block { height: 14px; background: var(--ink); border-radius: 2px; flex: 0 0 auto; }
+  [data-theme="dark"] .space-block { background: var(--ink); }
+  .space-step code { font-size: 11px; color: var(--ink-soft); min-width: 56px; }
+
+  /* — Shape — */
+  .radii-row, .shadows-row { display: grid; gap: 16px; }
+  .radii-row { grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); }
+  .shadows-row { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  .radius-card, .shadow-card { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+  .radius-block { width: 96px; height: 96px; background: var(--paper-2); box-shadow: inset 0 0 0 1px var(--rule); }
+  .shadow-block { width: 100%; height: 96px; background: var(--paper); border-radius: 10px; }
+  [data-theme="dark"] .shadow-block { background: var(--paper-2); }
+  .radius-card code, .shadow-card code { font-size: 11px; color: var(--ink-soft); }
+
+  /* — Iconography — */
+  .icon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(56px, 1fr)); gap: 10px; }
+  .icon-cell { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border: 1px solid var(--rule); border-radius: 6px; padding: 10px; background: var(--paper-2); }
+  .icon-cell svg { width: 100%; height: 100%; }
+
+  /* — Motion — */
+  .motion-tempo { display: flex; flex-direction: column; gap: 10px; }
+  .tempo-item { display: flex; align-items: center; gap: 14px; }
+  .tempo-bar { height: 6px; border-radius: 999px; min-width: 24px; opacity: 0.8; flex: 0 0 auto; animation: tempoSlide var(--dur, 600ms) cubic-bezier(.2,.7,.2,1) infinite alternate; }
+  @keyframes tempoSlide { from { width: 24px; opacity: 0.5; } to { width: 280px; opacity: 0.95; } }
+  .tempo-item code { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); min-width: 120px; }
+  .easings { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+  .easings li { padding: 6px 12px; background: var(--paper-2); border: 1px solid var(--rule); border-radius: 4px; font-size: 12px; }
+
+  /* — Components — */
+  .mock-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 24px; align-items: start; padding: 8px 0 28px; }
+  @media (max-width: 640px) { .mock-grid { grid-template-columns: 1fr; } }
+  .mock-button { display: flex; flex-direction: column; gap: 14px; padding: 32px; background: var(--paper-2); border-radius: 12px; box-shadow: inset 0 0 0 1px var(--rule); align-items: flex-start; }
+  .m-btn { font-family: var(--body); font-size: 14px; font-weight: 500; padding: 12px 22px; border: 1px solid transparent; cursor: pointer; }
+  .m-btn-secondary { background: transparent; border-style: solid; border-width: 1px; }
+  .mock-card { padding: 26px 28px; box-shadow: inset 0 0 0 1px var(--rule); }
+  .m-card-eyebrow { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .14em; color: var(--ink-faint); }
+  .m-card-title { font-family: var(--display); font-weight: 400; font-size: 26px; margin: 8px 0 8px; line-height: 1.1; }
+  .m-card-body { margin: 0 0 14px; font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
+  .m-card-link { font-family: var(--body); font-size: 13px; font-weight: 500; border: 0; padding: 0; }
+
+  .component-list { display: flex; flex-direction: column; }
+  .component-card { padding: 18px 0; border-top: 1px solid var(--rule); }
+  .component-card:last-of-type { border-bottom: 1px solid var(--rule); }
+  .component-card h4 { font-family: var(--display); font-weight: 400; font-size: 22px; margin: 0 0 14px; }
+
+  /* — Voice — */
+  .quotes { list-style: none; padding: 0; margin: 0; }
+  .quotes li {
+    font-family: var(--display);
+    font-size: 26px;
+    line-height: 1.18;
+    padding: 22px 0;
+    border-top: 1px solid var(--rule);
+    color: var(--ink);
+  }
+  .quotes li:last-child { border-bottom: 1px solid var(--rule); }
+  .cta-verbs { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px 20px; }
+  .cta-verbs li { display: flex; align-items: baseline; gap: 6px; font-size: 14px; }
+  .cta-verbs code { font-size: 13px; }
+  .cta-verbs .muted { font-family: var(--mono); font-size: 11px; }
+
+  /* — Accessibility — */
+  .a11y-score { display: flex; align-items: baseline; gap: 24px; padding: 12px 0 32px; border-bottom: 1px solid var(--rule); margin-bottom: 24px; }
+  .a11y-num { font-family: var(--display); font-size: clamp(72px, 10vw, 120px); line-height: 1; letter-spacing: -.02em; }
+  .a11y-suffix { font-size: 0.5em; color: var(--ink-soft); margin-left: 4px; }
+  .a11y-label { color: var(--ink-soft); font-size: 14px; line-height: 1.4; }
+  .a11y-pairs { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px; }
+  .a11y-pair { display: flex; flex-direction: column; gap: 12px; }
+  .a11y-stack { padding: 22px 18px; border-radius: 6px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.06); display: flex; justify-content: space-between; align-items: center; }
+  .a11y-Aa { font-family: var(--display); font-size: 32px; line-height: 1; }
+  .a11y-ratio { font-family: var(--mono); font-size: 12px; opacity: 0.9; }
+  .a11y-pair dl { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; padding: 0; margin: 0; }
+  .a11y-pair dt { font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: .14em; color: var(--ink-faint); }
+  .a11y-pair dd { margin: 0 0 4px; font-size: 12px; }
+  .remediation { list-style: none; padding: 0; margin: 0; }
+  .remediation li { padding: 10px 0; border-top: 1px solid var(--rule); }
+  .remediation li:last-child { border-bottom: 1px solid var(--rule); }
+
+  /* — Tokens — */
+  .codeblock-wrap { margin: 0 0 18px; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+  .codeblock-head { display: flex; justify-content: space-between; padding: 10px 14px; font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .14em; color: var(--ink-faint); background: var(--paper-2); border-bottom: 1px solid var(--rule); }
+  .codeblock { background: var(--paper-2); padding: 16px 18px; overflow-x: auto; font-family: var(--mono); font-size: 12px; line-height: 1.6; margin: 0; color: var(--ink); }
+
+  /* — Usage — */
+  .usage-list { padding: 0; margin: 0; counter-reset: rule; list-style: none; }
+  .usage-list li { padding: 22px 0; border-top: 1px solid var(--rule); position: relative; padding-left: 56px; counter-increment: rule; }
+  .usage-list li:last-child { border-bottom: 1px solid var(--rule); }
+  .usage-list li::before { content: counter(rule, decimal-leading-zero); position: absolute; left: 0; top: 26px; font-family: var(--mono); font-size: 11px; color: var(--ink-faint); letter-spacing: .14em; }
+  .usage-title { font-family: var(--display); font-weight: 400; font-size: 22px; margin: 0 0 6px; }
+  .usage-body { margin: 0; color: var(--ink-soft); font-size: 15px; line-height: 1.55; }
+
+  /* — Footer — */
+  footer { padding: 40px 40px 0; font-size: 13px; color: var(--ink-soft); display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 16px; }
+  footer .sig { font-family: var(--display); font-size: 22px; color: var(--ink); }
+  footer .stamp { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .14em; }
+  @media (max-width: 640px) { footer { padding: 40px 22px 0; } }
+
+  /* — Print — */
+  @media print {
+    body { background: white; color: black; }
+    .topbar nav, .theme-btn { display: none; }
+    .cover, .toc, section { page-break-inside: avoid; border-color: #ddd; padding: 36px 32px; }
+    .cover-band { background-color: var(--accent) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .toc, .cover { page-break-after: always; }
+    section { page-break-before: always; page-break-after: always; break-before: page; }
+    .topbar { display: none !important; }
+    .scale-table, .a11y-pair, .component-card { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><a href="https://designlang.app">designlang</a></div>
+    <nav>
+      <span>Brand guidelines</span>
+      <button class="theme-btn" id="themeBtn" type="button">Theme</button>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    
+    <section class="cover" id="cover" aria-labelledby="cover-title">
+      <div class="cover-band" style="background:#08872b;color:#ffffff">
+        <span class="cover-band-label">Brand guidelines</span>
+        <span class="cover-band-hex"><code>#08872b</code></span>
+      </div>
+      <div class="cover-body">
+        <p class="kicker">June 12, 2026</p>
+        <h1 id="cover-title" class="cover-title">github.com</h1>
+        <p class="cover-sub">A reading of the visual language at <a href="https://github.com" target="_blank" rel="noopener">https://github.com</a>. Every token, every rule, every component — captured from the live site.</p>
+        <dl class="cover-meta">
+          <div><dt>Page intent</dt><dd>landing</dd></div>
+          <div><dt>System grade</dt><dd>B <span class="muted">82/100</span></dd></div>
+          <div><dt>Tokens</dt><dd>30 colours · 10 sizes</dd></div>
+          <div><dt>Generated</dt><dd>designlang</dd></div>
+        </dl>
+      </div>
+    </section>
+    
+    <nav class="toc" aria-label="Table of contents">
+      <h2 class="toc-title">Contents</h2>
+      <ol>
+        <li><a href="#about"><span class="toc-num">01</span><span class="toc-label">About</span></a></li><li><a href="#logo"><span class="toc-num">02</span><span class="toc-label">Logo</span></a></li><li><a href="#color"><span class="toc-num">03</span><span class="toc-label">Colour</span></a></li><li><a href="#type"><span class="toc-num">04</span><span class="toc-label">Typography</span></a></li><li><a href="#spacing"><span class="toc-num">05</span><span class="toc-label">Spacing</span></a></li><li><a href="#shape"><span class="toc-num">06</span><span class="toc-label">Shape</span></a></li><li><a href="#iconography"><span class="toc-num">07</span><span class="toc-label">Iconography</span></a></li><li><a href="#motion"><span class="toc-num">08</span><span class="toc-label">Motion</span></a></li><li><a href="#components"><span class="toc-num">09</span><span class="toc-label">Components</span></a></li><li><a href="#voice"><span class="toc-num">10</span><span class="toc-label">Voice</span></a></li><li><a href="#accessibility"><span class="toc-num">11</span><span class="toc-label">Accessibility</span></a></li><li><a href="#tokens"><span class="toc-num">12</span><span class="toc-label">Tokens</span></a></li><li><a href="#usage"><span class="toc-num">13</span><span class="toc-label">Usage</span></a></li>
+      </ol>
+    </nav>
+    
+    <section id="about">
+      
+    <header class="chapter-header">
+      <span class="sec-num">Chapter 01</span>
+      <h2>About</h2>
+    </header>
+      <dl class="meta-grid">
+        <div><dt>Page intent</dt><dd>landing <span class="muted">61% confidence</span></dd></div>
+        <div><dt>Material language</dt><dd>material-you</dd></div>
+        <div><dt>Imagery style</dt><dd>photography</dd></div>
+        <div><dt>Component library</dt><dd>bootstrap</dd></div>
+        <div><dt>Stack</dt><dd>unknown</dd></div>
+        <div><dt>Voice tone</dt><dd>neutral</dd></div>
+      </dl>
+    </section>
+    
+    <section id="logo">
+      
+    <header class="chapter-header">
+      <span class="sec-num">Chapter 02</span>
+      <h2>Logo</h2>
+    </header>
+      <div class="logo-card">
+        <div class="logo-canvas" aria-label="Extracted logo on canvas">
+          <span class="logo-placeholder">github.com</span>
+        </div>
+        <dl class="meta-grid logo-meta">
+          <div><dt>Source</dt><dd>inferred</dd></div>
+          <div><dt>Dimensions</dt><dd>—</dd></div>
+          <div><dt>Aspect</dt><dd>—</dd></div>
+          <div><dt>Format</dt><dd>unknown</dd></div>
+        </dl>
+      </div>
+    </section>
+    
+    <section id="color">
+      
+    <header class="chapter-header">
+      <span class="sec-num">Chapter 03</span>
+      <h2>Colour</h2>
+    </header>
+      <p class="summary">1 primary · 1 secondary · 1 accent · 13 neutrals · 30 total</p>
+
+      <div class="brand-grid brand-grid-primary">
+    <article class="brand-color brand-color-primary">
+      <div class="big-swatch" style="background:#f0f6fc;color:#0a0a0a">
+        <span class="big-swatch-name">Primary</span>
+        <span class="big-swatch-hex">#F0F6FC</span>
+      </div>
+      <dl class="color-meta">
+        <div><dt>RGB</dt><dd><code>240, 246, 252</code></dd></div>
+        <div><dt>HSL</dt><dd><code>210°, 67%, 96%</code></dd></div>
+      </dl>
+    </article></div>
+
+      
+        <div class="brand-grid brand-grid-pair">
+          
+    <article class="brand-color brand-color-secondary">
+      <div class="big-swatch" style="background:#08872b;color:#ffffff">
+        <span class="big-swatch-name">Secondary</span>
+        <span class="big-swatch-hex">#08872B</span>
+      </div>
+      <dl class="color-meta">
+        <div><dt>RGB</dt><dd><code>8, 135, 43</code></dd></div>
+        <div><dt>HSL</dt><dd><code>137°, 89%, 28%</code></dd></div>
+      </dl>
+    </article>
+          
+    <article class="brand-color brand-color-accent">
+      <div class="big-swatch" style="background:#1f883d;color:#ffffff">
+        <span class="big-swatch-name">Accent</span>
+        <span class="big-swatch-hex">#1F883D</span>
+      </div>
+      <dl class="color-meta">
+        <div><dt>RGB</dt><dd><code>31, 136, 61</code></dd></div>
+        <div><dt>HSL</dt><dd><code>137°, 63%, 33%</code></dd></div>
+      </dl>
+    </article>
+        </div>
+      
+
+      
+        <h3 class="sub">Neutrals</h3>
+        <div class="neutral-strip">
+          <div class="neutral-cell" style="background:#ffffff;color:#0a0a0a"><code>#FFFFFF</code></div><div class="neutral-cell" style="background:#000000;color:#ffffff"><code>#000000</code></div><div class="neutral-cell" style="background:#9198a1;color:#ffffff"><code>#9198A1</code></div><div class="neutral-cell" style="background:#58635b;color:#ffffff"><code>#58635B</code></div><div class="neutral-cell" style="background:#59636e;color:#ffffff"><code>#59636E</code></div><div class="neutral-cell" style="background:#a4aea6;color:#ffffff"><code>#A4AEA6</code></div><div class="neutral-cell" style="background:#d1d9e0;color:#0a0a0a"><code>#D1D9E0</code></div><div class="neutral-cell" style="background:#7c8980;color:#ffffff"><code>#7C8980</code></div><div class="neutral-cell" style="background:#404651;color:#ffffff"><code>#404651</code></div><div class="neutral-cell" style="background:#484f58;color:#ffffff"><code>#484F58</code></div><div class="neutral-cell" style="background:#e4ebe6;color:#0a0a0a"><code>#E4EBE6</code></div><div class="neutral-cell" style="background:#2e374a;color:#ffffff"><code>#2E374A</code></div>
+        </div>
+      
+
+      <h3 class="sub">Full palette</h3>
+      <div class="palette-grid">
+        <div class="mini-swatch" style="background:#ffffff;color:#0a0a0a"><code>#FFFFFF</code></div><div class="mini-swatch" style="background:#f0f6fc;color:#0a0a0a"><code>#F0F6FC</code></div><div class="mini-swatch" style="background:#000000;color:#ffffff"><code>#000000</code></div><div class="mini-swatch" style="background:#8dd6ff;color:#0a0a0a"><code>#8DD6FF</code></div><div class="mini-swatch" style="background:#9198a1;color:#ffffff"><code>#9198A1</code></div><div class="mini-swatch" style="background:#1f2328;color:#ffffff"><code>#1F2328</code></div><div class="mini-swatch" style="background:#58635b;color:#ffffff"><code>#58635B</code></div><div class="mini-swatch" style="background:#59636e;color:#ffffff"><code>#59636E</code></div><div class="mini-swatch" style="background:#a4aea6;color:#ffffff"><code>#A4AEA6</code></div><div class="mini-swatch" style="background:#d1d9e0;color:#0a0a0a"><code>#D1D9E0</code></div><div class="mini-swatch" style="background:#5fed83;color:#0a0a0a"><code>#5FED83</code></div><div class="mini-swatch" style="background:#d1242f;color:#ffffff"><code>#D1242F</code></div><div class="mini-swatch" style="background:#f85149;color:#ffffff"><code>#F85149</code></div><div class="mini-swatch" style="background:#0d1117;color:#ffffff"><code>#0D1117</code></div><div class="mini-swatch" style="background:#d29922;color:#ffffff"><code>#D29922</code></div><div class="mini-swatch" style="background:#7c8980;color:#ffffff"><code>#7C8980</code></div><div class="mini-swatch" style="background:#4493f8;color:#ffffff"><code>#4493F8</code></div><div class="mini-swatch" style="background:#404651;color:#ffffff"><code>#404651</code></div><div class="mini-swatch" style="background:#484f58;color:#ffffff"><code>#484F58</code></div><div class="mini-swatch" style="background:#0969da;color:#ffffff"><code>#0969DA</code></div><div class="mini-swatch" style="background:#e4ebe6;color:#0a0a0a"><code>#E4EBE6</code></div><div class="mini-swatch" style="background:#1f6feb;color:#ffffff"><code>#1F6FEB</code></div><div class="mini-swatch" style="background:#005dd5;color:#ffffff"><code>#005DD5</code></div><div class="mini-swatch" style="background:#1f883d;color:#ffffff"><code>#1F883D</code></div><div class="mini-swatch" style="background:#08872b;color:#ffffff"><code>#08872B</code></div><div class="mini-swatch" style="background:#0d3024;color:#ffffff"><code>#0D3024</code></div><div class="mini-swatch" style="background:#2e374a;color:#ffffff"><code>#2E374A</code></div><div class="mini-swatch" style="background:#818b98;color:#ffffff"><code>#818B98</code></div>
+      </div>
+
+      
+        <p class="callout"><strong>WCAG 100%</strong> · 6 passing pairs · 0 failing. Full breakdown in §11.</p>
+      
+    </section>
+    
+    <section id="type">
+      
+    <header class="chapter-header">
+      <span class="sec-num">Chapter 04</span>
+      <h2>Typography</h2>
+    </header>
+      <p class="summary">3 families · 10 sizes · 9 weights</p>
+
+      <dl class="meta-grid">
+        <div><dt>Display</dt><dd>Mona Sans</dd></div>
+        <div><dt>Body</dt><dd>Mona Sans VF</dd></div>
+        <div><dt>Weights</dt><dd>400, 500, 600, 460, 480, 425, 800, 440, 700</dd></div>
+      </dl>
+
+      <h3 class="sub">Specimen</h3>
+      <div class="specimen" style="font-family: Mona Sans, 'Instrument Serif', serif;">
+        <div class="spec-line spec-display" style="font-size: 64px">Navigation Menu</div>
+        <div class="spec-line spec-body" style="font-size: 24px">Search code, repositories, users, issues, pull requests...</div>
+      </div>
+
+      <h3 class="sub">Scale</h3>
+      <table class="scale-table">
+        <thead><tr><th class="t-step">Step</th><th class="t-size">Size</th><th class="t-sample">Sample</th></tr></thead>
+        <tbody>
+          
+            <tr>
+              <td class="t-step"><code>t00</code></td>
+              <td class="t-size"><code>64px</code></td>
+              <td class="t-sample" style="font-size:56px; font-family: Mona Sans, 'Instrument Serif', serif; line-height: 1;">Navigation Menu</td>
+            </tr>
+          
+            <tr>
+              <td class="t-step"><code>t01</code></td>
+              <td class="t-size"><code>48px</code></td>
+              <td class="t-sample" style="font-size:48px; font-family: Mona Sans, 'Instrument Serif', serif; line-height: 1;">Navigation Menu</td>
+            </tr>
+          
+            <tr>
+              <td class="t-step"><code>t02</code></td>
+              <td class="t-size"><code>40px</code></td>
+              <td class="t-sample" style="font-size:40px; font-family: Mona Sans, 'Instrument Serif', serif; line-height: 1;">Navigation Menu</td>
+            </tr>
+          
+            <tr>
+              <td class="t-step"><code>t03</code></td>
+              <td class="t-size"><code>32px</code></td>
+              <td class="t-sample" style="font-size:32px; font-family: Mona Sans, 'Instrument Serif', serif; line-height: 1;">Navigation Menu</td>
+            </tr>
+          
+            <tr>
+              <td class="t-step"><code>t04</code></td>
+              <td class="t-size"><code>24px</code></td>
+              <td class="t-sample" style="font-size:24px; font-family: Mona Sans, 'Instrument Serif', serif; line-height: 1;">Navigation Menu</td>
+            </tr>
+          
+            <tr>
+              <td class="t-step"><code>t05</code></td>
+              <td class="t-size"><code>22px</code></td>
+              <td class="t-sample" style="font-size:22px; font-family: Mona Sans, 'Instrument Serif', serif; line-height: 1;">Navigation Menu</td>
+            </tr>
+          
+            <tr>
+              <td class="t-step"><code>t06</code></td>
+              <td class="t-size"><code>18px</code></td>
+              <td class="t-sample" style="font-size:18px; font-family: Mona Sans, 'Instrument Serif', serif; line-height: 1;">Navigation Menu</td>
+            </tr>
+          
+            <tr>
+              <td class="t-step"><code>t07</code></td>
+              <td class="t-size"><code>16px</code></td>
+              <td class="t-sample" style="font-size:16px; font-family: Mona Sans, 'Instrument Serif', serif; line-height: 1;">Navigation Menu</td>
+            </tr>
+          
+            <tr>
+              <td class="t-step"><code>t08</code></td>
+              <td class="t-size"><code>14px</code></td>
+              <td class="t-sample" style="font-size:14px; font-family: Mona Sans, 'Instrument Serif', serif; line-height: 1;">Navigation Menu</td>
+            </tr>
+          
+            <tr>
+              <td class="t-step"><code>t09</code></td>
+              <td class="t-size"><code>12px</code></td>
+              <td class="t-sample" style="font-size:12px; font-family: Mona Sans, 'Instrument Serif', serif; line-height: 1;">Navigation Menu</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </section>
+    
+    <section id="spacing">
+      
+    <header class="chapter-header">
+      <span class="sec-num">Chapter 05</span>
+      <h2>Spacing</h2>
+    </header>
+      <p class="summary">Base 2px · 11 steps captured</p>
+
+      <h3 class="sub">Rhythm</h3>
+      <div class="space-rhythm">
+        
+          <div class="space-step">
+            <div class="space-block" style="width:1.6px"></div>
+            <code>1px</code>
+          </div>
+        
+          <div class="space-step">
+            <div class="space-block" style="width:64px"></div>
+            <code>40px</code>
+          </div>
+        
+          <div class="space-step">
+            <div class="space-block" style="width:102.4px"></div>
+            <code>64px</code>
+          </div>
+        
+          <div class="space-step">
+            <div class="space-block" style="width:128px"></div>
+            <code>80px</code>
+          </div>
+        
+          <div class="space-step">
+            <div class="space-block" style="width:153.60000000000002px"></div>
+            <code>96px</code>
+          </div>
+        
+          <div class="space-step">
+            <div class="space-block" style="width:163.20000000000002px"></div>
+            <code>102px</code>
+          </div>
+        
+          <div class="space-step">
+            <div class="space-block" style="width:179.20000000000002px"></div>
+            <code>112px</code>
+          </div>
+        
+          <div class="space-step">
+            <div class="space-block" style="width:320px"></div>
+            <code>274px</code>
+          </div>
+        
+          <div class="space-step">
+            <div class="space-block" style="width:320px"></div>
+            <code>308px</code>
+          </div>
+        
+          <div class="space-step">
+            <div class="space-block" style="width:320px"></div>
+            <code>384px</code>
+          </div>
+        
+      </div>
+    </section>
+    
+    <section id="shape">
+      
+    <header class="chapter-header">
+      <span class="sec-num">Chapter 06</span>
+      <h2>Shape</h2>
+    </header>
+      <p class="summary">8 radii · 6 elevation tiers</p>
+
+      <h3 class="sub">Border radii</h3>
+      <div class="radii-row">
+        
+          <div class="radius-card">
+            <div class="radius-block" style="border-radius:3px"></div>
+            <code>3px</code>
+          </div>
+        
+          <div class="radius-card">
+            <div class="radius-block" style="border-radius:6px"></div>
+            <code>6px</code>
+          </div>
+        
+          <div class="radius-card">
+            <div class="radius-block" style="border-radius:12px"></div>
+            <code>12px</code>
+          </div>
+        
+          <div class="radius-card">
+            <div class="radius-block" style="border-radius:16px"></div>
+            <code>16px</code>
+          </div>
+        
+          <div class="radius-card">
+            <div class="radius-block" style="border-radius:24px"></div>
+            <code>24px</code>
+          </div>
+        
+          <div class="radius-card">
+            <div class="radius-block" style="border-radius:48px"></div>
+            <code>48px</code>
+          </div>
+        
+      </div>
+
+      
+        <h3 class="sub">Elevation</h3>
+        <div class="shadows-row">
+          
+              <div class="shadow-card">
+                <div class="shadow-block" style="box-shadow:rgba(209, 217, 224, 0.25) 0px 0px 0px 1px, rgba(37, 41, 46, 0.04) 0px 6px 12px -3px, rgba(37, 41, 46, 0.12) 0px 6px 18px 0px"></div>
+                <code>xs</code>
+              </div>
+            
+              <div class="shadow-card">
+                <div class="shadow-block" style="box-shadow:rgba(209, 217, 224, 0) 0px 0px 0px 1px, rgba(37, 41, 46, 0.24) 0px 40px 80px 0px"></div>
+                <code>sm</code>
+              </div>
+            
+              <div class="shadow-card">
+                <div class="shadow-block" style="box-shadow:rgba(255, 255, 255, 0) 0px 0px 0px 1px inset"></div>
+                <code>md</code>
+              </div>
+            
+              <div class="shadow-card">
+                <div class="shadow-block" style="box-shadow:rgb(61, 68, 77) 0px 0px 0px 1px, rgba(1, 4, 9, 0.4) 0px 6px 12px -3px, rgba(1, 4, 9, 0.4) 0px 6px 18px 0px"></div>
+                <code>lg</code>
+              </div>
+            
+              <div class="shadow-card">
+                <div class="shadow-block" style="box-shadow:rgba(31, 35, 40, 0.04) 0px 1px 0px 0px inset"></div>
+                <code>xl</code>
+              </div>
+            
+              <div class="shadow-card">
+                <div class="shadow-block" style="box-shadow:rgb(209, 217, 224) 0px -1px 0px 0px inset"></div>
+                <code>2xl</code>
+              </div>
+            
+        </div>
+      
+    </section>
+    
+    <section id="iconography">
+      
+    <header class="chapter-header">
+      <span class="sec-num">Chapter 07</span>
+      <h2>Iconography</h2>
+    </header>
+      <p class="summary">unknown · 24 captured</p>
+
+      <dl class="meta-grid">
+        <div><dt>Library</dt><dd>unknown</dd></div>
+        <div><dt>Confidence</dt><dd>0%</dd></div>
+        <div><dt>Stroke style</dt><dd>fillDominant</dd></div>
+      </dl>
+
+      
+        <div class="icon-grid">
+          <div class="icon-cell"><code>icon</code></div><div class="icon-cell"><code>icon</code></div><div class="icon-cell"><code>icon</code></div><div class="icon-cell"><code>icon</code></div><div class="icon-cell"><code>icon</code></div><div class="icon-cell"><code>icon</code></div><div class="icon-cell"><code>icon</code></div><div class="icon-cell"><code>icon</code></div><div class="icon-cell"><code>icon</code></div><div class="icon-cell"><code>icon</code></div><div class="icon-cell"><code>icon</code></div><div class="icon-cell"><code>icon</code></div><div class="icon-cell"><code>icon</code></div><div class="icon-cell"><code>icon</code></div><div class="icon-cell"><code>icon</code></div><div class="icon-cell"><code>icon</code></div><div class="icon-cell"><code>icon</code></div><div class="icon-cell"><code>icon</code></div><div class="icon-cell"><code>icon</code></div><div class="icon-cell"><code>icon</code></div><div class="icon-cell"><code>icon</code></div><div class="icon-cell"><code>icon</code></div><div class="icon-cell"><code>icon</code></div><div class="icon-cell"><code>icon</code></div>
+        </div>
+      
+    </section>
+    
+    <section id="motion">
+      
+    <header class="chapter-header">
+      <span class="sec-num">Chapter 08</span>
+      <h2>Motion</h2>
+    </header>
+      <p class="summary">Feel: mixed · 7 durations · 11 easings</p>
+
+      
+        <h3 class="sub">Duration scale</h3>
+        <div class="motion-tempo">
+          
+              <div class="tempo-item">
+                <div class="tempo-bar" style="--dur:75ms; background:#08872b"></div>
+                <code>75ms</code>
+              </div>
+            
+              <div class="tempo-item">
+                <div class="tempo-bar" style="--dur:100ms; background:#08872b"></div>
+                <code>100ms</code>
+              </div>
+            
+              <div class="tempo-item">
+                <div class="tempo-bar" style="--dur:200ms; background:#08872b"></div>
+                <code>200ms</code>
+              </div>
+            
+              <div class="tempo-item">
+                <div class="tempo-bar" style="--dur:300ms; background:#08872b"></div>
+                <code>300ms</code>
+              </div>
+            
+              <div class="tempo-item">
+                <div class="tempo-bar" style="--dur:480ms; background:#08872b"></div>
+                <code>480ms</code>
+              </div>
+            
+              <div class="tempo-item">
+                <div class="tempo-bar" style="--dur:800ms; background:#08872b"></div>
+                <code>800ms</code>
+              </div>
+            
+        </div>
+      
+
+      
+        <h3 class="sub">Easings</h3>
+        <ul class="easings">
+          <li><code>linear</code></li><li><code>ease-out</code></li><li><code>custom</code></li><li><code>ease-in-out</code></li>
+        </ul>
+      
+    </section>
+    
+    <section id="components">
+      
+    <header class="chapter-header">
+      <span class="sec-num">Chapter 09</span>
+      <h2>Components</h2>
+    </header>
+      <p class="summary">bootstrap · 3 component patterns captured</p>
+
+      <h3 class="sub">Mocks</h3>
+      <div class="mock-grid">
+        <div class="mock-button">
+          <button type="button" class="m-btn m-btn-primary" style="background:#08872b;color:#ffffff;border-radius:6px">Primary action</button>
+          <button type="button" class="m-btn m-btn-secondary" style="border-radius:6px;border-color:#08872b;color:#08872b">Secondary</button>
+        </div>
+        <div class="mock-card" style="background:#ffffff;color:#f0f6fc;border-radius:9px">
+          <span class="m-card-eyebrow">Card</span>
+          <h4 class="m-card-title">Built from these tokens</h4>
+          <p class="m-card-body">Radius, primary, surface, text — all sampled from the live site.</p>
+          <a class="m-card-link" href="#" style="color:#08872b">Read more →</a>
+        </div>
+      </div>
+
+      
+        <h3 class="sub">Detected patterns</h3>
+        <div class="component-list">
+          
+            <article class="component-card">
+              <h4>button</h4>
+              <dl class="meta-grid">
+                <div><dt>Slots</dt><dd>label, icon, badge</dd></div>
+                <div><dt>Variants</dt><dd>link, secondary</dd></div>
+                <div><dt>Sizes</dt><dd>lg, medium</dd></div>
+              </dl>
+            </article>
+          
+            <article class="component-card">
+              <h4>other</h4>
+              <dl class="meta-grid">
+                <div><dt>Slots</dt><dd>—</dd></div>
+                <div><dt>Variants</dt><dd>—</dd></div>
+                <div><dt>Sizes</dt><dd>—</dd></div>
+              </dl>
+            </article>
+          
+            <article class="component-card">
+              <h4>input</h4>
+              <dl class="meta-grid">
+                <div><dt>Slots</dt><dd>leading, trailing</dd></div>
+                <div><dt>Variants</dt><dd>—</dd></div>
+                <div><dt>Sizes</dt><dd>—</dd></div>
+              </dl>
+            </article>
+          
+        </div>
+      
+    </section>
+    
+    <section id="voice">
+      
+    <header class="chapter-header">
+      <span class="sec-num">Chapter 10</span>
+      <h2>Voice</h2>
+    </header>
+      <p class="summary">neutral · — · —</p>
+
+      
+        <h3 class="sub">Headlines from the site</h3>
+        <ul class="quotes">
+          <li>Navigation Menu</li><li>Search code, repositories, users, issues, pull requests...</li><li>
+          Explore
+        </li><li>
+        Provide feedback
+      </li>
+        </ul>
+      
+
+      
+        <h3 class="sub">CTA verbs</h3>
+        <ul class="cta-verbs">
+          <li><code></code><span class="muted">×4</span></li><li><code></code><span class="muted">×3</span></li><li><code></code><span class="muted">×3</span></li><li><code></code><span class="muted">×2</span></li><li><code></code><span class="muted">×2</span></li><li><code></code><span class="muted">×2</span></li><li><code></code><span class="muted">×1</span></li><li><code></code><span class="muted">×1</span></li>
+        </ul>
+      
+    </section>
+    
+    <section id="accessibility">
+      
+    <header class="chapter-header">
+      <span class="sec-num">Chapter 11</span>
+      <h2>Accessibility</h2>
+    </header>
+
+      <div class="a11y-score">
+        <span class="a11y-num">100<span class="a11y-suffix">%</span></span>
+        <span class="a11y-label">WCAG 2.1 contrast<br>6 passing · 0 failing</span>
+      </div>
+
+      <p class="muted">No failing contrast pairs detected.</p>
+
+      
+    </section>
+    
+    <section id="tokens">
+      
+    <header class="chapter-header">
+      <span class="sec-num">Chapter 12</span>
+      <h2>Tokens</h2>
+    </header>
+      <p class="summary">Drop-in code for the most common stacks. All values from the live extraction.</p>
+
+      <div class="codeblock-wrap">
+        <div class="codeblock-head"><span>CSS variables</span><span class="muted">variables.css</span></div>
+        <pre class="codeblock"><code>:root {
+  --color-primary: #f0f6fc;
+  --font-display: &quot;Mona Sans&quot;;
+  --space-base: 2px;
+  --radius-md: 6px;
+}</code></pre>
+      </div>
+
+      <div class="codeblock-wrap">
+        <div class="codeblock-head"><span>Tailwind config</span><span class="muted">tailwind.config.js</span></div>
+        <pre class="codeblock"><code>// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      colors: { brand: &#39;#f0f6fc&#39; },
+      fontFamily: { display: [&#39;Mona Sans&#39;, &#39;serif&#39;] },
+      spacing: { base: &#39;2px&#39; },
+      borderRadius: { md: &#39;6px&#39; },
+    },
+  },
+};</code></pre>
+      </div>
+
+      <p class="muted">Run <code>npx designlang pack github.com</code> for the full bundle (DTCG, shadcn, Figma vars, motion, anatomy, Storybook).</p>
+    </section>
+    
+    <section id="usage">
+      
+    <header class="chapter-header">
+      <span class="sec-num">Chapter 13</span>
+      <h2>Usage</h2>
+    </header>
+      <ol class="usage-list">
+        
+          <li>
+            <h3 class="usage-title">Lead with the primary.</h3>
+            <p class="usage-body">It belongs on calls-to-action and one accent moment per screen. Not on body copy.</p>
+          </li>
+        
+          <li>
+            <h3 class="usage-title">Two type families, three weights.</h3>
+            <p class="usage-body">Display for headlines, body for paragraphs. Resist a third unless there is a real reason.</p>
+          </li>
+        
+          <li>
+            <h3 class="usage-title">Snap to the spacing scale.</h3>
+            <p class="usage-body">Padding, margin, and gap should land on the values in §05. One-off pixels accumulate into noise.</p>
+          </li>
+        
+          <li>
+            <h3 class="usage-title">Treat accessibility as a hard constraint.</h3>
+            <p class="usage-body">When a colour pair fails WCAG, fix the colour — not the contrast check.</p>
+          </li>
+        
+      </ol>
+    </section>
+
+    <footer>
+      <div>
+        <div class="sig">designlang</div>
+        <div>Re-run: <code>npx designlang brand github.com</code></div>
+      </div>
+      <div class="stamp">Jun 12, 2026 · v12.16.0</div>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('themeBtn');
+      var saved = null;
+      try { saved = localStorage.getItem('dl-theme'); } catch (e) {}
+      if (saved) document.documentElement.setAttribute('data-theme', saved);
+      btn && btn.addEventListener('click', function () {
+        var cur = document.documentElement.getAttribute('data-theme') === 'dark' ? '' : 'dark';
+        if (cur) document.documentElement.setAttribute('data-theme', cur);
+        else document.documentElement.removeAttribute('data-theme');
+        try { localStorage.setItem('dl-theme', cur); } catch (e) {}
+      });
+    })();
+  </script>
+</body>
+</html>

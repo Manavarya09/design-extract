@@ -1,0 +1,109 @@
+{
+  "tone": "friendly",
+  "pronoun": "third-person",
+  "headingStyle": "Title Case",
+  "headingLengthClass": "tight",
+  "ctaVerbs": [
+    {
+      "value": "ui",
+      "count": 2
+    },
+    {
+      "value": "v",
+      "count": 1
+    },
+    {
+      "value": "k",
+      "count": 1
+    },
+    {
+      "value": "quick",
+      "count": 1
+    },
+    {
+      "value": "check",
+      "count": 1
+    },
+    {
+      "value": "index",
+      "count": 1
+    },
+    {
+      "value": "app",
+      "count": 1
+    },
+    {
+      "value": "package",
+      "count": 1
+    },
+    {
+      "value": "terminal",
+      "count": 1
+    },
+    {
+      "value": "build",
+      "count": 1
+    }
+  ],
+  "buttonPatterns": [
+    {
+      "value": "v4.3",
+      "count": 1
+    },
+    {
+      "value": "⌘k",
+      "count": 1
+    },
+    {
+      "value": "quick search\n⌘k",
+      "count": 1
+    },
+    {
+      "value": "check availability",
+      "count": 1
+    },
+    {
+      "value": "index.html",
+      "count": 1
+    },
+    {
+      "value": "app.css",
+      "count": 1
+    },
+    {
+      "value": "package.json",
+      "count": 1
+    },
+    {
+      "value": "terminal",
+      "count": 1
+    },
+    {
+      "value": "build.css",
+      "count": 1
+    },
+    {
+      "value": "templates\n\nvisually-stunning, easy to customize site templates built with react and next.js.",
+      "count": 1
+    },
+    {
+      "value": "ui blocks\n\nover 500+ professionally designed, fully responsive, expertly crafted components.",
+      "count": 1
+    },
+    {
+      "value": "ui kit\n\na starter kit for building your own component systems with react and tailwind css.",
+      "count": 1
+    }
+  ],
+  "sampleHeadings": [
+    "Tailwind CSS",
+    "Resources",
+    "Tailwind Plus",
+    "Community",
+    "Tailwind CSS"
+  ],
+  "stats": {
+    "buttons": 12,
+    "headings": 5
+  }
+}

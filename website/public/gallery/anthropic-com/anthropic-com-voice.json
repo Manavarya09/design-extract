@@ -1,0 +1,34 @@
+{
+  "tone": "friendly",
+  "pronoun": "we-only",
+  "headingStyle": "Sentence case",
+  "headingLengthClass": "tight",
+  "ctaVerbs": [
+    {
+      "value": "privacy",
+      "count": 1
+    }
+  ],
+  "buttonPatterns": [
+    {
+      "value": "privacy choices",
+      "count": 1
+    }
+  ],
+  "sampleHeadings": [
+    "AI research and products that put safety at the frontier\nAI research and products that put safety at the frontier",
+    "Announcing Fable 5",
+    "Latest releases",
+    "Expanding Project Glasswing",
+    "Claude Opus 4.8",
+    "AI research and products that put safety at the frontier\nAI research and products that put safety at the frontier",
+    "Announcing Fable 5",
+    "At Anthropic, we build AI to serve humanity’s long-term well-being.",
+    "‍",
+    "Core views on AI safety"
+  ],
+  "stats": {
+    "buttons": 1,
+    "headings": 31
+  }
+}

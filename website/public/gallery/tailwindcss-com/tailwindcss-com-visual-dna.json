@@ -1,0 +1,73 @@
+{
+  "materialLanguage": {
+    "label": "flat",
+    "confidence": 0,
+    "signals": [],
+    "metrics": {
+      "saturation": 0.559,
+      "shadowProfile": "soft",
+      "avgShadowBlur": 0,
+      "maxShadowBlur": 0,
+      "insetShadows": 0,
+      "avgRadius": 16,
+      "maxRadius": 32,
+      "hasPill": false,
+      "hasBackdropBlur": false,
+      "gradientCount": 6
+    },
+    "alternates": []
+  },
+  "imageryStyle": {
+    "label": "photography",
+    "confidence": 0.077,
+    "counts": {
+      "total": 37,
+      "svg": 0,
+      "icon": 0,
+      "hero": 1,
+      "screenshot": 0,
+      "photoLike": 1
+    },
+    "dominantAspect": "square-ish",
+    "radiusProfile": "full",
+    "alternates": [
+      {
+        "label": "3d-render",
+        "score": 0.6
+      }
+    ],
+    "signals": [
+      "raster photo-ext"
+    ]
+  },
+  "backgroundPatterns": {
+    "labels": [
+      "plain"
+    ],
+    "counts": {
+      "noise": 0,
+      "dotGrid": 0,
+      "lineGrid": 3,
+      "meshCount": 0,
+      "svgPattern": 0
+    },
+    "gradientTotals": {
+      "radial": 12,
+      "linear": 11
+    },
+    "samples": [
+      {
+        "tag": "line-grid",
+        "value": "repeating-linear-gradient(315deg, oklab(0 0 0 / 0.05) 0px, oklab(0 0 0 / 0.05) 1px, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 50%)"
+      },
+      {
+        "tag": "line-grid",
+        "value": "repeating-linear-gradient(315deg, oklab(0 0 0 / 0.05) 0px, oklab(0 0 0 / 0.05) 1px, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 50%)"
+      },
+      {
+        "tag": "line-grid",
+        "value": "repeating-linear-gradient(315deg, oklab(0 0 0 / 0.05) 0px, oklab(0 0 0 / 0.05) 1px, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 50%)"
+      }
+    ]
+  }
+}

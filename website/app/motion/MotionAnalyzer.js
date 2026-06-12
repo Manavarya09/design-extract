@@ -345,6 +345,12 @@ export default function MotionAnalyzer() {
                 <ExportCard label="Motion tokens (DTCG JSON)" file={`${host || 'site'}-motion.tokens.json`} text={data.exports.tokens} copied={copied === 'tokens'} onCopy={() => copy('tokens', data.exports.tokens)} onDownload={() => download(`${host || 'site'}-motion.tokens.json`, data.exports.tokens)} />
                 <ExportCard label="Framer Motion presets" file={`${host || 'site'}-motion.framer.js`} text={data.exports.framer} copied={copied === 'framer'} onCopy={() => copy('framer', data.exports.framer)} onDownload={() => download(`${host || 'site'}-motion.framer.js`, data.exports.framer)} />
                 <ExportCard label="Motion CSS variables" file={`${host || 'site'}-motion.css`} text={data.exports.css} copied={copied === 'css'} onCopy={() => copy('css', data.exports.css)} onDownload={() => download(`${host || 'site'}-motion.css`, data.exports.css)} />
+                {data.exports.motionone && (
+                  <ExportCard label="Motion One presets" file={`${host || 'site'}-motion.one.js`} text={data.exports.motionone} copied={copied === 'motionone'} onCopy={() => copy('motionone', data.exports.motionone)} onDownload={() => download(`${host || 'site'}-motion.one.js`, data.exports.motionone)} />
+                )}
+                {data.exports.tailwind && (
+                  <ExportCard label="Tailwind motion config" file={`${host || 'site'}-motion.tailwind.js`} text={data.exports.tailwind} copied={copied === 'tailwind'} onCopy={() => copy('tailwind', data.exports.tailwind)} onDownload={() => download(`${host || 'site'}-motion.tailwind.js`, data.exports.tailwind)} />
+                )}
               </div>
             </Block>
           )}

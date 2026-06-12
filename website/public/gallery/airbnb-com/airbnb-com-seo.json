@@ -1,0 +1,93 @@
+{
+  "openGraph": {
+    "site_name": "Airbnb",
+    "locale": "en_US",
+    "url": "https://www.airbnb.ae/",
+    "title": "Airbnb | Vacation rentals, cabins, beach houses, & more",
+    "description": "Get an Airbnb for every kind of trip → 8 million vacation rentals → 2 million Guest Favorites → 220+ countries and regions worldwide",
+    "type": "website",
+    "image": "https://a0.muscache.com/im/pictures/fe7217ff-0b24-438d-880d-b94722c75bf5.jpg"
+  },
+  "twitter": {
+    "widgets:csp": "on",
+    "card": "summary",
+    "title": "Airbnb | Vacation rentals, cabins, beach houses, & more",
+    "site": "@airbnb",
+    "app:name:iphone": "Airbnb",
+    "app:name:ipad": "Airbnb",
+    "app:name:googleplay": "Airbnb",
+    "app:id:iphone": "401626263",
+    "app:id:ipad": "401626263",
+    "app:id:googleplay": "com.airbnb.android",
+    "url": "https://www.airbnb.ae/",
+    "app:url:iphone": "airbnb://",
+    "app:url:ipad": "airbnb://",
+    "app:url:googleplay": "airbnb://",
+    "description": "Get an Airbnb for every kind of trip → 8 million vacation rentals → 2 million Guest Favorites → 220+ countries and regions worldwide"
+  },
+  "description": "Get an Airbnb for every kind of trip → 8 million vacation rentals → 2 million Guest Favorites → 220+ countries and regions worldwide",
+  "canonical": null,
+  "themeColor": "#ffffff",
+  "viewport": "width=device-width, initial-scale=1, viewport-fit=cover",
+  "favicons": [
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://a0.muscache.com/airbnb/static/icons/apple-touch-icon-76x76-3b313d93b1b5823293524b9764352ac9.png",
+      "sizes": "",
+      "type": ""
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://a0.muscache.com/airbnb/static/icons/apple-touch-icon-76x76-3b313d93b1b5823293524b9764352ac9.png",
+      "sizes": "76x76",
+      "type": ""
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://a0.muscache.com/airbnb/static/icons/apple-touch-icon-120x120-52b1adb4fe3a8f825fc4b143de12ea4b.png",
+      "sizes": "120x120",
+      "type": ""
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://a0.muscache.com/airbnb/static/icons/apple-touch-icon-152x152-7b7c6444b63d8b6ebad9dae7169e5ed6.png",
+      "sizes": "152x152",
+      "type": ""
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://a0.muscache.com/airbnb/static/icons/apple-touch-icon-180x180-bcbe0e3960cd084eb8eaf1353cf3c730.png",
+      "sizes": "180x180",
+      "type": ""
+    },
+    {
+      "rel": "icon",
+      "href": "https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-Favicons/original/0d189acb-3f82-4b2c-b95f-ad1d6a803d13.png?im_w=240",
+      "sizes": "192x192",
+      "type": ""
+    },
+    {
+      "rel": "shortcut icon",
+      "href": "https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-Favicons/original/0d189acb-3f82-4b2c-b95f-ad1d6a803d13.png?im_w=240",
+      "sizes": "76x76",
+      "type": "image/png"
+    }
+  ],
+  "manifest": "https://www.airbnb.ae/manifest.json",
+  "structuredData": [
+    {
+      "type": "WebSite",
+      "name": null,
+      "sample": "{\"@context\":\"http://schema.org\",\"@type\":\"WebSite\",\"url\":\"https://www.airbnb.ae/\",\"potentialAction\":{\"@type\":\"SearchAction\",\"target\":\"https://www.airbnb.ae/s/homes?query={search_term_string}\",\"query-input\":\"required name=search_term_string\"}}"
+    }
+  ],
+  "score": {
+    "hasOg": true,
+    "hasTwitter": true,
+    "hasDescription": true,
+    "hasCanonical": false,
+    "hasStructuredData": true,
+    "hasFavicon": true,
+    "hasThemeColor": true
+  }
+}

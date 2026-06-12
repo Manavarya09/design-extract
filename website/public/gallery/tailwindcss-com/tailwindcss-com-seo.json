@@ -1,0 +1,66 @@
+{
+  "openGraph": {
+    "title": "Tailwind CSS - Rapidly build modern websites without ever leaving your HTML.",
+    "description": "Tailwind CSS is a utility-first CSS framework for rapidly building modern websites without ever leaving your HTML.",
+    "image": "https://tailwindcss.com/opengraph-image.jpg?opengraph-image.0jwfhnd690..4.jpg",
+    "image:type": "image/jpeg",
+    "image:width": "1200",
+    "image:height": "630"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Tailwind CSS - Rapidly build modern websites without ever leaving your HTML.",
+    "description": "Tailwind CSS is a utility-first CSS framework for rapidly building modern websites without ever leaving your HTML.",
+    "image": "https://tailwindcss.com/opengraph-image.jpg?opengraph-image.0jwfhnd690..4.jpg",
+    "image:type": "image/jpeg",
+    "image:width": "1200",
+    "image:height": "630"
+  },
+  "description": "Tailwind CSS is a utility-first CSS framework for rapidly building modern websites without ever leaving your HTML.",
+  "canonical": null,
+  "themeColor": "oklch(.13 .028 261.692)",
+  "viewport": "width=device-width, initial-scale=1",
+  "favicons": [
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://tailwindcss.com/favicons/apple-touch-icon.png?v=4",
+      "sizes": "180x180",
+      "type": ""
+    },
+    {
+      "rel": "icon",
+      "href": "https://tailwindcss.com/favicons/favicon-32x32.png?v=4",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "rel": "icon",
+      "href": "https://tailwindcss.com/favicons/favicon-16x16.png?v=4",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "rel": "shortcut icon",
+      "href": "https://tailwindcss.com/favicons/favicon.ico?v=4",
+      "sizes": "",
+      "type": ""
+    },
+    {
+      "rel": "icon",
+      "href": "https://tailwindcss.com/favicon.ico?favicon.0cgjfh1m3jfig.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ],
+  "manifest": "https://tailwindcss.com/favicons/site.webmanifest?v=4",
+  "structuredData": [],
+  "score": {
+    "hasOg": true,
+    "hasTwitter": true,
+    "hasDescription": true,
+    "hasCanonical": false,
+    "hasStructuredData": false,
+    "hasFavicon": true,
+    "hasThemeColor": true
+  }
+}

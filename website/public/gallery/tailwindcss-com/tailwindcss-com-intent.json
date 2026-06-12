@@ -1,0 +1,76 @@
+{
+  "pageIntent": {
+    "type": "landing",
+    "confidence": 0.45,
+    "path": "/",
+    "title": "Tailwind CSS - Rapidly build modern websites without ever leaving your HTML.",
+    "description": "Tailwind CSS is a utility-first CSS framework for rapidly building modern websites without ever leaving your HTML.",
+    "signals": [
+      {
+        "kind": "url",
+        "type": "landing",
+        "weight": 0.45,
+        "detail": "root-path"
+      }
+    ],
+    "alternates": [],
+    "needsSmart": true
+  },
+  "sectionRoles": {
+    "sections": [
+      {
+        "index": 0,
+        "tag": "section",
+        "role": "content",
+        "subrole": null,
+        "confidence": 0.3,
+        "heading": null,
+        "bounds": {
+          "x": 40,
+          "y": 1597,
+          "w": 1200,
+          "h": 1293.6875
+        },
+        "buttonCount": 0,
+        "cardCount": 36,
+        "slots": {},
+        "needsSmart": true
+      },
+      {
+        "index": 1,
+        "tag": "footer",
+        "role": "footer",
+        "subrole": null,
+        "confidence": 0.95,
+        "heading": "Tailwind CSS",
+        "bounds": {
+          "x": 40,
+          "y": 11076.75,
+          "w": 1200,
+          "h": 328
+        },
+        "buttonCount": 0,
+        "cardCount": 30,
+        "slots": {
+          "heading": "Tailwind CSS",
+          "subheadings": [
+            "Resources",
+            "Tailwind Plus",
+            "Community",
+            "Tailwind CSS"
+          ],
+          "lede": "Tailwind CSS\nDocumentation\nPlayground\nBlog\nShowcase\nSponsor\nTailwind Plus\nUI Blocks\nTemplates\nUI Kit\nResources\nRefactoring UI\nHeadless UI\nHeroicons\nHero Patterns\nCommunity\nGitHub\nDiscord\nX"
+        },
+        "needsSmart": false
+      }
+    ],
+    "counts": {
+      "content": 1,
+      "footer": 1
+    },
+    "readingOrder": [
+      "content",
+      "footer"
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "flags": [
+    "spinner-loading",
+    "forms"
+  ],
+  "forms": {
+    "count": 2,
+    "families": [
+      2
+    ]
+  },
+  "inputTypesSeen": {
+    "input": 13,
+    "textarea": 1
+  },
+  "modals": [],
+  "toastLibraries": [],
+  "loading": {
+    "skeleton": 0,
+    "spinner": 2
+  },
+  "empty": {
+    "count": 0
+  },
+  "error": {
+    "count": 0
+  }
+}

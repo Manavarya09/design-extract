@@ -6,7 +6,7 @@ export const revalidate = 600;
 export const metadata = {
   title: 'Gallery — design systems extracted by designlang',
   description:
-    'Real, browseable extractions of stripe.com, linear.app, vercel.com, notion.so, figma.com, apple.com, arc.net, spotify.com plus every recent run. Each card opens the full brand book — DTCG tokens, Tailwind config, Figma variables, downloads.',
+    'Real, browseable extractions of stripe.com, linear.app, vercel.com, notion.so, figma.com, apple.com, arc.net, spotify.com, github.com, airbnb.com, openai.com, tailwindcss.com, anthropic.com plus every recent run. Each card opens the full brand book — DTCG tokens, Tailwind config, Figma variables, downloads.',
   alternates: { canonical: 'https://designlang.app/gallery' },
   openGraph: { title: 'designlang gallery', description: 'Real extractions of well-known design systems — every card opens the brand book.' },
 };
@@ -20,6 +20,11 @@ const FEATURED = [
   { host: 'apple.com',   slug: 'apple-com',   primary: '#0071e3', accent: '#f5f5f7', bg: '#ffffff', grade: 'A+' },
   { host: 'arc.net',     slug: 'arc-net',     primary: '#2702c2', accent: '#fffadd', bg: '#fffcec', grade: 'A'  },
   { host: 'spotify.com', slug: 'spotify-com', primary: '#1ed760', accent: '#346e4a', bg: '#121212', grade: 'A-' },
+  { host: 'github.com',      slug: 'github-com',      primary: '#08872b', accent: '#f0f6fc', bg: '#0d1117', grade: 'A'  },
+  { host: 'airbnb.com',      slug: 'airbnb-com',      primary: '#ff385c', accent: '#e00b41', bg: '#ffffff', grade: 'A-' },
+  { host: 'openai.com',      slug: 'openai-com',      primary: '#000000', accent: '#8e8ea0', bg: '#ffffff', grade: 'A'  },
+  { host: 'tailwindcss.com', slug: 'tailwindcss-com', primary: '#0080ff', accent: '#ec0853', bg: '#ffffff', grade: 'A'  },
+  { host: 'anthropic.com',   slug: 'anthropic-com',   primary: '#d97757', accent: '#141413', bg: '#faf9f5', grade: 'A'  },
 ];
 
 function relTime(ms) {
@@ -47,7 +52,7 @@ export default async function Gallery() {
             Real extractions, on this site.
           </h1>
           <p className="lede" style={{ marginTop: 20 }}>
-            Eight well-known design systems pulled with <code className="kbd">npx designlang &lt;host&gt;</code>{' '}
+            Thirteen well-known design systems pulled with <code className="kbd">npx designlang &lt;host&gt;</code>{' '}
             and committed to this repo. Click any card to open the actual brand book the CLI produced —
             colour, typography, spacing, motion, anatomy, voice, accessibility, the lot.
           </p>

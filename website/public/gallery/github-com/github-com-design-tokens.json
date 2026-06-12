@@ -1,0 +1,318 @@
+{
+  "$metadata": {
+    "generator": "designlang",
+    "version": "7.0.0",
+    "spec": "https://design-tokens.github.io/community-group/format/",
+    "source": "https://github.com",
+    "generatedAt": "2026-06-12T12:48:14.436Z"
+  },
+  "primitive": {
+    "color": {
+      "brand": {
+        "primary": {
+          "$value": "#f0f6fc",
+          "$type": "color"
+        },
+        "secondary": {
+          "$value": "#08872b",
+          "$type": "color"
+        }
+      },
+      "neutral": {
+        "n100": {
+          "$value": "#ffffff",
+          "$type": "color"
+        },
+        "n200": {
+          "$value": "#000000",
+          "$type": "color"
+        },
+        "n300": {
+          "$value": "#9198a1",
+          "$type": "color"
+        },
+        "n400": {
+          "$value": "#58635b",
+          "$type": "color"
+        },
+        "n500": {
+          "$value": "#59636e",
+          "$type": "color"
+        },
+        "n600": {
+          "$value": "#a4aea6",
+          "$type": "color"
+        },
+        "n700": {
+          "$value": "#d1d9e0",
+          "$type": "color"
+        },
+        "n800": {
+          "$value": "#7c8980",
+          "$type": "color"
+        },
+        "n900": {
+          "$value": "#404651",
+          "$type": "color"
+        },
+        "n1000": {
+          "$value": "#484f58",
+          "$type": "color"
+        },
+        "n1100": {
+          "$value": "#e4ebe6",
+          "$type": "color"
+        },
+        "n1200": {
+          "$value": "#2e374a",
+          "$type": "color"
+        },
+        "n1300": {
+          "$value": "#818b98",
+          "$type": "color"
+        }
+      },
+      "background": {
+        "bg0": {
+          "$value": "#0d1117",
+          "$type": "color"
+        },
+        "bg1": {
+          "$value": "#ffffff",
+          "$type": "color"
+        },
+        "bg2": {
+          "$value": "#e4ebe6",
+          "$type": "color"
+        },
+        "bg3": {
+          "$value": "#000000",
+          "$type": "color"
+        },
+        "bg4": {
+          "$value": "#151a22",
+          "$type": "color"
+        },
+        "bg5": {
+          "$value": "#151b23",
+          "$type": "color"
+        }
+      },
+      "text": {
+        "text0": {
+          "$value": "#f0f6fc",
+          "$type": "color"
+        },
+        "text1": {
+          "$value": "#1f2328",
+          "$type": "color"
+        },
+        "text2": {
+          "$value": "#ffffff",
+          "$type": "color"
+        },
+        "text3": {
+          "$value": "#000000",
+          "$type": "color"
+        },
+        "text4": {
+          "$value": "#58635b",
+          "$type": "color"
+        },
+        "text5": {
+          "$value": "#005dd5",
+          "$type": "color"
+        },
+        "text6": {
+          "$value": "#59636e",
+          "$type": "color"
+        },
+        "text7": {
+          "$value": "#d1242f",
+          "$type": "color"
+        },
+        "text8": {
+          "$value": "#0969da",
+          "$type": "color"
+        },
+        "text9": {
+          "$value": "#25292e",
+          "$type": "color"
+        }
+      }
+    },
+    "spacing": {
+      "s0": {
+        "$value": "1px",
+        "$type": "dimension"
+      },
+      "s1": {
+        "$value": "40px",
+        "$type": "dimension"
+      },
+      "s2": {
+        "$value": "64px",
+        "$type": "dimension"
+      },
+      "s3": {
+        "$value": "80px",
+        "$type": "dimension"
+      },
+      "s4": {
+        "$value": "96px",
+        "$type": "dimension"
+      },
+      "s5": {
+        "$value": "102px",
+        "$type": "dimension"
+      },
+      "s6": {
+        "$value": "112px",
+        "$type": "dimension"
+      },
+      "s7": {
+        "$value": "274px",
+        "$type": "dimension"
+      },
+      "s8": {
+        "$value": "308px",
+        "$type": "dimension"
+      },
+      "s9": {
+        "$value": "384px",
+        "$type": "dimension"
+      },
+      "s10": {
+        "$value": "432px",
+        "$type": "dimension"
+      }
+    },
+    "radius": {
+      "r0": {
+        "$value": "3px",
+        "$type": "dimension"
+      },
+      "r1": {
+        "$value": "6px",
+        "$type": "dimension"
+      },
+      "r2": {
+        "$value": "12px",
+        "$type": "dimension"
+      },
+      "r3": {
+        "$value": "16px",
+        "$type": "dimension"
+      },
+      "r4": {
+        "$value": "24px",
+        "$type": "dimension"
+      },
+      "r5": {
+        "$value": "48px",
+        "$type": "dimension"
+      },
+      "r6": {
+        "$value": "60px",
+        "$type": "dimension"
+      },
+      "r7": {
+        "$value": "9999px",
+        "$type": "dimension"
+      }
+    },
+    "shadow": {
+      "sh0": {
+        "$value": "rgba(209, 217, 224, 0.25) 0px 0px 0px 1px, rgba(37, 41, 46, 0.04) 0px 6px 12px -3px, rgba(37, 41, 46, 0.12) 0px 6px 18px 0px",
+        "$type": "shadow"
+      },
+      "sh1": {
+        "$value": "rgba(209, 217, 224, 0) 0px 0px 0px 1px, rgba(37, 41, 46, 0.24) 0px 40px 80px 0px",
+        "$type": "shadow"
+      },
+      "sh2": {
+        "$value": "rgba(255, 255, 255, 0) 0px 0px 0px 1px inset",
+        "$type": "shadow"
+      },
+      "sh3": {
+        "$value": "rgb(61, 68, 77) 0px 0px 0px 1px, rgba(1, 4, 9, 0.4) 0px 6px 12px -3px, rgba(1, 4, 9, 0.4) 0px 6px 18px 0px",
+        "$type": "shadow"
+      },
+      "sh4": {
+        "$value": "rgba(31, 35, 40, 0.04) 0px 1px 0px 0px inset",
+        "$type": "shadow"
+      },
+      "sh5": {
+        "$value": "rgb(209, 217, 224) 0px -1px 0px 0px inset",
+        "$type": "shadow"
+      },
+      "sh6": {
+        "$value": "rgb(209, 217, 224) 0px 1px 0px 0px inset",
+        "$type": "shadow"
+      }
+    },
+    "fontFamily": {
+      "f0": {
+        "$value": "Mona Sans",
+        "$type": "fontFamily"
+      },
+      "f1": {
+        "$value": "Mona Sans VF",
+        "$type": "fontFamily"
+      },
+      "f2": {
+        "$value": "Mona Sans Mono",
+        "$type": "fontFamily"
+      }
+    }
+  },
+  "semantic": {
+    "color": {
+      "action": {
+        "primary": {
+          "$value": "{primitive.color.brand.primary}",
+          "$type": "color"
+        },
+        "secondary": {
+          "$value": "{primitive.color.brand.secondary}",
+          "$type": "color"
+        }
+      },
+      "surface": {
+        "default": {
+          "$value": "{primitive.color.background.bg0}",
+          "$type": "color"
+        }
+      },
+      "text": {
+        "body": {
+          "$value": "{primitive.color.text.text0}",
+          "$type": "color"
+        }
+      }
+    },
+    "typography": {
+      "body": {
+        "$value": {
+          "fontFamily": "Mona Sans",
+          "fontSize": "64px",
+          "fontWeight": "425",
+          "lineHeight": "69.12px"
+        },
+        "$type": "typography"
+      }
+    },
+    "radius": {
+      "control": {
+        "$value": "{primitive.radius.r0}",
+        "$type": "dimension"
+      }
+    },
+    "shadow": {
+      "elevated": {
+        "$value": "{primitive.shadow.sh0}",
+        "$type": "shadow"
+      }
+    }
+  }
+}
