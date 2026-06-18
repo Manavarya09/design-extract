@@ -26,7 +26,7 @@
     "ora": "^8.0.0",
     "pdf-lib": "^1.17.1",
     "pixelmatch": "^7.2.0",
-    "playwright": "^1.42.0",
+    "playwright": "^1.61.0",
     "pngjs": "^7.0.0"
   },
   "engines": {
