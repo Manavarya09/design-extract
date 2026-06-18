@@ -95,6 +95,38 @@ npm i -g designlang                         # global
 npx skills add Manavarya09/design-extract   # as an agent skill (40+ agents)
 ```
 
+## Use in Claude Code (plugin)
+
+designlang ships as a **Claude Code plugin** — eleven slash commands that wrap
+the CLI. Install it from inside Claude Code:
+
+```text
+/plugin marketplace add Manavarya09/design-extract
+/plugin install designlang@designlang
+```
+
+The first command registers this repo as a plugin marketplace; the second
+installs the `designlang` plugin from it. Restart Claude Code if prompted, then
+the commands are available:
+
+| Command | What it does |
+|---|---|
+| `/extract <url>` | full design language → DTCG, Tailwind, Figma, motion, voice |
+| `/site <url>` | crawl a whole site → one canonical design system + consistency grade |
+| `/grade <url>` | shareable HTML report card + SVG badge |
+| `/battle <a> <b>` | head-to-head graded comparison |
+| `/remix <url> --as <vocab>` | restyle in 6 vocabularies (brutalist, swiss, art-deco, cyberpunk, soft-ui, editorial) |
+| `/pack <url>` | one downloadable design-system bundle |
+| `/theme-swap <url>` | OKLCH-correct recolour around a new brand primary |
+| `/brand <url>` | full editorial brand-guidelines book (13 chapters) |
+| `/pair <a> <b>` | fuse two designs across configurable axes |
+| `/studio` | live token editor — preview, dark mode, export, share |
+| `/verify <url>` | rebuild from tokens, pixel-diff vs live, fidelity score |
+
+> Prefer the raw MCP tools? The CLI also ships an MCP server — run
+> `designlang mcp --output-dir ./design-extract-output` to serve the latest
+> extraction's tokens to any MCP client.
+
 ## Atlas Cloud for `--smart`
 
 `designlang --smart` can now use Atlas Cloud through its OpenAI-compatible chat API, so low-confidence classifiers can stay zero-dependency while routing to Atlas-hosted models.
