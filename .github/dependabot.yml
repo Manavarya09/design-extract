@@ -1,0 +1,24 @@
+version: 2
+updates:
+  # npm dependencies — group low-risk bumps so auto-merge handles them in one PR.
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 10
+    labels:
+      - dependencies
+    groups:
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch
+
+  # Keep GitHub Actions pinned and current.
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+    labels:
+      - dependencies
+      - github-actions
