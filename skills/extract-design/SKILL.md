@@ -1,6 +1,24 @@
 ---
 name: extract-design
-description: "Extract the full design language from any website URL. Produces 8 output files including AI-optimized markdown, visual HTML preview, Tailwind config, React theme, shadcn/ui theme, Figma variables, W3C design tokens, and CSS variables. Also runs WCAG accessibility scoring. Use when user says 'extract design', 'get design system', 'design language', 'design tokens', 'what colors/fonts does this site use', or '/extract-design'."
+description: >-
+  Extract the full design language from any website URL and turn it into
+  reusable design artifacts. Produces AI-optimized markdown, visual HTML
+  preview, Tailwind config, React theme, shadcn/ui theme, Figma variables,
+  W3C design tokens, CSS variables, screenshots, and WCAG accessibility
+  scoring. Use when the user naturally asks to analyze, understand, copy, or
+  convert an existing website visual system, such as 'what colors/fonts does
+  this site use', 'analyze this website design system', 'turn this URL into
+  design tokens', 'make a Tailwind theme from this site', 'generate shadcn
+  theme from URL', 'extract brand colors and typography', 'şu sitenin tasarım
+  dilini çıkar', 'bu sitenin renkleri ve fontları ne', 'bana bu sitenin görsel
+  kimliğini çıkar', 'siteyi tasarım sistemine çevir', 'şu landing page hangi
+  fontları kullanmış', 'renk paletini ve spacing sistemini bul', 'bu URLden
+  shadcn teması üret', 'su sitenin tasarim dilini cikar', 'bu sitenin renkleri
+  ve fontlari ne', 'tasarim tokenlarini al', 'siteyi design systeme cevir',
+  'Tailwind/shadcn/Figma tema cikar', 'renk paletini kopyala', 'extract
+  design', 'get design system', 'design language', 'design tokens', or
+  '/extract-design'. Do not use for implementing a new UI from scratch unless
+  the user first wants to extract an existing website design language.
 allowed-tools: Bash, Read, Write, Glob
 ---
 
