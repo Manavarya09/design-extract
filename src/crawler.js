@@ -19,6 +19,10 @@ async function gotoWithRetry(page, url, opts, retries = 3) {
   }
 }
 
+// Cap on waiting for the network to go quiet. Pages with analytics beacons, polling
+// or video never reach networkidle, and Playwright's default wait is 30s.
+const NETWORK_IDLE_MS = 5000;
+
 export async function crawlPage(url, options = {}) {
   const {
     width = 1280, height = 800, wait = 0, dark = false, depth = 0,
@@ -105,7 +109,7 @@ export async function crawlPage(url, options = {}) {
 
     await gotoWithRetry(page, url, { waitUntil: 'domcontentloaded', timeout: 30000 });
     // Wait for network to settle — but don't hang on sites with persistent connections
-    await page.waitForLoadState('networkidle').catch(() => {});
+    await page.waitForLoadState('networkidle', { timeout: NETWORK_IDLE_MS }).catch(() => {});
     if (wait > 0) await page.waitForTimeout(wait);
     await page.evaluate(() => document.fonts.ready).catch(() => {});
 
@@ -183,7 +187,7 @@ export async function crawlPage(url, options = {}) {
       for (const link of internalLinks) {
         try {
           await gotoWithRetry(page, link, { waitUntil: 'domcontentloaded', timeout: 20000 });
-          await page.waitForLoadState('networkidle').catch(() => {});
+          await page.waitForLoadState('networkidle', { timeout: NETWORK_IDLE_MS }).catch(() => {});
           await page.evaluate(() => document.fonts.ready).catch(() => {});
           const pageData = await extractPageData(page);
           additionalPages.push({ url: link, data: pageData });
@@ -209,7 +213,7 @@ export async function crawlPage(url, options = {}) {
       });
       const darkPage = await darkContext.newPage();
       await gotoWithRetry(darkPage, url, { waitUntil: 'domcontentloaded', timeout: 30000 });
-      await darkPage.waitForLoadState('networkidle').catch(() => {});
+      await darkPage.waitForLoadState('networkidle', { timeout: NETWORK_IDLE_MS }).catch(() => {});
       await darkPage.evaluate(() => document.fonts.ready).catch(() => {});
       darkData = await extractPageData(darkPage);
       darkData.mediaColors = mediaColors;
