@@ -24,3 +24,9 @@ docs/superpowers/
 tests/
 bench/
 .github/
+
+# Local tooling state and personal notes — never part of the package.
+.vercel/
+.engram/
+.claude/
+docs/INTERVIEW_PREP.md
