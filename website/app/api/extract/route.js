@@ -18,7 +18,9 @@ import { recordReel, loadReel, buildReplayTimeline } from '../../../../website/l
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
-export const maxDuration = 60;
+// A live read with the screencast on a cold Chromium ran past 60s and was killed
+// mid-stream. 300s is the Fluid Compute default.
+export const maxDuration = 300;
 
 const STAGES = [
   'crawl',

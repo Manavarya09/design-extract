@@ -21,13 +21,13 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: '22' }
-      - uses: Manavarya09/design-extract/github-action@v13.3.0
+      - uses: Manavarya09/design-extract/github-action@v13.3.1
         with:
           url: https://preview-${{ github.event.number }}.yoursite.dev
           baseline: ./design-tokens.baseline.json
 ```
 
-Pin to a release tag. The action installs the designlang version it was tagged with, so a gate on `@v13.3.0` never changes behaviour under you.
+Pin to a release tag. The action installs the designlang version it was tagged with, so a gate on `@v13.3.1` never changes behaviour under you.
 
 ## Inputs
 

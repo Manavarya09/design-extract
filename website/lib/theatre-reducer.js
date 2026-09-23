@@ -74,6 +74,13 @@ export function theatreReducer(state, action) {
     case 'error':
       return { ...state, error: action.error || 'Extraction failed', status: 'error' };
 
+    case 'end':
+      // The response closed. Still streaming means it closed without files or
+      // an error — the function was killed at its time limit.
+      return state.status === 'streaming'
+        ? { ...state, error: 'That site took too long to read. Try again, or run npx designlang locally.', status: 'error' }
+        : state;
+
     default:
       return state;
   }

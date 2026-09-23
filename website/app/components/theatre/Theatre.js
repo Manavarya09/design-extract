@@ -123,6 +123,7 @@ export default function Theatre({
       if (buffer.trim()) {
         try { dispatch(JSON.parse(buffer.trim())); } catch {}
       }
+      dispatch({ type: 'end' });
     } catch {
       dispatch({ type: 'error', error: 'Stream interrupted. Try another URL.' });
     } finally {

@@ -1,5 +1,19 @@
 # Changelog
 
+## [13.3.1] — 2026-09-23
+
+**Faster extraction, and the live demo no longer hangs.**
+
+- **Up to 30s faster on busy pages.** The wait for the network to go quiet
+  had no cap, so Playwright's 30s default applied, and pages with analytics
+  beacons or polling never go quiet. duolingo.com and paypal.com spent 30s of
+  every run there. It is now capped at 5s. On the benchmark sites that were
+  slow or failing, the median run went from 18.7s to 10.1s with no failed
+  runs, and calendly.com and pinterest.com finish instead of timing out.
+- **Website:** a live read on `/watch` gets 300s instead of 60s, and one
+  that dies mid-stream shows an error instead of "reading…" forever.
+- **Releases** publish through npm trusted publishing (OIDC). No token.
+
 ## [13.3.0] — 2026-09-15
 
 **Ship it where people run it: releases, installs, agents and CI.**
