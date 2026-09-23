@@ -113,6 +113,14 @@ export async function crawlPage(url, options = {}) {
     if (wait > 0) await page.waitForTimeout(wait);
     await page.evaluate(() => document.fonts.ready).catch(() => {});
 
+    // The page has loaded and settled: the part worth watching is over. Stop the
+    // cast before reading CSS coverage — in single-process Chromium (the
+    // serverless build) a running screencast deadlocks stopCSSCoverage.
+    if (screencast) {
+      try { await screencast.stop(); } catch { /* already stopped */ }
+      screencast = null;
+    }
+
     // Capture CSS coverage after the page has settled.
     let cssCoverage = [];
     if (cssCoverageAvailable) {
@@ -147,14 +155,6 @@ export async function crawlPage(url, options = {}) {
     lightData.cssCoverage = cssCoverage;
     if (interactState) lightData.interactState = interactState;
     if (motionRuntimeObs) lightData.motionRuntime = motionRuntimeObs;
-
-    // The visually interesting window (load + auto-interact) is done — stop the
-    // cast before any multipage navigation or dark-mode context swap, which
-    // would just stream confusing reloads.
-    if (screencast) {
-      try { await screencast.stop(); } catch { /* already stopped */ }
-      screencast = null;
-    }
 
     // Component screenshots
     let componentScreenshots = {};
