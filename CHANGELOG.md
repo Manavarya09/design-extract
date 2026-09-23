@@ -1,5 +1,18 @@
 # Changelog
 
+## [13.3.2] — 2026-09-23
+
+**The live demo reads sites again.**
+
+- **Fixed: every live read on designlang.app hung on "walking the DOM"**
+  until the function was killed. In the single-process Chromium that runs
+  on serverless, a screencast still running when CSS coverage was read
+  deadlocked `stopCSSCoverage`. The screencast now stops once the page has
+  settled, before coverage is read. Only callers that pass
+  `onScreencastFrame` are affected; the CLI never ran a screencast.
+- **Website:** results are cached again, so repeat reads and the suggestion
+  chips are served without launching a browser.
+
 ## [13.3.1] — 2026-09-23
 
 **Faster extraction, and the live demo no longer hangs.**

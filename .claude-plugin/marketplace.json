@@ -9,7 +9,7 @@
       "name": "designlang",
       "source": "./",
       "description": "Thirteen slash commands wrapping the designlang CLI: /extract (full design language → DTCG, Tailwind, Figma), /site (crawl a whole site → one canonical design system + consistency grade), /grade (shareable HTML report card + SVG badge), /battle (head-to-head graded comparison), /remix (restyle in 6 vocabularies — brutalist, swiss, art-deco, cyberpunk, soft-ui, editorial), /pack (one downloadable design-system bundle), /theme-swap (OKLCH-correct recolour around a new brand primary), /brand (full editorial brand-guidelines book — 13 chapters, hand-off-ready), /pair (fuse two designs across configurable axes — colours from one site, typography from another), /studio (live token-editor with component preview + export), /verify (rebuild from tokens and pixel-diff vs live for a fidelity score), /fidelity (score a clone vs the original — visual pixel-diff + motion fidelity — with a ranked correction plan), /gallery (build a shareable static gallery of measured clones).",
-      "version": "13.3.1",
+      "version": "13.3.2",
       "author": {
         "name": "Manavarya Singh"
       },
