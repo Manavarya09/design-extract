@@ -1,7 +1,7 @@
 {
   "name": "designlang",
   "description": "Extract any website's design language and ship it. Fourteen slash commands — /extract, /site, /grade, /battle, /remix, /pack, /theme-swap, /brand, /pair, /studio, /verify, /fidelity, /gallery, /dna — wrap the designlang CLI to pull DTCG tokens, Tailwind/shadcn/Figma vars, motion + voice, synthesize a whole-site canonical design system with a consistency grade, generate shareable graded report cards, head-to-head battle pages, six-vocabulary remixes, downloadable design-system bundles, OKLCH-correct theme recolouring, full editorial brand-guidelines books, design crossovers between two sites, a live token-editor studio, a rebuild-and-pixel-diff fidelity check, a measured clone-vs-original fidelity score (visual + motion) with a ranked correction plan via /fidelity, a shareable static gallery of scored clones via /gallery, and — via /dna — a measured design space that places any site among real design systems by nearest neighbours, per-axis percentiles, and the features that make it look the way it does.",
-  "version": "13.3.1",
+  "version": "13.3.2",
   "author": {
     "name": "Manavarya Singh",
     "url": "https://github.com/Manavarya09"
