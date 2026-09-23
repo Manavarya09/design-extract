@@ -5,7 +5,8 @@ name: release
 # npm `latest` once sat three months behind the repo (12.21.0 vs 13.2.0) because
 # publishing was a manual step. Tagging is now the whole release.
 #
-# Requires the NPM_TOKEN repository secret (an npm automation token).
+# Uses npm trusted publishing (OIDC): no token. The package must list this repo
+# and release.yml as its Trusted Publisher on npmjs.com.
 
 on:
   push:
@@ -13,7 +14,7 @@ on:
 
 permissions:
   contents: read
-  id-token: write # npm provenance
+  id-token: write # npm trusted publishing (OIDC) and provenance
 
 jobs:
   publish:
@@ -24,7 +25,8 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 22
-          cache: npm
+          # No dependency cache in a release build.
+          package-manager-cache: false
           registry-url: https://registry.npmjs.org
 
       - name: Tag must match package.json
@@ -47,13 +49,15 @@ jobs:
       - name: Check plugin manifest version sync
         run: npm run check-plugin
 
+      # Trusted publishing needs npm 11.5.1+; Node 22 bundles npm 10.
+      - name: Update npm
+        run: npm install -g npm@^11.5.1
+
       - name: Publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           VERSION="$(node -p "require('./package.json').version")"
           if npm view "designlang@$VERSION" version >/dev/null 2>&1; then
             echo "designlang@$VERSION is already on npm, nothing to publish"
             exit 0
           fi
-          npm publish --provenance --access public
+          npm publish --access public
