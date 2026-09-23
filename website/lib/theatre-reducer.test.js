@@ -86,3 +86,28 @@ test('cache + permalink fold', () => {
   assert.equal(s.cached, true);
   assert.equal(s.hash, 'deadbeef');
 });
+
+test('a stream that ends mid-extraction is an error, not an endless spinner', () => {
+  // The function was killed at its time limit: frames and a stage arrived,
+  // then the response simply closed with no files and no error event.
+  const s = reduceEvents([
+    { type: 'start' },
+    { type: 'stage', name: 'crawl' },
+    { type: 'frame', seq: 0, data: 'a' },
+    { type: 'end' },
+  ]);
+  assert.equal(s.status, 'error');
+  assert.match(s.error, /took too long/);
+});
+
+test('end after files or an error changes nothing', () => {
+  const done = reduceEvents([{ type: 'start' }, { type: 'files', files: {} }, { type: 'end' }]);
+  assert.equal(done.status, 'done');
+  const failed = reduceEvents([{ type: 'start' }, { type: 'error', error: 'boom' }, { type: 'end' }]);
+  assert.equal(failed.error, 'boom');
+});
+
+test('end after an idle autoplay stays idle', () => {
+  const s = reduceEvents([{ type: 'start' }, { type: 'idle' }, { type: 'end' }]);
+  assert.equal(s.status, 'idle');
+});
