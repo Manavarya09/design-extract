@@ -13,3 +13,4 @@ NOTES.md
 PLAN.md
 .planning/
 .engram/
+.env*.local

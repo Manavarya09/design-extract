@@ -30,3 +30,4 @@ bench/
 .engram/
 .claude/
 docs/INTERVIEW_PREP.md
+.env*
