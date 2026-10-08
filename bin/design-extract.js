@@ -519,13 +519,18 @@ program
       const platforms = merged.platforms || ['web'];
       const dtcgTokens = formatDtcgTokens(design);
       const platformFiles = [];
-      if (platforms.includes('ios')) {
-        const dir = join(outDir, 'ios');
-        mkdirSync(dir, { recursive: true });
-        const path = join(dir, 'DesignTokens.swift');
-        writeFileSync(path, formatIosSwiftUI(dtcgTokens), 'utf-8');
-        platformFiles.push({ path, label: 'iOS SwiftUI' });
-      }
+      if (platforms.includes("ios")) {
+  const dir = join(outDir, "ios");
+  mkdirSync(dir, { recursive: true });
+
+  const path = join(dir, "DesignTokens.swift");
+  writeFileSync(path, formatIosSwiftUI(dtcgTokens), "utf-8");
+  platformFiles.push({ path, label: "iOS SwiftUI" });
+
+  const uikitPath = join(dir, "DesignTokens+UIKit.swift");
+  writeFileSync(uikitPath, formatIosUIKit(dtcgTokens), "utf-8");
+  platformFiles.push({ path: uikitPath, label: "iOS UIKit" });
+}
       if (platforms.includes('android')) {
         const dir = join(outDir, 'android');
         mkdirSync(dir, { recursive: true });

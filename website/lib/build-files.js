@@ -18,6 +18,7 @@ import { formatReactTheme, formatShadcnTheme } from '../../src/formatters/theme.
 import { formatWordPress, formatWordPressTheme } from '../../src/formatters/wordpress.js';
 import { formatDtcgTokens } from '../../src/formatters/dtcg-tokens.js';
 import { formatIosSwiftUI } from '../../src/formatters/ios-swiftui.js';
+import { formatIosUIKit } from '../../src/formatters/ios-uikit.js';
 import { formatAndroidCompose } from '../../src/formatters/android-compose.js';
 import { formatFlutterDart } from '../../src/formatters/flutter-dart.js';
 import { formatAgentRules } from '../../src/formatters/agent-rules.js';
@@ -60,6 +61,7 @@ export function buildFiles(design, targetUrl) {
   }, null, 2);
 
   files['ios/DesignTokens.swift'] = formatIosSwiftUI(dtcg);
+  files['ios/DesignTokens+UIKit.swift'] = formatIosUIKit(dtcg);
 
   const android = formatAndroidCompose(dtcg);
   for (const name of Object.keys(android)) {
