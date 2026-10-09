@@ -10,6 +10,7 @@ import { formatReactTheme, formatShadcnTheme } from '../src/formatters/theme.js'
 import { formatDtcgTokens } from '../src/formatters/dtcg-tokens.js';
 import { resolveRef } from '../src/formatters/_token-ref.js';
 import { formatIosSwiftUI } from '../src/formatters/ios-swiftui.js';
+import { formatIosUIKit } from '../src/formatters/ios-uikit.js';
 import { formatAndroidCompose } from '../src/formatters/android-compose.js';
 import { formatFlutterDart } from '../src/formatters/flutter-dart.js';
 import { formatWordPressTheme } from '../src/formatters/wordpress.js';
@@ -1574,5 +1575,29 @@ describe('formatPairMarkdown', () => {
     assert.match(md, /\| Colour \| example\.com \|/);
     assert.match(md, /\| Typography \| other\.example \|/);
     assert.match(md, /\| Voice \| other\.example \|/);
+  });
+});
+describe('formatIosUIKit', () => {
+  const tokens = formatDtcgTokens(mockDesign);
+
+  it('generates UIKit output', () => {
+    const result = formatIosUIKit(tokens);
+
+    assert.ok(result.includes('import UIKit'));
+    assert.ok(result.includes('extension UIColor'));
+    assert.ok(result.includes('extension UIFont'));
+    assert.ok(result.includes('enum DLSpacing'));
+  });
+
+  it('generates UIColor from token color', () => {
+    const result = formatIosUIKit(tokens);
+
+    assert.ok(result.includes('UIColor(red:'));
+  });
+
+  it('does not contain unresolved token references', () => {
+    const result = formatIosUIKit(tokens);
+
+    assert.ok(!result.includes('{primitive.'));
   });
 });
