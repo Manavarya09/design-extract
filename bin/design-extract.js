@@ -83,6 +83,12 @@ function validateUrl(url) {
   }
 }
 
+function createSpinner(text, silent = false) {
+  return silent
+    ? { start() { return this; }, succeed() {}, fail() {}, info() {}, stop() {}, set text(v) {} }
+    : ora(text).start();
+}
+
 // The root command also owns -o/--out and greedily consumes it before a
 // subcommand sees it, so a sub-level default masks any override. Resolve the
 // out dir robustly: an explicit sub value wins; else the root's value *only if
@@ -189,9 +195,7 @@ program
       console.log('');
     }
 
-    const spinner = jsonMode || opts.quiet
-      ? { start() { return this; }, set text(v) {}, succeed() {}, fail() {}, info() {}, stop() {} }
-      : ora('Launching browser...').start();
+    const spinner = createSpinner('Launching browser...', jsonMode || opts.quiet);
 
     try {
       spinner.text = `Crawling${merged.depth > 0 ? ` (depth: ${merged.depth})` : ''}...`;
@@ -357,7 +361,7 @@ program
           design.colors._compressed = { from: before, to: compressed.length, target: paletteTarget };
           spinner.text = `Compressed palette: ${before} → ${compressed.length} colours`;
         } catch (e) {
-          console.warn(`(palette compress skipped: ${e.message})`);
+          if (!merged.quiet) console.warn(`(palette compress skipped: ${e.message})`);
         }
       }
 
@@ -820,13 +824,16 @@ program
   .command('brands <urls...>')
   .description('Compare design languages across multiple brands')
   .option('-o, --out <dir>', 'output directory', './design-brands-output')
+  .option('-q, --quiet', 'suppress output except file paths')
   .action(async (urls, opts) => {
-    console.log('');
-    console.log(chalk.bold('  designlang brands'));
-    console.log(chalk.gray(`  Comparing ${urls.length} sites`));
-    console.log('');
+    if (!opts.quiet) {
+      console.log('');
+      console.log(chalk.bold('  designlang brands'));
+      console.log(chalk.gray(`  Comparing ${urls.length} sites`));
+      console.log('');
+    }
 
-    const spinner = ora(`Extracting ${urls.length} sites...`).start();
+    const spinner = createSpinner(`Extracting ${urls.length} sites...`, opts.quiet);
 
     try {
       const brands = await compareBrands(urls);
@@ -840,19 +847,24 @@ program
       writeFileSync(join(outDir, 'brands.md'), md, 'utf-8');
       writeFileSync(join(outDir, 'brands.html'), html, 'utf-8');
 
-      spinner.succeed('Brand comparison complete!');
-      console.log('');
-      console.log(`  ${chalk.green('✓')} ${chalk.cyan('brands.md')} — Markdown matrix`);
-      console.log(`  ${chalk.green('✓')} ${chalk.cyan('brands.html')} — Visual matrix`);
-      console.log('');
-      console.log(chalk.gray(`  Saved to ${outDir}`));
+      if (opts.quiet) {
+        console.log(join(outDir, 'brands.md'));
+        console.log(join(outDir, 'brands.html'));
+      } else {
+        spinner.succeed('Brand comparison complete!');
+        console.log('');
+        console.log(`  ${chalk.green('✓')} ${chalk.cyan('brands.md')} — Markdown matrix`);
+        console.log(`  ${chalk.green('✓')} ${chalk.cyan('brands.html')} — Visual matrix`);
+        console.log('');
+        console.log(chalk.gray(`  Saved to ${outDir}`));
 
-      // Quick summary
-      const valid = brands.filter(b => !b.error);
-      for (const b of valid) {
-        console.log(`  ${chalk.cyan(b.hostname)}: ${b.design.colors.all.length} colors, ${b.design.typography.families.map(f => f.name).join(', ')}, ${b.design.accessibility?.score ?? '?'}% a11y`);
+        // Quick summary
+        const valid = brands.filter(b => !b.error);
+        for (const b of valid) {
+          console.log(`  ${chalk.cyan(b.hostname)}: ${b.design.colors.all.length} colors, ${b.design.typography.families.map(f => f.name).join(', ')}, ${b.design.accessibility?.score ?? '?'}% a11y`);
+        }
+        console.log('');
       }
-      console.log('');
 
     } catch (err) {
       spinner.fail('Brand comparison failed');
@@ -1703,11 +1715,12 @@ program
   .option('--landscape', 'PDF landscape orientation')
   .option('--no-print-background', 'strip the brand-colour cover band from the PDF (smaller file)')
   .option('--attach-tokens', 'embed the DTCG tokens JSON as a PDF file attachment')
+  .option('-q, --quiet', 'suppress output except file paths')
   .action(async (url, opts) => {
     if (!url.startsWith('http')) url = `https://${url}`;
     validateUrl(url);
 
-    const spinner = ora(`Building brand guidelines for ${url}...`).start();
+    const spinner = createSpinner(`Building brand guidelines for ${url}...`, opts.quiet);
     try {
       // The brand book leans on the full extraction (logo, motion, voice,
       // anatomy, accessibility), so default to --full unless the caller has
@@ -1806,16 +1819,20 @@ program
       }
 
       spinner.stop();
-      const colorCount = (design.colors?.all || []).length;
-      const fontCount = (design.typography?.families || []).length;
-      const grade = design.score?.grade || '—';
-      console.log('');
-      console.log(`  ${chalk.bold('Brand book')} ${chalk.gray('·')} ${chalk.cyan(colorCount + ' tokens')} ${chalk.gray('·')} ${chalk.cyan(fontCount + ' fonts')} ${chalk.gray('·')} ${chalk.cyan('grade ' + grade)} ${chalk.gray('·')} ${chalk.gray(url)}`);
-      console.log('');
-      for (const f of written) console.log(`  ${chalk.green('✓')} ${chalk.gray(f)}`);
-      console.log('');
-      console.log(chalk.gray(`  Open the .html — it's a self-contained, print-ready guidelines book.`));
-      console.log('');
+      if (opts.quiet) {
+        for (const f of written) console.log(f);
+      } else {
+        const colorCount = (design.colors?.all || []).length;
+        const fontCount = (design.typography?.families || []).length;
+        const grade = design.score?.grade || '—';
+        console.log('');
+        console.log(`  ${chalk.bold('Brand book')} ${chalk.gray('·')} ${chalk.cyan(colorCount + ' tokens')} ${chalk.gray('·')} ${chalk.cyan(fontCount + ' fonts')} ${chalk.gray('·')} ${chalk.cyan('grade ' + grade)} ${chalk.gray('·')} ${chalk.gray(url)}`);
+        console.log('');
+        for (const f of written) console.log(`  ${chalk.green('✓')} ${chalk.gray(f)}`);
+        console.log('');
+        console.log(chalk.gray(`  Open the .html — it's a self-contained, print-ready guidelines book.`));
+        console.log('');
+      }
 
       if (opts.open) {
         const htmlPath = written.find(p => p.endsWith('.html'));
@@ -1848,13 +1865,14 @@ program
   .option('--brand', 'also emit a full brand-guidelines book of the fused identity')
   .option('--format <fmt>', 'output format: html, md, json, all', 'all')
   .option('--open', 'open the HTML pair card in the default browser')
+  .option('-q, --quiet', 'suppress output except file paths')
   .action(async (urlA, urlB, opts) => {
     if (!urlA.startsWith('http')) urlA = `https://${urlA}`;
     if (!urlB.startsWith('http')) urlB = `https://${urlB}`;
     validateUrl(urlA);
     validateUrl(urlB);
 
-    const spinner = ora(`Extracting ${urlA} and ${urlB} in parallel...`).start();
+    const spinner = createSpinner(`Extracting ${urlA} and ${urlB} in parallel...`, opts.quiet);
     try {
       const [designA, designB] = await Promise.all([
         extractDesignLanguage(urlA),
@@ -1912,22 +1930,26 @@ program
       }
 
       spinner.stop();
-      console.log('');
-      console.log(`  ${chalk.bold(`${summary.a.host} × ${summary.b.host}`)}`);
-      console.log('');
-      const axisLabels = {
-        colors: 'Colours', typography: 'Typography', spacing: 'Spacing',
-        shape: 'Shape', motion: 'Motion', voice: 'Voice', components: 'Components',
-      };
-      for (const axis of Object.keys(axisLabels)) {
-        const src = summary.axes[axis];
-        const fromHost = src === 'a' ? summary.a.host : summary.b.host;
-        const tag = src === 'a' ? chalk.cyan('A') : chalk.magenta('B');
-        console.log(`    ${tag}  ${axisLabels[axis].padEnd(12)} ${chalk.gray('·')} ${chalk.gray(fromHost)}`);
+      if (opts.quiet) {
+        for (const f of written) console.log(f);
+      } else {
+        console.log('');
+        console.log(`  ${chalk.bold(`${summary.a.host} × ${summary.b.host}`)}`);
+        console.log('');
+        const axisLabels = {
+          colors: 'Colours', typography: 'Typography', spacing: 'Spacing',
+          shape: 'Shape', motion: 'Motion', voice: 'Voice', components: 'Components',
+        };
+        for (const axis of Object.keys(axisLabels)) {
+          const src = summary.axes[axis];
+          const fromHost = src === 'a' ? summary.a.host : summary.b.host;
+          const tag = src === 'a' ? chalk.cyan('A') : chalk.magenta('B');
+          console.log(`    ${tag}  ${axisLabels[axis].padEnd(12)} ${chalk.gray('·')} ${chalk.gray(fromHost)}`);
+        }
+        console.log('');
+        for (const f of written) console.log(`  ${chalk.green('✓')} ${chalk.gray(f)}`);
+        console.log('');
       }
-      console.log('');
-      for (const f of written) console.log(`  ${chalk.green('✓')} ${chalk.gray(f)}`);
-      console.log('');
 
       if (opts.open) {
         const htmlPath = written.find(p => p.endsWith('.html'));
@@ -2305,11 +2327,11 @@ program
   .option('--tolerance <n>', 'color distance tolerance (0-50)', parseInt, 8)
   .option('--fail-on <level>', 'exit non-zero on: minor-drift | notable-drift | major-drift', 'notable-drift')
   .option('-o, --out <dir>', 'output directory', '.designlang-ci')
-  .option('--quiet', 'suppress stdout (still writes files)')
+  .option('-q, --quiet', 'suppress stdout (still writes files)')
   .action(async (url, opts) => {
     if (!url.startsWith('http')) url = `https://${url}`;
     validateUrl(url);
-    const spinner = opts.quiet ? { start() { return this; }, succeed() {}, fail() {}, set text(v) {} } : ora('Running CI report...').start();
+    const spinner = createSpinner('Running CI report...', opts.quiet);
     try {
       const { runCi } = await import('../src/ci.js');
       const r = await runCi(url, opts);
