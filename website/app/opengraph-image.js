@@ -1,5 +1,7 @@
 import { ImageResponse } from 'next/og';
 
+export const dynamic = 'force-static';
+
 export const runtime = 'nodejs';
 export const alt =
   'designlang specimen card. A lowercase d built from a ring, a stem, and one extracted orange token, next to the wordmark designlang in Fraunces with a molten-orange period, and a five-swatch palette strip.';
