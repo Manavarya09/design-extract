@@ -101,3 +101,15 @@ export async function checkRateBlob(
     persistent: true,
   };
 }
+
+// Site-wide budget for reads that launch a browser (extract, motion, studio).
+// The per-IP limit doesn't bound the total, and every live read costs Vercel
+// CPU: the Hobby allowance ran out on 2026-11-02 and paused the account. The
+// in-memory check comes first so the cap still holds when Blob is unavailable.
+export const LIVE_READS_PER_DAY = 20;
+
+export async function checkLiveReadBudget() {
+  const mem = checkRate('live-reads:all', { limit: LIVE_READS_PER_DAY });
+  if (!mem.allowed) return mem;
+  return checkRateBlob('live-reads:all', { limit: LIVE_READS_PER_DAY });
+}
