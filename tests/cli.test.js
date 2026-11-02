@@ -176,3 +176,36 @@ describe('doctor command', () => {
     if (failed.length) assert.ok(output.includes('fix:'), 'a failing check must print a fix hint');
   });
 });
+
+describe('quiet flag on subcommands (#108)', () => {
+  it('exposes -q, --quiet on the brand command', () => {
+    const output = execFileSync('node', [CLI_PATH, 'brand', '--help'], { encoding: 'utf-8' });
+    assert.ok(output.includes('-q, --quiet'));
+  });
+
+  it('exposes -q, --quiet on the pair command', () => {
+    const output = execFileSync('node', [CLI_PATH, 'pair', '--help'], { encoding: 'utf-8' });
+    assert.ok(output.includes('-q, --quiet'));
+  });
+
+  it('exposes -q, --quiet on the brands command', () => {
+    const output = execFileSync('node', [CLI_PATH, 'brands', '--help'], { encoding: 'utf-8' });
+    assert.ok(output.includes('-q, --quiet'));
+  });
+
+  it('exposes -q on the ci command', () => {
+    const output = execFileSync('node', [CLI_PATH, 'ci', '--help'], { encoding: 'utf-8' });
+    assert.ok(output.includes('-q, --quiet'));
+  });
+
+  it('suppresses stdout on invalid URL under -q and prints to stderr', () => {
+    try {
+      execFileSync('node', [CLI_PATH, 'brand', 'not a url', '-q'], { encoding: 'utf-8', stdio: 'pipe' });
+      assert.fail('Should have exited with error');
+    } catch (err) {
+      assert.equal(err.status, 1);
+      assert.equal(err.stdout.trim(), '');
+      assert.ok(err.stderr.includes('Invalid URL'));
+    }
+  });
+});
