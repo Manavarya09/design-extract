@@ -5,6 +5,7 @@
 // Gracefully no-ops when BLOB_READ_WRITE_TOKEN is absent (local dev).
 
 import { createHash } from 'node:crypto';
+import { readBlobJson } from './blob-json.js';
 
 const TTL_MS = 24 * 60 * 60 * 1000;
 let warnedMissingToken = false;
@@ -32,15 +33,8 @@ function blobPath(key) {
 export async function getCached(key) {
   if (!hasBlob()) return null;
   try {
-    const { list } = await import('@vercel/blob');
-    const path = blobPath(key);
-    const result = await list({ prefix: path, limit: 1 });
-    const blob = result.blobs?.find((b) => b.pathname === path);
-    if (!blob) return null;
-
-    const res = await fetch(blob.url, { cache: 'no-store' });
-    if (!res.ok) return null;
-    const payload = await res.json();
+    const payload = await readBlobJson(blobPath(key));
+    if (!payload) return null;
 
     const generatedAt = typeof payload?.generatedAt === 'number' ? payload.generatedAt : 0;
     if (Date.now() - generatedAt > TTL_MS) return null;

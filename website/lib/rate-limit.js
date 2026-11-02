@@ -40,21 +40,16 @@ export function _resetRateLimit() {
 // Cost: a few hundred bytes per IP per day. Negligible.
 
 import { createHash } from 'node:crypto';
+import { readBlobJson } from './blob-json.js';
 
 function rlPath(key) {
   return `ratelimit/${createHash('sha256').update(String(key)).digest('hex')}.json`;
 }
 
-async function readBlobJson(path) {
+async function readCounter(path) {
   if (!process.env.BLOB_READ_WRITE_TOKEN) return null;
   try {
-    const { list } = await import('@vercel/blob');
-    const result = await list({ prefix: path, limit: 1 });
-    const blob = result.blobs?.find((b) => b.pathname === path);
-    if (!blob) return null;
-    const res = await fetch(blob.url, { cache: 'no-store' });
-    if (!res.ok) return null;
-    return await res.json();
+    return await readBlobJson(path, { fresh: true });
   } catch { return null; }
 }
 
@@ -83,7 +78,7 @@ export async function checkRateBlob(
     return { allowed: true, remaining: limit - 1, resetAt: now + windowMs, persistent: false };
   }
 
-  const entry = await readBlobJson(path);
+  const entry = await readCounter(path);
 
   if (!entry || typeof entry.firstAt !== 'number' || now - entry.firstAt >= windowMs) {
     await writeBlobJson(path, { count: 1, firstAt: now });
