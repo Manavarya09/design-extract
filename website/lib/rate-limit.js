@@ -46,15 +46,17 @@ function rlPath(key) {
   return `ratelimit/${createHash('sha256').update(String(key)).digest('hex')}.json`;
 }
 
+// null: no counter yet. undefined: Blob couldn't be read.
 async function readCounter(path) {
   if (!process.env.BLOB_READ_WRITE_TOKEN) return null;
   try {
     return await readBlobJson(path, { fresh: true });
-  } catch { return null; }
+  } catch { return undefined; }
 }
 
+// Returns whether the write landed.
 async function writeBlobJson(path, payload) {
-  if (!process.env.BLOB_READ_WRITE_TOKEN) return;
+  if (!process.env.BLOB_READ_WRITE_TOKEN) return false;
   try {
     const { put } = await import('@vercel/blob');
     await put(path, JSON.stringify(payload), {
@@ -63,12 +65,15 @@ async function writeBlobJson(path, payload) {
       addRandomSuffix: false,
       allowOverwrite: true,
     });
-  } catch { /* swallow — better to allow than 500 on Blob outage */ }
+    return true;
+  } catch { return false; /* swallow — better to allow than 500 on Blob outage */ }
 }
 
 export async function checkRateBlob(
   key,
-  { limit = 1, windowMs = 24 * 60 * 60 * 1000 } = {}
+  // failClosed: deny when Blob can't be read or written, instead of letting the
+  // count silently restart at 1 (used for the site-wide budget).
+  { limit = 1, windowMs = 24 * 60 * 60 * 1000, failClosed = false } = {}
 ) {
   const now = Date.now();
   const path = rlPath(key);
@@ -79,9 +84,11 @@ export async function checkRateBlob(
   }
 
   const entry = await readCounter(path);
+  const denied = { allowed: false, remaining: 0, resetAt: now + windowMs, persistent: true };
+  if (entry === undefined && failClosed) return denied;
 
   if (!entry || typeof entry.firstAt !== 'number' || now - entry.firstAt >= windowMs) {
-    await writeBlobJson(path, { count: 1, firstAt: now });
+    if (!(await writeBlobJson(path, { count: 1, firstAt: now })) && failClosed) return denied;
     return { allowed: true, remaining: Math.max(0, limit - 1), resetAt: now + windowMs, persistent: true };
   }
 
@@ -91,7 +98,8 @@ export async function checkRateBlob(
 
   // Only write back if we're allowing — denies don't need state updates.
   if (allowed) {
-    await writeBlobJson(path, { count: newCount, firstAt: entry.firstAt });
+    const written = await writeBlobJson(path, { count: newCount, firstAt: entry.firstAt });
+    if (!written && failClosed) return denied;
   }
 
   return {
@@ -105,11 +113,13 @@ export async function checkRateBlob(
 // Site-wide budget for reads that launch a browser (extract, motion, studio).
 // The per-IP limit doesn't bound the total, and every live read costs Vercel
 // CPU: the Hobby allowance ran out on 2026-11-02 and paused the account. The
-// in-memory check comes first so the cap still holds when Blob is unavailable.
+// in-memory check comes first, and the Blob check fails closed, so the cap
+// holds when Blob is unavailable. Concurrent reads can overshoot by a few (no
+// atomic counter on Blob); the in-memory check bounds that per instance.
 export const LIVE_READS_PER_DAY = 20;
 
 export async function checkLiveReadBudget() {
   const mem = checkRate('live-reads:all', { limit: LIVE_READS_PER_DAY });
   if (!mem.allowed) return mem;
-  return checkRateBlob('live-reads:all', { limit: LIVE_READS_PER_DAY });
+  return checkRateBlob('live-reads:all', { limit: LIVE_READS_PER_DAY, failClosed: true });
 }
