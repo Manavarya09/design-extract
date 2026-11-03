@@ -84,7 +84,7 @@ function validateUrl(url) {
 
 function createSpinner(text, silent = false) {
   return silent
-    ? { start() { return this; }, succeed() {}, fail() {}, info() {}, stop() {}, set text(v) {} }
+    ? { start() { return this; }, succeed() {}, fail() {}, warn() {}, info() {}, stop() {}, set text(v) {} }
     : ora(text).start();
 }
 
