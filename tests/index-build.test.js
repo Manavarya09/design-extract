@@ -42,3 +42,12 @@ test('robotsAllows reads the most specific group', () => {
   assert.equal(robotsAllows('User-agent: *\nDisallow: /\n\nUser-agent: designlang\nAllow: /', 'designlang'), true);
   assert.equal(robotsAllows('User-agent: *\nAllow: /$\nDisallow: /', 'designlang'), true);
 });
+
+test('an unreachable robots.txt means do not read (RFC 9309), a missing one means allowed', async () => {
+  const { robotsFromResponse } = await import('../scripts/index/schema.js');
+  assert.deepEqual(robotsFromResponse({ status: 200, body: 'User-agent: *\nDisallow:' }), { ok: true, text: 'User-agent: *\nDisallow:' });
+  assert.deepEqual(robotsFromResponse({ status: 404, body: '' }), { ok: true, text: '' });
+  assert.deepEqual(robotsFromResponse({ status: 503, body: '' }), { ok: false, reason: 'robots.txt unreachable' });
+  assert.deepEqual(robotsFromResponse({ status: 0, body: '' }), { ok: false, reason: 'robots.txt unreachable' });
+  assert.deepEqual(robotsFromResponse({ status: 200, body: '<html>oops</html>' }), { ok: true, text: '' });
+});

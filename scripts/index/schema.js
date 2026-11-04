@@ -83,3 +83,11 @@ export function allowedToIndex({ robotsTxt, aiTxt, tdmrep, domain, optout = [] }
   }
   return { ok: true };
 }
+
+// How to read a robots.txt fetch (RFC 9309): 2xx gives the rules, 4xx means
+// there are none, and a 5xx or no answer at all means do not crawl.
+export function robotsFromResponse({ status, body }) {
+  if (!status || status >= 500) return { ok: false, reason: 'robots.txt unreachable' };
+  if (status >= 400) return { ok: true, text: '' };
+  return { ok: true, text: /<html/i.test(body || '') ? '' : body || '' };
+}

@@ -5,12 +5,14 @@
 // now refused (robots, ai.txt, TDMRep, opt-out) is deleted.
 //
 //   node scripts/index/build.mjs [--limit N] [--refresh] [--concurrency 3]
+// The published list holds only sites that passed robots/ai.txt/TDMRep/opt-out
+// in this run, so publish from a full run, not a --limit one.
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync, unlinkSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { extractDesignLanguage } from '../../src/index.js';
 import { unreadable } from '../../src/slop/index.js';
-import { toIndexEntry, allowedToIndex } from './schema.js';
+import { toIndexEntry, allowedToIndex, robotsFromResponse } from './schema.js';
 
 const root = new URL('../../', import.meta.url).pathname;
 const here = new URL('.', import.meta.url).pathname;
@@ -34,10 +36,9 @@ const fileOf = (domain) => join(out, `${domain}.json`);
 async function text(url) {
   try {
     const res = await fetch(url, { redirect: 'follow', signal: AbortSignal.timeout(8000), headers: { 'user-agent': 'designlang-index (+https://designlang.app/index)' } });
-    if (!res.ok) return { body: '', headers: res.headers };
-    return { body: await res.text(), headers: res.headers };
+    return { status: res.status, body: res.ok ? await res.text() : '', headers: res.headers };
   } catch {
-    return { body: '', headers: new Headers() };
+    return { status: 0, body: '', headers: new Headers() };
   }
 }
 
@@ -52,11 +53,14 @@ async function policy(domain) {
   if (header === '1') tdmrep = { 'tdm-reservation': 1 };
   // ai.txt files that are really HTML error pages carry no rules.
   const aiTxt = /<html/i.test(ai.body) ? '' : ai.body;
-  const robotsTxt = /<html/i.test(robots.body) ? '' : robots.body;
-  return allowedToIndex({ robotsTxt, aiTxt, tdmrep, domain, optout });
+  const r = robotsFromResponse(robots);
+  if (!r.ok) return { ok: false, reason: r.reason };
+  return allowedToIndex({ robotsTxt: r.text, aiTxt, tdmrep, domain, optout });
 }
 
 const stats = { added: 0, kept: 0, refused: 0, removed: 0, failed: 0, unreadable: 0 };
+// Only sites that passed the policy check in this run are published.
+const passed = new Set();
 
 async function one(domain) {
   const allowed = await policy(domain);
@@ -66,6 +70,7 @@ async function one(domain) {
     console.error(`  refused   ${domain}: ${allowed.reason}`);
     return;
   }
+  passed.add(domain);
   if (!refresh && existsSync(fileOf(domain)) && Date.now() - statSync(fileOf(domain)).mtimeMs < FRESH_MS) { stats.kept++; return; }
   try {
     const design = await extractDesignLanguage(`https://${domain}`, { wait: 1000 });
@@ -95,7 +100,7 @@ await Promise.all(Array.from({ length: concurrency }, async () => {
 for (const domain of optout) if (existsSync(fileOf(domain))) { unlinkSync(fileOf(domain)); stats.removed++; }
 
 const list = readdirSync(out)
-  .filter((f) => f.endsWith('.json') && !f.startsWith('_'))
+  .filter((f) => f.endsWith('.json') && !f.startsWith('_') && passed.has(f.slice(0, -5)))
   .map((f) => JSON.parse(readFileSync(join(out, f), 'utf8')))
   .map((e) => ({ domain: e.domain, primary: e.colors.primary, band: e.slop.band }))
   .sort((a, b) => a.domain.localeCompare(b.domain));
