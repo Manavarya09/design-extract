@@ -1227,6 +1227,8 @@ program
     if (opts.json) {
       return writeThenExit(process.stdout, JSON.stringify({ url, readAt: design.meta?.timestamp, generic, ...(onBrand ? { onBrand } : {}), unreadable: null }, null, 2) + '\n', EXIT.OK);
     }
+    // Page text is untrusted: drop control characters so it can't drive the terminal.
+    const clean = (v) => String(v ?? '').replace(/[\u0000-\u001f\u007f-\u009f]/g, ' ');
     const tone = generic.band === 'generic' ? chalk.red : generic.band === 'mixed' ? chalk.yellow : chalk.green;
     const words = { generic: 'Looks generic', mixed: 'Some generic tells', distinct: 'Looks distinct' };
     console.log('');
@@ -1239,13 +1241,13 @@ program
     if (!generic.flags.length) console.log(chalk.green('  No generic tells found.'));
     for (const f of generic.flags) {
       console.log(`  ${tone('●')} ${chalk.bold(f.label)}`);
-      for (const e of f.evidence.slice(0, 3)) console.log(chalk.gray(`      ${e.where}: `) + e.value);
+      for (const e of f.evidence.slice(0, 3)) console.log(chalk.gray(`      ${clean(e.where)}: `) + clean(e.value));
     }
     if (onBrand) {
       console.log('');
       const bt = onBrand.score >= 85 ? chalk.green : onBrand.score >= 65 ? chalk.yellow : chalk.red;
       console.log(`  ${chalk.bold('On brand')} ${bt.bold(`${onBrand.score}/100`)}`);
-      for (const d of onBrand.diffs.slice(0, 8)) console.log(chalk.gray(`      ${d.token}: `) + `expected ${d.expected}, found ${d.actual ?? 'nothing'}`);
+      for (const d of onBrand.diffs.slice(0, 8)) console.log(chalk.gray(`      ${d.token}: `) + `expected ${clean(d.expected)}, found ${d.actual == null ? 'nothing' : clean(d.actual)}`);
     }
     console.log('');
     console.log(chalk.gray(`  Share it: https://designlang.app/slop?url=${encodeURIComponent(url)}`));

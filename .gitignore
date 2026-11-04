@@ -14,3 +14,4 @@ PLAN.md
 .planning/
 .engram/
 .env*.local
+bench/.slop-cache/
