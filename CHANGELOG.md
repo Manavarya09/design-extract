@@ -1,5 +1,30 @@
 # Changelog
 
+## [13.4.0] — 2026-11-06
+
+**Design Verification: measure how generic a page looks, and check AI-built UI against your brand.**
+
+- **`designlang slop <url>`** scores how generic a page looks against ten
+  measured tells of AI-made design (indigo gradients, the default typeface
+  only, hero then three cards, glow shadows and more). Every flag says what
+  was measured and where. `--brand DESIGN.md` adds an on-brand score.
+  Calibrated on 40 hand-made sites (none marked generic) and 30 AI-built pages.
+- **`designlang verify-ui <url> --brand <file|id>`** renders a page at 390,
+  768 and 1280px (and in dark mode when it has one) and lists every drift from
+  the brand with expected and actual values. Exits 1 on drift, so it gates CI.
+  localhost works.
+- **MCP `verify_ui`**: the same check for Claude Code, Cursor and Windsurf, so
+  the editor can fix its own work and check again until it passes.
+- **Spacing reads the grid people use.** Values are weighted by how often they
+  appear; hairlines and one-offs no longer set the base. stripe.com reads as a
+  4px grid (it read 2px), gov.uk as its documented 5px scale.
+- **A new visual preview**: the measured system as a specimen, with the
+  site's real colours, type, spacing, corners, buttons, contrast and Slop Score,
+  in light and dark.
+- **A one-line credit** in DESIGN.md and the Tailwind files; `--no-credit`
+  leaves it out.
+- `designlang/slop` export for the scoring engine, and an MCP registry entry.
+
 ## [13.3.2] — 2026-09-23
 
 **The live demo reads sites again.**
