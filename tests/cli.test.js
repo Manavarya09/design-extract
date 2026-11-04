@@ -209,3 +209,37 @@ describe('quiet flag on subcommands (#108)', () => {
     }
   });
 });
+
+describe('designlang slop', () => {
+  it('lists --brand and --json in its help', () => {
+    const out = execFileSync('node', [CLI_PATH, 'slop', '--help'], { encoding: 'utf-8' });
+    assert.ok(out.includes('--brand'));
+    assert.ok(out.includes('--json'));
+  });
+
+  it('scores a page as JSON and refuses to score an error page', async () => {
+    const { createServer } = await import('node:http');
+    const { execFile } = await import('node:child_process');
+    const { promisify } = await import('node:util');
+    const dir = resolve(import.meta.dirname, 'fixtures', 'slop');
+    const server = createServer((req, res) => {
+      try { res.end(readFileSync(join(dir, req.url.slice(1)))); } catch { res.statusCode = 404; res.end(); }
+    });
+    await new Promise((r) => server.listen(0, '127.0.0.1', r));
+    const base = `http://127.0.0.1:${server.address().port}`;
+    const run = promisify(execFile);
+    try {
+      const { stdout } = await run('node', [CLI_PATH, 'slop', `${base}/generic-ai.html`, '--json'], { encoding: 'utf-8' });
+      const r = JSON.parse(stdout);
+      assert.equal(typeof r.generic.score, 'number');
+      assert.equal(r.generic.band, 'generic');
+      assert.ok(Array.isArray(r.generic.flags));
+      const err = await run('node', [CLI_PATH, 'slop', `${base}/error-page.html`, '--json'], { encoding: 'utf-8' }).then(() => null, (e) => e);
+      assert.ok(err, 'should exit non-zero');
+      assert.equal(err.code, 2);
+      assert.deepEqual(JSON.parse(err.stdout).unreadable, { reason: 'error-page' });
+    } finally {
+      server.close();
+    }
+  });
+});

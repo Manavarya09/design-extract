@@ -58,3 +58,17 @@ test('error, consent and login pages are not scored', () => {
   assert.deepEqual(unreadable({ meta: { title: 'Before you continue' }, voice: { sampleHeadings: ['We value your privacy'] }, colors: { all: [1, 2, 3, 4] } }), { reason: 'consent-wall' });
   assert.deepEqual(unreadable({ meta: { title: '' }, colors: { all: [1] }, voice: { sampleHeadings: [] }, typography: { families: [] } }), { reason: 'blank' });
 });
+
+test('a brand loads from DESIGN.md, DTCG tokens or plain brand JSON', async () => {
+  const { parseBrand } = await import('../src/slop/brand.js');
+  const md = parseBrand(readFileSync(new URL('./fixtures/slop/brand-DESIGN.md', import.meta.url), 'utf8'), 'DESIGN.md');
+  assert.equal(md.colors.primary, '#9c2f1c');
+  assert.deepEqual(md.fonts, ['Georgia']);
+  assert.ok(md.radii.includes(2));
+  const dtcg = parseBrand(readFileSync(new URL('./fixtures/slop/brand-tokens.json', import.meta.url), 'utf8'), 'tokens.json');
+  assert.equal(dtcg.colors.primary, '#9c2f1c');
+  assert.ok(dtcg.fonts.includes('Georgia'), JSON.stringify(dtcg.fonts));
+  const plain = parseBrand(JSON.stringify({ colors: { primary: '#533afd' }, fonts: ['Söhne'], radii: [8] }), 'brand.json');
+  assert.equal(plain.colors.primary, '#533afd');
+  assert.throws(() => parseBrand('{}', 'x.json'), /primary/);
+});

@@ -112,7 +112,14 @@ export const DETECTORS = [
     test(design) {
       const accents = design.surface?.accents || [];
       const hit = (design.surface?.accentCount || 0) >= 2;
-      return { hit, evidence: hit ? accents.slice(0, 3).map((a) => ({ where: `${a.tag}${a.className ? '.' + a.className.split(' ')[0] : ''} (${a.side} border)`, value: `${a.width}px ${a.color}` })) : [] };
+      const groups = new Map();
+      for (const a of accents) {
+        const where = `${a.tag}${a.className ? '.' + a.className.split(' ')[0] : ''} (${a.side} border)`;
+        const key = `${where}|${a.width}|${a.color}`;
+        groups.set(key, { where, value: `${a.width}px ${a.color}`, n: (groups.get(key)?.n || 0) + 1 });
+      }
+      const evidence = [...groups.values()].slice(0, 3).map((g) => ({ where: g.n > 1 ? `${g.where}, ${g.n}×` : g.where, value: g.value }));
+      return { hit, evidence: hit ? evidence : [] };
     },
   },
   {

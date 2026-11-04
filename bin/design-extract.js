@@ -1183,6 +1183,75 @@ program
     }
   });
 
+// ── Slop Score — how generic (AI-made) a page looks ─────────
+program
+  .command('slop <url>')
+  .description('Score how generic a page looks: the known AI-design tells, each with what was measured and where')
+  .option('--brand <file>', 'also score how close the page is to a brand (DESIGN.md, DTCG tokens JSON, or { colors, fonts, radii } JSON)')
+  .option('--json', 'emit machine-readable JSON')
+  .action(async (url, opts) => {
+    const { EXIT, writeThenExit, exitCodeForError } = await import('../src/exit-codes.js');
+    const { scoreGeneric, scoreOnBrand, unreadable } = await import('../src/slop/index.js');
+    if (!/^https?:\/\//.test(url)) url = `https://${url}`;
+    validateUrl(url);
+    let brand = null;
+    if (opts.brand) {
+      const { parseBrand } = await import('../src/slop/brand.js');
+      try {
+        brand = parseBrand(readFileSync(resolve(opts.brand), 'utf-8'), opts.brand);
+      } catch (err) {
+        process.stderr.write(chalk.red(`\n  Couldn't read the brand file: ${err.message}\n\n`));
+        process.exit(EXIT.EXTRACTION_FAILED);
+      }
+    }
+    const spinner = opts.json ? null : ora('Reading the page in a real browser...').start();
+    let design;
+    try {
+      design = await extractDesignLanguage(url);
+    } catch (err) {
+      spinner?.fail("Couldn't read the page");
+      if (opts.json) return writeThenExit(process.stdout, JSON.stringify({ url, error: err.message }) + '\n', exitCodeForError(err));
+      process.stderr.write(chalk.red(`\n  ${err.message}\n\n`));
+      process.exit(exitCodeForError(err));
+    }
+    spinner?.stop();
+    const blocked = unreadable(design);
+    if (blocked) {
+      const words = { 'error-page': 'an error or bot-check page', 'consent-wall': 'a cookie consent wall', 'login-wall': 'a sign-in page', blank: 'a blank page' };
+      if (opts.json) return writeThenExit(process.stdout, JSON.stringify({ url, unreadable: blocked }) + '\n', EXIT.EXTRACTION_FAILED);
+      console.log(`\n  ${chalk.yellow("Couldn't score this page:")} it showed ${words[blocked.reason]}, so there is nothing real to measure.\n`);
+      process.exit(EXIT.EXTRACTION_FAILED);
+    }
+    const generic = scoreGeneric(design);
+    const onBrand = brand ? scoreOnBrand(design, brand) : null;
+    if (opts.json) {
+      return writeThenExit(process.stdout, JSON.stringify({ url, readAt: design.meta?.timestamp, generic, ...(onBrand ? { onBrand } : {}), unreadable: null }, null, 2) + '\n', EXIT.OK);
+    }
+    const tone = generic.band === 'generic' ? chalk.red : generic.band === 'mixed' ? chalk.yellow : chalk.green;
+    const words = { generic: 'Looks generic', mixed: 'Some generic tells', distinct: 'Looks distinct' };
+    console.log('');
+    console.log(chalk.bold('  Slop Score') + chalk.gray(`  ${url}`));
+    console.log('');
+    const bar = '█'.repeat(Math.round(generic.score / 5)) + '░'.repeat(20 - Math.round(generic.score / 5));
+    console.log(`  ${tone(bar)} ${tone.bold(`${generic.score}/100`)}  ${words[generic.band]}`);
+    console.log(chalk.gray('  0 is distinct, 100 is every known AI-design tell at once.'));
+    console.log('');
+    if (!generic.flags.length) console.log(chalk.green('  No generic tells found.'));
+    for (const f of generic.flags) {
+      console.log(`  ${tone('●')} ${chalk.bold(f.label)}`);
+      for (const e of f.evidence.slice(0, 3)) console.log(chalk.gray(`      ${e.where}: `) + e.value);
+    }
+    if (onBrand) {
+      console.log('');
+      const bt = onBrand.score >= 85 ? chalk.green : onBrand.score >= 65 ? chalk.yellow : chalk.red;
+      console.log(`  ${chalk.bold('On brand')} ${bt.bold(`${onBrand.score}/100`)}`);
+      for (const d of onBrand.diffs.slice(0, 8)) console.log(chalk.gray(`      ${d.token}: `) + `expected ${d.expected}, found ${d.actual ?? 'nothing'}`);
+    }
+    console.log('');
+    console.log(chalk.gray(`  Share it: https://designlang.app/slop?url=${encodeURIComponent(url)}`));
+    console.log('');
+  });
+
 // ── Stats command — fast stdout summary, no files written ──
 program
   .command('stats <urls...>')
