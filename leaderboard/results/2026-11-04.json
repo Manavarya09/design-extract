@@ -1,0 +1,1074 @@
+{
+  "date": "2026-11-04",
+  "cap": 25,
+  "spentUsd": 6.7,
+  "models": [
+    {
+      "id": "anthropic/claude-sonnet-5",
+      "label": "Claude Sonnet 5",
+      "vendor": "Anthropic"
+    },
+    {
+      "id": "openai/gpt-6.1-sol",
+      "label": "GPT-6.1 Sol",
+      "vendor": "OpenAI"
+    },
+    {
+      "id": "google/gemini-4-argon",
+      "label": "Gemini 4 Argon",
+      "vendor": "Google"
+    },
+    {
+      "id": "moonshotai/kimi-k3.1-pro",
+      "label": "Kimi K3.1 Pro",
+      "vendor": "Moonshot AI"
+    },
+    {
+      "id": "zai-org/glm-5.3",
+      "label": "GLM-5.3",
+      "vendor": "Zhipu AI"
+    }
+  ],
+  "briefs": [
+    {
+      "id": "brightline",
+      "brand": {
+        "colors": {
+          "primary": "#0b6e4f",
+          "secondary": "#ffd23f",
+          "accent": "#ee4266",
+          "neutrals": []
+        },
+        "fonts": [
+          "Archivo"
+        ],
+        "radii": [
+          6
+        ],
+        "spacingBase": 4
+      }
+    },
+    {
+      "id": "ember",
+      "brand": {
+        "colors": {
+          "primary": "#b3261e",
+          "secondary": "#2b1d16",
+          "accent": "#f7a325",
+          "neutrals": []
+        },
+        "fonts": [
+          "Bricolage Grotesque",
+          "Source Serif 4"
+        ],
+        "radii": [
+          0
+        ],
+        "spacingBase": 8
+      }
+    },
+    {
+      "id": "fernwood",
+      "brand": {
+        "colors": {
+          "primary": "#2f5d3a",
+          "secondary": "#c8a96b",
+          "accent": "#e2683c",
+          "neutrals": []
+        },
+        "fonts": [
+          "Fraunces",
+          "Work Sans"
+        ],
+        "radii": [
+          4,
+          10
+        ],
+        "spacingBase": 8
+      }
+    },
+    {
+      "id": "halcyon",
+      "brand": {
+        "colors": {
+          "primary": "#3a4a8c",
+          "secondary": "#a9c4e8",
+          "accent": "#f2c46d",
+          "neutrals": []
+        },
+        "fonts": [
+          "DM Serif Display",
+          "Nunito Sans"
+        ],
+        "radii": [
+          12,
+          24
+        ],
+        "spacingBase": 8
+      }
+    },
+    {
+      "id": "koto",
+      "brand": {
+        "colors": {
+          "primary": "#111111",
+          "secondary": "#e8e4dc",
+          "accent": "#ff4f1f",
+          "neutrals": []
+        },
+        "fonts": [
+          "Space Grotesk",
+          "IBM Plex Sans"
+        ],
+        "radii": [
+          0,
+          2
+        ],
+        "spacingBase": 4
+      }
+    }
+  ],
+  "prompts": [
+    {
+      "id": "landing",
+      "label": "Landing page hero",
+      "prompt": "Design the top of the home page: navigation, a hero with headline, one line of supporting copy and a primary action, then one section that explains what the company offers."
+    },
+    {
+      "id": "pricing",
+      "label": "Pricing page",
+      "prompt": "Design a pricing page with three plans, what each includes, and a short FAQ."
+    },
+    {
+      "id": "dashboard",
+      "label": "Dashboard",
+      "prompt": "Design the signed-in dashboard a customer sees first: a sidebar, a header, four key numbers and a recent-activity table."
+    },
+    {
+      "id": "settings",
+      "label": "Settings",
+      "prompt": "Design an account settings page with a profile form (name, email, avatar), notification toggles and a danger zone to delete the account."
+    }
+  ],
+  "runs": [
+    {
+      "model": "anthropic/claude-sonnet-5",
+      "brief": "brightline",
+      "prompt": "settings",
+      "costUsd": 0.1052,
+      "ok": true,
+      "onBrand": 96,
+      "generic": 5
+    },
+    {
+      "model": "anthropic/claude-sonnet-5",
+      "brief": "brightline",
+      "prompt": "dashboard",
+      "costUsd": 0.1152,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 0
+    },
+    {
+      "model": "anthropic/claude-sonnet-5",
+      "brief": "brightline",
+      "prompt": "landing",
+      "costUsd": 0.1325,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 5
+    },
+    {
+      "model": "anthropic/claude-sonnet-5",
+      "brief": "brightline",
+      "prompt": "pricing",
+      "costUsd": 0.1435,
+      "ok": true,
+      "onBrand": 100,
+      "generic": 5
+    },
+    {
+      "model": "anthropic/claude-sonnet-5",
+      "brief": "ember",
+      "prompt": "landing",
+      "costUsd": 0.083,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 0
+    },
+    {
+      "model": "anthropic/claude-sonnet-5",
+      "brief": "ember",
+      "prompt": "pricing",
+      "costUsd": 0.102,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 0
+    },
+    {
+      "model": "anthropic/claude-sonnet-5",
+      "brief": "ember",
+      "prompt": "settings",
+      "costUsd": 0.1346,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 0
+    },
+    {
+      "model": "anthropic/claude-sonnet-5",
+      "brief": "fernwood",
+      "prompt": "pricing",
+      "costUsd": 0.1122,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 0
+    },
+    {
+      "model": "anthropic/claude-sonnet-5",
+      "brief": "ember",
+      "prompt": "dashboard",
+      "costUsd": 0.1885,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 0
+    },
+    {
+      "model": "anthropic/claude-sonnet-5",
+      "brief": "halcyon",
+      "prompt": "landing",
+      "costUsd": 0.1258,
+      "ok": true,
+      "onBrand": 89,
+      "generic": 0
+    },
+    {
+      "model": "anthropic/claude-sonnet-5",
+      "brief": "fernwood",
+      "prompt": "settings",
+      "costUsd": 0.1294,
+      "ok": true,
+      "onBrand": 88,
+      "generic": 0
+    },
+    {
+      "model": "anthropic/claude-sonnet-5",
+      "brief": "fernwood",
+      "prompt": "landing",
+      "costUsd": 0.1324,
+      "ok": true,
+      "onBrand": 93,
+      "generic": 0
+    },
+    {
+      "model": "anthropic/claude-sonnet-5",
+      "brief": "fernwood",
+      "prompt": "dashboard",
+      "costUsd": 0.1608,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 0
+    },
+    {
+      "model": "anthropic/claude-sonnet-5",
+      "brief": "koto",
+      "prompt": "landing",
+      "costUsd": 0.1048,
+      "ok": true,
+      "onBrand": 89,
+      "generic": 0
+    },
+    {
+      "model": "anthropic/claude-sonnet-5",
+      "brief": "halcyon",
+      "prompt": "dashboard",
+      "costUsd": 0.1585,
+      "ok": true,
+      "onBrand": 94,
+      "generic": 5
+    },
+    {
+      "model": "anthropic/claude-sonnet-5",
+      "brief": "halcyon",
+      "prompt": "pricing",
+      "costUsd": 0.1765,
+      "ok": true,
+      "onBrand": 81,
+      "generic": 0
+    },
+    {
+      "model": "anthropic/claude-sonnet-5",
+      "brief": "halcyon",
+      "prompt": "settings",
+      "costUsd": 0.1558,
+      "ok": true,
+      "onBrand": 83,
+      "generic": 0
+    },
+    {
+      "model": "anthropic/claude-sonnet-5",
+      "brief": "koto",
+      "prompt": "dashboard",
+      "costUsd": 0.1047,
+      "ok": true,
+      "onBrand": 90,
+      "generic": 0
+    },
+    {
+      "model": "anthropic/claude-sonnet-5",
+      "brief": "koto",
+      "prompt": "pricing",
+      "costUsd": 0.1184,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 0
+    },
+    {
+      "model": "anthropic/claude-sonnet-5",
+      "brief": "koto",
+      "prompt": "settings",
+      "costUsd": 0.2255,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 0
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "brief": "brightline",
+      "prompt": "landing",
+      "costUsd": 0.0715,
+      "ok": true,
+      "onBrand": 91,
+      "generic": 5
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "brief": "brightline",
+      "prompt": "pricing",
+      "costUsd": 0.0929,
+      "ok": true,
+      "onBrand": 91,
+      "generic": 5
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "brief": "brightline",
+      "prompt": "dashboard",
+      "costUsd": 0.0986,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 5
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "brief": "brightline",
+      "prompt": "settings",
+      "costUsd": 0.08,
+      "ok": true,
+      "onBrand": 96,
+      "generic": 5
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "brief": "ember",
+      "prompt": "landing",
+      "costUsd": 0.0702,
+      "ok": true,
+      "onBrand": 99,
+      "generic": 0
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "brief": "ember",
+      "prompt": "settings",
+      "costUsd": 0.073,
+      "ok": true,
+      "onBrand": 91,
+      "generic": 11
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "brief": "ember",
+      "prompt": "pricing",
+      "costUsd": 0.0877,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 0
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "brief": "ember",
+      "prompt": "dashboard",
+      "costUsd": 0.1249,
+      "ok": true,
+      "onBrand": 98,
+      "generic": 0
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "brief": "fernwood",
+      "prompt": "landing",
+      "costUsd": 0.0948,
+      "ok": true,
+      "onBrand": 99,
+      "generic": 0
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "brief": "fernwood",
+      "prompt": "pricing",
+      "costUsd": 0.0874,
+      "ok": true,
+      "onBrand": 81,
+      "generic": 0
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "brief": "halcyon",
+      "prompt": "landing",
+      "costUsd": 0.0631,
+      "ok": true,
+      "onBrand": 85,
+      "generic": 5
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "brief": "fernwood",
+      "prompt": "dashboard",
+      "costUsd": 0.1243,
+      "ok": true,
+      "onBrand": 80,
+      "generic": 0
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "brief": "fernwood",
+      "prompt": "settings",
+      "costUsd": 0.0798,
+      "ok": true,
+      "onBrand": 89,
+      "generic": 0
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "brief": "halcyon",
+      "prompt": "pricing",
+      "costUsd": 0.0819,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 11
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "brief": "koto",
+      "prompt": "landing",
+      "costUsd": 0.056,
+      "ok": true,
+      "onBrand": 91,
+      "generic": 0
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "brief": "halcyon",
+      "prompt": "settings",
+      "costUsd": 0.0835,
+      "ok": true,
+      "onBrand": 81,
+      "generic": 5
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "brief": "halcyon",
+      "prompt": "dashboard",
+      "costUsd": 0.107,
+      "ok": true,
+      "onBrand": 91,
+      "generic": 5
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "brief": "koto",
+      "prompt": "pricing",
+      "costUsd": 0.075,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 0
+    },
+    {
+      "model": "google/gemini-4-argon",
+      "brief": "brightline",
+      "prompt": "landing",
+      "costUsd": 0.0558,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 5
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "brief": "koto",
+      "prompt": "dashboard",
+      "costUsd": 0.0831,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 0
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "brief": "koto",
+      "prompt": "settings",
+      "costUsd": 0.0844,
+      "ok": true,
+      "onBrand": 90,
+      "generic": 11
+    },
+    {
+      "model": "google/gemini-4-argon",
+      "brief": "brightline",
+      "prompt": "dashboard",
+      "costUsd": 0.0719,
+      "ok": true,
+      "onBrand": 89,
+      "generic": 0
+    },
+    {
+      "model": "google/gemini-4-argon",
+      "brief": "brightline",
+      "prompt": "pricing",
+      "costUsd": 0.0996,
+      "ok": true,
+      "onBrand": 100,
+      "generic": 5
+    },
+    {
+      "model": "google/gemini-4-argon",
+      "brief": "brightline",
+      "prompt": "settings",
+      "costUsd": 0.1114,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 16
+    },
+    {
+      "model": "google/gemini-4-argon",
+      "brief": "ember",
+      "prompt": "dashboard",
+      "costUsd": 0.0694,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 0
+    },
+    {
+      "model": "google/gemini-4-argon",
+      "brief": "ember",
+      "prompt": "settings",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "google/gemini-4-argon",
+      "brief": "ember",
+      "prompt": "pricing",
+      "costUsd": 0.1004,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 0
+    },
+    {
+      "model": "google/gemini-4-argon",
+      "brief": "ember",
+      "prompt": "landing",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "google/gemini-4-argon",
+      "brief": "fernwood",
+      "prompt": "landing",
+      "costUsd": 0.0782,
+      "ok": true,
+      "onBrand": 94,
+      "generic": 0
+    },
+    {
+      "model": "google/gemini-4-argon",
+      "brief": "fernwood",
+      "prompt": "dashboard",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "google/gemini-4-argon",
+      "brief": "fernwood",
+      "prompt": "pricing",
+      "costUsd": 0.1168,
+      "ok": true,
+      "onBrand": 94,
+      "generic": 0
+    },
+    {
+      "model": "google/gemini-4-argon",
+      "brief": "fernwood",
+      "prompt": "settings",
+      "costUsd": 0.1,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 0
+    },
+    {
+      "model": "google/gemini-4-argon",
+      "brief": "halcyon",
+      "prompt": "landing",
+      "costUsd": 0.0584,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 16
+    },
+    {
+      "model": "google/gemini-4-argon",
+      "brief": "halcyon",
+      "prompt": "dashboard",
+      "costUsd": 0.0892,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 5
+    },
+    {
+      "model": "google/gemini-4-argon",
+      "brief": "koto",
+      "prompt": "landing",
+      "costUsd": 0.062,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 0
+    },
+    {
+      "model": "google/gemini-4-argon",
+      "brief": "halcyon",
+      "prompt": "pricing",
+      "costUsd": 0.1153,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 16
+    },
+    {
+      "model": "google/gemini-4-argon",
+      "brief": "koto",
+      "prompt": "dashboard",
+      "costUsd": 0.0541,
+      "ok": true,
+      "onBrand": 91,
+      "generic": 0
+    },
+    {
+      "model": "google/gemini-4-argon",
+      "brief": "koto",
+      "prompt": "pricing",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "google/gemini-4-argon",
+      "brief": "halcyon",
+      "prompt": "settings",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "google/gemini-4-argon",
+      "brief": "koto",
+      "prompt": "settings",
+      "costUsd": 0.083,
+      "ok": true,
+      "onBrand": 92,
+      "generic": 0
+    },
+    {
+      "model": "moonshotai/kimi-k3.1-pro",
+      "brief": "brightline",
+      "prompt": "pricing",
+      "costUsd": 0.0451,
+      "ok": true,
+      "onBrand": 91,
+      "generic": 5
+    },
+    {
+      "model": "moonshotai/kimi-k3.1-pro",
+      "brief": "brightline",
+      "prompt": "dashboard",
+      "costUsd": 0.0534,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 5
+    },
+    {
+      "model": "moonshotai/kimi-k3.1-pro",
+      "brief": "brightline",
+      "prompt": "settings",
+      "costUsd": 0.0522,
+      "ok": true,
+      "onBrand": 85,
+      "generic": 5
+    },
+    {
+      "model": "moonshotai/kimi-k3.1-pro",
+      "brief": "ember",
+      "prompt": "pricing",
+      "costUsd": 0.0391,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 0
+    },
+    {
+      "model": "moonshotai/kimi-k3.1-pro",
+      "brief": "ember",
+      "prompt": "dashboard",
+      "costUsd": 0.0673,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 0
+    },
+    {
+      "model": "moonshotai/kimi-k3.1-pro",
+      "brief": "ember",
+      "prompt": "landing",
+      "costUsd": 0.0436,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 0
+    },
+    {
+      "model": "moonshotai/kimi-k3.1-pro",
+      "brief": "fernwood",
+      "prompt": "landing",
+      "costUsd": 0.0506,
+      "ok": true,
+      "onBrand": 91,
+      "generic": 0
+    },
+    {
+      "model": "moonshotai/kimi-k3.1-pro",
+      "brief": "fernwood",
+      "prompt": "dashboard",
+      "costUsd": 0.0504,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 0
+    },
+    {
+      "model": "moonshotai/kimi-k3.1-pro",
+      "brief": "brightline",
+      "prompt": "landing",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "moonshotai/kimi-k3.1-pro",
+      "brief": "fernwood",
+      "prompt": "settings",
+      "costUsd": 0.0392,
+      "ok": true,
+      "onBrand": 92,
+      "generic": 0
+    },
+    {
+      "model": "moonshotai/kimi-k3.1-pro",
+      "brief": "halcyon",
+      "prompt": "landing",
+      "costUsd": 0.0379,
+      "ok": true,
+      "onBrand": 85,
+      "generic": 0
+    },
+    {
+      "model": "moonshotai/kimi-k3.1-pro",
+      "brief": "ember",
+      "prompt": "settings",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "moonshotai/kimi-k3.1-pro",
+      "brief": "halcyon",
+      "prompt": "settings",
+      "costUsd": 0.0346,
+      "ok": true,
+      "onBrand": 83,
+      "generic": 0
+    },
+    {
+      "model": "moonshotai/kimi-k3.1-pro",
+      "brief": "fernwood",
+      "prompt": "pricing",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "moonshotai/kimi-k3.1-pro",
+      "brief": "halcyon",
+      "prompt": "pricing",
+      "costUsd": 0.0655,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 11
+    },
+    {
+      "model": "moonshotai/kimi-k3.1-pro",
+      "brief": "halcyon",
+      "prompt": "dashboard",
+      "costUsd": 0.0664,
+      "ok": true,
+      "onBrand": 91,
+      "generic": 0
+    },
+    {
+      "model": "moonshotai/kimi-k3.1-pro",
+      "brief": "koto",
+      "prompt": "dashboard",
+      "costUsd": 0.0582,
+      "ok": true,
+      "onBrand": 91,
+      "generic": 0
+    },
+    {
+      "model": "moonshotai/kimi-k3.1-pro",
+      "brief": "koto",
+      "prompt": "landing",
+      "costUsd": 0.0421,
+      "ok": true,
+      "onBrand": 93,
+      "generic": 0
+    },
+    {
+      "model": "moonshotai/kimi-k3.1-pro",
+      "brief": "koto",
+      "prompt": "settings",
+      "costUsd": 0.0542,
+      "ok": true,
+      "onBrand": 91,
+      "generic": 0
+    },
+    {
+      "model": "moonshotai/kimi-k3.1-pro",
+      "brief": "koto",
+      "prompt": "pricing",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "zai-org/glm-5.3",
+      "brief": "brightline",
+      "prompt": "landing",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "zai-org/glm-5.3",
+      "brief": "brightline",
+      "prompt": "pricing",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "zai-org/glm-5.3",
+      "brief": "brightline",
+      "prompt": "dashboard",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "zai-org/glm-5.3",
+      "brief": "brightline",
+      "prompt": "settings",
+      "costUsd": 0.2064,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 5
+    },
+    {
+      "model": "zai-org/glm-5.3",
+      "brief": "ember",
+      "prompt": "landing",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "zai-org/glm-5.3",
+      "brief": "ember",
+      "prompt": "pricing",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "zai-org/glm-5.3",
+      "brief": "ember",
+      "prompt": "dashboard",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "zai-org/glm-5.3",
+      "brief": "ember",
+      "prompt": "settings",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "zai-org/glm-5.3",
+      "brief": "fernwood",
+      "prompt": "landing",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "zai-org/glm-5.3",
+      "brief": "fernwood",
+      "prompt": "pricing",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "zai-org/glm-5.3",
+      "brief": "fernwood",
+      "prompt": "dashboard",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "zai-org/glm-5.3",
+      "brief": "fernwood",
+      "prompt": "settings",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "zai-org/glm-5.3",
+      "brief": "halcyon",
+      "prompt": "landing",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "zai-org/glm-5.3",
+      "brief": "halcyon",
+      "prompt": "pricing",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "zai-org/glm-5.3",
+      "brief": "halcyon",
+      "prompt": "dashboard",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "zai-org/glm-5.3",
+      "brief": "halcyon",
+      "prompt": "settings",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "zai-org/glm-5.3",
+      "brief": "koto",
+      "prompt": "landing",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "zai-org/glm-5.3",
+      "brief": "koto",
+      "prompt": "pricing",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "zai-org/glm-5.3",
+      "brief": "koto",
+      "prompt": "dashboard",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    },
+    {
+      "model": "zai-org/glm-5.3",
+      "brief": "koto",
+      "prompt": "settings",
+      "costUsd": 0,
+      "ok": false,
+      "failure": "empty"
+    }
+  ],
+  "table": [
+    {
+      "model": "zai-org/glm-5.3",
+      "label": "GLM-5.3",
+      "vendor": "Zhipu AI",
+      "onBrand": 95,
+      "generic": 5,
+      "failures": 19,
+      "n": 20
+    },
+    {
+      "model": "google/gemini-4-argon",
+      "label": "Gemini 4 Argon",
+      "vendor": "Google",
+      "onBrand": 94,
+      "generic": 4,
+      "failures": 5,
+      "n": 20
+    },
+    {
+      "model": "anthropic/claude-sonnet-5",
+      "label": "Claude Sonnet 5",
+      "vendor": "Anthropic",
+      "onBrand": 93,
+      "generic": 1,
+      "failures": 0,
+      "n": 20
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "label": "GPT-6.1 Sol",
+      "vendor": "OpenAI",
+      "onBrand": 91,
+      "generic": 3,
+      "failures": 0,
+      "n": 20
+    },
+    {
+      "model": "moonshotai/kimi-k3.1-pro",
+      "label": "Kimi K3.1 Pro",
+      "vendor": "Moonshot AI",
+      "onBrand": 91,
+      "generic": 2,
+      "failures": 4,
+      "n": 20
+    }
+  ]
+}

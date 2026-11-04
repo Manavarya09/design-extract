@@ -14,7 +14,7 @@ import { join } from 'node:path';
 import { extractDesignLanguage } from '../src/index.js';
 import { parseBrand } from '../src/slop/brand.js';
 import { createBudget, BudgetExceeded, costOf } from './cost.js';
-import { classifyOutput, scoreRun, buildTable, mergeRetries } from './core.js';
+import { classifyOutput, scoreRun, buildTable, mergeRetries, retryable } from './core.js';
 
 const here = new URL('.', import.meta.url).pathname;
 const arg = (n, d) => { const i = process.argv.indexOf(n); return i > -1 ? process.argv[i + 1] : d; };
@@ -74,9 +74,11 @@ async function generate(model, brief, prompt) {
 
 const retryFile = arg('--retry-failed');
 const previous = retryFile ? JSON.parse(readFileSync(join(here, retryFile.replace(/^leaderboard\//, '')), 'utf8')) : null;
+// Interleaved across models, so a run stopped by the cap leaves every model
+// with a similar share of the grid (and the table marks what was not run).
 const jobs = [];
-for (const model of models) for (const brief of briefs) for (const prompt of prompts) {
-  if (previous && !previous.runs.some((r) => !r.ok && r.model === model.id && r.brief === brief.id && r.prompt === prompt.id)) continue;
+for (const brief of briefs) for (const prompt of prompts) for (const model of models) {
+  if (previous && !previous.runs.some((r) => retryable(r) && r.model === model.id && r.brief === brief.id && r.prompt === prompt.id)) continue;
   jobs.push({ model, brief, prompt });
 }
 const runs = [];
@@ -114,7 +116,7 @@ server.close();
 
 const allRuns = previous ? mergeRetries(previous.runs, runs) : runs;
 const spentUsd = Math.round(((previous?.spentUsd || 0) + budget.spent()) * 100) / 100;
-const result = { date: previous?.date || date, retriedAt: previous ? date : undefined, cap, spentUsd, models, briefs: briefs.map((b) => ({ id: b.id, brand: b.brand })), prompts, runs: allRuns, table: buildTable(allRuns, models) };
+const result = { date: previous?.date || date, retriedAt: previous ? date : undefined, cap, spentUsd, models, briefs: briefs.map((b) => ({ id: b.id, brand: b.brand })), prompts, runs: allRuns, table: buildTable(allRuns, models, { expected: briefs.length * prompts.length }) };
 writeFileSync(join(here, 'results', `${result.date}.json`), JSON.stringify(result, null, 2) + '\n');
 console.log(JSON.stringify(result.table, null, 1));
 console.log(`spent $${result.spentUsd}`);

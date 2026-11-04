@@ -75,3 +75,28 @@ test('merging a retry replaces failed runs with their new result', async () => {
   assert.equal(merged.find((r) => r.prompt === 'p').ok, true);
   assert.equal(merged.find((r) => r.prompt === 'p').retried, true);
 });
+
+test('only runs the provider dropped are retried; a model\'s own failure stays on its record', async () => {
+  const { retryable, mergeRetries } = await import('../leaderboard/core.js');
+  assert.equal(retryable({ ok: false, failure: 'no-response' }), true);
+  assert.equal(retryable({ ok: false, failure: 'timeout' }), true);
+  assert.equal(retryable({ ok: false, failure: 'api-error' }), true);
+  assert.equal(retryable({ ok: false, failure: 'empty', costUsd: 0 }), true, 'an empty reply with no usage is a dropped request');
+  assert.equal(retryable({ ok: false, failure: 'empty', costUsd: 0.04 }), false);
+  assert.equal(retryable({ ok: false, failure: 'not-html' }), false);
+  assert.equal(retryable({ ok: false, failure: 'render-error' }), false);
+  const first = [{ model: 'm', brief: 'b', prompt: 'p', ok: false, failure: 'not-html' }];
+  const merged = mergeRetries(first, [{ model: 'm', brief: 'b', prompt: 'p', ok: true, onBrand: 90, generic: 1 }]);
+  assert.equal(merged[0].ok, false, 'a non-retryable failure is never replaced');
+});
+
+test('a model that did not cover every brand and screen is not ranked', () => {
+  const runs = [
+    ...Array.from({ length: 4 }, (_, i) => ({ model: 'full', brief: 'b', prompt: `p${i}`, ok: true, onBrand: 80, generic: 1 })),
+    { model: 'part', brief: 'b', prompt: 'p0', ok: true, onBrand: 99, generic: 1 },
+  ];
+  const t = buildTable(runs, [{ id: 'full', label: 'F' }, { id: 'part', label: 'P' }], { expected: 4 });
+  assert.equal(t[0].model, 'full');
+  assert.equal(t.find((r) => r.model === 'part').ranked, false);
+  assert.equal(t.find((r) => r.model === 'part').notRun, 3);
+});

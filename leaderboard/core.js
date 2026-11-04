@@ -35,10 +35,11 @@ const mean = (xs) => (xs.length ? Math.round(xs.reduce((a, b) => a + b, 0) / xs.
 // lucky page is not a result. Unranked models are listed after the ranked ones.
 export const MIN_COMPLETED = 0.75;
 
-export function buildTable(runs, models) {
+export function buildTable(runs, models, { expected = null } = {}) {
   const rows = models.map((m) => {
     const mine = runs.filter((r) => r.model === m.id);
     const good = mine.filter((r) => r.ok);
+    const notRun = expected ? Math.max(0, expected - mine.length) : 0;
     return {
       model: m.id,
       label: m.label,
@@ -47,15 +48,27 @@ export function buildTable(runs, models) {
       generic: mean(good.map((r) => r.generic)),
       failures: mine.length - good.length,
       n: mine.length,
-      ranked: mine.length > 0 && good.length / mine.length >= MIN_COMPLETED,
+      notRun,
+      // Ranked only on the full grid with most runs completed.
+      ranked: mine.length > 0 && notRun === 0 && good.length / mine.length >= MIN_COMPLETED,
     };
   });
   return rows.sort((a, b) => Number(b.ranked) - Number(a.ranked) || (b.onBrand ?? -1) - (a.onBrand ?? -1));
 }
 
-// Re-running only the failed runs: each retry replaces the run it repeats.
+// Failures the provider caused (no reply, a timeout, an API error, or an empty
+// reply that used no tokens) may be retried. A reply the model wrote that was
+// not a usable page is the model's result and stays on its record.
+const PROVIDER_FAILURES = new Set(['no-response', 'timeout', 'api-error']);
+export function retryable(r) {
+  if (r.ok) return false;
+  if (PROVIDER_FAILURES.has(r.failure)) return true;
+  return r.failure === 'empty' && !(r.costUsd > 0);
+}
+
+// Re-running dropped runs: each retry replaces the dropped run it repeats.
 export function mergeRetries(runs, retries) {
   const key = (r) => `${r.model}|${r.brief}|${r.prompt}`;
   const again = new Map(retries.map((r) => [key(r), r]));
-  return runs.map((r) => (!r.ok && again.has(key(r)) ? { ...again.get(key(r)), retried: true } : r));
+  return runs.map((r) => (retryable(r) && again.has(key(r)) ? { ...again.get(key(r)), retried: true } : r));
 }
