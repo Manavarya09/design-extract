@@ -12,6 +12,7 @@ import { extractAccessibility } from './extractors/accessibility.js';
 import { extractLayout } from './extractors/layout.js';
 import { scoreDesignSystem } from './extractors/scoring.js';
 import { extractGradients } from './extractors/gradients.js';
+import { extractSurface } from './extractors/surface.js';
 import { extractZIndex } from './extractors/zindex.js';
 import { extractIcons } from './extractors/icons.js';
 import { extractFonts } from './extractors/fonts.js';
@@ -76,6 +77,7 @@ export async function extractDesignLanguage(url, options = {}) {
     accessibility: safeExtract(extractAccessibility, styles) || { score: 0, failCount: 0 },
     layout: safeExtract(extractLayout, styles, { fluidValues: rawData.light.fluidValues || [], viewportWidth: rawData.light.viewport?.width }) || { gridCount: 0, flexCount: 0 },
     gradients: safeExtract(extractGradients, styles) || { count: 0 },
+    surface: safeExtract(extractSurface, styles) || { accents: [], accentCount: 0, centredTextShare: null },
     zIndex: safeExtract(extractZIndex, styles) || { allValues: [], issues: [] },
     icons: rawData.light.icons ? (safeExtract(extractIcons, rawData.light.icons) || { icons: [], count: 0 }) : { icons: [], count: 0 },
     fonts: rawData.light.fontData ? (safeExtract(extractFonts, rawData.light.fontData) || { fonts: [], systemFonts: [] }) : { fonts: [], systemFonts: [] },

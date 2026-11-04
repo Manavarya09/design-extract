@@ -11,7 +11,8 @@
     ".": "./src/index.js",
     "./api": "./src/api.js",
     "./mcp": "./src/mcp/index.js",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./slop": "./src/slop/index.js"
   },
   "scripts": {
     "start": "node bin/design-extract.js",

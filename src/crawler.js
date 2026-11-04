@@ -765,6 +765,7 @@ async function extractPageData(page, ignoreSelectors, scopeSelector) {
         borderRadius: cs.borderRadius,
         borderWidth: cs.borderWidth,
         borderStyle: cs.borderStyle,
+        textAlign: cs.textAlign,
         boxShadow: cs.boxShadow,
         textShadow: cs.textShadow,
         zIndex: cs.zIndex,
