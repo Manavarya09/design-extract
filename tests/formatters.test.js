@@ -1722,3 +1722,19 @@ describe('formatOpenProps', () => {
     assert.equal(formatOpenProps({ colors: {} }), '@layer base {\n  :root {\n  }\n}\n');
   });
 });
+
+describe('formatPreview safety', () => {
+  it('escapes page text and drops unsafe CSS values', () => {
+    const evil = {
+      ...mockDesign,
+      meta: { ...mockDesign.meta, title: '<script>alert(1)</script>' },
+      voice: { sampleHeadings: ['<img src=x onerror=alert(1)> heading text here'] },
+      components: { buttons: { variants: [{ variant: 'x', count: 1, backgroundColor: 'rgb(0,0,0)', style: { color: 'rgb(255,255,255)', borderRadius: 'url(javascript:alert(1))', fontSize: '16px;background:url(x)' } }] } },
+    };
+    const html = formatPreview(evil);
+    assert.ok(!html.includes('<script>alert'));
+    assert.ok(!html.includes('<img src=x'));
+    assert.ok(!/url\(javascript/i.test(html));
+    assert.ok(!html.includes('background:url(x)'));
+  });
+});
