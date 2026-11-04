@@ -1,0 +1,27 @@
+[
+  {
+    "id": "anthropic/claude-sonnet-5",
+    "label": "Claude Sonnet 5",
+    "vendor": "Anthropic"
+  },
+  {
+    "id": "openai/gpt-6.1-sol",
+    "label": "GPT-6.1 Sol",
+    "vendor": "OpenAI"
+  },
+  {
+    "id": "google/gemini-4-argon",
+    "label": "Gemini 4 Argon",
+    "vendor": "Google"
+  },
+  {
+    "id": "moonshotai/kimi-k3.1-pro",
+    "label": "Kimi K3.1 Pro",
+    "vendor": "Moonshot AI"
+  },
+  {
+    "id": "zai-org/glm-5.3",
+    "label": "GLM-5.3",
+    "vendor": "Zhipu AI"
+  }
+]

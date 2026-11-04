@@ -1,0 +1,22 @@
+[
+  {
+    "id": "landing",
+    "label": "Landing page hero",
+    "prompt": "Design the top of the home page: navigation, a hero with headline, one line of supporting copy and a primary action, then one section that explains what the company offers."
+  },
+  {
+    "id": "pricing",
+    "label": "Pricing page",
+    "prompt": "Design a pricing page with three plans, what each includes, and a short FAQ."
+  },
+  {
+    "id": "dashboard",
+    "label": "Dashboard",
+    "prompt": "Design the signed-in dashboard a customer sees first: a sidebar, a header, four key numbers and a recent-activity table."
+  },
+  {
+    "id": "settings",
+    "label": "Settings",
+    "prompt": "Design an account settings page with a profile form (name, email, avatar), notification toggles and a danger zone to delete the account."
+  }
+]

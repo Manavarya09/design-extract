@@ -52,15 +52,26 @@ export function scoreOnBrand(design, brand) {
     parts.push({ weight, fit: part.fit });
     if (part.diff) diffs.push(part.diff);
   };
-  add(40, colorPart('color.primary', brand.colors?.primary, design.colors?.primary));
-  for (const role of ['secondary', 'accent']) {
-    if (brand.colors?.[role]) {
-      // A brand accent can sit in any of the page's chosen colours.
-      const candidates = ['primary', 'secondary', 'accent'].map((r) => design.colors?.[r]).filter(Boolean);
-      const best = candidates.map((c) => colorPart(`color.${role}`, brand.colors[role], c)).sort((a, b) => b.fit - a.fit)[0]
-        || colorPart(`color.${role}`, brand.colors[role], null);
-      add(10, best);
+  // A brand colour counts wherever the page uses it: in a ranked role in
+  // full, or among the painted colours slightly discounted (more so if rare).
+  const roleColors = ['primary', 'secondary', 'accent'].map((r) => design.colors?.[r]).filter(Boolean).map((c) => ({ c, presence: 1 }));
+  const painted = (design.colors?.all || []).filter((c) => toHex(c)).slice(0, 16).map((c) => ({ c, presence: (c.count || 1) >= 3 ? 0.9 : 0.6 }));
+  const bestMatch = (token, expected, preferred) => {
+    const pool = [...(preferred ? [{ c: preferred, presence: 1 }] : []), ...roleColors, ...painted];
+    let best = colorPart(token, expected, preferred || null);
+    for (const { c, presence } of pool) {
+      const part = colorPart(token, expected, c);
+      if (!part) continue;
+      const fit = part.fit * presence;
+      if (!best || fit > best.fit) best = { fit, diff: part.diff ? { ...part.diff } : null };
     }
+    // Report the page's own pick in the diff when nothing close was found.
+    if (best?.diff && preferred) best.diff.actual = toHex(preferred);
+    return best;
+  };
+  add(40, bestMatch('color.primary', brand.colors?.primary, design.colors?.primary));
+  for (const role of ['secondary', 'accent']) {
+    if (brand.colors?.[role]) add(10, bestMatch(`color.${role}`, brand.colors[role], null));
   }
   if (brand.fonts?.length) {
     const want = brand.fonts.map(normFont);

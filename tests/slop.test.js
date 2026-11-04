@@ -49,6 +49,14 @@ test('on-brand score: matching brand scores high, a wrong primary shows a diff',
   assert.ok(r.diffs.some((d) => d.token === 'color.primary' && d.expected === '#533afd' && d.actual === '#ff0000'));
 });
 
+test('a brand colour used on the page counts even when another colour ranks primary', () => {
+  const brand = { colors: { primary: '#0b6e4f', neutrals: [] }, fonts: [], radii: [] };
+  const design = { colors: { primary: { hex: '#0d1b1e' }, all: [{ hex: '#0d1b1e', count: 16 }, { hex: '#0b6e4f', count: 6 }, { hex: '#ffffff', count: 1 }] } };
+  assert.ok(scoreOnBrand(design, brand).score >= 90, String(scoreOnBrand(design, brand).score));
+  const absent = { colors: { primary: { hex: '#0d1b1e' }, all: [{ hex: '#0d1b1e', count: 16 }, { hex: '#ffffff', count: 1 }] } };
+  assert.ok(scoreOnBrand(absent, brand).score < 50);
+});
+
 test('error, consent and login pages are not scored', () => {
   assert.deepEqual(unreadable(errorPage), { reason: 'error-page' });
   assert.equal(unreadable(handmade), null);
