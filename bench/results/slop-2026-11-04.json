@@ -1,0 +1,568 @@
+{
+  "date": "2026-11-04",
+  "human": [
+    {
+      "url": "https://www.apple.com",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://www.airbnb.com",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://stripe.com",
+      "score": 26,
+      "band": "distinct",
+      "flags": [
+        "indigo-gradient"
+      ]
+    },
+    {
+      "url": "https://linear.app",
+      "score": 18,
+      "band": "distinct",
+      "flags": [
+        "default-face-only"
+      ]
+    },
+    {
+      "url": "https://www.figma.com",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://www.notion.com",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://open.spotify.com",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://www.nytimes.com",
+      "skipped": "blank"
+    },
+    {
+      "url": "https://www.theguardian.com/uk",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://www.bbc.co.uk",
+      "score": 26,
+      "band": "distinct",
+      "flags": [
+        "indigo-gradient"
+      ]
+    },
+    {
+      "url": "https://www.gov.uk",
+      "score": 18,
+      "band": "distinct",
+      "flags": [
+        "hero-three-cards"
+      ]
+    },
+    {
+      "url": "https://mailchimp.com",
+      "score": 18,
+      "band": "distinct",
+      "flags": [
+        "glow-shadows"
+      ]
+    },
+    {
+      "url": "https://www.dropbox.com",
+      "score": 9,
+      "band": "distinct",
+      "flags": [
+        "uniform-radius"
+      ]
+    },
+    {
+      "url": "https://slack.com",
+      "score": 26,
+      "band": "distinct",
+      "flags": [
+        "indigo-gradient"
+      ]
+    },
+    {
+      "url": "https://www.shopify.com",
+      "score": 26,
+      "band": "distinct",
+      "flags": [
+        "indigo-gradient"
+      ]
+    },
+    {
+      "url": "https://www.pentagram.com",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://www.collinsnyc.com",
+      "skipped": "not cached"
+    },
+    {
+      "url": "https://www.wolffolins.com",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://www.ideo.com",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://basecamp.com",
+      "score": 26,
+      "band": "distinct",
+      "flags": [
+        "indigo-gradient"
+      ]
+    },
+    {
+      "url": "https://www.nike.com",
+      "score": 9,
+      "band": "distinct",
+      "flags": [
+        "centered-everything"
+      ]
+    },
+    {
+      "url": "https://www.patagonia.com",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://www.aesop.com",
+      "skipped": "error-page"
+    },
+    {
+      "url": "https://www.ikea.com/gb/en/",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://www.lego.com/en-gb",
+      "skipped": "error-page"
+    },
+    {
+      "url": "https://monzo.com",
+      "score": 18,
+      "band": "distinct",
+      "flags": [
+        "hero-three-cards"
+      ]
+    },
+    {
+      "url": "https://wise.com",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://www.duolingo.com",
+      "score": 9,
+      "band": "distinct",
+      "flags": [
+        "uniform-radius"
+      ]
+    },
+    {
+      "url": "https://www.headspace.com",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://www.mozilla.org",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://www.wikipedia.org",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://medium.com",
+      "skipped": "error-page"
+    },
+    {
+      "url": "https://www.etsy.com",
+      "skipped": "blank"
+    },
+    {
+      "url": "https://www.kickstarter.com",
+      "skipped": "error-page"
+    },
+    {
+      "url": "https://vimeo.com",
+      "score": 44,
+      "band": "mixed",
+      "flags": [
+        "indigo-gradient",
+        "glow-shadows"
+      ]
+    },
+    {
+      "url": "https://www.squarespace.com",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://panic.com",
+      "score": 9,
+      "band": "distinct",
+      "flags": [
+        "centered-everything"
+      ]
+    },
+    {
+      "url": "https://teenage.engineering",
+      "score": 9,
+      "band": "distinct",
+      "flags": [
+        "centered-everything"
+      ]
+    },
+    {
+      "url": "https://www.are.na",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://www.itsnicethat.com",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://www.dezeen.com",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://www.vitsoe.com",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://area17.com",
+      "score": 26,
+      "band": "distinct",
+      "flags": [
+        "emoji-icons",
+        "uniform-radius"
+      ]
+    },
+    {
+      "url": "https://www.instrument.com",
+      "score": 9,
+      "band": "distinct",
+      "flags": [
+        "uniform-radius"
+      ]
+    },
+    {
+      "url": "https://pitch.com",
+      "score": 26,
+      "band": "distinct",
+      "flags": [
+        "indigo-gradient"
+      ]
+    },
+    {
+      "url": "https://www.raycast.com",
+      "score": 44,
+      "band": "mixed",
+      "flags": [
+        "indigo-gradient",
+        "glow-shadows"
+      ]
+    },
+    {
+      "url": "https://www.porsche.com/international/",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://www.muji.com/uk/",
+      "skipped": "not cached"
+    },
+    {
+      "url": "https://www.uniqlo.com/uk/en/",
+      "skipped": "error-page"
+    },
+    {
+      "url": "https://www.moma.org",
+      "skipped": "error-page"
+    }
+  ],
+  "ai": [
+    {
+      "url": "https://ismyappslop.com/",
+      "score": 26,
+      "band": "distinct",
+      "flags": [
+        "indigo-gradient"
+      ]
+    },
+    {
+      "url": "https://lift-off.sh/",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://glowcase.app/",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://mycreato.com/",
+      "score": 18,
+      "band": "distinct",
+      "flags": [
+        "default-face-only"
+      ]
+    },
+    {
+      "url": "https://referable.dev/",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://kalyvox.ai/",
+      "score": 35,
+      "band": "mixed",
+      "flags": [
+        "hero-three-cards",
+        "emoji-icons"
+      ]
+    },
+    {
+      "url": "https://unitatlas.com/",
+      "score": 18,
+      "band": "distinct",
+      "flags": [
+        "default-face-only"
+      ]
+    },
+    {
+      "url": "https://mfax.to/",
+      "score": 18,
+      "band": "distinct",
+      "flags": [
+        "glow-shadows"
+      ]
+    },
+    {
+      "url": "https://tryrelia.com/",
+      "score": 35,
+      "band": "mixed",
+      "flags": [
+        "default-face-only",
+        "left-border-accent"
+      ]
+    },
+    {
+      "url": "https://coupleshub.io/",
+      "score": 18,
+      "band": "distinct",
+      "flags": [
+        "default-face-only"
+      ]
+    },
+    {
+      "url": "https://grepjob.com/",
+      "score": 44,
+      "band": "mixed",
+      "flags": [
+        "default-face-only",
+        "uniform-radius",
+        "default-palette"
+      ]
+    },
+    {
+      "url": "https://www.fluxr.ai/",
+      "score": 18,
+      "band": "distinct",
+      "flags": [
+        "default-face-only"
+      ]
+    },
+    {
+      "url": "https://siamferry.com/",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://dachly.com/",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://www.prilo.ai/",
+      "score": 61,
+      "band": "mixed",
+      "flags": [
+        "indigo-gradient",
+        "default-face-only",
+        "default-palette"
+      ]
+    },
+    {
+      "url": "https://getnodecast.com/",
+      "score": 26,
+      "band": "distinct",
+      "flags": [
+        "indigo-gradient"
+      ]
+    },
+    {
+      "url": "https://www.theloafapp.com/",
+      "score": 18,
+      "band": "distinct",
+      "flags": [
+        "emoji-icons"
+      ]
+    },
+    {
+      "url": "https://www.clipcutter.net/",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://www.creadefy.com/",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://www.apichecker.io/",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://conferencegowhere.vercel.app/",
+      "score": 9,
+      "band": "distinct",
+      "flags": [
+        "uniform-radius"
+      ]
+    },
+    {
+      "url": "https://textformatter.ai/",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://dadaa.app/",
+      "score": 18,
+      "band": "distinct",
+      "flags": [
+        "hero-three-cards"
+      ]
+    },
+    {
+      "url": "https://clearfm.io/",
+      "score": 44,
+      "band": "mixed",
+      "flags": [
+        "indigo-gradient",
+        "glow-shadows"
+      ]
+    },
+    {
+      "url": "https://www.gipity.com/",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    },
+    {
+      "url": "https://podnudge.com/",
+      "score": 53,
+      "band": "mixed",
+      "flags": [
+        "default-face-only",
+        "uniform-radius",
+        "default-palette",
+        "centered-everything"
+      ]
+    },
+    {
+      "url": "https://www.castbandit.com/",
+      "score": 96,
+      "band": "generic",
+      "flags": [
+        "indigo-gradient",
+        "default-face-only",
+        "hero-three-cards",
+        "glow-shadows",
+        "default-palette"
+      ]
+    },
+    {
+      "url": "https://egovex.app/",
+      "score": 44,
+      "band": "mixed",
+      "flags": [
+        "indigo-gradient",
+        "default-palette"
+      ]
+    },
+    {
+      "url": "https://notfoundjobs.com/",
+      "score": 18,
+      "band": "distinct",
+      "flags": [
+        "default-palette"
+      ]
+    },
+    {
+      "url": "https://greenhaven.framer.media/",
+      "score": 0,
+      "band": "distinct",
+      "flags": []
+    }
+  ],
+  "falseAlarmRate": 0,
+  "catchRate": 0.03333333333333333,
+  "flaggedRate": 0.26666666666666666,
+  "n": {
+    "human": 40,
+    "ai": 30
+  }
+}

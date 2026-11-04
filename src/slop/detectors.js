@@ -28,8 +28,13 @@ function isIndigo(hex) {
   return h >= 230 && h <= 280 && s >= 45 && l > 15 && l < 85;
 }
 
+// next/font renames families ("__Inter_d65c78", "__Inter_Fallback_d65c78").
+export function plainFamily(name) {
+  return String(name || '').replace(/["']/g, '').replace(/^__(.+?)(_Fallback)?_[0-9a-f]{4,}$/i, '$1').replace(/_/g, ' ').replace(/\s+(variable|fallback)$/i, '').trim();
+}
+
 function bodyFamilies(design) {
-  return (design.typography?.families || []).filter((f) => f.usage !== 'mono' && f.name);
+  return (design.typography?.families || []).filter((f) => f.usage !== 'mono' && f.name).map((f) => ({ ...f, name: plainFamily(f.name) }));
 }
 
 function headings(design) {
@@ -67,7 +72,7 @@ export const DETECTORS = [
     why: 'Every text style uses Inter or the system font, with no type of its own.',
     test(design) {
       const fams = bodyFamilies(design);
-      const hit = fams.length > 0 && fams.every((f) => DEFAULT_FACES.includes(f.name.toLowerCase().replace(/["']/g, '').replace(/\s+variable$/, '')));
+      const hit = fams.length > 0 && fams.every((f) => DEFAULT_FACES.includes(f.name.toLowerCase()));
       return { hit, evidence: hit ? fams.map((f) => ({ where: `font family (${f.usage || 'text'})`, value: f.name })) : [] };
     },
   },
@@ -77,17 +82,19 @@ export const DETECTORS = [
     weight: 2,
     why: 'A centred hero followed by a row of three identical feature cards is the default generated layout.',
     test(design) {
-      const sections = design.sectionRoles?.sections || [];
+      // Navigation bars and banners often come first, so the hero only has to
+      // open the content; the card row has to follow it closely.
+      const sections = (design.sectionRoles?.sections || []).filter((s) => s.role !== 'nav');
       const heroAt = sections.findIndex((s) => s.role === 'hero');
-      if (heroAt < 0 || heroAt > 1) return { hit: false, evidence: [] };
-      const next = sections.slice(heroAt + 1, heroAt + 3).find((s) => s.cardCount === 3);
+      if (heroAt < 0 || heroAt > 2) return { hit: false, evidence: [] };
+      const next = sections.slice(heroAt + 1, heroAt + 4).find((s) => s.cardCount === 3 || s.cardCount === 6);
       const threeCols = (design.layout?.gridColumns || []).some((g) => g.columns === 3);
       const hit = !!next && threeCols;
       return {
         hit,
         evidence: hit ? [
           { where: `section ${heroAt + 1} (hero)`, value: sections[heroAt].heading || 'hero' },
-          { where: `section ${next.index + 1}`, value: `3 cards in a 3-column grid${next.heading ? `: ${next.heading}` : ''}` },
+          { where: `section ${next.index + 1}`, value: `${next.cardCount} cards in a 3-column grid${next.heading ? `: ${next.heading}` : ''}` },
         ] : [],
       };
     },

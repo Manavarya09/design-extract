@@ -5,6 +5,7 @@ import { DETECTORS } from './detectors.js';
 import { toHex, deltaE } from './color.js';
 
 export const BANDS = { distinct: [0, 34], mixed: [35, 64], generic: [65, 100] };
+export const SATURATION = 0.6;
 
 export function bandOf(score) {
   if (score >= BANDS.generic[0]) return 'generic';
@@ -24,7 +25,9 @@ export function scoreGeneric(design, detectors = DETECTORS) {
       flags.push({ id: d.id, label: d.label, why: d.why, weight: d.weight, evidence: result.evidence });
     }
   }
-  const score = total ? Math.round((100 * hitWeight) / total) : 0;
+  // Tells pile up: a page needs about 60% of the weighted tells, not all of
+  // them, to look fully generic. Calibrated in bench/slop-calibrate.mjs.
+  const score = total ? Math.min(100, Math.round((100 * hitWeight) / (SATURATION * total))) : 0;
   return { score, band: bandOf(score), flags };
 }
 

@@ -80,3 +80,19 @@ test('a brand loads from DESIGN.md, DTCG tokens or plain brand JSON', async () =
   assert.equal(plain.colors.primary, '#533afd');
   assert.throws(() => parseBrand('{}', 'x.json'), /primary/);
 });
+
+test('calibration: no more than 5% of hand-made sites land in the generic band', async () => {
+  const { readdirSync } = await import('node:fs');
+  const dir = new URL('../bench/results/', import.meta.url);
+  const latest = readdirSync(dir).filter((f) => /^slop-\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().pop();
+  const cal = JSON.parse(readFileSync(new URL(latest, dir), 'utf8'));
+  assert.ok(cal.n.human >= 40, `only ${cal.n.human} hand-made sites were read`);
+  assert.ok(cal.falseAlarmRate <= 0.05, String(cal.falseAlarmRate));
+});
+
+test('next/font family names count as the face they wrap', async () => {
+  const { plainFamily } = await import('../src/slop/detectors.js');
+  assert.equal(plainFamily('__Inter_d65c78'), 'Inter');
+  assert.equal(plainFamily('__Inter_Fallback_d65c78'), 'Inter');
+  assert.equal(plainFamily('Inter Variable'), 'Inter');
+});
