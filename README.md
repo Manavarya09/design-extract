@@ -1,9 +1,5 @@
 <p align="center">
-  <img src="./assets/art/hero.webp" alt="Oil painting of a designer at her desk, a monitor of colour swatches and type in front of her" width="100%">
-</p>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Manavarya09/design-extract/main/website/public/logo-specimen.svg" alt="designlang — reads a website the way a developer reads a stylesheet" width="900">
+  <img src="./assets/art/banner.webp" alt="designlang: read any site’s design system, as tokens for Tailwind, Figma and your AI editor. npx designlang stripe.com" width="100%">
 </p>
 
 <p align="center">
