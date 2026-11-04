@@ -52,3 +52,26 @@ test('table means skip failures but n counts every run', () => {
   assert.equal(m2.failures, 1);
   assert.equal(t[0].model, 'm1');
 });
+
+test('a model with too many failed runs is listed but not ranked', () => {
+  const runs = [
+    { model: 'flaky', ok: true, onBrand: 99, generic: 1 },
+    ...Array.from({ length: 9 }, () => ({ model: 'flaky', ok: false, failure: 'no-response' })),
+    ...Array.from({ length: 10 }, () => ({ model: 'steady', ok: true, onBrand: 90, generic: 5 })),
+  ];
+  const t = buildTable(runs, [{ id: 'flaky', label: 'Flaky' }, { id: 'steady', label: 'Steady' }]);
+  assert.equal(t[0].model, 'steady');
+  assert.equal(t[0].ranked, true);
+  assert.equal(t[1].model, 'flaky');
+  assert.equal(t[1].ranked, false);
+});
+
+test('merging a retry replaces failed runs with their new result', async () => {
+  const { mergeRetries } = await import('../leaderboard/core.js');
+  const first = [{ model: 'm', brief: 'b', prompt: 'p', ok: false, failure: 'no-response' }, { model: 'm', brief: 'b', prompt: 'q', ok: true, onBrand: 80, generic: 2 }];
+  const retry = [{ model: 'm', brief: 'b', prompt: 'p', ok: true, onBrand: 70, generic: 4 }];
+  const merged = mergeRetries(first, retry);
+  assert.equal(merged.length, 2);
+  assert.equal(merged.find((r) => r.prompt === 'p').ok, true);
+  assert.equal(merged.find((r) => r.prompt === 'p').retried, true);
+});

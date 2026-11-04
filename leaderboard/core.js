@@ -31,20 +31,31 @@ export async function scoreRun({ html, brand, read }) {
 
 const mean = (xs) => (xs.length ? Math.round(xs.reduce((a, b) => a + b, 0) / xs.length) : null);
 
+// A model is ranked only when most of its runs completed: an average of one
+// lucky page is not a result. Unranked models are listed after the ranked ones.
+export const MIN_COMPLETED = 0.75;
+
 export function buildTable(runs, models) {
-  return models
-    .map((m) => {
-      const mine = runs.filter((r) => r.model === m.id);
-      const good = mine.filter((r) => r.ok);
-      return {
-        model: m.id,
-        label: m.label,
-        vendor: m.vendor,
-        onBrand: mean(good.map((r) => r.onBrand)),
-        generic: mean(good.map((r) => r.generic)),
-        failures: mine.length - good.length,
-        n: mine.length,
-      };
-    })
-    .sort((a, b) => (b.onBrand ?? -1) - (a.onBrand ?? -1));
+  const rows = models.map((m) => {
+    const mine = runs.filter((r) => r.model === m.id);
+    const good = mine.filter((r) => r.ok);
+    return {
+      model: m.id,
+      label: m.label,
+      vendor: m.vendor,
+      onBrand: mean(good.map((r) => r.onBrand)),
+      generic: mean(good.map((r) => r.generic)),
+      failures: mine.length - good.length,
+      n: mine.length,
+      ranked: mine.length > 0 && good.length / mine.length >= MIN_COMPLETED,
+    };
+  });
+  return rows.sort((a, b) => Number(b.ranked) - Number(a.ranked) || (b.onBrand ?? -1) - (a.onBrand ?? -1));
+}
+
+// Re-running only the failed runs: each retry replaces the run it repeats.
+export function mergeRetries(runs, retries) {
+  const key = (r) => `${r.model}|${r.brief}|${r.prompt}`;
+  const again = new Map(retries.map((r) => [key(r), r]));
+  return runs.map((r) => (!r.ok && again.has(key(r)) ? { ...again.get(key(r)), retried: true } : r));
 }

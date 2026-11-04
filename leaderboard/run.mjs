@@ -4,6 +4,9 @@
 // designlang and scored for brand fidelity and generic look.
 //
 //   ATLAS_API_KEY=... node leaderboard/run.mjs [--cap 25] [--models id,id] [--limit N]
+//   ATLAS_API_KEY=... node leaderboard/run.mjs --retry-failed results/<date>.json [--cap 5]
+// A reply with no usage at all is the provider giving up (a gateway timeout),
+// recorded as "no-response"; --retry-failed runs only the failed runs again.
 
 import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { createServer } from 'node:http';
@@ -11,7 +14,7 @@ import { join } from 'node:path';
 import { extractDesignLanguage } from '../src/index.js';
 import { parseBrand } from '../src/slop/brand.js';
 import { createBudget, BudgetExceeded, costOf } from './cost.js';
-import { classifyOutput, scoreRun, buildTable } from './core.js';
+import { classifyOutput, scoreRun, buildTable, mergeRetries } from './core.js';
 
 const here = new URL('.', import.meta.url).pathname;
 const arg = (n, d) => { const i = process.argv.indexOf(n); return i > -1 ? process.argv[i + 1] : d; };
@@ -61,7 +64,7 @@ async function generate(model, brief, prompt) {
         { role: 'user', content: `Here is the brand you are designing for. Follow it exactly.\n\n${brief.text}\n\nTask: ${prompt.prompt}` },
       ],
     }),
-    signal: AbortSignal.timeout(240_000),
+    signal: AbortSignal.timeout(600_000),
   });
   const body = await res.json().catch(() => ({}));
   if (body.usage) budget.charge(body.usage, model.id);
@@ -69,8 +72,13 @@ async function generate(model, brief, prompt) {
   return { text: body.choices?.[0]?.message?.content || '', usage: body.usage };
 }
 
+const retryFile = arg('--retry-failed');
+const previous = retryFile ? JSON.parse(readFileSync(join(here, retryFile.replace(/^leaderboard\//, '')), 'utf8')) : null;
 const jobs = [];
-for (const model of models) for (const brief of briefs) for (const prompt of prompts) jobs.push({ model, brief, prompt });
+for (const model of models) for (const brief of briefs) for (const prompt of prompts) {
+  if (previous && !previous.runs.some((r) => !r.ok && r.model === model.id && r.brief === brief.id && r.prompt === prompt.id)) continue;
+  jobs.push({ model, brief, prompt });
+}
 const runs = [];
 let next = 0;
 let stopped = false;
@@ -83,7 +91,7 @@ async function worker() {
       budget.check();
       const { text, usage } = await generate(model, brief, prompt);
       run.costUsd = Math.round(costOf(usage, model.id) * 10000) / 10000;
-      const out = classifyOutput(text);
+      const out = !usage && !text ? { ok: false, failure: 'no-response' } : classifyOutput(text);
       if (!out.ok) {
         Object.assign(run, out);
       } else {
@@ -104,7 +112,9 @@ async function worker() {
 await Promise.all(Array.from({ length: 4 }, worker));
 server.close();
 
-const result = { date, cap, spentUsd: Math.round(budget.spent() * 100) / 100, models, briefs: briefs.map((b) => ({ id: b.id, brand: b.brand })), prompts, runs, table: buildTable(runs, models) };
-writeFileSync(join(here, 'results', `${date}.json`), JSON.stringify(result, null, 2) + '\n');
+const allRuns = previous ? mergeRetries(previous.runs, runs) : runs;
+const spentUsd = Math.round(((previous?.spentUsd || 0) + budget.spent()) * 100) / 100;
+const result = { date: previous?.date || date, retriedAt: previous ? date : undefined, cap, spentUsd, models, briefs: briefs.map((b) => ({ id: b.id, brand: b.brand })), prompts, runs: allRuns, table: buildTable(allRuns, models) };
+writeFileSync(join(here, 'results', `${result.date}.json`), JSON.stringify(result, null, 2) + '\n');
 console.log(JSON.stringify(result.table, null, 1));
 console.log(`spent $${result.spentUsd}`);
