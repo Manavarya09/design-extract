@@ -43,7 +43,10 @@ function declaredBrandColors(cssVariables) {
     const m = BRAND_VAR_RE.exec(name);
     if (!m) continue;
     const parsed = parseColor(resolveVar(raw, cssVariables));
-    if (parsed && parsed.a > 0) found.push({ parsed, weight: BRAND_VAR_WEIGHT[m[1].toLowerCase()] });
+    // --color-brand names the brand; --color-brand-600 is one shade of a ramp
+    // built from it (supabase.com: brand #3ecf8e, brand-600 a dark green).
+    const shade = /-\d{2,4}$/.test(name);
+    if (parsed && parsed.a > 0) found.push({ parsed, weight: BRAND_VAR_WEIGHT[m[1].toLowerCase()] * (shade ? 0.5 : 1) });
   }
   return found;
 }
@@ -145,6 +148,7 @@ export function extractColors(computedStyles, { cssVariables } = {}) {
   // (4 buttons) beat the GOV.UK blue and a one-off #0066ff beat Framer Blue
   // used 44 times.
   //   interactive backgrounds: a strong signal, with diminishing returns
+  //   interactive text (links, text buttons): weaker, also diminishing
   //   chroma, not HSL saturation: near-black #002533 has s=100 but reads dark
   //   usage and painted area: a brand colour is repeated across the page
   // Evidence of use counts only in proportion to how colourful the cluster is:
@@ -166,6 +170,9 @@ export function extractColors(computedStyles, { cssVariables } = {}) {
     const colourful = Math.min(1, chroma / 30);
     return chroma + colourful * (
       40 * Math.log2(1 + c.interactiveBg)
+      // Links painted in a colour are the brand's voice across a page
+      // (atlassian.com: 27 blue links lost to 4 yellow buttons without this).
+      + 15 * Math.log2(1 + c.interactiveText)
       + 25 * Math.log10(Math.max(1, c.count))
       + 60 * Math.sqrt(c.areaShare || 0)
     ) + BRAND_VAR_BONUS * c.declared;
@@ -240,6 +247,17 @@ export function extractColors(computedStyles, { cssVariables } = {}) {
       count: c.count,
       areaShare: Math.round((c.areaShare || 0) * 1000) / 1000,
       contexts: [...new Set(c.members.flatMap(m => [...m.contexts]))],
+    })),
+    // Why the primary won: the top candidates and what counted for each.
+    ranking: ranked.slice(0, 6).map((c) => ({
+      hex: c.hex,
+      score: Math.round(brandScore(c) * 10) / 10,
+      chroma: Math.round(chromaOf(c)),
+      interactiveBg: c.interactiveBg,
+      interactiveText: c.interactiveText,
+      count: c.count,
+      areaShare: Math.round((c.areaShare || 0) * 1000) / 1000,
+      declared: c.declared,
     })),
     // Colours ranked by painted area — what the page actually looks like,
     // as opposed to what it declares most often.

@@ -31,8 +31,13 @@ function oklabToRgb(L, a, b) {
   let r = +4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s;
   let g = -1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s;
   let bl = -0.0041960863 * l - 0.7034186147 * m + 1.7076147010 * s;
-  // Clamp to [0,255]
-  const clamp = v => Math.round(Math.max(0, Math.min(1, v)) * 255);
+  // Linear light -> sRGB (gamma), then clamp to [0,255]. Without the gamma
+  // step every oklch/oklab colour read far too dark (mid grey came out #202020).
+  const encode = (v) => {
+    const c = Math.max(0, Math.min(1, v));
+    return c <= 0.0031308 ? 12.92 * c : 1.055 * Math.pow(c, 1 / 2.4) - 0.055;
+  };
+  const clamp = (v) => Math.round(Math.max(0, Math.min(1, encode(v))) * 255);
   return { r: clamp(r), g: clamp(g), b: clamp(bl) };
 }
 
@@ -48,6 +53,11 @@ export function parseColor(str) {
   str = str.trim().toLowerCase();
 
   if (NAMED_COLORS[str]) return { ...NAMED_COLORS[str] };
+
+  // Angle units on hues ("152.9deg") and percentage lightness in oklch/oklab
+  // ("62.8%") are valid CSS; reduce them to the bare numbers matched below.
+  str = str.replace(/(-?[\d.]+)deg\b/g, '$1');
+  str = str.replace(/^(okl(?:ch|ab)\(\s*)([\d.]+)%/, (m, head, l) => `${head}${+l / 100}`);
 
   // hex: #RGB, #RGBA, #RRGGBB, #RRGGBBAA
   if (str.startsWith('#')) {
