@@ -112,7 +112,8 @@ export function scoreOnBrand(design, brand) {
 }
 
 const ERROR_TEXT = /\b(403|404|429|500|502|503)\b|access denied|forbidden|page not found|just a moment|verify you are (a )?human|attention required|are you a robot|checking your browser|captcha|request blocked|site can.t be reached/i;
-const LOGIN_TEXT = /^(sign in|log in|login|sign into)\b|sign in to continue|log in to continue|please (sign|log) in/i;
+// A title that starts with "Sign in", or says sign-in is needed anywhere.
+const LOGIN_TEXT = /(?:^(?:sign in|log in|login|sign into)\b)|(?:sign in to continue|log in to continue|please (?:sign|log) in)/i;
 const CONSENT_TEXT = /before you continue|we value your privacy|cookie (consent|settings|preferences)|your privacy choices|consent to cookies/i;
 
 export function unreadable(design) {
