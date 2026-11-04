@@ -1,7 +1,8 @@
 {
   "date": "2026-11-04",
-  "cap": 25,
-  "spentUsd": 6.7,
+  "retriedAt": "2026-11-04",
+  "cap": 6,
+  "spentUsd": 14.25,
   "models": [
     {
       "id": "anthropic/claude-sonnet-5",
@@ -560,9 +561,11 @@
       "model": "google/gemini-4-argon",
       "brief": "ember",
       "prompt": "settings",
-      "costUsd": 0,
-      "ok": false,
-      "failure": "empty"
+      "costUsd": 0.0927,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 0,
+      "retried": true
     },
     {
       "model": "google/gemini-4-argon",
@@ -579,7 +582,8 @@
       "prompt": "landing",
       "costUsd": 0,
       "ok": false,
-      "failure": "empty"
+      "failure": "no-response",
+      "retried": true
     },
     {
       "model": "google/gemini-4-argon",
@@ -596,7 +600,8 @@
       "prompt": "dashboard",
       "costUsd": 0,
       "ok": false,
-      "failure": "empty"
+      "failure": "no-response",
+      "retried": true
     },
     {
       "model": "google/gemini-4-argon",
@@ -665,17 +670,21 @@
       "model": "google/gemini-4-argon",
       "brief": "koto",
       "prompt": "pricing",
-      "costUsd": 0,
-      "ok": false,
-      "failure": "empty"
+      "costUsd": 0.0808,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 0,
+      "retried": true
     },
     {
       "model": "google/gemini-4-argon",
       "brief": "halcyon",
       "prompt": "settings",
-      "costUsd": 0,
-      "ok": false,
-      "failure": "empty"
+      "costUsd": 0.0906,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 9,
+      "retried": true
     },
     {
       "model": "google/gemini-4-argon",
@@ -762,9 +771,11 @@
       "model": "moonshotai/kimi-k3.1-pro",
       "brief": "brightline",
       "prompt": "landing",
-      "costUsd": 0,
-      "ok": false,
-      "failure": "empty"
+      "costUsd": 0.0394,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 9,
+      "retried": true
     },
     {
       "model": "moonshotai/kimi-k3.1-pro",
@@ -788,9 +799,10 @@
       "model": "moonshotai/kimi-k3.1-pro",
       "brief": "ember",
       "prompt": "settings",
-      "costUsd": 0,
+      "costUsd": 0.1399,
       "ok": false,
-      "failure": "empty"
+      "failure": "not-html",
+      "retried": true
     },
     {
       "model": "moonshotai/kimi-k3.1-pro",
@@ -805,9 +817,11 @@
       "model": "moonshotai/kimi-k3.1-pro",
       "brief": "fernwood",
       "prompt": "pricing",
-      "costUsd": 0,
-      "ok": false,
-      "failure": "empty"
+      "costUsd": 0.049,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 9,
+      "retried": true
     },
     {
       "model": "moonshotai/kimi-k3.1-pro",
@@ -858,33 +872,38 @@
       "model": "moonshotai/kimi-k3.1-pro",
       "brief": "koto",
       "prompt": "pricing",
-      "costUsd": 0,
-      "ok": false,
-      "failure": "empty"
+      "costUsd": 0.1553,
+      "ok": true,
+      "onBrand": 93,
+      "generic": 0,
+      "retried": true
     },
     {
       "model": "zai-org/glm-5.3",
       "brief": "brightline",
       "prompt": "landing",
-      "costUsd": 0,
+      "costUsd": 0.4811,
       "ok": false,
-      "failure": "empty"
+      "failure": "not-html",
+      "retried": true
     },
     {
       "model": "zai-org/glm-5.3",
       "brief": "brightline",
       "prompt": "pricing",
-      "costUsd": 0,
+      "costUsd": 0.481,
       "ok": false,
-      "failure": "empty"
+      "failure": "not-html",
+      "retried": true
     },
     {
       "model": "zai-org/glm-5.3",
       "brief": "brightline",
       "prompt": "dashboard",
-      "costUsd": 0,
+      "costUsd": 0.4811,
       "ok": false,
-      "failure": "empty"
+      "failure": "not-html",
+      "retried": true
     },
     {
       "model": "zai-org/glm-5.3",
@@ -899,73 +918,85 @@
       "model": "zai-org/glm-5.3",
       "brief": "ember",
       "prompt": "landing",
-      "costUsd": 0,
+      "costUsd": 0.4812,
       "ok": false,
-      "failure": "empty"
+      "failure": "not-html",
+      "retried": true
     },
     {
       "model": "zai-org/glm-5.3",
       "brief": "ember",
       "prompt": "pricing",
-      "costUsd": 0,
+      "costUsd": 0.4811,
       "ok": false,
-      "failure": "empty"
+      "failure": "not-html",
+      "retried": true
     },
     {
       "model": "zai-org/glm-5.3",
       "brief": "ember",
       "prompt": "dashboard",
-      "costUsd": 0,
+      "costUsd": 0.4812,
       "ok": false,
-      "failure": "empty"
+      "failure": "not-html",
+      "retried": true
     },
     {
       "model": "zai-org/glm-5.3",
       "brief": "ember",
       "prompt": "settings",
-      "costUsd": 0,
-      "ok": false,
-      "failure": "empty"
+      "costUsd": 0.4294,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 0,
+      "retried": true
     },
     {
       "model": "zai-org/glm-5.3",
       "brief": "fernwood",
       "prompt": "landing",
-      "costUsd": 0,
+      "costUsd": 0.4812,
       "ok": false,
-      "failure": "empty"
+      "failure": "empty",
+      "retried": true
     },
     {
       "model": "zai-org/glm-5.3",
       "brief": "fernwood",
       "prompt": "pricing",
-      "costUsd": 0,
-      "ok": false,
-      "failure": "empty"
+      "costUsd": 0.1164,
+      "ok": true,
+      "onBrand": 95,
+      "generic": 0,
+      "retried": true
     },
     {
       "model": "zai-org/glm-5.3",
       "brief": "fernwood",
       "prompt": "dashboard",
-      "costUsd": 0,
+      "costUsd": 0.4812,
       "ok": false,
-      "failure": "empty"
+      "failure": "not-html",
+      "retried": true
     },
     {
       "model": "zai-org/glm-5.3",
       "brief": "fernwood",
       "prompt": "settings",
-      "costUsd": 0,
+      "costUsd": 0.4812,
       "ok": false,
-      "failure": "empty"
+      "failure": "not-html",
+      "retried": true
     },
     {
       "model": "zai-org/glm-5.3",
       "brief": "halcyon",
       "prompt": "landing",
-      "costUsd": 0,
-      "ok": false,
-      "failure": "empty"
+      "costUsd": 0.1011,
+      "ok": true,
+      "onBrand": 93,
+      "generic": 18,
+      "retried": true
     },
     {
       "model": "zai-org/glm-5.3",
@@ -1026,22 +1057,15 @@
   ],
   "table": [
     {
-      "model": "zai-org/glm-5.3",
-      "label": "GLM-5.3",
-      "vendor": "Zhipu AI",
-      "onBrand": 95,
-      "generic": 5,
-      "failures": 19,
-      "n": 20
-    },
-    {
       "model": "google/gemini-4-argon",
       "label": "Gemini 4 Argon",
       "vendor": "Google",
       "onBrand": 94,
       "generic": 4,
-      "failures": 5,
-      "n": 20
+      "failures": 2,
+      "n": 20,
+      "notRun": 0,
+      "ranked": true
     },
     {
       "model": "anthropic/claude-sonnet-5",
@@ -1050,7 +1074,20 @@
       "onBrand": 93,
       "generic": 1,
       "failures": 0,
-      "n": 20
+      "n": 20,
+      "notRun": 0,
+      "ranked": true
+    },
+    {
+      "model": "moonshotai/kimi-k3.1-pro",
+      "label": "Kimi K3.1 Pro",
+      "vendor": "Moonshot AI",
+      "onBrand": 92,
+      "generic": 2,
+      "failures": 1,
+      "n": 20,
+      "notRun": 0,
+      "ranked": true
     },
     {
       "model": "openai/gpt-6.1-sol",
@@ -1059,16 +1096,20 @@
       "onBrand": 91,
       "generic": 3,
       "failures": 0,
-      "n": 20
+      "n": 20,
+      "notRun": 0,
+      "ranked": true
     },
     {
-      "model": "moonshotai/kimi-k3.1-pro",
-      "label": "Kimi K3.1 Pro",
-      "vendor": "Moonshot AI",
-      "onBrand": 91,
-      "generic": 2,
-      "failures": 4,
-      "n": 20
+      "model": "zai-org/glm-5.3",
+      "label": "GLM-5.3",
+      "vendor": "Zhipu AI",
+      "onBrand": 95,
+      "generic": 6,
+      "failures": 16,
+      "n": 20,
+      "notRun": 0,
+      "ranked": false
     }
   ]
 }
