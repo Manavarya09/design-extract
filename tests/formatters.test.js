@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'fs';
 import { describe, it, before } from 'node:test';
 import assert from 'node:assert/strict';
@@ -1736,5 +1737,19 @@ describe('formatPreview safety', () => {
     assert.ok(!html.includes('<img src=x'));
     assert.ok(!/url\(javascript/i.test(html));
     assert.ok(!html.includes('background:url(x)'));
+  });
+});
+
+describe('credit line', () => {
+  it('adds one removable line to DESIGN.md, Tailwind config and Tailwind v4 CSS', async () => {
+    const { withCredit } = await import('../src/formatters/credit.js');
+    assert.match(withCredit('# Overview\n', 'md'), /\n\nMeasured with \[designlang\]\(https:\/\/designlang\.app\)\.\n$/);
+    assert.match(withCredit('module.exports = {}', 'js'), /^\/\/ Measured with designlang: https:\/\/designlang\.app\nmodule\.exports/);
+    assert.match(withCredit('@theme {}', 'css'), /^\/\* Measured with designlang/);
+    assert.equal(withCredit('x', 'json'), 'x');
+  });
+  it('the CLI offers --no-credit', () => {
+    const out = execFileSync('node', [new URL('../bin/design-extract.js', import.meta.url).pathname, '--help'], { encoding: 'utf-8' });
+    assert.ok(out.includes('--no-credit'));
   });
 });

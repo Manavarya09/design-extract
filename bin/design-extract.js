@@ -40,6 +40,7 @@ import { formatMotionWaapi } from '../src/formatters/motion-waapi.js';
 import { formatCssVars } from '../src/formatters/css-vars.js';
 import { formatOpenProps } from '../src/formatters/open-props.js';
 import { formatPreview } from '../src/formatters/preview.js';
+import { withCredit } from '../src/formatters/credit.js';
 import { formatFigma } from '../src/formatters/figma.js';
 import { formatReactTheme, formatShadcnTheme } from '../src/formatters/theme.js';
 import { formatWordPress, formatWordPressTheme } from '../src/formatters/wordpress.js';
@@ -146,6 +147,7 @@ program
   .option('--pages <n>', 'crawl N canonical pages (pricing/docs/blog/about/product) in addition to the homepage', parseInt)
   .option('--no-prompts', 'skip writing the prompt-pack directory')
   .option('--no-design-md', 'skip writing the agent-native DESIGN.md (single-file, 8-section, YAML front matter)')
+  .option('--no-credit', 'leave the one-line "Measured with designlang" credit out of DESIGN.md and the Tailwind files')
   .option('--responsive-shots', 'capture full-page PNGs at 4 breakpoints × (light,dark)')
   .option('--perf', 'measure Core Web Vitals + bundle profile (LCP/CLS/INP, JS/CSS/font/img bytes, third-party count)')
   .option('--palette <n>', 'compress the extracted palette to N perceptually distinct colours via LAB-space k-means (default: emit every unique colour)', parseInt)
@@ -379,8 +381,8 @@ program
       const files = [
         { name: `${prefix}-design-language.md`, content: formatMarkdown(design), label: 'Markdown (AI-optimized)' },
         { name: `${prefix}-design-tokens.json`, content: merged.tokensLegacy ? formatTokens(design) : JSON.stringify(formatDtcgTokens(design), null, 2), label: merged.tokensLegacy ? 'Design Tokens (legacy)' : 'Design Tokens (DTCG v1)' },
-        { name: `${prefix}-tailwind.config.js`, content: formatTailwind(design), label: 'Tailwind Config (v3)' },
-        { name: `${prefix}-tailwind-v4.css`,    content: formatTailwindV4(design), label: 'Tailwind v4 @theme (CSS-first)' },
+        { name: `${prefix}-tailwind.config.js`, content: opts.credit === false ? formatTailwind(design) : withCredit(formatTailwind(design), 'js'), label: 'Tailwind Config (v3)' },
+        { name: `${prefix}-tailwind-v4.css`,    content: opts.credit === false ? formatTailwindV4(design) : withCredit(formatTailwindV4(design), 'css'), label: 'Tailwind v4 @theme (CSS-first)' },
         { name: `${prefix}-tokens.d.ts`,        content: formatTsDefs(design),     label: 'TypeScript token types' },
         { name: `${prefix}-reset.css`,          content: formatCssReset(design),   label: 'Brand-aware CSS reset' },
         { name: `${prefix}-gradients.css`,      content: formatGradientsCss(design), label: 'Extracted gradients (utility classes)' },
@@ -441,7 +443,7 @@ program
       // 8-canonical-section convention; default-on, opt-out via --no-design-md).
       if (merged.designMd !== false) {
         const { formatDesignMd } = await import('../src/formatters/design-md.js');
-        files.push({ name: `${prefix}-DESIGN.md`, content: formatDesignMd(design), label: 'DESIGN.md (agent-native)' });
+        files.push({ name: `${prefix}-DESIGN.md`, content: opts.credit === false ? formatDesignMd(design) : withCredit(formatDesignMd(design), 'md'), label: 'DESIGN.md (agent-native)' });
       }
 
       // v10: page intent + section roles + visual DNA + component library + multi-page + prompt pack.
