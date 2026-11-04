@@ -96,3 +96,21 @@ test('next/font family names count as the face they wrap', async () => {
   assert.equal(plainFamily('__Inter_Fallback_d65c78'), 'Inter');
   assert.equal(plainFamily('Inter Variable'), 'Inter');
 });
+
+test('a page served with an error status is unreadable whatever its title says', async () => {
+  const { createServer } = await import('node:http');
+  const { extractDesignLanguage } = await import('../src/index.js');
+  const server = createServer((req, res) => {
+    res.statusCode = 503;
+    res.setHeader('content-type', 'text/html');
+    res.end('<!doctype html><html><head><title>Acme</title><style>body{font-family:Georgia;background:#fff}h1{color:#9c2f1c}</style></head><body><h1>Acme is getting better</h1><p>Back soon, with more things to show you and more.</p></body></html>');
+  });
+  await new Promise((r) => server.listen(0, '127.0.0.1', r));
+  try {
+    const d = await extractDesignLanguage(`http://127.0.0.1:${server.address().port}/`);
+    assert.equal(d.meta.status, 503);
+    assert.deepEqual(unreadable(d), { reason: 'error-page' });
+  } finally {
+    server.close();
+  }
+});

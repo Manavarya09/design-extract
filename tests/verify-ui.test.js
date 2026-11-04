@@ -80,3 +80,11 @@ test('the verify_ui MCP tool measures with the injected browser and reports issu
   assert.ok(Array.isArray(r.issues));
   await assert.rejects(t.call('verify_ui', { url: 'localhost:3000' }), /brand/);
 });
+
+test('an error, login or blank page is reported as unreadable, not as brand drift', () => {
+  const err = page({ meta: { title: '500 Internal Server Error', status: 500 } });
+  const r = verifyReport({ shots: [{ viewport: 1280, scheme: 'light', state: 'default', design: err }], brand });
+  assert.equal(r.pass, false);
+  assert.deepEqual(r.unreadable, { reason: 'error-page', viewport: 1280 });
+  assert.deepEqual(r.issues, []);
+});

@@ -10,8 +10,7 @@ const MAX_ELEMENTS = 5000;
 async function gotoWithRetry(page, url, opts, retries = 3) {
   for (let i = 0; i < retries; i++) {
     try {
-      await page.goto(url, opts);
-      return;
+      return await page.goto(url, opts);
     } catch (err) {
       if (i === retries - 1) throw err;
       await page.waitForTimeout(2000 * (i + 1));
@@ -107,7 +106,10 @@ export async function crawlPage(url, options = {}) {
       await page.coverage.startCSSCoverage();
     } catch { cssCoverageAvailable = false; }
 
-    await gotoWithRetry(page, url, { waitUntil: 'domcontentloaded', timeout: 30000 });
+    // The HTTP status of the page itself: a 404 or 503 page is not the site's
+    // design, whatever its title says.
+    const mainResponse = await gotoWithRetry(page, url, { waitUntil: 'domcontentloaded', timeout: 30000 });
+    const status = mainResponse ? mainResponse.status() : null;
     // Wait for network to settle — but don't hang on sites with persistent connections
     await page.waitForLoadState('networkidle', { timeout: NETWORK_IDLE_MS }).catch(() => {});
     if (wait > 0) await page.waitForTimeout(wait);
@@ -244,7 +246,7 @@ export async function crawlPage(url, options = {}) {
     }
 
     return {
-      url, title,
+      url, title, status,
       light: lightData,
       dark: darkData,
       interactState,

@@ -1290,6 +1290,12 @@ program
       process.exit(exitCodeForError(err));
     }
     spinner?.stop();
+    if (report.unreadable) {
+      const why = { 'error-page': 'an error page', 'login-wall': 'a sign-in page', 'consent-wall': 'a cookie wall', blank: 'a blank page' }[report.unreadable.reason] || 'something other than your screen';
+      if (opts.json) return writeThenExit(process.stdout, JSON.stringify(report, null, 2) + '\n', EXIT.EXTRACTION_FAILED);
+      console.log(`\n  ${chalk.yellow("Couldn't check this page:")} at ${report.unreadable.viewport}px it showed ${why}. Fix that first, then check again.\n`);
+      process.exit(EXIT.EXTRACTION_FAILED);
+    }
     if (opts.json) return writeThenExit(process.stdout, JSON.stringify(report, null, 2) + '\n', report.pass ? EXIT.OK : EXIT.DRIFT);
     console.log('');
     console.log(`  ${report.pass ? chalk.green.bold('PASS') : chalk.red.bold('FAIL')}  ${chalk.bold('On brand')} ${report.onBrand}/100   ${chalk.bold('Generic look')} ${report.generic}/100`);

@@ -4,7 +4,7 @@
 // Local Chromium, so localhost and dev servers work. The hosted version adds
 // fix suggestions on top of this report.
 
-import { scoreGeneric, scoreOnBrand } from '../slop/index.js';
+import { scoreGeneric, scoreOnBrand, unreadable } from '../slop/index.js';
 
 export const VIEWPORTS = [390, 768, 1280];
 const ERROR_TOKENS = new Set(['color.primary', 'font.family']);
@@ -37,6 +37,14 @@ function radiusOwner(design, px) {
 }
 
 export function verifyReport({ shots, brand }) {
+  // A dev-server error overlay, a 500 or a login redirect is not the screen
+  // that was built; drift measured on it would send the editor the wrong way.
+  for (const shot of shots) {
+    const blocked = unreadable(shot.design);
+    if (blocked) {
+      return { pass: false, onBrand: null, generic: null, tells: [], issues: [], unreadable: { reason: blocked.reason, viewport: shot.viewport } };
+    }
+  }
   const byKey = new Map();
   const onBrandScores = [];
   for (const shot of shots) {

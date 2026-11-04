@@ -61,6 +61,7 @@ export async function extractDesignLanguage(url, options = {}) {
     meta: {
       url: rawData.url,
       title: rawData.title,
+      ...(Number.isInteger(rawData.status) ? { status: rawData.status } : {}),
       timestamp: new Date().toISOString(),
       elementCount: styles.length,
       pagesAnalyzed: rawData.pagesAnalyzed || 1,
