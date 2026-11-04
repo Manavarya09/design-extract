@@ -1,0 +1,1 @@
+# Domains whose owners asked to be left out of the Design Index. One per line.
