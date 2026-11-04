@@ -40,6 +40,8 @@ const server = createServer((req, res) => {
   const html = pages.get(req.url);
   if (!html) { res.statusCode = 404; return res.end(); }
   res.setHeader('content-type', 'text/html; charset=utf-8');
+  // Model-written pages are untrusted: no scripts, no network beyond Google Fonts.
+  res.setHeader('content-security-policy', "default-src 'none'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src data:; script-src 'none'; connect-src 'none'; frame-src 'none'; form-action 'none'");
   res.end(html);
 });
 await new Promise((r) => server.listen(0, '127.0.0.1', r));
