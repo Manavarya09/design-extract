@@ -1147,3 +1147,25 @@ describe('color ramps and pairs', () => {
     assert.ok(colors.pairs.length > 0);
   });
 });
+
+describe('extractSpacing: weighted by use', () => {
+  // Stripe-shaped: a few 1px hairlines and one-off values, but most spacing
+  // on a 4px grid with 8px multiples dominating.
+  const els = [];
+  const add = (n, css) => { for (let i = 0; i < n; i++) els.push(makeEl(css)); };
+  add(40, { paddingTop: '8px', paddingBottom: '8px', paddingLeft: '16px', paddingRight: '16px' });
+  add(30, { marginBottom: '24px', gap: '16px' });
+  add(20, { paddingTop: '32px', paddingBottom: '32px' });
+  add(10, { marginTop: '48px', gap: '12px' });
+  add(6, { paddingTop: '4px', paddingLeft: '4px' });
+  add(3, { marginTop: '1px', marginBottom: '1px' });
+  add(1, { marginTop: '366px', paddingTop: '13px', paddingLeft: '2px' });
+
+  it('finds the grid people actually use, not the hairlines', () => {
+    const s = extractSpacing(els);
+    assert.ok([4, 8].includes(s.base), `base ${s.base}`);
+    assert.ok(!s.scale.includes(1), `scale ${s.scale}`);
+    for (const v of [8, 16, 24, 32]) assert.ok(s.scale.includes(v), `${v} missing from ${s.scale}`);
+    assert.ok(!s.scale.includes(366), 'one-off values stay out of the scale');
+  });
+});
