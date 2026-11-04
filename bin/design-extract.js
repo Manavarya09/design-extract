@@ -1254,6 +1254,58 @@ program
     console.log('');
   });
 
+// ── Verify a built UI against the brand ─────────────────────
+program
+  .command('verify-ui <url>')
+  .description('Check a UI against your brand at 390, 768 and 1280px (and dark mode): pass/fail, on-brand score, generic-AI-look score, and every drift with expected and actual values. localhost works.')
+  .requiredOption('--brand <file|id>', 'DESIGN.md or tokens file, or your brand id from designlang.app/brand (with DESIGNLANG_BRAND_TOKEN)')
+  .option('--viewports <list>', 'comma-separated widths', '390,768,1280')
+  .option('--json', 'emit machine-readable JSON')
+  .action(async (url, opts) => {
+    const { EXIT, writeThenExit, exitCodeForError } = await import('../src/exit-codes.js');
+    const { normalizeUrl } = await import('../src/mcp/extract-tools.js');
+    const { measureUi, verifyReport, verifyWithBrandFile } = await import('../src/verify/ui.js');
+    const { loadBrand } = await import('../src/verify/brand-source.js');
+    const clean = (v) => String(v ?? '').replace(/[\u0000-\u001f\u007f-\u009f]/g, ' ');
+    let brand;
+    try { brand = await loadBrand(opts.brand); } catch (err) {
+      process.stderr.write(chalk.red(`\n  ${err.message}\n\n`));
+      process.exit(EXIT.EXTRACTION_FAILED);
+    }
+    const viewports = String(opts.viewports).split(',').map(Number).filter((n) => n >= 280 && n <= 2560);
+    const target = normalizeUrl(url);
+    const spinner = opts.json ? null : ora(`Rendering ${target} at ${viewports.join(', ')}px...`).start();
+    let report;
+    try {
+      const { shots } = await measureUi(target, { viewports });
+      const token = process.env.DESIGNLANG_BRAND_TOKEN;
+      report = token && /^[0-9a-f-]{36}$/i.test(opts.brand)
+        ? await verifyWithBrandFile({ shots, brandId: opts.brand, token, brand, api: process.env.DESIGNLANG_API || undefined })
+        : verifyReport({ shots, brand });
+    } catch (err) {
+      spinner?.fail("Couldn't render the page");
+      process.stderr.write(chalk.red(`\n  ${err.message}\n\n`));
+      process.exit(exitCodeForError(err));
+    }
+    spinner?.stop();
+    if (opts.json) return writeThenExit(process.stdout, JSON.stringify(report, null, 2) + '\n', report.pass ? EXIT.OK : EXIT.DRIFT);
+    console.log('');
+    console.log(`  ${report.pass ? chalk.green.bold('PASS') : chalk.red.bold('FAIL')}  ${chalk.bold('On brand')} ${report.onBrand}/100   ${chalk.bold('Generic look')} ${report.generic}/100`);
+    console.log(chalk.gray(`  ${target}`));
+    console.log('');
+    if (!report.issues.length) console.log(chalk.green('  No drift from the brand.'));
+    for (const i of report.issues) {
+      const tone = i.severity === 'error' ? chalk.red : chalk.yellow;
+      console.log(`  ${tone('●')} ${chalk.bold(clean(i.where))} ${chalk.gray(`${i.viewports.join('/')}px ${i.scheme}`)}  expected ${chalk.bold(clean(i.expected))}, found ${chalk.bold(clean(i.actual ?? 'nothing'))}`);
+      if (i.fix) console.log(chalk.gray(`      fix: ${clean(i.fix)}`));
+    }
+    for (const t of report.tells || []) console.log(`  ${chalk.magenta('●')} ${chalk.bold(clean(t.label))} ${chalk.gray('(generic AI tell)')}`);
+    if (report.notice) console.log(chalk.yellow(`\n  ${clean(report.notice)}`));
+    if (!report.hosted && !report.pass) console.log(chalk.gray('\n  Fix suggestions for each issue come with designlang Pro: https://designlang.app/pricing'));
+    console.log('');
+    process.exit(report.pass ? EXIT.OK : EXIT.DRIFT);
+  });
+
 // ── Stats command — fast stdout summary, no files written ──
 program
   .command('stats <urls...>')

@@ -243,3 +243,10 @@ describe('designlang slop', () => {
     }
   });
 });
+
+describe('designlang verify-ui', () => {
+  it('requires --brand and lists --viewports and --json', () => {
+    const out = execFileSync('node', [CLI_PATH, 'verify-ui', '--help'], { encoding: 'utf-8' });
+    for (const flag of ['--brand', '--viewports', '--json']) assert.ok(out.includes(flag), flag);
+  });
+});
