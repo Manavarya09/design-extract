@@ -14,6 +14,8 @@ import { formatCssVars } from '../formatters/css-vars.js';
 import { formatDesignMd } from '../formatters/design-md.js';
 import { diffDesigns } from '../diff.js';
 import { lintTokens } from '../lint.js';
+import { measureUi, verifyReport, verifyWithBrandFile } from '../verify/ui.js';
+import { loadBrand } from '../verify/brand-source.js';
 
 const EXPORTERS = {
   dtcg: formatDtcgTokens,
@@ -52,6 +54,19 @@ const TOOL_DEFS = [
       required: ['url'],
     },
   },
+  {
+    name: 'verify_ui',
+    description: 'Check a UI you just built against the brand: renders the URL (localhost works) at 390, 768 and 1280px and in dark mode, then returns pass/fail, an on-brand score (0-100, pass at 85), a generic-AI-look score, and every place it drifts from the brand (where, viewport, expected, actual). Fix the issues and call it again until pass is true. Takes 20-60 seconds.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        url: { type: 'string', description: 'page to check, e.g. http://localhost:3000/pricing' },
+        brand: { type: 'string', description: 'path to a DESIGN.md or tokens file, or your brand id from designlang.app/brand (needs DESIGNLANG_BRAND_TOKEN)' },
+        viewports: { type: 'array', items: { type: 'number' }, description: 'widths to check (default [390, 768, 1280])' },
+      },
+      required: ['url', 'brand'],
+    },
+  },
   { name: 'get_job_status', description: 'Status of an extraction job (running, done, failed, cancelled). A done job includes a short summary: primary colour, font families, counts.', inputSchema: jobIdOnly },
   { name: 'list_jobs', description: 'All extraction jobs in this session.', inputSchema: { type: 'object', properties: {} } },
   { name: 'cancel_job', description: 'Cancel a running extraction job; its result is discarded.', inputSchema: jobIdOnly },
@@ -87,8 +102,11 @@ const TOOL_DEFS = [
 ];
 
 function normalizeUrl(url) {
-  return /^https?:\/\//i.test(url) ? url : `https://${url}`;
+  if (/^https?:\/\//i.test(url)) return url;
+  // Dev servers speak plain http.
+  return /^(localhost|127\.0\.0\.1|\[::1\]|[^/]+\.localhost)(:|\/|$)/i.test(url) ? `http://${url}` : `https://${url}`;
 }
+export { normalizeUrl };
 
 function summarize(design) {
   return {
@@ -102,9 +120,8 @@ function summarize(design) {
 }
 
 export function buildExtractTools({ extract, jobs } = {}) {
-  const store = jobs || createJobStore({
-    extract: extract || (async (url, options) => (await import('../index.js')).extractDesignLanguage(url, options)),
-  });
+  const extractFn = extract || (async (url, options) => (await import('../index.js')).extractDesignLanguage(url, options));
+  const store = jobs || createJobStore({ extract: extractFn });
 
   function finished(jobId) {
     if (typeof jobId !== 'string') throw rpcError(-32602, 'job_id must be a string');
@@ -133,6 +150,19 @@ export function buildExtractTools({ extract, jobs } = {}) {
       for (const k of ['width', 'height', 'wait']) if (typeof args[k] === 'number') options[k] = args[k];
       if (args.dark === true) options.dark = true;
       return store.start(normalizeUrl(args.url.trim()), options);
+    },
+    async verify_ui(args) {
+      if (typeof args.url !== 'string' || !args.url.trim()) throw rpcError(-32602, 'verify_ui: url must be a non-empty string');
+      if (typeof args.brand !== 'string' || !args.brand.trim()) throw rpcError(-32602, 'verify_ui: brand must be a file path or a brand id');
+      let brand;
+      try { brand = await loadBrand(args.brand.trim()); } catch (err) { throw rpcError(-32602, `verify_ui: ${err.message}`); }
+      const viewports = Array.isArray(args.viewports) && args.viewports.every((n) => Number.isFinite(n) && n >= 280 && n <= 2560) ? args.viewports : undefined;
+      const { shots } = await measureUi(normalizeUrl(args.url.trim()), { extract: extractFn, ...(viewports && { viewports }) });
+      const token = process.env.DESIGNLANG_BRAND_TOKEN;
+      if (token && /^[0-9a-f-]{36}$/i.test(args.brand.trim())) {
+        return verifyWithBrandFile({ shots, brandId: args.brand.trim(), token, brand, api: process.env.DESIGNLANG_API || undefined });
+      }
+      return verifyReport({ shots, brand });
     },
     get_job_status(args) {
       const job = store.get(args.job_id);

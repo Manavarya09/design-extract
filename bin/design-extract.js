@@ -40,6 +40,7 @@ import { formatMotionWaapi } from '../src/formatters/motion-waapi.js';
 import { formatCssVars } from '../src/formatters/css-vars.js';
 import { formatOpenProps } from '../src/formatters/open-props.js';
 import { formatPreview } from '../src/formatters/preview.js';
+import { withCredit } from '../src/formatters/credit.js';
 import { formatFigma } from '../src/formatters/figma.js';
 import { formatReactTheme, formatShadcnTheme } from '../src/formatters/theme.js';
 import { formatWordPress, formatWordPressTheme } from '../src/formatters/wordpress.js';
@@ -146,6 +147,7 @@ program
   .option('--pages <n>', 'crawl N canonical pages (pricing/docs/blog/about/product) in addition to the homepage', parseInt)
   .option('--no-prompts', 'skip writing the prompt-pack directory')
   .option('--no-design-md', 'skip writing the agent-native DESIGN.md (single-file, 8-section, YAML front matter)')
+  .option('--no-credit', 'leave the one-line "Measured with designlang" credit out of DESIGN.md and the Tailwind files')
   .option('--responsive-shots', 'capture full-page PNGs at 4 breakpoints × (light,dark)')
   .option('--perf', 'measure Core Web Vitals + bundle profile (LCP/CLS/INP, JS/CSS/font/img bytes, third-party count)')
   .option('--palette <n>', 'compress the extracted palette to N perceptually distinct colours via LAB-space k-means (default: emit every unique colour)', parseInt)
@@ -379,8 +381,8 @@ program
       const files = [
         { name: `${prefix}-design-language.md`, content: formatMarkdown(design), label: 'Markdown (AI-optimized)' },
         { name: `${prefix}-design-tokens.json`, content: merged.tokensLegacy ? formatTokens(design) : JSON.stringify(formatDtcgTokens(design), null, 2), label: merged.tokensLegacy ? 'Design Tokens (legacy)' : 'Design Tokens (DTCG v1)' },
-        { name: `${prefix}-tailwind.config.js`, content: formatTailwind(design), label: 'Tailwind Config (v3)' },
-        { name: `${prefix}-tailwind-v4.css`,    content: formatTailwindV4(design), label: 'Tailwind v4 @theme (CSS-first)' },
+        { name: `${prefix}-tailwind.config.js`, content: opts.credit === false ? formatTailwind(design) : withCredit(formatTailwind(design), 'js'), label: 'Tailwind Config (v3)' },
+        { name: `${prefix}-tailwind-v4.css`,    content: opts.credit === false ? formatTailwindV4(design) : withCredit(formatTailwindV4(design), 'css'), label: 'Tailwind v4 @theme (CSS-first)' },
         { name: `${prefix}-tokens.d.ts`,        content: formatTsDefs(design),     label: 'TypeScript token types' },
         { name: `${prefix}-reset.css`,          content: formatCssReset(design),   label: 'Brand-aware CSS reset' },
         { name: `${prefix}-gradients.css`,      content: formatGradientsCss(design), label: 'Extracted gradients (utility classes)' },
@@ -441,7 +443,7 @@ program
       // 8-canonical-section convention; default-on, opt-out via --no-design-md).
       if (merged.designMd !== false) {
         const { formatDesignMd } = await import('../src/formatters/design-md.js');
-        files.push({ name: `${prefix}-DESIGN.md`, content: formatDesignMd(design), label: 'DESIGN.md (agent-native)' });
+        files.push({ name: `${prefix}-DESIGN.md`, content: opts.credit === false ? formatDesignMd(design) : withCredit(formatDesignMd(design), 'md'), label: 'DESIGN.md (agent-native)' });
       }
 
       // v10: page intent + section roles + visual DNA + component library + multi-page + prompt pack.
@@ -1181,6 +1183,135 @@ program
       console.error(chalk.red(`\n  ${err.message}\n`));
       process.exit(1);
     }
+  });
+
+// ── Slop Score — how generic (AI-made) a page looks ─────────
+program
+  .command('slop <url>')
+  .description('Score how generic a page looks: the known AI-design tells, each with what was measured and where')
+  .option('--brand <file>', 'also score how close the page is to a brand (DESIGN.md, DTCG tokens JSON, or { colors, fonts, radii } JSON)')
+  .option('--json', 'emit machine-readable JSON')
+  .action(async (url, opts) => {
+    const { EXIT, writeThenExit, exitCodeForError } = await import('../src/exit-codes.js');
+    const { scoreGeneric, scoreOnBrand, unreadable } = await import('../src/slop/index.js');
+    if (!/^https?:\/\//.test(url)) url = `https://${url}`;
+    validateUrl(url);
+    let brand = null;
+    if (opts.brand) {
+      const { parseBrand } = await import('../src/slop/brand.js');
+      try {
+        brand = parseBrand(readFileSync(resolve(opts.brand), 'utf-8'), opts.brand);
+      } catch (err) {
+        process.stderr.write(chalk.red(`\n  Couldn't read the brand file: ${err.message}\n\n`));
+        process.exit(EXIT.EXTRACTION_FAILED);
+      }
+    }
+    const spinner = opts.json ? null : ora('Reading the page in a real browser...').start();
+    let design;
+    try {
+      design = await extractDesignLanguage(url);
+    } catch (err) {
+      spinner?.fail("Couldn't read the page");
+      if (opts.json) return writeThenExit(process.stdout, JSON.stringify({ url, error: err.message }) + '\n', exitCodeForError(err));
+      process.stderr.write(chalk.red(`\n  ${err.message}\n\n`));
+      process.exit(exitCodeForError(err));
+    }
+    spinner?.stop();
+    const blocked = unreadable(design);
+    if (blocked) {
+      const words = { 'error-page': 'an error or bot-check page', 'consent-wall': 'a cookie consent wall', 'login-wall': 'a sign-in page', blank: 'a blank page' };
+      if (opts.json) return writeThenExit(process.stdout, JSON.stringify({ url, unreadable: blocked }) + '\n', EXIT.EXTRACTION_FAILED);
+      console.log(`\n  ${chalk.yellow("Couldn't score this page:")} it showed ${words[blocked.reason]}, so there is nothing real to measure.\n`);
+      process.exit(EXIT.EXTRACTION_FAILED);
+    }
+    const generic = scoreGeneric(design);
+    const onBrand = brand ? scoreOnBrand(design, brand) : null;
+    if (opts.json) {
+      return writeThenExit(process.stdout, JSON.stringify({ url, readAt: design.meta?.timestamp, generic, ...(onBrand ? { onBrand } : {}), unreadable: null }, null, 2) + '\n', EXIT.OK);
+    }
+    // Page text is untrusted: drop control characters so it can't drive the terminal.
+    const clean = (v) => String(v ?? '').replace(/[\u0000-\u001f\u007f-\u009f]/g, ' ');
+    const tone = generic.band === 'generic' ? chalk.red : generic.band === 'mixed' ? chalk.yellow : chalk.green;
+    const words = { generic: 'Looks generic', mixed: 'Some generic tells', distinct: 'Looks distinct' };
+    console.log('');
+    console.log(chalk.bold('  Slop Score') + chalk.gray(`  ${url}`));
+    console.log('');
+    const bar = '█'.repeat(Math.round(generic.score / 5)) + '░'.repeat(20 - Math.round(generic.score / 5));
+    console.log(`  ${tone(bar)} ${tone.bold(`${generic.score}/100`)}  ${words[generic.band]}`);
+    console.log(chalk.gray('  0 is distinct, 100 is every known AI-design tell at once.'));
+    console.log('');
+    if (!generic.flags.length) console.log(chalk.green('  No generic tells found.'));
+    for (const f of generic.flags) {
+      console.log(`  ${tone('●')} ${chalk.bold(f.label)}`);
+      for (const e of f.evidence.slice(0, 3)) console.log(chalk.gray(`      ${clean(e.where)}: `) + clean(e.value));
+    }
+    if (onBrand) {
+      console.log('');
+      const bt = onBrand.score >= 85 ? chalk.green : onBrand.score >= 65 ? chalk.yellow : chalk.red;
+      console.log(`  ${chalk.bold('On brand')} ${bt.bold(`${onBrand.score}/100`)}`);
+      for (const d of onBrand.diffs.slice(0, 8)) console.log(chalk.gray(`      ${d.token}: `) + `expected ${clean(d.expected)}, found ${d.actual == null ? 'nothing' : clean(d.actual)}`);
+    }
+    console.log('');
+    console.log(chalk.gray(`  Share it: https://designlang.app/slop?url=${encodeURIComponent(url)}`));
+    console.log('');
+  });
+
+// ── Verify a built UI against the brand ─────────────────────
+program
+  .command('verify-ui <url>')
+  .description('Check a UI against your brand at 390, 768 and 1280px (and dark mode): pass/fail, on-brand score, generic-AI-look score, and every drift with expected and actual values. localhost works.')
+  .requiredOption('--brand <file|id>', 'DESIGN.md or tokens file, or your brand id from designlang.app/brand (with DESIGNLANG_BRAND_TOKEN)')
+  .option('--viewports <list>', 'comma-separated widths', '390,768,1280')
+  .option('--json', 'emit machine-readable JSON')
+  .action(async (url, opts) => {
+    const { EXIT, writeThenExit, exitCodeForError } = await import('../src/exit-codes.js');
+    const { normalizeUrl } = await import('../src/mcp/extract-tools.js');
+    const { measureUi, verifyReport, verifyWithBrandFile } = await import('../src/verify/ui.js');
+    const { loadBrand } = await import('../src/verify/brand-source.js');
+    const clean = (v) => String(v ?? '').replace(/[\u0000-\u001f\u007f-\u009f]/g, ' ');
+    let brand;
+    try { brand = await loadBrand(opts.brand); } catch (err) {
+      process.stderr.write(chalk.red(`\n  ${err.message}\n\n`));
+      process.exit(EXIT.EXTRACTION_FAILED);
+    }
+    const viewports = String(opts.viewports).split(',').map(Number).filter((n) => n >= 280 && n <= 2560);
+    const target = normalizeUrl(url);
+    const spinner = opts.json ? null : ora(`Rendering ${target} at ${viewports.join(', ')}px...`).start();
+    let report;
+    try {
+      const { shots } = await measureUi(target, { viewports });
+      const token = process.env.DESIGNLANG_BRAND_TOKEN;
+      report = token && /^[0-9a-f-]{36}$/i.test(opts.brand)
+        ? await verifyWithBrandFile({ shots, brandId: opts.brand, token, brand, api: process.env.DESIGNLANG_API || undefined })
+        : verifyReport({ shots, brand });
+    } catch (err) {
+      spinner?.fail("Couldn't render the page");
+      process.stderr.write(chalk.red(`\n  ${err.message}\n\n`));
+      process.exit(exitCodeForError(err));
+    }
+    spinner?.stop();
+    if (report.unreadable) {
+      const why = { 'error-page': 'an error page', 'login-wall': 'a sign-in page', 'consent-wall': 'a cookie wall', blank: 'a blank page' }[report.unreadable.reason] || 'something other than your screen';
+      if (opts.json) return writeThenExit(process.stdout, JSON.stringify(report, null, 2) + '\n', EXIT.EXTRACTION_FAILED);
+      console.log(`\n  ${chalk.yellow("Couldn't check this page:")} at ${report.unreadable.viewport}px it showed ${why}. Fix that first, then check again.\n`);
+      process.exit(EXIT.EXTRACTION_FAILED);
+    }
+    if (opts.json) return writeThenExit(process.stdout, JSON.stringify(report, null, 2) + '\n', report.pass ? EXIT.OK : EXIT.DRIFT);
+    console.log('');
+    console.log(`  ${report.pass ? chalk.green.bold('PASS') : chalk.red.bold('FAIL')}  ${chalk.bold('On brand')} ${report.onBrand}/100   ${chalk.bold('Generic look')} ${report.generic}/100`);
+    console.log(chalk.gray(`  ${target}`));
+    console.log('');
+    if (!report.issues.length) console.log(chalk.green('  No drift from the brand.'));
+    for (const i of report.issues) {
+      const tone = i.severity === 'error' ? chalk.red : chalk.yellow;
+      console.log(`  ${tone('●')} ${chalk.bold(clean(i.where))} ${chalk.gray(`${i.viewports.join('/')}px ${i.scheme}`)}  expected ${chalk.bold(clean(i.expected))}, found ${chalk.bold(clean(i.actual ?? 'nothing'))}`);
+      if (i.fix) console.log(chalk.gray(`      fix: ${clean(i.fix)}`));
+    }
+    for (const t of report.tells || []) console.log(`  ${chalk.magenta('●')} ${chalk.bold(clean(t.label))} ${chalk.gray('(generic AI tell)')}`);
+    if (report.notice) console.log(chalk.yellow(`\n  ${clean(report.notice)}`));
+    if (!report.hosted && !report.pass) console.log(chalk.gray('\n  Fix suggestions for each issue come with designlang Pro: https://designlang.app/pricing'));
+    console.log('');
+    process.exit(report.pass ? EXIT.OK : EXIT.DRIFT);
   });
 
 // ── Stats command — fast stdout summary, no files written ──

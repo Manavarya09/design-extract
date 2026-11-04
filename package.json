@@ -1,6 +1,6 @@
 {
   "name": "designlang",
-  "version": "13.3.2",
+  "version": "13.4.0",
   "description": "Extract the complete design language from any website and ship it — clone to a working Next.js starter, guard tokens with a CI drift bot, or browse everything in a local studio. Outputs W3C DTCG tokens, motion tokens, typed anatomy stubs, Tailwind config, and ready-to-paste v0 / Lovable / Cursor / Claude-Artifacts prompts.",
   "type": "module",
   "bin": {
@@ -11,7 +11,8 @@
     ".": "./src/index.js",
     "./api": "./src/api.js",
     "./mcp": "./src/mcp/index.js",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./slop": "./src/slop/index.js"
   },
   "scripts": {
     "start": "node bin/design-extract.js",
@@ -69,5 +70,6 @@
   "homepage": "https://designlang.app",
   "bugs": {
     "url": "https://github.com/Manavarya09/design-extract/issues"
-  }
+  },
+  "mcpName": "io.github.manavarya09/designlang"
 }

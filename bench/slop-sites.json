@@ -1,0 +1,207 @@
+{
+  "method": "human: sites from companies and studios with in-house design teams, most designed before AI site builders existed. ai: public landing pages announced as built with an AI app builder (Lovable, v0, Bolt and others), with the source of that claim.",
+  "human": [
+    "https://www.apple.com",
+    "https://www.airbnb.com",
+    "https://stripe.com",
+    "https://linear.app",
+    "https://www.figma.com",
+    "https://www.notion.com",
+    "https://open.spotify.com",
+    "https://www.nytimes.com",
+    "https://www.theguardian.com/uk",
+    "https://www.bbc.co.uk",
+    "https://www.gov.uk",
+    "https://mailchimp.com",
+    "https://www.dropbox.com",
+    "https://slack.com",
+    "https://www.shopify.com",
+    "https://www.pentagram.com",
+    "https://www.collinsnyc.com",
+    "https://www.wolffolins.com",
+    "https://www.ideo.com",
+    "https://basecamp.com",
+    "https://www.nike.com",
+    "https://www.patagonia.com",
+    "https://www.aesop.com",
+    "https://www.ikea.com/gb/en/",
+    "https://www.lego.com/en-gb",
+    "https://monzo.com",
+    "https://wise.com",
+    "https://www.duolingo.com",
+    "https://www.headspace.com",
+    "https://www.mozilla.org",
+    "https://www.wikipedia.org",
+    "https://medium.com",
+    "https://www.etsy.com",
+    "https://www.kickstarter.com",
+    "https://vimeo.com",
+    "https://www.squarespace.com",
+    "https://panic.com",
+    "https://teenage.engineering",
+    "https://www.are.na",
+    "https://www.itsnicethat.com",
+    "https://www.dezeen.com",
+    "https://www.vitsoe.com",
+    "https://area17.com",
+    "https://www.instrument.com",
+    "https://pitch.com",
+    "https://www.raycast.com",
+    "https://www.porsche.com/international/",
+    "https://www.muji.com/uk/",
+    "https://www.uniqlo.com/uk/en/",
+    "https://www.moma.org"
+  ],
+  "ai": [
+    {
+      "url": "https://ismyappslop.com/",
+      "builder": "lovable",
+      "source": "https://madewithlovable.com/projects/is-my-app-slop"
+    },
+    {
+      "url": "https://lift-off.sh/",
+      "builder": "lovable",
+      "source": "https://madewithlovable.com/projects/liftoff"
+    },
+    {
+      "url": "https://glowcase.app/",
+      "builder": "lovable",
+      "source": "https://madewithlovable.com/projects/glowcase-build-interactive-product-demos-with-ai"
+    },
+    {
+      "url": "https://mycreato.com/",
+      "builder": "lovable",
+      "source": "https://madewithlovable.com/projects/creato"
+    },
+    {
+      "url": "https://referable.dev/",
+      "builder": "lovable",
+      "source": "https://madewithlovable.com/projects/referable-add-referrals-to-your-lovable-app-in-one-prompt-for-free"
+    },
+    {
+      "url": "https://kalyvox.ai/",
+      "builder": "lovable",
+      "source": "https://madewithlovable.com/projects/kalyvox"
+    },
+    {
+      "url": "https://unitatlas.com/",
+      "builder": "lovable",
+      "source": "https://madewithlovable.com/projects/unit-atlas"
+    },
+    {
+      "url": "https://mfax.to/",
+      "builder": "lovable",
+      "source": "https://madewithlovable.com/projects/mfax"
+    },
+    {
+      "url": "https://tryrelia.com/",
+      "builder": "lovable",
+      "source": "https://madewithlovable.com/projects/relia-the-trust-and-safety-layer-for-ai-generated-software"
+    },
+    {
+      "url": "https://coupleshub.io/",
+      "builder": "bolt",
+      "source": "https://madewithbolt.com/projects/couples-hub"
+    },
+    {
+      "url": "https://grepjob.com/",
+      "builder": "bolt",
+      "source": "https://madewithbolt.com/projects/grepjob"
+    },
+    {
+      "url": "https://www.fluxr.ai/",
+      "builder": "bolt",
+      "source": "https://madewithbolt.com/projects/fluxr"
+    },
+    {
+      "url": "https://siamferry.com/",
+      "builder": "bolt",
+      "source": "https://madewithbolt.com/projects/siam-ferry"
+    },
+    {
+      "url": "https://dachly.com/",
+      "builder": "bolt",
+      "source": "https://madewithbolt.com/projects/dachly"
+    },
+    {
+      "url": "https://www.prilo.ai/",
+      "builder": "bolt",
+      "source": "https://madewithbolt.com/projects/prilo"
+    },
+    {
+      "url": "https://getnodecast.com/",
+      "builder": "bolt",
+      "source": "https://madewithbolt.com/projects/nodecast"
+    },
+    {
+      "url": "https://www.theloafapp.com/",
+      "builder": "v0",
+      "source": "https://community.vercel.com/t/built-a-budgeting-tool-using-v0-dev/13026"
+    },
+    {
+      "url": "https://www.clipcutter.net/",
+      "builder": "v0",
+      "source": "https://community.vercel.com/t/built-www-clipcutter-net-this-over-the-weekend-with-vercel-v0/2967"
+    },
+    {
+      "url": "https://www.creadefy.com/",
+      "builder": "v0",
+      "source": "https://community.vercel.com/t/from-a-2-am-frustration-to-the-google-office-stage-building-creadefy-with-v0-and-vercel/30160"
+    },
+    {
+      "url": "https://www.apichecker.io/",
+      "builder": "v0",
+      "source": "https://community.vercel.com/t/api-checker-free-postman-alternative-built-entirely-with-v0/30192"
+    },
+    {
+      "url": "https://conferencegowhere.vercel.app/",
+      "builder": "v0",
+      "source": "https://community.vercel.com/t/using-v0-to-solve-a-random-real-life-problem/28573"
+    },
+    {
+      "url": "https://textformatter.ai/",
+      "builder": "replit",
+      "source": "https://replit.discourse.group/t/ai-text-formatter-my-first-replit-project/3509"
+    },
+    {
+      "url": "https://dadaa.app/",
+      "builder": "replit",
+      "source": "https://replit.discourse.group/t/app-for-dads-to-spend-more-meaningful-time-with-their-kids/814"
+    },
+    {
+      "url": "https://clearfm.io/",
+      "builder": "replit",
+      "source": "https://replit.discourse.group/t/clearfm-now-live/7549"
+    },
+    {
+      "url": "https://www.gipity.com/",
+      "builder": "replit",
+      "source": "https://replit.discourse.group/t/my-new-website-designed-and-built-by-replit/7920"
+    },
+    {
+      "url": "https://podnudge.com/",
+      "builder": "replit",
+      "source": "https://replit.discourse.group/t/introducing-podnudge-your-podcast-discovery-sidekick/673"
+    },
+    {
+      "url": "https://www.castbandit.com/",
+      "builder": "replit",
+      "source": "https://replit.discourse.group/t/upd-castbandit-is-live-on-product-hunt-please-upvote-turn-podcasts-into-ai-chatbots-built-on-replit/6925"
+    },
+    {
+      "url": "https://egovex.app/",
+      "builder": "replit",
+      "source": "https://replit.discourse.group/t/i-built-an-ai-that-finally-knows-me-better-than-i-know-myself/8293"
+    },
+    {
+      "url": "https://notfoundjobs.com/",
+      "builder": "base44",
+      "source": "https://notfoundjobs.com/"
+    },
+    {
+      "url": "https://greenhaven.framer.media/",
+      "builder": "framer",
+      "source": "https://www.framer.com/community/posts/Ac17TnGaukJuSuWZEuZ7GN/"
+    }
+  ]
+}

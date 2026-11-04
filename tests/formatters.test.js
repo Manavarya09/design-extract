@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'fs';
 import { describe, it, before } from 'node:test';
 import assert from 'node:assert/strict';
@@ -1720,5 +1721,35 @@ describe('formatOpenProps', () => {
 
   it('still returns a valid empty layer for a bare design', () => {
     assert.equal(formatOpenProps({ colors: {} }), '@layer base {\n  :root {\n  }\n}\n');
+  });
+});
+
+describe('formatPreview safety', () => {
+  it('escapes page text and drops unsafe CSS values', () => {
+    const evil = {
+      ...mockDesign,
+      meta: { ...mockDesign.meta, title: '<script>alert(1)</script>' },
+      voice: { sampleHeadings: ['<img src=x onerror=alert(1)> heading text here'] },
+      components: { buttons: { variants: [{ variant: 'x', count: 1, backgroundColor: 'rgb(0,0,0)', style: { color: 'rgb(255,255,255)', borderRadius: 'url(javascript:alert(1))', fontSize: '16px;background:url(x)' } }] } },
+    };
+    const html = formatPreview(evil);
+    assert.ok(!html.includes('<script>alert'));
+    assert.ok(!html.includes('<img src=x'));
+    assert.ok(!/url\(javascript/i.test(html));
+    assert.ok(!html.includes('background:url(x)'));
+  });
+});
+
+describe('credit line', () => {
+  it('adds one removable line to DESIGN.md, Tailwind config and Tailwind v4 CSS', async () => {
+    const { withCredit } = await import('../src/formatters/credit.js');
+    assert.match(withCredit('# Overview\n', 'md'), /\n\nMeasured with \[designlang\]\(https:\/\/designlang\.app\)\.\n$/);
+    assert.match(withCredit('module.exports = {}', 'js'), /^\/\/ Measured with designlang: https:\/\/designlang\.app\nmodule\.exports/);
+    assert.match(withCredit('@theme {}', 'css'), /^\/\* Measured with designlang/);
+    assert.equal(withCredit('x', 'json'), 'x');
+  });
+  it('the CLI offers --no-credit', () => {
+    const out = execFileSync('node', [new URL('../bin/design-extract.js', import.meta.url).pathname, '--help'], { encoding: 'utf-8' });
+    assert.ok(out.includes('--no-credit'));
   });
 });

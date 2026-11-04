@@ -23,6 +23,19 @@ const times = (n, make) => Array.from({ length: n }, make);
 const page = () => [...times(300, () => el()), el({ tag: 'body', bg: '#ffffff', area: 1_000_000 })];
 
 describe('brand colour ranking', () => {
+  it('links in the brand colour count toward it (atlassian)', () => {
+    const styles = [
+      ...page(),
+      // Four small yellow buttons, nothing else yellow on the page.
+      ...times(4, () => el({ tag: 'button', bg: '#ffab00', color: '#172b4d', area: 3000 })),
+      // The brand blue: two buttons and 27 links, used across the page.
+      ...times(2, () => el({ tag: 'button', bg: '#1868db', color: '#ffffff', area: 3000 })),
+      ...times(27, () => el({ tag: 'a', color: '#1868db' })),
+      ...times(110, () => el({ tag: 'span', border: '#1868db' })),
+    ];
+    assert.equal(extractColors(styles).primary.hex, '#1868db');
+  });
+
   it('a colour repeated across the page beats a one-off button colour (framer)', () => {
     const styles = [
       ...page(),
@@ -185,5 +198,17 @@ describe('foreground colour', () => {
       ...times(5, () => el({ tag: 'p', color: '#d0d6e0', area: 20_000, hasText: true })),
     ];
     assert.equal(extractColors(styles).text[0], '#d0d6e0');
+  });
+});
+
+describe('declared brand variables', () => {
+  it('--color-brand outranks a numbered shade of it (supabase)', () => {
+    const styles = [
+      ...page(),
+      ...times(19, () => el({ tag: 'span', border: '#3ecf8e' })),
+      ...times(3, () => el({ tag: 'button', bg: '#0e7e4e', color: '#ffffff', area: 3000 })),
+    ];
+    const cssVariables = { '--color-brand': 'hsl(152.9deg 60% 52.9%)', '--color-brand-600': 'hsl(156.5deg 86.5% 26.1%)' };
+    assert.equal(extractColors(styles, { cssVariables }).primary.hex, '#3ecf8e');
   });
 });

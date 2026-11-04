@@ -1,280 +1,235 @@
+// The visual preview: one self-contained HTML page that shows the measured
+// design system as a specimen, in designlang's own look. Colours, type,
+// spacing, corners, depth, components, contrast and the Slop Score, each
+// drawn with the site's real values. Every string from the page is escaped
+// and every CSS value is checked before it reaches a style attribute.
+
+import { scoreGeneric } from '../slop/index.js';
+
+const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const HEX = /^#[0-9a-f]{6}$/i;
+const hexOf = (c) => {
+  const h = c && typeof c === 'object' ? c.hex : c;
+  return HEX.test(String(h || '')) ? String(h).toLowerCase() : null;
+};
+// Only plain lengths, colours and numbers may reach a style attribute.
+const SAFE = /^[#a-z0-9.,%()\s-]{1,80}$/i;
+const safe = (v) => (typeof v === 'string' && SAFE.test(v) && !/url|expression|var\(/i.test(v) ? v : null);
+const family = (name) => `'${String(name || '').replace(/[^A-Za-z0-9 _.-]/g, '')}', system-ui, sans-serif`;
+
+function luminance(hex) {
+  const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255).map((c) => (c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4));
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+}
+const contrast = (a, b) => { const [x, y] = [luminance(a), luminance(b)].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05); };
+const inkOn = (hex) => (contrast(hex, '#ffffff') >= contrast(hex, '#1b1d3a') ? '#ffffff' : '#1b1d3a');
+const hostOf = (u) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return String(u || ''); } };
+
+function roleSwatches(c) {
+  return ['primary', 'secondary', 'accent'].map((role) => [role, c[role]]).filter(([, v]) => hexOf(v)).map(([role, v]) => {
+    const hex = hexOf(v);
+    const ink = inkOn(hex);
+    return `<figure class="role" style="background:${hex};color:${ink}">
+      <figcaption><b>${esc(role)}</b><span>${esc(hex)}</span></figcaption>
+      <p>${esc(v.count ?? '')}${v.count ? ' uses' : ''} · ${contrast(hex, '#ffffff').toFixed(1)}:1 on white</p>
+    </figure>`;
+  }).join('');
+}
+
+function ramp(c) {
+  const steps = c.ramps?.primary?.steps;
+  if (!steps) return '';
+  const cells = Object.entries(steps).filter(([, h]) => HEX.test(h)).map(([k, h]) => `<div style="background:${h};color:${inkOn(h)}"><b>${esc(k)}</b><span>${esc(h)}</span></div>`).join('');
+  return `<div class="ramp" aria-label="Primary tonal ramp">${cells}</div>`;
+}
+
+function chips(c) {
+  const all = (c.all || []).map(hexOf).filter(Boolean).slice(0, 40);
+  return `<ul class="chips">${all.map((h) => `<li><i style="background:${h}"></i><code>${esc(h)}</code></li>`).join('')}</ul>`;
+}
+
+function typeSection(d) {
+  const fams = (d.typography?.families || []).slice(0, 4);
+  const sample = (d.voice?.sampleHeadings || []).find((h) => h && h.length > 12 && h.length < 70) || 'The quick brown fox jumps over the lazy dog';
+  const spec = fams.map((f) => `<article class="face" style="font-family:${esc(family(f.name))}">
+      <span class="face-aa">Aa</span>
+      <div><h3>${esc(f.name)}</h3><p>${esc(f.usage || 'text')}${f.count ? ` · ${esc(f.count)} elements` : ''}</p></div>
+    </article>`).join('');
+  const body = fams.find((f) => f.usage !== 'mono')?.name || fams[0]?.name || 'system-ui';
+  const scale = (d.typography?.scale || []).slice(0, 9).map((s) => {
+    const size = Math.max(10, Math.min(Number(s.size) || 16, 96));
+    const weight = safe(String(s.weight)) || '400';
+    return `<div class="tscale-row"><code>${esc(s.size)}px · ${esc(weight)}${s.tags?.[0] ? ` · ${esc(s.tags[0])}` : ''}</code><p style="font-family:${esc(family(body))};font-size:${size}px;font-weight:${esc(weight)}">${esc(sample)}</p></div>`;
+  }).join('');
+  return `<div class="faces">${spec}</div><div class="tscale">${scale}</div><p class="note">Shown in each family when it is installed on this computer; otherwise a system face stands in.</p>`;
+}
+
+function spacingSection(d) {
+  const scale = (d.spacing?.scale || []).filter((n) => n > 0 && n <= 160).slice(0, 14);
+  if (!scale.length) return '<p class="note">No spacing scale found.</p>';
+  return `<div class="ruler">${scale.map((n) => `<div><i style="width:${n * 2}px"></i><code>${esc(n)}px</code></div>`).join('')}</div>`;
+}
+
+function shapeSection(d) {
+  const radii = (d.borders?.radii || []).slice(0, 8);
+  const shadows = (d.shadows?.values || []).slice(0, 6).map((s) => safe(String(s.raw || '').replace(/\s+/g, ' '))).filter(Boolean);
+  return `<div class="shapes">${radii.map((r) => `<div class="radius"><i style="border-radius:${Math.min(Number(r.value) || 0, 60)}px"></i><code>${r.value >= 999 ? 'pill' : `${esc(r.value)}px`}</code><span>${esc(r.count ?? '')}×</span></div>`).join('')}</div>
+    ${shadows.length ? `<div class="shadows">${shadows.map((s, i) => `<div style="box-shadow:${esc(s)}"><code>shadow ${i + 1}</code></div>`).join('')}</div>` : ''}`;
+}
+
+function rgbToHex(v) {
+  const m = String(v || '').match(/rgba?\((\d+)[,\s]+(\d+)[,\s]+(\d+)(?:[,\s/]+([\d.]+))?/);
+  if (!m) return HEX.test(String(v)) ? v : null;
+  if (m[4] !== undefined && Number(m[4]) === 0) return 'transparent';
+  return '#' + [m[1], m[2], m[3]].map((n) => Number(n).toString(16).padStart(2, '0')).join('');
+}
+
+function componentSection(d) {
+  const variants = (d.components?.buttons?.variants || []).slice(0, 6);
+  if (!variants.length) return '<p class="note">No buttons measured on this page.</p>';
+  const btns = variants.map((v) => {
+    const st = v.style || {};
+    const bg = rgbToHex(v.backgroundColor) || 'transparent';
+    const fg = rgbToHex(st.color) || '#1b1d3a';
+    const css = [`background:${bg}`, `color:${fg}`];
+    for (const [k, p] of [['fontSize', 'font-size'], ['fontWeight', 'font-weight'], ['borderRadius', 'border-radius']]) if (safe(st[k])) css.push(`${p}:${st[k]}`);
+    const py = safe(st.paddingTop); const px = safe(st.paddingRight);
+    if (py && px) css.push(`padding:${py} ${px}`);
+    // An outlined button has padding; a bare text link does not get a frame.
+    if (bg === 'transparent' && parseFloat(py) > 0) css.push(`border:1.5px solid ${fg === 'transparent' ? '#1b1d3a' : fg}`);
+    return `<figure class="btn-spec"><span style="${esc(css.join(';'))}">${esc(v.variant === 'variant-3' ? 'Primary action' : v.variant === 'secondary' ? 'Secondary' : v.variant === 'ghost' ? 'Ghost link' : 'Button')}</span><figcaption>${esc(v.variant)} · ${esc(v.count)}×</figcaption></figure>`;
+  }).join('');
+  return `<div class="btns">${btns}</div>`;
+}
+
+function a11ySection(d) {
+  const a = d.accessibility || {};
+  const fails = (a.failingPairs || []).slice(0, 6).filter((p) => HEX.test(p.fg) && HEX.test(p.bg));
+  const head = `<p class="lead-num"><b>${esc(a.score ?? '—')}</b>% of measured text pairs pass WCAG AA</p>`;
+  if (!fails.length) return head + '<p class="note">Every measured text and background pair passes AA.</p>';
+  return head + `<div class="pairs">${fails.map((p) => `<div style="background:${p.bg};color:${p.fg}"><b>Aa</b><code>${esc(p.fg)} on ${esc(p.bg)} · ${esc(p.ratio)}:1</code></div>`).join('')}</div>`;
+}
+
+function slopSection(d) {
+  const r = scoreGeneric(d);
+  const words = { distinct: 'Looks distinct', mixed: 'Some generic tells', generic: 'Looks generic' };
+  return `<div class="slop"><div class="slop-num"><b>${r.score}</b><span>/100</span><p>${words[r.band]}</p></div>
+    <div>${r.flags.length ? `<ul class="flags">${r.flags.map((f) => `<li><b>${esc(f.label)}</b><span>${esc(f.evidence[0]?.where || '')}: ${esc(f.evidence[0]?.value || '')}</span></li>`).join('')}</ul>` : '<p>None of the ten known AI-design tells were measured.</p>'}
+    <p class="note">0 is distinct, 100 is every known tell of AI-made design at once. <code>npx designlang slop ${esc(hostOf(d.meta?.url))}</code></p></div></div>`;
+}
+
 export function formatPreview(design) {
-  const { meta, colors, typography, spacing, shadows, borders, accessibility, components, componentScreenshots } = design;
+  const d = design || {};
+  const c = d.colors || {};
+  const host = hostOf(d.meta?.url);
+  const primary = hexOf(c.primary) || '#1b1d3a';
+  const fams = (d.typography?.families || []).map((f) => f.name);
+  const when = d.meta?.timestamp ? new Date(d.meta.timestamp).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : '';
+  const facts = [
+    `${(c.all || []).length} colours`,
+    `${fams.length} type ${fams.length === 1 ? 'family' : 'families'}`,
+    d.spacing?.base ? `${d.spacing.base}px spacing base` : null,
+    `${(d.borders?.radii || []).length} corner radii`,
+    d.score?.grade ? `system grade ${d.score.grade}` : null,
+  ].filter(Boolean).join(' · ');
+  const section = (id, title, sub, body) => `<section id="${id}"><header><h2>${title}</h2>${sub ? `<p>${sub}</p>` : ''}</header>${body}</section>`;
 
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Design Language: ${esc(meta.title)}</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${esc(host)} design system — designlang</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  :root {
-    --bg: #0a0a0a; --bg-card: #141414; --border: #222; --text: #e5e5e5; --text-heading: #fff;
-    --text-muted: #666; --text-sub: #a0a0a0; --text-dim: #444; --text-faint: #555; --row-border: #1a1a1a;
-  }
-  [data-theme="light"] {
-    --bg: #f5f5f5; --bg-card: #fff; --border: #ddd; --text: #333; --text-heading: #111;
-    --text-muted: #888; --text-sub: #666; --text-dim: #999; --text-faint: #aaa; --row-border: #e5e5e5;
-  }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-  .container { max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
-  .header-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-  .theme-toggle { background: var(--bg-card); border: 1px solid var(--border); color: var(--text); padding: 6px 14px; border-radius: 8px; cursor: pointer; font-size: 13px; white-space: nowrap; }
-  h1 { font-size: 36px; font-weight: 700; margin-bottom: 8px; color: var(--text-heading); }
-  h2 { font-size: 24px; font-weight: 600; margin: 48px 0 20px; color: var(--text-heading); border-bottom: 1px solid var(--border); padding-bottom: 12px; }
-  h3 { font-size: 16px; font-weight: 600; margin: 24px 0 12px; color: var(--text-sub); text-transform: uppercase; letter-spacing: 0.05em; }
-  .meta { color: var(--text-muted); font-size: 14px; margin-bottom: 32px; }
-  .meta span { margin-right: 16px; }
-  .grid { display: grid; gap: 12px; }
-  .grid-2 { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
-  .grid-3 { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
-  .grid-4 { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
-  @media (max-width: 600px) {
-    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
-    h1 { font-size: 24px; }
-    .container { padding: 20px 12px; }
-  }
-  @media (max-width: 380px) {
-    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-  }
-
-  /* Color swatches */
-  .swatch { border-radius: 12px; overflow: hidden; background: var(--bg-card); border: 1px solid var(--border); cursor: pointer; position: relative; }
-  .swatch-color { height: 80px; position: relative; }
-  .swatch-info { padding: 10px 12px; font-size: 13px; }
-  .swatch-hex { font-weight: 600; font-family: monospace; color: var(--text-heading); }
-  .swatch-label { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
-  .swatch-role { display: inline-block; font-size: 10px; background: var(--border); color: var(--text-sub); padding: 2px 8px; border-radius: 4px; margin-top: 4px; }
-  .copied-tip { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.8); color: #fff; padding: 4px 12px; border-radius: 6px; font-size: 12px; pointer-events: none; opacity: 0; transition: opacity 0.2s; }
-  .copied-tip.show { opacity: 1; }
-
-  /* Type scale */
-  .type-row { display: flex; align-items: baseline; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--row-border); }
-  .type-size { font-family: monospace; color: var(--text-muted); min-width: 60px; font-size: 13px; }
-  .type-meta { font-size: 12px; color: var(--text-dim); margin-left: auto; font-family: monospace; }
-
-  /* Spacing */
-  .spacing-row { display: flex; align-items: center; gap: 12px; padding: 6px 0; }
-  .spacing-bar { background: linear-gradient(90deg, #3b82f6, #8b5cf6); border-radius: 4px; height: 24px; min-width: 4px; transition: width 0.3s; }
-  .spacing-label { font-family: monospace; font-size: 13px; color: var(--text-sub); min-width: 60px; }
-
-  /* Shadows */
-  .shadow-card { background: var(--bg-card); border-radius: 12px; padding: 24px; text-align: center; min-height: 80px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); }
-  .shadow-label { font-size: 12px; color: var(--text); font-family: monospace; }
-
-  /* Radii */
-  .radius-item { width: 60px; height: 60px; background: linear-gradient(135deg, #3b82f6, #8b5cf6); display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; }
-
-  /* Accessibility */
-  .a11y-score { font-size: 64px; font-weight: 800; }
-  .a11y-score.good { color: #22c55e; }
-  .a11y-score.warn { color: #eab308; }
-  .a11y-score.bad { color: #ef4444; }
-  .a11y-pair { display: flex; align-items: center; gap: 12px; padding: 10px 16px; background: var(--bg-card); border-radius: 8px; margin-bottom: 6px; border: 1px solid var(--border); flex-wrap: wrap; }
-  .a11y-sample { width: 120px; padding: 6px 12px; border-radius: 6px; text-align: center; font-size: 14px; font-weight: 500; }
-  .a11y-ratio { font-family: monospace; font-size: 14px; min-width: 50px; }
-  .a11y-badge { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; }
-  .a11y-badge.pass { background: #22c55e20; color: #22c55e; }
-  .a11y-badge.fail { background: #ef444420; color: #ef4444; }
-
-  /* Components */
-  .comp-screenshot { border-radius: 8px; border: 1px solid var(--border); max-width: 100%; }
-
-  /* Stat cards */
-  .stats { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; margin: 24px 0; }
-  .stat { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
-  .stat-value { font-size: 28px; font-weight: 700; color: var(--text-heading); }
-  .stat-label { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
-
-  .font-tag { display: inline-block; background: #1e1e2e; color: #a78bfa; padding: 4px 10px; border-radius: 6px; font-size: 13px; margin: 4px 4px 4px 0; }
-  [data-theme="light"] .font-tag { background: #ede9fe; color: #6d28d9; }
+:root{--bg:#ececee;--bg2:#f4f4f6;--card:#fff;--ink:#1b1d3a;--ink2:#4a4e6a;--ink3:#5b5f7a;--line:rgba(28,31,59,.1);--purple:#8a4fe0;--tint:#ece2fc;--lime:#d4f56b;--brand:${primary};--on-brand:${inkOn(primary)};--sans:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;--mono:'Geist Mono',ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#14152b;--bg2:#1b1d3a;--card:#202247;--ink:#f1f0fb;--ink2:#c9c8e0;--ink3:#a3a2c0;--line:rgba(255,255,255,.1);--tint:#2c2460}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--sans)}
+code{font-family:var(--mono);font-size:12.5px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(16px,3vw,40px)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:22px 0;font-size:14px;color:var(--ink3)}
+.top b{color:var(--ink);font-weight:300;font-size:20px;letter-spacing:.01em}
+.top a{color:inherit}
+.hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(18px,3vw,36px);align-items:stretch;padding:12px 0 8px}
+.hero h1{margin:0;font-size:clamp(44px,7vw,92px);font-weight:300;letter-spacing:-.045em;line-height:.98;overflow-wrap:anywhere}
+.hero h1 b{font-weight:800}
+.hero .sub{margin:16px 0 0;color:var(--ink2);max-width:52ch}
+.hero .facts{margin:20px 0 0;font:500 14px var(--mono);color:var(--ink3)}
+.brandcard{border-radius:32px;background:var(--brand);color:var(--on-brand);padding:28px;display:flex;flex-direction:column;justify-content:space-between;min-height:260px}
+.brandcard b{font-size:clamp(40px,5vw,64px);font-weight:800;letter-spacing:-.04em;line-height:1}
+.brandcard span{font:500 15px var(--mono);opacity:.85}
+nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin:30px 0 8px}
+nav.toc a{padding:8px 14px;border-radius:999px;background:var(--card);color:var(--ink);text-decoration:none;font-size:14px;font-weight:600}
+nav.toc a:hover{background:var(--tint)}
+section{margin:22px 0;padding:clamp(20px,3vw,34px);border-radius:28px;background:var(--card)}
+section>header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+section h2{margin:0;font-size:26px;font-weight:800;letter-spacing:-.03em}
+section>header p{margin:0;color:var(--ink3);font-size:14px}
+.roles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.role{margin:0;border-radius:22px;padding:22px;min-height:170px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}
+.role figcaption{display:flex;justify-content:space-between;gap:8px;font-size:15px}
+.role figcaption span{font:500 14px var(--mono)}
+.role p{margin:0;font-size:13px;opacity:.85}
+.ramp{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));margin-top:12px;border-radius:16px;overflow:hidden}
+.ramp div{padding:12px 8px;display:grid;gap:2px;font-size:11px}.ramp span{font:10px var(--mono);opacity:.8}
+.chips{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px}
+.chips li{display:flex;align-items:center;gap:8px;padding:6px;border-radius:12px;background:var(--bg2)}
+.chips i{width:28px;height:28px;border-radius:8px;box-shadow:inset 0 0 0 1px var(--line);flex:none}
+.faces{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.face{display:flex;gap:16px;align-items:center;padding:18px;border-radius:20px;background:var(--bg2)}
+.face-aa{font-size:56px;line-height:1;color:var(--purple)}
+.face h3{margin:0;font-size:18px;font-family:var(--sans)}.face p{margin:2px 0 0;color:var(--ink3);font:13px var(--sans)}
+.tscale{margin-top:16px;display:grid;gap:4px}
+.tscale-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line)}
+.tscale-row code{color:var(--ink3)}.tscale-row p{margin:0;line-height:1.15;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ruler{display:grid;gap:8px}.ruler div{display:flex;align-items:center;gap:14px}
+.ruler i{display:block;height:14px;border-radius:4px;background:var(--lime);box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);max-width:70%}
+.ruler code{color:var(--ink3)}
+.shapes{display:flex;flex-wrap:wrap;gap:16px}
+.radius{display:grid;justify-items:center;gap:6px;color:var(--ink3)}.radius i{width:72px;height:72px;background:var(--tint);border:2px solid var(--purple)}
+.radius span{font-size:12px}
+.shadows{margin-top:22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:22px;padding:18px;border-radius:20px;background:var(--bg2)}
+.shadows div{height:90px;border-radius:16px;background:#fff;display:grid;place-items:end start;padding:10px;color:#5b5f7a}
+.btns{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start;padding:22px;border-radius:20px;background:#fff;box-shadow:inset 0 0 0 1px var(--line)}
+.btn-spec{margin:0;display:grid;gap:8px;justify-items:start}.btn-spec span{display:inline-block;line-height:1.2}
+.btn-spec figcaption{font:12px var(--mono);color:#5b5f7a}
+.lead-num{margin:0 0 14px;font-size:18px}.lead-num b{font-size:42px;letter-spacing:-.04em}
+.pairs{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+.pairs div{border-radius:16px;padding:16px;display:grid;gap:6px;box-shadow:inset 0 0 0 1px var(--line)}.pairs b{font-size:26px}
+.slop{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px;align-items:start}
+.slop-num{padding:20px;border-radius:22px;background:var(--lime);color:#1b1d3a}.slop-num b{font-size:64px;font-weight:800;letter-spacing:-.05em;line-height:.9}
+.slop-num span{font-weight:600}.slop-num p{margin:6px 0 0;font-weight:700}
+.flags{list-style:none;margin:0;padding:0;display:grid;gap:8px}.flags li{display:grid;gap:2px;padding:12px 14px;border-radius:14px;background:var(--bg2)}
+.flags span{font:12.5px var(--mono);color:var(--ink3);overflow-wrap:anywhere}
+.note{margin:14px 0 0;font-size:13px;color:var(--ink3)}
+footer{padding:28px 0 48px;color:var(--ink3);font-size:14px}footer a{color:var(--purple);font-weight:600}
+@media (max-width:820px){.hero,.slop{grid-template-columns:1fr}.ramp{grid-template-columns:repeat(6,minmax(0,1fr))}.tscale-row{grid-template-columns:1fr;gap:4px}}
 </style>
 </head>
 <body>
-<div class="container">
-
-<div class="header-row">
-  <h1>${esc(meta.title)}</h1>
-  <button class="theme-toggle" onclick="toggleTheme()">Toggle Light/Dark</button>
-</div>
-<div class="meta">
-  <span>${esc(meta.url)}</span>
-  <span>${meta.elementCount} elements</span>
-  <span>${new Date(meta.timestamp).toLocaleDateString()}</span>
-  ${meta.pagesAnalyzed > 1 ? `<span>${meta.pagesAnalyzed} pages crawled</span>` : ''}
-</div>
-
-<div class="stats">
-  <div class="stat"><div class="stat-value">${colors.all.length}</div><div class="stat-label">Colors</div></div>
-  <div class="stat"><div class="stat-value">${typography.families.length}</div><div class="stat-label">Font Families</div></div>
-  <div class="stat"><div class="stat-value">${spacing.scale.length}</div><div class="stat-label">Spacing Values</div></div>
-  <div class="stat"><div class="stat-value">${shadows.values.length}</div><div class="stat-label">Shadows</div></div>
-  <div class="stat"><div class="stat-value">${borders.radii.length}</div><div class="stat-label">Border Radii</div></div>
-  <div class="stat"><div class="stat-value">${Object.keys(components).length}</div><div class="stat-label">Components</div></div>
-  ${accessibility ? `<div class="stat"><div class="stat-value ${accessibility.score >= 80 ? 'good' : accessibility.score >= 50 ? 'warn' : 'bad'}" style="color: ${accessibility.score >= 80 ? '#22c55e' : accessibility.score >= 50 ? '#eab308' : '#ef4444'}">${accessibility.score}%</div><div class="stat-label">A11y Score</div></div>` : ''}
-</div>
-
-<!-- Colors -->
-<h2>Color Palette</h2>
-
-${colors.primary ? `
-<h3>Brand Colors</h3>
-<div class="grid grid-3">
-  ${colors.primary ? swatch(colors.primary.hex, 'Primary', colors.primary.count + ' uses') : ''}
-  ${colors.secondary ? swatch(colors.secondary.hex, 'Secondary', colors.secondary.count + ' uses') : ''}
-  ${colors.accent ? swatch(colors.accent.hex, 'Accent', colors.accent.count + ' uses') : ''}
-</div>` : ''}
-
-${colors.neutrals.length > 0 ? `
-<h3>Neutrals</h3>
-<div class="grid grid-4">
-  ${colors.neutrals.slice(0, 10).map(c => swatch(c.hex, '', c.count + ' uses')).join('\n  ')}
-</div>` : ''}
-
-${colors.all.length > 3 ? `
-<h3>Full Palette</h3>
-<div class="grid grid-4">
-  ${colors.all.slice(0, 20).map(c => swatch(c.hex, c.contexts.join(', '), c.count + ' uses')).join('\n  ')}
-</div>` : ''}
-
-${colors.gradients.length > 0 ? `
-<h3>Gradients</h3>
-<div class="grid grid-2">
-  ${colors.gradients.slice(0, 6).map(g => `<div class="swatch"><div class="swatch-color" style="background-image:${g};height:100px"></div></div>`).join('\n  ')}
-</div>` : ''}
-
-<!-- Typography -->
-<h2>Typography</h2>
-
-${typography.families.length > 0 ? `
-<h3>Font Families</h3>
-<div>
-  ${typography.families.map(f => `<span class="font-tag">${esc(f.name)} <span style="color:#666">(${f.usage}, ${f.count}x)</span></span>`).join('')}
-</div>` : ''}
-
-${typography.scale.length > 0 ? `
-<h3>Type Scale</h3>
-<div>
-  ${typography.scale.slice(0, 12).map(s => `
-  <div class="type-row">
-    <span class="type-size">${s.size}px</span>
-    <span style="font-size:${Math.min(s.size, 48)}px;font-weight:${s.weight};color:var(--text-heading)">The quick brown fox</span>
-    <span class="type-meta">${s.weight} / ${s.lineHeight}</span>
-  </div>`).join('')}
-</div>` : ''}
-
-<!-- Spacing -->
-${spacing.scale.length > 0 ? `
-<h2>Spacing Scale${spacing.base ? ` (base: ${spacing.base}px)` : ''}</h2>
-<div>
-  ${spacing.scale.slice(0, 16).map(v => `
-  <div class="spacing-row">
-    <span class="spacing-label">${v}px</span>
-    <div class="spacing-bar" style="width:${Math.min(v * 2, 500)}px"></div>
-  </div>`).join('')}
-</div>` : ''}
-
-<!-- Shadows -->
-${shadows.values.length > 0 ? `
-<h2>Box Shadows</h2>
-<div class="grid grid-3">
-  ${shadows.values.map(s => `
-  <div class="shadow-card" style="box-shadow:${s.raw}">
-    <span class="shadow-label">${s.label}${s.inset ? ' (inset)' : ''}</span>
-  </div>`).join('')}
-</div>` : ''}
-
-<!-- Border Radii -->
-${borders.radii.length > 0 ? `
-<h2>Border Radii</h2>
-<div style="display:flex;gap:16px;flex-wrap:wrap;align-items:end">
-  ${borders.radii.map(r => `
-  <div style="text-align:center">
-    <div class="radius-item" style="border-radius:${r.value}px">${r.value}px</div>
-    <div style="font-size:11px;color:#666;margin-top:6px">${r.label}</div>
-  </div>`).join('')}
-</div>` : ''}
-
-<!-- Accessibility -->
-${accessibility ? `
-<h2>Accessibility</h2>
-<div style="display:flex;align-items:center;gap:24px;margin-bottom:24px">
-  <div class="a11y-score ${accessibility.score >= 80 ? 'good' : accessibility.score >= 50 ? 'warn' : 'bad'}">${accessibility.score}%</div>
-  <div>
-    <div style="color:#fff;font-weight:600">WCAG Contrast Score</div>
-    <div style="color:#666;font-size:14px">${accessibility.passCount} passing / ${accessibility.failCount} failing color pairs</div>
-  </div>
-</div>
-
-<h3>Color Pair Analysis</h3>
-${accessibility.pairs.slice(0, 20).map(p => `
-<div class="a11y-pair">
-  <div class="a11y-sample" style="background:${p.background};color:${p.foreground}">Sample</div>
-  <div style="font-family:monospace;font-size:12px;color:#888">${p.foreground} on ${p.background}</div>
-  <div class="a11y-ratio">${p.ratio}:1</div>
-  <span class="a11y-badge ${p.level === 'FAIL' ? 'fail' : 'pass'}">${p.level}</span>
-  <div style="font-size:11px;color:#555;margin-left:auto">${p.count}x</div>
-</div>`).join('')}
-` : ''}
-
-<!-- Component Screenshots -->
-${componentScreenshots && Object.keys(componentScreenshots).length > 0 ? `
-<h2>Component Screenshots</h2>
-<div class="grid grid-2">
-  ${Object.entries(componentScreenshots).map(([name, info]) => `
-  <div>
-    <h3>${info.label}</h3>
-    <img class="comp-screenshot" src="${info.path}" alt="${info.label}" />
-  </div>`).join('')}
-</div>` : ''}
-
-</div>
-<script>
-function toggleTheme() {
-  const html = document.documentElement;
-  const current = html.getAttribute('data-theme');
-  html.setAttribute('data-theme', current === 'light' ? 'dark' : 'light');
-}
-document.querySelectorAll('.swatch').forEach(el => {
-  el.addEventListener('click', () => {
-    const hex = el.querySelector('.swatch-hex');
-    if (!hex) return;
-    navigator.clipboard.writeText(hex.textContent).then(() => {
-      let tip = el.querySelector('.copied-tip');
-      if (!tip) { tip = document.createElement('div'); tip.className = 'copied-tip'; tip.textContent = 'Copied!'; el.appendChild(tip); }
-      tip.classList.add('show');
-      setTimeout(() => tip.classList.remove('show'), 1200);
-    });
-  });
-});
-</script>
-</body>
-</html>`;
-}
-
-function swatch(hex, label, meta) {
-  const rgb = hexToRgb(hex);
-  const textColor = isLight(rgb) ? '#000' : '#fff';
-  return `<div class="swatch">
-    <div class="swatch-color" style="background:${hex}"></div>
-    <div class="swatch-info">
-      <div class="swatch-hex">${hex}</div>
-      ${label ? `<div class="swatch-label">${esc(label)}</div>` : ''}
-      ${meta ? `<div class="swatch-label">${esc(meta)}</div>` : ''}
+<div class="wrap">
+  <div class="top"><b>designlang</b><span>Read in a real browser${when ? ` on ${esc(when)}` : ''} · <a href="${esc(d.meta?.url || '#')}" rel="noreferrer">${esc(host)}</a></span></div>
+  <div class="hero">
+    <div>
+      <h1><b>${esc(host)}</b><br>design system</h1>
+      <p class="sub">${esc(d.meta?.title || '')}</p>
+      <p class="facts">${esc(facts)}</p>
     </div>
-  </div>`;
-}
-
-function hexToRgb(hex) {
-  const m = hex.replace('#', '').match(/.{2}/g);
-  return m ? { r: parseInt(m[0], 16), g: parseInt(m[1], 16), b: parseInt(m[2], 16) } : { r: 0, g: 0, b: 0 };
-}
-
-function isLight({ r, g, b }) {
-  return (r * 0.299 + g * 0.587 + b * 0.114) > 150;
-}
-
-function esc(s) {
-  return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    <div class="brandcard"><span>primary</span><b>${esc(primary)}</b><span>${esc(fams[0] || '')}</span></div>
+  </div>
+  <nav class="toc" aria-label="Sections"><a href="#colours">Colours</a><a href="#type">Typography</a><a href="#space">Spacing</a><a href="#shape">Shape and depth</a><a href="#components">Components</a><a href="#a11y">Contrast</a><a href="#slop">Slop Score</a></nav>
+  ${section('colours', 'Color Palette', `${(c.all || []).length} colours measured`, `<div class="roles">${roleSwatches(c)}</div>${ramp(c)}${chips(c)}`)}
+  ${section('type', 'Typography', `${(d.typography?.scale || []).length} sizes`, typeSection(d))}
+  ${section('space', 'Spacing', d.spacing?.base ? `${esc(d.spacing.base)}px base` : '', spacingSection(d))}
+  ${section('shape', 'Shape and depth', '', shapeSection(d))}
+  ${section('components', 'Components', 'Buttons as measured', componentSection(d))}
+  ${section('a11y', 'Contrast', 'WCAG 2.1 AA', a11ySection(d))}
+  ${section('slop', 'Slop Score', 'How generic it looks', slopSection(d))}
+  <footer>Every value here was measured from the rendered page. Tokens, Tailwind, Figma and DESIGN.md files sit next to this page. Made with <a href="https://designlang.app">designlang</a>.</footer>
+</div>
+</body>
+</html>
+`;
 }

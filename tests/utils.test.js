@@ -448,3 +448,22 @@ describe('pxToRem', () => {
     assert.equal(pxToRem(10, 10), 1);
   });
 });
+
+describe('parseColor: modern colour syntax', () => {
+  const hex = (c) => '#' + [c.r, c.g, c.b].map((n) => n.toString(16).padStart(2, '0')).join('');
+  it('encodes oklch and oklab to sRGB with gamma (mid grey is #636363, not near-black)', () => {
+    assert.equal(hex(parseColor('oklch(0.5 0 0)')), '#636363');
+    assert.equal(hex(parseColor('oklch(0.628 0.2577 29.23)')), '#ff0000');
+    assert.equal(hex(parseColor('oklab(0.5 0 0)')), '#636363');
+    // supabase.com --primary
+    const g = parseColor('oklch(.525 .12 157.5)');
+    assert.ok(g.g > 100 && g.r < 60, JSON.stringify(g));
+  });
+  it('reads percentage lightness and angle units', () => {
+    assert.equal(hex(parseColor('oklch(62.8% 0.2577 29.23)')), '#ff0000');
+    assert.equal(hex(parseColor('oklch(0.628 0.2577 29.23deg)')), '#ff0000');
+    assert.equal(hex(parseColor('hsl(152.9deg 60% 52.9%)')), '#3fcf8e');
+    assert.equal(hex(parseColor('hsl(152.9deg, 60%, 52.9%)')), '#3fcf8e');
+    assert.deepEqual(parseColor('hsl(152.9deg 60% 52.9% / 50%)').a, 0.5);
+  });
+});
