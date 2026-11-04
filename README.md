@@ -1,4 +1,8 @@
 <p align="center">
+  <img src="./assets/art/hero.webp" alt="Oil painting of a designer at her desk, a monitor of colour swatches and type in front of her" width="100%">
+</p>
+
+<p align="center">
   <img src="https://raw.githubusercontent.com/Manavarya09/design-extract/main/website/public/logo-specimen.svg" alt="designlang — reads a website the way a developer reads a stylesheet" width="900">
 </p>
 
@@ -53,6 +57,10 @@ It also goes where extractors don't: **layout patterns**, **responsive behavior 
 
 ## Quick start
 
+<p align="center">
+  <img src="./assets/art/cli.webp" alt="Oil painting of a developer on a rooftop at night with a laptop" width="100%">
+</p>
+
 ```bash
 npx designlang https://stripe.com                      # extract everything
 npx designlang dna stripe.com                          # place it in the measured design space: neighbours + percentiles ← v13.1
@@ -80,6 +88,10 @@ Drop a live design-score badge in any README:
 ```
 
 ## Watch it read — live Extraction Theatre (`v13`)
+
+<p align="center">
+  <img src="./assets/art/showcase.webp" alt="Oil painting of tiny people carrying the colours, type and spacing off a giant web page" width="100%">
+</p>
 
 Don't take the output on faith — **watch it happen.** On
 [designlang.app/watch](https://designlang.app/watch) you paste a URL and a real
@@ -116,6 +128,10 @@ You get, alongside the standard pack emitted from the **canonical** system:
 | `*-site-consistency.md` | a 0–100 consistency grade, per-category breakdown, and the off-system outliers to consolidate |
 
 ## Measured clone fidelity (`fidelity` + `gallery`)
+
+<p align="center">
+  <img src="./assets/art/proof.webp" alt="Oil painting of eight framed website samples on a workbench, seven ticked off" width="100%">
+</p>
 
 Cloning tools all *claim* "pixel-perfect" — none of them **measure** it. `designlang
 fidelity` does. Point it at the original and your clone (often a local dev
@@ -231,6 +247,10 @@ to an installed Google Chrome.
 
 ## Use in Claude Code (plugin)
 
+<p align="center">
+  <img src="./assets/art/ai.webp" alt="Oil painting of a small robot at an easel copying a colour palette and type specimen" width="100%">
+</p>
+
 designlang ships as a **Claude Code plugin** — eleven slash commands that wrap
 the CLI. Install it from inside Claude Code:
 
@@ -289,6 +309,10 @@ npx designlang https://stripe.com --smart
 
 ## What you get
 
+<p align="center">
+  <img src="./assets/art/platforms.webp" alt="Oil painting of a river of violet paint flowing into a phone, tablet, laptop and watch" width="100%">
+</p>
+
 Each run writes 17+ files to `./design-extract-output/`. The headline outputs:
 
 | File | What it is |
@@ -312,6 +336,10 @@ Each run writes 17+ files to `./design-extract-output/`. The headline outputs:
 Multi-platform (`--platforms web,ios,android,flutter,wordpress,all`) adds `ios/`, `android/`, `flutter/`, and a WordPress block theme. `--emit-agent-rules` adds Cursor / Claude Code / generic agent rule files.
 
 ## Why designlang vs anything else
+
+<p align="center">
+  <img src="./assets/art/compare.webp" alt="Oil painting of a brass scale weighing neat colour chips against grey scraps" width="100%">
+</p>
 
 Other tools give you the paint. designlang reads the architecture:
 
@@ -455,6 +483,10 @@ Commands:
 
 ## Example output
 
+<p align="center">
+  <img src="./assets/art/brandbook.webp" alt="Oil painting of a person on a park bench reading a book of colour palettes" width="100%">
+</p>
+
 `designlang https://vercel.com --full` →
 
 ```
@@ -524,6 +556,10 @@ In Cursor / Codex / etc., use `/extract-design <url>`.
 
 
 ## Contributing
+
+<p align="center">
+  <img src="./assets/art/guides.webp" alt="Oil painting of a teacher at a board of colour swatches with three students" width="100%">
+</p>
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). PRs welcome!
 
