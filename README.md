@@ -58,30 +58,38 @@ It also goes where extractors don't: **layout patterns**, **responsive behavior 
 </p>
 
 ```bash
-npx designlang https://stripe.com                      # extract everything
-npx designlang dna stripe.com                          # place it in the measured design space: neighbours + percentiles ← v13.1
-npx designlang site stripe.com                         # whole-site: one canonical system + consistency grade ← v12.23
-npx designlang fidelity stripe.com --clone localhost:3000  # score a clone vs the original (visual + motion) ← v12.24
-npx designlang gallery                                 # static shareable gallery of measured clones      ← v12.24
-npx designlang studio                                  # live token editor: edit, preview, export, share ← v12.19
-npx designlang verify stripe.com                       # fidelity score: rebuild from tokens vs live ← v12.18
-npx designlang pair stripe.com linear.app              # fuse two designs (visuals A × voice B)    ← v12.8
-npx designlang brand stripe.com                        # full brand-guidelines book (13 chapters)  ← v12.7
-npx designlang theme-swap stripe.com --primary "#ff4800"  # recolour around your brand        ← v12.6
-npx designlang pack stripe.com                         # one polished design-system directory ← v12.4
-npx designlang remix stripe.com --as cyberpunk         # restyle in another vocabulary       ← v12.3
-npx designlang remix stripe.com --all                  # emit all 6 vocabs at once           ← v12.3
-npx designlang grade https://stripe.com --badge        # report card + SVG badge             ← v12.2
-npx designlang battle stripe.com vercel.com            # head-to-head graded fight           ← v12.2
+npx designlang https://stripe.com                      # extract everything: tokens, Tailwind, shadcn, Figma, DESIGN.md
+npx designlang slop https://yoursite.com               # how generic does it look? a score out of 100, with every tell
+npx designlang verify-ui localhost:3000 --brand DESIGN.md  # check your UI against your brand at 390, 768 and 1280px
+npx designlang mcp                                     # give Claude Code, Cursor and Windsurf your design system
+npx designlang dna stripe.com                          # place it in the measured design space: neighbours + percentiles
+npx designlang site stripe.com                         # whole-site: one canonical system + consistency grade
+npx designlang fidelity stripe.com --clone localhost:3000  # score a clone against the original (visual + motion)
+npx designlang studio                                  # live token editor: edit, preview, export, share
+npx designlang brand stripe.com                        # full brand-guidelines book (13 chapters)
+npx designlang pair stripe.com linear.app              # fuse two designs (visuals from A, voice from B)
+npx designlang theme-swap stripe.com --primary "#ff4800"  # recolour around your brand
+npx designlang pack stripe.com                         # one polished design-system directory
+npx designlang remix stripe.com --as cyberpunk         # restyle in another vocabulary (--all for all six)
+npx designlang grade https://stripe.com --badge        # report card + SVG badge
+npx designlang battle stripe.com vercel.com            # head-to-head graded fight
 npx designlang clone https://stripe.com                # working Next.js starter
 npx designlang --full https://stripe.com               # screenshots + responsive + interactions
 ```
+
+Needs Node.js 20 or later. No account, no API key.
 
 Drop a live design-score badge in any README:
 
 ```markdown
 ![Design Score](https://designlang.app/badge/stripe.com.svg)
 ```
+
+## Is it generic? (`slop`) and is it on brand? (`verify-ui`)
+
+`designlang slop <url>` opens the page in a real browser and scores how generic it looks, from 0 (distinct) to 100 (generic), listing each known AI-design tell it found with what was measured and where. Add `--brand DESIGN.md` to also score how close the page is to your brand. Try it in the browser at [designlang.app/slop](https://designlang.app/slop).
+
+`designlang verify-ui <url> --brand <DESIGN.md or tokens>` checks a screen, `localhost` included, at phone, tablet and desktop widths and in dark mode. It returns pass or fail, an on-brand score, and every drift with the expected and actual value. It exits 1 on drift, so it can gate CI. Your AI editor can run the same check itself through the MCP tool `verify_ui`.
 
 ## Watch it read — live Extraction Theatre (`v13`)
 
