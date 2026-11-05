@@ -7,6 +7,7 @@ import SystemRail from './SystemRail.js';
 import StageTicker from './StageTicker.js';
 import ResultViewer from '../ResultViewer.js';
 import ShareExtractionButton from '../ShareExtractionButton.js';
+import { STATIC_SITE, livePausedMessage } from '../../../lib/static-site.js';
 
 const STAGE_LABEL = {
   crawl: 'walking the DOM',
@@ -72,6 +73,11 @@ export default function Theatre({
   const run = useCallback(async (rawUrl, { replayOnly = false } = {}) => {
     const url = (rawUrl || '').trim();
     if (!url || runningRef.current) return;
+    if (STATIC_SITE) {
+      // No server on the static site: the hero stays still, a submit points at the CLI.
+      dispatch(replayOnly ? { type: 'idle' } : { type: 'error', error: livePausedMessage(url) });
+      return;
+    }
     runningRef.current = true;
     setRateLimitMsg(null);
     setActiveUrl(url.startsWith('http') ? url : `https://${url}`);

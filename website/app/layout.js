@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { STATIC_SITE } from '../lib/static-site.js';
 import SponsorSlot from './components/SponsorSlot';
 import StructuredData from './components/StructuredData';
 import MobileMenu from './components/MobileMenu';
@@ -242,8 +243,9 @@ export default function RootLayout({ children }) {
         {children}
         <Footer />
         <SponsorSlot />
-        <Analytics />
-        <SpeedInsights />
+        {/* Vercel-only scripts: they 404 on the static site. */}
+        {!STATIC_SITE && <Analytics />}
+        {!STATIC_SITE && <SpeedInsights />}
       </body>
     </html>
   );

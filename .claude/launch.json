@@ -4,14 +4,41 @@
     {
       "name": "designlang-site",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["--prefix", "website", "run", "dev"],
+      "runtimeArgs": [
+        "--prefix",
+        "website",
+        "run",
+        "dev"
+      ],
       "port": 3000
     },
     {
       "name": "grade-preview",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["--yes", "http-server", "design-extract-output", "-p", "4173", "-c-1", "--silent"],
+      "runtimeArgs": [
+        "--yes",
+        "http-server",
+        "design-extract-output",
+        "-p",
+        "4173",
+        "-c-1",
+        "--silent"
+      ],
       "port": 4173
+    },
+    {
+      "name": "static-site",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "--yes",
+        "wrangler",
+        "pages",
+        "dev",
+        "website/out",
+        "--port",
+        "8788"
+      ],
+      "port": 8788
     }
   ]
 }

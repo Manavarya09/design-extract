@@ -12,7 +12,7 @@ import { extractDesignLanguage } from '../../../../src/index.js';
 import { formatDtcgTokens } from '../../../../src/formatters/dtcg-tokens.js';
 import { studioHtml } from '../../../../src/studio.js';
 import { validateTargetUrl } from '../../../../website/lib/url-safety.js';
-import { checkRate, checkRateBlob } from '../../../../website/lib/rate-limit.js';
+import { checkRate, checkRateBlob, checkLiveReadBudget } from '../../../../website/lib/rate-limit.js';
 import { cacheKey, getCached, putCached } from '../../../../website/lib/cache.js';
 import { getBrowserOptions, getLocalBrowserOptions, isBrowserlessFailure } from '../../../../website/lib/browser.js';
 
@@ -85,6 +85,8 @@ export async function POST(request) {
       if (!memRate.allowed) return rateLimited(targetUrl, memRate.resetAt);
       const blobRate = await checkRateBlob(`extract:${ip}`, { limit: 2 });
       if (!blobRate.allowed) return rateLimited(targetUrl, blobRate.resetAt);
+      const budget = await checkLiveReadBudget();
+      if (!budget.allowed) return rateLimited(targetUrl, budget.resetAt);
 
       const browserOpts = await getBrowserOptions();
       try {

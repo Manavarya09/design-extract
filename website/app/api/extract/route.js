@@ -10,7 +10,7 @@
 
 import { extractDesignLanguage } from '../../../../src/index.js';
 import { validateTargetUrl } from '../../../../website/lib/url-safety.js';
-import { checkRate, checkRateBlob } from '../../../../website/lib/rate-limit.js';
+import { checkRate, checkRateBlob, checkLiveReadBudget } from '../../../../website/lib/rate-limit.js';
 import { cacheKey, getCached, putCached } from '../../../../website/lib/cache.js';
 import { buildFiles, buildSummary } from '../../../../website/lib/build-files.js';
 import { wantsTheatre, frameEvent, THEATRE_SCREENCAST_OPTS } from '../../../../website/lib/theatre.js';
@@ -196,6 +196,17 @@ export async function POST(request) {
           cli: 'npx designlang ' + new URL(targetUrl).hostname,
         },
         { status: 429, headers: { 'retry-after': String(Math.ceil((blobRate.resetAt - Date.now()) / 1000)) } }
+      );
+    }
+    const budget = await checkLiveReadBudget();
+    if (!budget.allowed) {
+      return Response.json(
+        {
+          error: "The free demo has used today's live reads. Run it locally: npx designlang " + new URL(targetUrl).hostname,
+          resetAt: budget.resetAt,
+          cli: 'npx designlang ' + new URL(targetUrl).hostname,
+        },
+        { status: 429, headers: { 'retry-after': String(Math.ceil((budget.resetAt - Date.now()) / 1000)) } }
       );
     }
   }
