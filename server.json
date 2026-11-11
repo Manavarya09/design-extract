@@ -1,6 +1,6 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.manavarya09/designlang",
+  "name": "io.github.Manavarya09/designlang",
   "title": "designlang",
   "description": "Measure any site's design system, score how generic a page looks, check UI against your brand.",
   "repository": {
