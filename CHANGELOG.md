@@ -1,5 +1,20 @@
 # Changelog
 
+## [13.4.1] — 2026-11-11
+
+- **Published to the official MCP registry.** The namespace is
+  `io.github.Manavarya09/designlang`, capitalised to match the GitHub login:
+  the registry compares it case-sensitively and refused the lowercase form.
+- **`designlang grade <url>` prints the README badge** ready to paste. The
+  hosted badge stays neutral until designlang.app has read that host, and the
+  command now says so instead of implying a grade.
+- **A finished extraction says what to do next** — `designlang mcp` to serve
+  the tokens to Claude Code, Cursor or Windsurf, and `designlang apply` to
+  write them into a project. Both are free, and `--quiet` still prints only
+  file paths.
+- **`funding.json`** at the repo root, for floss.fund, thanks.dev and
+  ecosyste.ms.
+
 ## [13.4.0] — 2026-11-06
 
 **Design Verification: measure how generic a page looks, and check AI-built UI against your brand.**

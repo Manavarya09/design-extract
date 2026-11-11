@@ -728,6 +728,26 @@ program
         }
 
         console.log(chalk.gray(`  Completed in ${duration}s`));
+
+        // The run ends at the moment the tokens exist and are most useful, and
+        // until now it ended silently. Both commands below are free: handing
+        // the tokens to the editor is the step that makes the rest of them
+        // worth anything, and most people never discover it from --help.
+        console.log('');
+        console.log(chalk.bold('  Next:'));
+        // Pad on the plain text, not the coloured string: chalk's escape codes
+        // count toward .length and would throw the columns out.
+        const nextSteps = [
+          ['designlang mcp', 'serve these tokens to Claude Code, Cursor or Windsurf'],
+          [`designlang apply ${url}`, 'write them straight into your project'],
+        ];
+        const nextWidth = Math.max(...nextSteps.map(([cmd]) => cmd.length));
+        for (const [cmd, what] of nextSteps) {
+          console.log(`  ${chalk.cyan(cmd)}${' '.repeat(nextWidth - cmd.length)}  ${chalk.gray(what)}`);
+        }
+        console.log('');
+        console.log(chalk.gray('  Keep a brand in one place across repos, and open re-theme pull requests:'));
+        console.log(chalk.gray('  https://designlang.app'));
         console.log('');
       }
 
@@ -1529,6 +1549,19 @@ program
       for (const f of written) console.log(`  ${chalk.green('✓')} ${chalk.gray(f)}`);
       console.log('');
       console.log(chalk.gray(`  Share: open the .grade.html in a browser, post the URL.`));
+
+      // Nobody hand-writes shields markup, so print it ready to paste. The
+      // hosted badge reads the grade designlang.app has cached for the host:
+      // it is neutral until the site has been read there once, which is why
+      // the hint below says so rather than promising a grade.
+      let badgeHost = '';
+      try { badgeHost = new URL(url).hostname.replace(/^www\./, ''); } catch { badgeHost = ''; }
+      if (badgeHost) {
+        console.log('');
+        console.log(chalk.bold('  Put the grade in your README:'));
+        console.log(chalk.cyan(`  [![Design grade](https://designlang.app/badge/${badgeHost}.svg)](https://designlang.app)`));
+        console.log(chalk.gray(`  It fills in once designlang.app has read ${badgeHost} — paste the URL at https://designlang.app`));
+      }
       console.log('');
 
       if (opts.open) {
