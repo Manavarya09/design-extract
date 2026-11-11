@@ -8,12 +8,12 @@
     "source": "github"
   },
   "websiteUrl": "https://designlang.app",
-  "version": "13.4.0",
+  "version": "13.4.1",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "designlang",
-      "version": "13.4.0",
+      "version": "13.4.1",
       "transport": {
         "type": "stdio"
       },
