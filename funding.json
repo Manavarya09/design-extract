@@ -1,0 +1,71 @@
+{
+  "$schema": "https://fundingjson.org/schema/v1.1.0.json",
+  "version": "v1.1.0",
+  "entity": {
+    "type": "individual",
+    "role": "owner",
+    "name": "Manav Arya Singh",
+    "email": "manav@designlang.app",
+    "description": "Independent developer. I build and maintain designlang, an MIT-licensed tool that reads the design system of any live website and hands it to AI coding agents as real design tokens.",
+    "webpageUrl": {
+      "url": "https://www.manavaryasingh.com"
+    }
+  },
+  "projects": [
+    {
+      "guid": "designlang",
+      "name": "designlang",
+      "description": "designlang reads any live website's design system in a real browser and writes it as files AI coding tools can use: W3C DTCG design tokens, a Tailwind config, CSS variables, a shadcn/ui theme, Figma variables, and a DESIGN.md that tells Claude Code, Cursor or Windsurf how a brand actually looks. A stdio MCP server exposes the same tokens to those editors as tools, and a design score measures how generic a page looks. The command is `npx designlang <url>`: free, MIT licensed, no account and no API key.",
+      "webpageUrl": {
+        "url": "https://designlang.app"
+      },
+      "repositoryUrl": {
+        "url": "https://github.com/Manavarya09/design-extract"
+      },
+      "licenses": ["spdx:MIT"],
+      "tags": ["design", "developer-tools", "web-design", "web-development"]
+    }
+  ],
+  "funding": {
+    "channels": [
+      {
+        "guid": "github-sponsors",
+        "type": "payment-provider",
+        "address": "https://github.com/sponsors/Manavarya09",
+        "description": "GitHub Sponsors, one-off or monthly."
+      }
+    ],
+    "plans": [
+      {
+        "guid": "supporter",
+        "status": "active",
+        "name": "Supporter",
+        "description": "Covers the headless-browser time behind the hosted reader, so the CLI and the public design-system gallery stay free to use.",
+        "amount": 25,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": ["github-sponsors"]
+      },
+      {
+        "guid": "sponsor",
+        "status": "active",
+        "name": "Sponsor",
+        "description": "A logo in the README and on designlang.app, and maintainer time on the extraction benchmark and the MCP server.",
+        "amount": 250,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": ["github-sponsors"]
+      },
+      {
+        "guid": "one-time",
+        "status": "active",
+        "name": "One-time contribution",
+        "description": "Any amount, once. Goes to the same place: browser infrastructure and maintenance.",
+        "amount": 0,
+        "currency": "USD",
+        "frequency": "one-time",
+        "channels": ["github-sponsors"]
+      }
+    ]
+  }
+}
