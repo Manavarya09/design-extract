@@ -1,8 +1,8 @@
 {
-  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.manavarya09/designlang",
   "title": "designlang",
-  "description": "Measure any site's design system in a real browser, score how generic a page looks, and check AI-built UI against your brand (verify_ui).",
+  "description": "Measure any site's design system, score how generic a page looks, check UI against your brand.",
   "repository": {
     "url": "https://github.com/Manavarya09/design-extract",
     "source": "github"
