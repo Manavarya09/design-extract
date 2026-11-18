@@ -38,11 +38,19 @@
 </p>
 
 <p align="center">
+  <a href="https://www.infistar.cc/register?aff=K75QCZ2F&ref_source=link">
+    <img src="./assets/infistar-banner.png" alt="design-extract × Infistar.cc: Claude, GPT, Gemini, Grok, DeepSeek and more with one key, up to 99% off official prices" width="720">
+  </a>
+</p>
+
+<p align="center">
   <strong><a href="https://www.atlascloud.ai/?utm_source=github&utm_medium=referral&utm_campaign=design-extract">Atlas Cloud</a></strong> — powers OpenAI-compatible <code>--smart</code> classification. For AI coding workflows, try the <a href="https://www.atlascloud.ai/console/coding-plan?utm_source=github&utm_medium=referral&utm_campaign=design-extract">Atlas Cloud coding plan</a>.
   <br>
   <strong><a href="https://bloome.im/agent/join/XP8NQwFj?ref=9ZZRRy82">Bloome</a></strong> — deploys your AI clone to handle every audience conversation, running in the cloud, 24/7.
   <br>
   Try designlang on <a href="https://bloome.im/agent/join/XP8NQwFj?ref=9ZZRRy82">Bloome</a>.
+  <br>
+  <strong><a href="https://www.infistar.cc/register?aff=K75QCZ2F&ref_source=link">Infistar.cc</a></strong> — Claude, GPT, Gemini, Grok, DeepSeek and more with one key, from 0.1× official pricing (up to 99% off). Official upstreams and genuine, verifiable models; 1,000+ redundant routes with automatic failover; 200+ text, image and video models from 16 brands. Use one key for <code>--smart</code> classification and AI coding workflows. design-extract users get CNY 5 free when they <a href="https://www.infistar.cc/register?aff=K75QCZ2F&ref_source=link">sign up through this link</a>.
 </p>
 
 ---
