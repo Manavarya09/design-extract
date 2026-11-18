@@ -29,7 +29,7 @@
 
 <p align="center">
   <a href="https://www.atlascloud.ai/?utm_source=github&utm_medium=referral&utm_campaign=design-extract">
-    <img src="./assets/atlas-cloud-logo.svg" alt="Atlas Cloud" width="220">
+    <img src="./assets/atlas-cloud-logo-on-white.svg" alt="Atlas Cloud" width="300">
   </a>
   &nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://bloome.im/agent/join/XP8NQwFj?ref=9ZZRRy82">
