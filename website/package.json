@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build --webpack",
-    "start": "next start"
+    "start": "next start",
+    "build:static": "node scripts/build-static.mjs"
   },
   "dependencies": {
     "@sparticuz/chromium": "^147.0.0",

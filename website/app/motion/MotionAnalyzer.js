@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { STATIC_SITE, livePausedMessage } from '../../lib/static-site.js';
 
 // ─── Bézier helpers (shared shape with gallery MotionLab) ───
 const NAMED = {
@@ -96,6 +97,10 @@ export default function MotionAnalyzer() {
     const value = (rawUrl ?? inputRef.current?.value ?? '').trim();
     if (!value || status === 'loading') return;
     const url = /^https?:\/\//.test(value) ? value : `https://${value}`;
+    if (STATIC_SITE) {
+      setErrorMsg(livePausedMessage(url)); setStatus('error');
+      return;
+    }
     setStatus('loading'); setErrorMsg(null); setData(null);
     try {
       const res = await fetch('/api/motion', {

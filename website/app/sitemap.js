@@ -1,5 +1,7 @@
 import { SITE_URL } from './seo-config';
 
+export const dynamic = 'force-static';
+
 const GALLERY_SLUGS = [
   'stripe-com',
   'linear-app',

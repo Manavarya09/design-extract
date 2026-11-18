@@ -53,3 +53,17 @@ test('resetAt advances with the first-seen time', () => {
   const { resetAt: b } = checkRate(key, { limit: 3, windowMs: 60000 });
   assert.equal(a, b);
 });
+
+test('live-read budget is site-wide and holds without Blob', async () => {
+  const { checkLiveReadBudget, LIVE_READS_PER_DAY } = await import('./rate-limit.js');
+  const saved = process.env.BLOB_READ_WRITE_TOKEN;
+  delete process.env.BLOB_READ_WRITE_TOKEN; // Blob blocked or absent must not lift the cap
+  try {
+    for (let i = 0; i < LIVE_READS_PER_DAY; i++) {
+      assert.equal((await checkLiveReadBudget()).allowed, true, `read ${i + 1}`);
+    }
+    assert.equal((await checkLiveReadBudget()).allowed, false);
+  } finally {
+    if (saved !== undefined) process.env.BLOB_READ_WRITE_TOKEN = saved;
+  }
+});

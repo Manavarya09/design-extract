@@ -8,7 +8,7 @@
 
 import { extractDesignLanguage } from '../../../../src/index.js';
 import { validateTargetUrl } from '../../../lib/url-safety.js';
-import { checkRate, checkRateBlob } from '../../../lib/rate-limit.js';
+import { checkRate, checkRateBlob, checkLiveReadBudget } from '../../../lib/rate-limit.js';
 import { cacheKey, getCached, putCached } from '../../../lib/cache.js';
 import { getBrowserOptions, getLocalBrowserOptions, isBrowserlessFailure } from '../../../lib/browser.js';
 import { formatMotionTokens } from '../../../../src/formatters/motion-tokens.js';
@@ -75,6 +75,9 @@ export async function POST(request) {
   );
   if (!checkRate(`extract:${ip}`, { limit: 2 }).allowed) return limited();
   if (!(await checkRateBlob(`extract:${ip}`, { limit: 2 })).allowed) return limited();
+  if (!(await checkLiveReadBudget()).allowed) {
+    return err(429, `The free demo has used today's live reads. Run it locally: npx designlang ${host}`, { cli: `npx designlang ${host}` });
+  }
 
   const browserOpts = await getBrowserOptions();
   let design;
