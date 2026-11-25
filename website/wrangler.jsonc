@@ -1,0 +1,16 @@
+// Cloudflare deploy for the static site: `npm run build:static`, then
+// `npx wrangler deploy` from website/. Static asset requests are free.
+{
+  "name": "designlang",
+  "compatibility_date": "2026-11-01",
+  "workers_dev": true,
+  "routes": [
+    { "pattern": "designlang.app", "custom_domain": true },
+    { "pattern": "www.designlang.app", "custom_domain": true }
+  ],
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}

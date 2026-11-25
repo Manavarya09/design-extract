@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { STATIC_SITE, livePausedMessage } from '../../lib/static-site.js';
 
 const EXAMPLES = ['stripe.com', 'linear.app', 'vercel.com', 'notion.so'];
 
@@ -24,6 +25,11 @@ export default function StudioPlayground() {
     const raw = (rawUrl != null ? rawUrl : (inputRef.current?.value || '')).trim();
     if (!raw) return;
     const url = /^https?:\/\//i.test(raw) ? raw : 'https://' + raw;
+    if (STATIC_SITE) {
+      setErrorMsg(livePausedMessage(url));
+      setStatus('error');
+      return;
+    }
     setStatus('loading');
     setErrorMsg(null);
     try {

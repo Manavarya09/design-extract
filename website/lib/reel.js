@@ -9,6 +9,7 @@
 // Storage is best-effort and degrades to no-op without a Blob token (local dev).
 
 import { frameEvent } from './theatre.js';
+import { readBlobJson } from './blob-json.js';
 
 const TTL_MS = 24 * 60 * 60 * 1000;
 const MAX_REEL_FRAMES = 150; // bound the stored payload size
@@ -56,14 +57,8 @@ export async function recordReel(hash, frames) {
 export async function loadReel(hash) {
   if (!hasBlob() || !/^[a-f0-9]{64}$/.test(hash)) return null;
   try {
-    const { list } = await import('@vercel/blob');
-    const path = reelPath(hash);
-    const result = await list({ prefix: path, limit: 1 });
-    const blob = result.blobs?.find((b) => b.pathname === path);
-    if (!blob) return null;
-    const res = await fetch(blob.url, { cache: 'no-store' });
-    if (!res.ok) return null;
-    const payload = await res.json();
+    const payload = await readBlobJson(reelPath(hash));
+    if (!payload) return null;
     if (Date.now() - (payload?.generatedAt || 0) > TTL_MS) return null;
     if (!Array.isArray(payload?.frames) || payload.frames.length === 0) return null;
     return { frames: payload.frames, durationMs: payload.durationMs || 0 };

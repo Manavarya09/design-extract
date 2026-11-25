@@ -1,5 +1,7 @@
 import { SITE_URL } from './seo-config';
 
+export const dynamic = 'force-static';
+
 // Explicit AI-crawler allowances. By 2026 these matter as much as Googlebot —
 // being indexable by ChatGPT, Claude, Perplexity, and Google AI Overviews is
 // the new SEO. We say YES to all of them; the content is documentation we want

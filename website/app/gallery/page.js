@@ -1,7 +1,8 @@
 import { listRecent } from '../../lib/cache';
 import GalleryFeatured from './GalleryFeatured';
 
-export const dynamic = 'force-dynamic';
+// Regenerated at most every 10 minutes (and exported as-is for the static site),
+// instead of listing Blob storage on every visit.
 export const revalidate = 600;
 
 export const metadata = {
